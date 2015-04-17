@@ -103,7 +103,7 @@ class PlgSystemKoowa extends JPlugin
      */
     public function bootstrap()
     {
-        $path = JPATH_LIBRARIES.'/koowa/libraries/koowa.php';
+        $path = JPATH_LIBRARIES.'/nooku/koowa.php';
         if (file_exists($path))
         {
             /**
