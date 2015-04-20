@@ -32,7 +32,7 @@ if(!defined('KOOWA'))
     require_once __DIR__.'/code/libraries/koowa/libraries/koowa.php';
     Koowa::getInstance(array(
         'debug'           => $config->debug,
-        'cache'           => false, //JFactory::getApplication()->getCfg('caching')
+        'cache'           => false, //config->caching
         'cache_namespace' => 'koowa-' . JPATH_BASE === JPATH_SITE ? 'site' : 'admin' . '-' . md5($config->secret),
         'root_path'       => JPATH_ROOT,
         'base_path'       => JPATH_BASE,
@@ -44,7 +44,7 @@ if(!defined('KOOWA'))
      */
     KObjectManager::getInstance()->getObject('object.bootstrapper')
         ->registerComponents(JPATH_LIBRARIES.'/koowa/components', 'koowa')
-        ->registerApplication('site', JPATH_SITE . '/components', JFactory::getApplication()->isSite())
-        ->registerApplication('admin', JPATH_ADMINISTRATOR . '/components', JFactory::getApplication()->isAdmin())
+        ->registerApplication('site', JPATH_SITE . '/components', JPATH_BASE === JPATH_SITE)
+        ->registerApplication('admin', JPATH_ADMINISTRATOR . '/components', JPATH_BASE == JPATH_ADMINISTRATOR)
         ->bootstrap();
 }
