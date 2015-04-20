@@ -77,21 +77,21 @@ class ComKoowaTemplateFilterVersion extends KTemplateFilterAbstract
     public function filter(&$text)
     {
         $pattern = '~
-            <ktml:(?:script|style) # match ktml:script and ktml:style tags
-            [^(?:src=)]+           # anything before src=
-            src="                  # match the link
-              (media://              # starts with media://
-              (?:koowa/)?            # may or may not be in koowa/ folder
-              com_([^/]+)/           # match the com_foo part
-              [^"]+)"                # match the rest of the link
-             (.*)/>
+            <ktml:(?:script|style)            # match ktml:script and ktml:style tags
+            [^(?:src=)]+                      # anything before src=
+            src="                             # match the link
+              (media://                       # starts with media://
+              (?:koowa/)?                     # may or may not be in koowa/ folder
+              (?:com_([^/]+)/|js/|css/|scss/) # either has package name (com_foo) or in framework
+              [^"]+)"                         # match the rest of the link
+             (?:.*)/>
         ~siUx';
 
         if(preg_match_all($pattern, $text, $matches, PREG_SET_ORDER))
         {
             foreach ($matches as $match)
             {
-                $version = $this->_getVersion($match[2]);
+                $version = $this->_getVersion(isset($match[2]) ? $match[2] : 'koowa');
 
                 if ($version)
                 {
