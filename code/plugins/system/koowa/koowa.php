@@ -103,7 +103,23 @@ class PlgSystemKoowa extends JPlugin
      */
     public function bootstrap()
     {
-        $path = JPATH_LIBRARIES.'/nooku/koowa.php';
+        /**
+         * Find Composer Vendor Directory
+         */
+        $vendor_path = JPATH_ROOT.'/vendor';
+
+        if(file_exists(JPATH_ROOT.'/composer.json'))
+        {
+            $content  = file_get_contents(JPATH_ROOT.'/composer.json');
+            $composer = json_decode($content);
+
+            if(isset($composer->config->{'vendor-dir'})) {
+                $vendor_path = JPATH_ROOT.'/'.$composer->config->{'vendor-dir'};
+            }
+        }
+
+        $path = $vendor_path.'/nooku/nooku-framework/code/koowa.php';
+
         if (file_exists($path))
         {
             /**
@@ -117,21 +133,6 @@ class PlgSystemKoowa extends JPlugin
 
                 $application = JFactory::getApplication()->getName();
 
-                /**
-                 * Find Composer Vendor Directory
-                 */
-                $vendor_path = false;
-                if(file_exists(JPATH_ROOT.'/composer.json'))
-                {
-                    $content  = file_get_contents(JPATH_ROOT.'/composer.json');
-                    $composer = json_decode($content);
-
-                    if(isset($composer->config->vendor_dir)) {
-                        $vendor_path = JPATH_ROOT.'/'.$composer->config->vendor_dir;
-                    } else {
-                        $vendor_path = JPATH_ROOT.'/vendor';
-                    }
-                }
 
                 /**
                  * Framework Bootstrapping
