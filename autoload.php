@@ -29,7 +29,7 @@ if(!defined('KOOWA'))
     /**
      * Framework Bootstrapping
      */
-    require_once __DIR__.'/code/libraries/koowa/libraries/koowa.php';
+    require_once __DIR__.'/../nooku-framework/code/koowa.php';
     Koowa::getInstance(array(
         'debug'           => $config->debug,
         'cache'           => false, //config->caching
