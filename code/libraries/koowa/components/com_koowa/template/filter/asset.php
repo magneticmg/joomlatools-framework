@@ -29,11 +29,15 @@ class ComKoowaTemplateFilterAsset extends KTemplateFilterAsset
     {
         $path = rtrim($this->getObject('request')->getSiteUrl()->getPath(), '/');
 
+        $i = 0;
+        $nooku_path = str_replace(Koowa::getInstance()->getRootPath(), '', Koowa::getInstance()->getVendorPath(), $i);
+        $nooku_path = $path.str_replace('\\', '/', $nooku_path).'/nooku/nooku-framework/code';
+
         $config->append(array(
             'schemes' => array(
-                'media://js' => $path.'/libraries/nooku/resources/assets/js',
-                'media://css' => $path.'/libraries/nooku/resources/assets/css',
-                'media://img' => $path.'/libraries/nooku/resources/assets/img',
+                'media://js'  => $nooku_path.'/resources/assets/js',
+                'media://css' => $nooku_path.'/resources/assets/css',
+                'media://img' => $nooku_path.'/resources/assets/img',
                 'media://' => $path.'/media/',
                 'root://'  => $path.'/',
                 'base://'  => rtrim($this->getObject('request')->getBaseUrl()->getPath(), '/').'/',
