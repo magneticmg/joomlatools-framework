@@ -9,7 +9,7 @@
         "framework",
         "nooku"
     ],
-    "homepage": "https://github.com/nooku/nooku-framework",
+    "homepage": "https://github.com/nooku/nooku-framework-joomla",
     "authors": [
         {
             "name": "Timble",
@@ -19,13 +19,7 @@
     ],
     "require": {
         "nooku/installer": "*",
-        "nooku/nooku-framework": "dev-develop",
-        "symfony/yaml": "~2.6"
-    },
-    "suggest": {
-        "twig/twig": "Allows building templates using the Twig template engine",
-        "mustache/mustache": "Allows building logic less templates using the Mustache syntax",
-        "erusev/parsedown-extra" : "Allows using Markddown in templates"
+        "nooku/nooku-framework": "dev-develop"
     },
     "autoload": {
       "files": ["autoload.php"]
