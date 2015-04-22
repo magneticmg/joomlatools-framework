@@ -9,6 +9,33 @@
 
 class files_koowaInstallerScript
 {
+    public function postflight($type, $installer)
+    {
+        $vendor_path = JPATH_ROOT.'/vendor';
+
+        if(file_exists(JPATH_ROOT.'/composer.json'))
+        {
+            $content  = file_get_contents(JPATH_ROOT.'/composer.json');
+            $composer = json_decode($content);
+
+            if(isset($composer->config->{'vendor-dir'})) {
+                $vendor_path = JPATH_ROOT.'/'.$composer->config->{'vendor-dir'};
+            }
+        }
+
+        $source      = $vendor_path.'/nooku/nooku-framework/code/resources/assets';
+        $destination = JPATH_ROOT.'/media/koowa/framework';
+
+        if (JFolder::exists($source))
+        {
+            if (JFolder::exists($destination)) {
+                JFolder::delete($destination);
+            }
+
+            JFolder::copy($source, $destination);
+        }
+    }
+
     public function uninstall($installer)
     {
         $xml = $installer->manifest;
