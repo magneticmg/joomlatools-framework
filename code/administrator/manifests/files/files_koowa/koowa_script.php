@@ -7,7 +7,12 @@
  * @link        https://github.com/nooku/nooku-framework for the canonical source repository
  */
 
-class files_koowaInstallerScript
+/**
+ * See the file at the parent directory with the same name for a detailed explanation as to what this class is about.
+ *
+ * @author Ercan Ozkaya <https://github.com/ercanozkaya>
+ */
+class koowaInstallerScript
 {
     public function postflight($type, $installer)
     {
@@ -59,4 +64,8 @@ class files_koowaInstallerScript
         // Unset the files element since we handled the delete ourselves
         unset($installer->manifest->fileset->files);
     }
+}
+
+if (!class_exists('files_koowaInstallerScript')) {
+    class files_koowaInstallerScript extends koowaInstallerScript {}
 }

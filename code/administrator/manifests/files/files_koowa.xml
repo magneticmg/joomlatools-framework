@@ -10,7 +10,7 @@
     <version>2.1.0</version>
     <description></description>
 
-    <scriptfile>script.php</scriptfile>
+    <scriptfile>koowa_script.php</scriptfile>
 
 	<fileset>
 		<files folder="../../../">
