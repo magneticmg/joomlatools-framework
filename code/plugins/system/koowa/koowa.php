@@ -64,17 +64,6 @@ class PlgSystemKoowa extends JPlugin
             }
         }
 
-        /*
-         * Joomla checks if mb_substr exists to determine the availability of mbstring extension
-         * Loading JString here before bootstrapping Koowa makes sure our replacement function
-         * in legacy.php does not break anything
-         */
-        if (!function_exists('mb_substr') && class_exists('JLoader') && is_callable(array('JLoader', 'import')))
-        {
-            JLoader::import('joomla.string.string');
-            JLoader::load('JString');
-        }
-
         //Bootstrap the Koowa Framework
         $this->bootstrap();
 
@@ -114,7 +103,23 @@ class PlgSystemKoowa extends JPlugin
      */
     public function bootstrap()
     {
-        $path = JPATH_LIBRARIES.'/koowa/libraries/koowa.php';
+        /**
+         * Find Composer Vendor Directory
+         */
+        $vendor_path = JPATH_ROOT.'/vendor';
+
+        if(file_exists(JPATH_ROOT.'/composer.json'))
+        {
+            $content  = file_get_contents(JPATH_ROOT.'/composer.json');
+            $composer = json_decode($content);
+
+            if(isset($composer->config->{'vendor-dir'})) {
+                $vendor_path = JPATH_ROOT.'/'.$composer->config->{'vendor-dir'};
+            }
+        }
+
+        $path = $vendor_path.'/nooku/nooku-framework/code/koowa.php';
+
         if (file_exists($path))
         {
             /**
@@ -128,21 +133,6 @@ class PlgSystemKoowa extends JPlugin
 
                 $application = JFactory::getApplication()->getName();
 
-                /**
-                 * Find Composer Vendor Directory
-                 */
-                $vendor_path = false;
-                if(file_exists(JPATH_ROOT.'/composer.json'))
-                {
-                    $content  = file_get_contents(JPATH_ROOT.'/composer.json');
-                    $composer = json_decode($content);
-
-                    if(isset($composer->config->vendor_dir)) {
-                        $vendor_path = JPATH_ROOT.'/'.$composer->config->vendor_dir;
-                    } else {
-                        $vendor_path = JPATH_ROOT.'/vendor';
-                    }
-                }
 
                 /**
                  * Framework Bootstrapping

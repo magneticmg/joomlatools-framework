@@ -27,11 +27,14 @@ class ComKoowaTemplateFilterAsset extends KTemplateFilterAsset
      */
     protected function _initialize(KObjectConfig $config)
     {
-        $path = rtrim($this->getObject('request')->getSiteUrl()->getPath(), '/');
+        $path       = rtrim($this->getObject('request')->getSiteUrl()->getPath(), '/');
+        $nooku_path = $path.'/media/koowa/framework';
 
         $config->append(array(
             'schemes' => array(
-                'media://koowa/framework/' => $path.'/media/koowa/framework/',
+                'media://js'  => $nooku_path.'/js',
+                'media://css' => $nooku_path.'/css',
+                'media://img' => $nooku_path.'/img',
                 'media://' => $path.'/media/',
                 'root://'  => $path.'/',
                 'base://'  => rtrim($this->getObject('request')->getBaseUrl()->getPath(), '/').'/',

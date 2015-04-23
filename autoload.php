@@ -26,24 +26,13 @@ if(!defined('KOOWA'))
     require_once JPATH_LIBRARIES . '/cms/version/version.php';
     $version = new JVersion;
 
-    /*
-     * Joomla checks if mb_substr exists to determine the availability of mbstring extension
-     * Loading JString here before bootstrapping Koowa makes sure our replacement function
-     * in legacy.php does not break anything
-     */
-    if (!function_exists('mb_substr') && class_exists('JLoader') && is_callable(array('JLoader', 'import')))
-    {
-        JLoader::import('joomla.string.string');
-        JLoader::load('JString');
-    }
-
     /**
      * Framework Bootstrapping
      */
-    require_once __DIR__.'/code/libraries/koowa/libraries/koowa.php';
+    require_once __DIR__.'/../nooku-framework/code/koowa.php';
     Koowa::getInstance(array(
         'debug'           => $config->debug,
-        'cache'           => false, //JFactory::getApplication()->getCfg('caching')
+        'cache'           => false, //config->caching
         'cache_namespace' => 'koowa-' . JPATH_BASE === JPATH_SITE ? 'site' : 'admin' . '-' . md5($config->secret),
         'root_path'       => JPATH_ROOT,
         'base_path'       => JPATH_BASE,
@@ -55,7 +44,7 @@ if(!defined('KOOWA'))
      */
     KObjectManager::getInstance()->getObject('object.bootstrapper')
         ->registerComponents(JPATH_LIBRARIES.'/koowa/components', 'koowa')
-        ->registerApplication('site', JPATH_SITE . '/components', JFactory::getApplication()->isSite())
-        ->registerApplication('admin', JPATH_ADMINISTRATOR . '/components', JFactory::getApplication()->isAdmin())
+        ->registerApplication('site', JPATH_SITE . '/components', JPATH_BASE === JPATH_SITE)
+        ->registerApplication('admin', JPATH_ADMINISTRATOR . '/components', JPATH_BASE == JPATH_ADMINISTRATOR)
         ->bootstrap();
 }
