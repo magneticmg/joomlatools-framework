@@ -46,12 +46,12 @@ class KoowaAutoloader
         }
     }
 
-    public function registerAutoloader($autoloader)
+    public function registerAutoloader(callable $autoloader)
     {
         if (!defined('KOOWA')) {
             $this->_bootstrap();
         }
 
-        $autoloader();
+        call_user_func($autoloader);
     }
 }
