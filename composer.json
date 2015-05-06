@@ -22,6 +22,7 @@
         "nooku/nooku-framework": "dev-develop"
     },
     "autoload": {
+      "psr-0": {"KoowaAutoloader": ""},
       "files": ["autoload.php"]
     }
 }
