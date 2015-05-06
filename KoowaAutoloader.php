@@ -15,7 +15,7 @@ class KoowaAutoloader
      *
      * If KOOWA is defined assume it was already loaded and bootstrapped
      */
-    public function bootstrap()
+    public static function bootstrap()
     {
         if (!defined('KOOWA'))
         {

@@ -7,4 +7,8 @@
  * @link        https://github.com/nooku/nooku-framework for the canonical source repository
  */
 
+if (!class_exists('KoowaAutoloader')) {
+    require_once __DIR__.'/KoowaAutoloader.php';
+}
+
 KoowaAutoloader::bootstrap();
