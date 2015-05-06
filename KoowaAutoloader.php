@@ -1,19 +1,13 @@
 <?php
 class KoowaAutoloader
 {
-    public function registerComponent($name, $path, $domain = 'nooku')
+    public function registerAutoloader($autoloader)
     {
         if (!defined('KOOWA')) {
             $this->loadFramework();
         }
 
-        KObjectManager::getInstance()
-            ->getObject('lib:object.bootstrapper')
-            ->registerComponent(
-                $name,
-                $path,
-                $domain
-            );
+        $autoloader();
     }
 
     public function loadFramework()
