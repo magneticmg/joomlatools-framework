@@ -1,4 +1,13 @@
 <?php
+/**
+ * KoowaAutoloader helper class
+ *
+ * Reusable components installed with Composer should
+ * invoke the bootstrap() method before registering themselves.
+ * This makes sure that all required classes will always be available.
+ *
+ * @author  Steven Rombauts <https://github.com/stevenrombauts>
+ */
 class KoowaAutoloader
 {
     /**
