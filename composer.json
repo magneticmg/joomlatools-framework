@@ -18,8 +18,8 @@
         }
     ],
     "require": {
-        "nooku/installer": "*",
-        "nooku/nooku-framework": "dev-develop"
+        "nooku/installer": "~2.0",
+        "nooku/nooku-framework": "~3.0"
     },
     "autoload": {
       "psr-0": {"KoowaAutoloader": ""},
