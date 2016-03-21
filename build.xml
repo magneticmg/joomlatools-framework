@@ -4,8 +4,7 @@
     <!-- Default settings -->
     <property name="framework.location" value="local" />
 
-    <property name="file.compression" value="gzip" />
-    <property name="file.extension" value=".tar.gz" />
+    <property name="file.compression" value="zip" />
 
     <property name="file.compress" value="true" />
 
@@ -80,15 +79,11 @@
               tofile="tmp/clone/code/script.php" overwrite="true" />
 
         <if>
-            <equals arg1="${file.compression}" arg2="gzip" />
+            <equals arg1="${file.compression}" arg2="zip" />
             <then>
-                <delete file="koowa${file.extension}" quiet="true" />
+                <delete file="joomlatools-framework.zip" quiet="true" />
 
-                <tar destfile="koowa${file.extension}" compression="${file.compression}">
-                    <fileset dir="tmp/clone/code">
-                        <include name="**" />
-                    </fileset>
-                </tar>
+                <zip destfile="joomlatools-framework.zip" basedir="tmp/clone/code" />
             </then>
             <else>
                 <echo message="${file.compress}" />
