@@ -1,15 +1,15 @@
 {
-    "name": "nooku/nooku-framework",
+    "name": "joomlatools/joomlatools-framework",
     "type": "nooku-framework",
     "license": "GPLv3",
-    "description": "Nooku Framework is an open-source extension framework for Joomla",
+    "description": "Joomlatools Framework is an open-source extension framework for Joomla",
     "keywords": [
         "joomla",
         "extension",
         "framework",
         "nooku"
     ],
-    "homepage": "https://github.com/nooku/nooku-framework",
+    "homepage": "https://github.com/joomlatools/joomlatools-framework",
     "authors": [
         {
             "name": "Timble",

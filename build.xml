@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<project name="Koowa Framework" default="build">
+<project name="Joomlatools Framework" default="build">
 
     <!-- Default settings -->
     <property name="framework.location" value="local" />
@@ -24,7 +24,7 @@
         <if>
             <equals arg1="${framework.location}" arg2="local" />
             <then>
-				<echo message="Using local checkout of Nooku framework" />
+				<echo message="Using local checkout of Joomlatools framework" />
 				<copy todir="tmp/clone">
 					<fileset dir="." defaultexcludes="no" />
 				</copy>
@@ -46,26 +46,29 @@
                 </then>
             </elseif>
 			<else>
-				<echo message="Cloning Nooku framework" />
+				<echo message="Cloning Joomlatools framework" />
                 <property name="framework.branch" value="develop" />
-                <exec command="git clone --depth 1 --branch ${framework.branch} git@git.assembla.com:joomlatools-framework.git ${project.basedir}/tmp/clone" />
+                <exec command="git clone --depth 1 --branch ${framework.branch} https://github.com/joomlatools/joomlatools-framework ${project.basedir}/tmp/clone" />
 			</else>
 		</if>
 
     </target>
-<!-- -->
-    <target name="build" depends="clone">
-        <mkdir dir="tmp/packages" />
 
-        <copy todir="tmp/code">
-            <fileset dir="tmp/clone/code" />
-        </copy>
+    <target name="add_components" depends="clone">
+        <exec command="git clone --depth 1 --branch 2.2 https://github.com/nooku/nooku-files/ ${project.basedir}/tmp/clone/code/libraries/joomlatools/component/files" />
 
-        <copy file="tmp/code/libraries/koowa/libraries/LICENSE"
-              tofile="tmp/LICENSE" overwrite="true" />
+        <delete dir="${project.basedir}/tmp/clone/code/libraries/joomlatools/component/files/.git" includeemptydirs="true" />
+    </target>
 
-        <copy file="tmp/clone/pkg_koowa.xml"
-              tofile="tmp/pkg_koowa.xml" overwrite="true" />
+    <target name="build" depends="add_components">
+        <copy file="tmp/clone/LICENSE.txt"
+              tofile="tmp/clone/code/LICENSE" overwrite="true" />
+
+        <copy file="tmp/clone/code/plugins/system/joomlatools/joomlatools.xml"
+              tofile="tmp/clone/code/joomlatools.xml" overwrite="true" />
+
+        <copy file="tmp/clone/code/plugins/system/joomlatools/script.php"
+              tofile="tmp/clone/code/script.php" overwrite="true" />
 
         <if>
             <equals arg1="${file.compression}" arg2="gzip" />
@@ -73,10 +76,8 @@
                 <delete file="koowa${file.extension}" quiet="true" />
 
                 <tar destfile="koowa${file.extension}" compression="${file.compression}">
-                    <fileset dir="tmp">
-                        <include name="code/**" />
-                        <include name="pkg_koowa.xml" />
-                        <include name="LICENSE" />
+                    <fileset dir="tmp/clone/code">
+                        <include name="**" />
                     </fileset>
                 </tar>
             </then>
@@ -85,10 +86,8 @@
                 <delete dir="koowa" />
 
                 <copy todir="koowa">
-                    <fileset dir="tmp">
-                        <include name="code/**" />
-                        <include name="pkg_koowa.xml" />
-                        <include name="LICENSE" />
+                    <fileset dir="tmp/clone/code">
+                        <include name="**" />
                     </fileset>
                 </copy>
             </else>

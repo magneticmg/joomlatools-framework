@@ -7,15 +7,13 @@
  * @link        https://github.com/nooku/nooku-framework for the canonical source repository
  */
 
-defined( '_JEXEC' ) or die( 'Restricted access' );
-
 /**
- * Koowa System Plugin
+ * Joomlatools System Plugin
  *
  * @author  Johan Janssens <https://github.com/johanjanssens>
- * @package Plugin\System\Koowa
+ * @package Plugin\System\Joomlatools
  */
-class PlgSystemKoowa extends JPlugin
+class PlgSystemJoomlatools extends JPlugin
 {
     /**
      * Boots Koowa framework and applies some bug fixes for certain environments
