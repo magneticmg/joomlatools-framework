@@ -25,22 +25,6 @@ class PlgSystemKoowa extends JPlugin
      */
     public function __construct($subject, $config = array())
     {
-        // Check if database type is MySQLi
-        if (!(JFactory::getDbo() instanceof JDatabaseDriverMysqli || JFactory::getDbo() instanceof JDatabaseMySQLi))
-        {
-            if (JFactory::getApplication()->getName() === 'administrator')
-            {
-                $link   = JRoute::_('index.php?option=com_config');
-                $error  = 'In order to use Nooku Framework, your database type in Global Configuration should be
-                           set to <strong>MySQLi</strong>. Please go to <a href="%s">Global Configuration</a> and in
-                           the \'Server\' tab change your Database Type to <strong>MySQLi</strong>.';
-
-                JFactory::getApplication()->enqueueMessage(sprintf(JText::_($error), $link), 'warning');
-            }
-
-            return;
-        }
-
         // Try to raise Xdebug nesting level
         @ini_set('xdebug.max_nesting_level', 200);
 
@@ -108,7 +92,7 @@ class PlgSystemKoowa extends JPlugin
      */
     public function bootstrap()
     {
-        $path = JPATH_LIBRARIES.'/koowa/libraries/koowa.php';
+        $path = JPATH_LIBRARIES.'/joomlatools/library/koowa.php';
         if (file_exists($path))
         {
             /**
@@ -154,7 +138,7 @@ class PlgSystemKoowa extends JPlugin
                  * Component Bootstrapping
                  */
                 KObjectManager::getInstance()->getObject('object.bootstrapper')
-                    ->registerComponents(JPATH_LIBRARIES . '/koowa/components', 'koowa')
+                    ->registerComponents(JPATH_LIBRARIES . '/joomlatools/component', 'koowa')
                     ->registerApplication('site', JPATH_SITE . '/components', JFactory::getApplication()->isSite())
                     ->registerApplication('admin', JPATH_ADMINISTRATOR . '/components', JFactory::getApplication()->isAdmin())
                     ->bootstrap();
@@ -167,7 +151,7 @@ class PlgSystemKoowa extends JPlugin
             $loader->registerLocator(new ComKoowaClassLocatorModule(array(
                 'namespaces' => array(
                     '\\'     => JPATH_BASE.'/modules',
-                    'Koowa'  => JPATH_LIBRARIES.'/koowa/modules',
+                    'Koowa'  => JPATH_LIBRARIES.'/joomlatools/module',
                 )
             )));
 
@@ -182,7 +166,7 @@ class PlgSystemKoowa extends JPlugin
             $loader->registerLocator(new ComKoowaClassLocatorPlugin(array(
                 'namespaces' => array(
                     '\\'     => JPATH_ROOT.'/plugins',
-                    'Koowa'  => JPATH_LIBRARIES.'/koowa/plugins',
+                    'Koowa'  => JPATH_LIBRARIES.'/joomlatools/plugin',
                 )
             )));
 
