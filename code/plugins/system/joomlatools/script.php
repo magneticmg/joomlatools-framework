@@ -182,7 +182,7 @@ class PlgSystemJoomlatoolsInstallerScript
 
         if(version_compare(JFactory::getDbo()->getVersion(), '5.1', '<')) {
             $errors[] = sprintf(JText::_('Joomlatools framework requires MySQL 5.1 or later.
-            Please contact your host and ask them to upgrade MySQL to 5.1 or a newer version on your server.'), JFactory::getDBO()->getVersion());
+            Please contact your host and ask them to upgrade MySQL to 5.1 or a newer version on your server.'), JFactory::getDbo()->getVersion());
         }
 
         $result = JFactory::getDbo()->setQuery("SELECT SUPPORT FROM INFORMATION_SCHEMA.ENGINES WHERE ENGINE = 'InnoDB'")->loadResult();
@@ -221,7 +221,7 @@ class PlgSystemJoomlatoolsInstallerScript
      * Can't use JPluginHelper here since there is no way
      * of clearing the cached list of plugins.
      *
-     * @return PlgSystemKoowa Instantiated plugin object
+     * @return bool
      */
     public function bootFramework()
     {
@@ -229,7 +229,7 @@ class PlgSystemJoomlatoolsInstallerScript
             return true;
         }
 
-        $path = JPATH_PLUGINS.'/system/koowa/koowa.php';
+        $path = JPATH_PLUGINS.'/system/joomlatools/joomlatools.php';
 
         if (!file_exists($path)) {
             return false;
@@ -244,9 +244,9 @@ class PlgSystemJoomlatoolsInstallerScript
         if (class_exists($className))
         {
             $db = JFactory::getDbo();
-            $db->setQuery("SELECT folder AS type, element AS name, params
+            $db->setQuery(/** @lang text */"SELECT folder AS type, element AS name, params
 			 FROM #__extensions
-			 WHERE folder = 'system' AND element = 'koowa'"
+			 WHERE folder = 'system' AND element = 'joomlatools'"
             );
             $plugin = $db->loadObject();
 
