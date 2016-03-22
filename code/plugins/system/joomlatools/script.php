@@ -74,6 +74,8 @@ class PlgSystemJoomlatoolsInstallerScript
 
         JFactory::getDbo()->setQuery($query)->query();
 
+        $this->bootFramework();
+
         return true;
     }
 
