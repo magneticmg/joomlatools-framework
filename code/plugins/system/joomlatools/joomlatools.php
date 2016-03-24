@@ -195,6 +195,12 @@ class PlgSystemJoomlatools extends JPlugin
              */
             JPluginHelper::importPlugin('koowa', null, true);
 
+            // Load and bootstrap custom vendor directory if it exists
+            $custom_vendor = dirname(dirname($path)).'/vendor';
+            if (is_dir($custom_vendor) && file_exists($custom_vendor.'/autoload.php')) {
+                require_once $custom_vendor.'/autoload.php';
+            }
+
             return true;
         }
 
