@@ -55,8 +55,8 @@
 
     <target name="add_components" depends="clone">
         <property name="component.folder" value="${project.basedir}/tmp/clone/code/libraries/joomlatools/component" />
-        <exec command="git clone --depth 1 --branch 2.2 git@github.com:nooku/nooku-files.git ${component.folder}/files" />
-        <exec command="git clone --depth 1 --branch 2.2 git@github.com:nooku/nooku-activities.git ${component.folder}/activities" />
+        <exec command="git clone --depth 1 --branch 2.2 git@github.com:joomlatools/joomlatools-framework-files.git ${component.folder}/files" />
+        <exec command="git clone --depth 1 --branch 2.2 git@github.com:joomlatools/joomlatools-framework-activities.git ${component.folder}/activities" />
         <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-scheduler.git ${component.folder}/scheduler" />
         <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-migrator.git ${component.folder}/migrator" />
 
