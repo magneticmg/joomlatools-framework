@@ -1,11 +1,10 @@
 <?xml version="1.0" ?>
-<project name="Koowa Framework" default="build">
+<project name="Joomlatools Framework" default="build">
 
     <!-- Default settings -->
     <property name="framework.location" value="local" />
 
-    <property name="file.compression" value="gzip" />
-    <property name="file.extension" value=".tar.gz" />
+    <property name="file.compression" value="zip" />
 
     <property name="file.compress" value="true" />
 
@@ -24,7 +23,7 @@
         <if>
             <equals arg1="${framework.location}" arg2="local" />
             <then>
-				<echo message="Using local checkout of Nooku framework" />
+				<echo message="Using local checkout of Joomlatools framework" />
 				<copy todir="tmp/clone">
 					<fileset dir="." defaultexcludes="no" />
 				</copy>
@@ -46,49 +45,53 @@
                 </then>
             </elseif>
 			<else>
-				<echo message="Cloning Nooku framework" />
+				<echo message="Cloning Joomlatools framework" />
                 <property name="framework.branch" value="develop" />
-                <exec command="git clone --depth 1 --branch ${framework.branch} git@git.assembla.com:joomlatools-framework.git ${project.basedir}/tmp/clone" />
+                <exec command="git clone --depth 1 --branch ${framework.branch} git@github.com:joomlatools/joomlatools-framework.git ${project.basedir}/tmp/clone" />
 			</else>
 		</if>
 
     </target>
-<!-- -->
-    <target name="build" depends="clone">
-        <mkdir dir="tmp/packages" />
 
-        <copy todir="tmp/code">
-            <fileset dir="tmp/clone/code" />
-        </copy>
+    <target name="add_components" depends="clone">
+        <property name="component.folder" value="${project.basedir}/tmp/clone/code/libraries/joomlatools/component" />
+        <exec command="git clone --depth 1 --branch 2.2 git@github.com:joomlatools/joomlatools-framework-files.git ${component.folder}/files" />
+        <exec command="git clone --depth 1 --branch 2.2 git@github.com:joomlatools/joomlatools-framework-activities.git ${component.folder}/activities" />
+        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-scheduler.git ${component.folder}/scheduler" />
+        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-migrator.git ${component.folder}/migrator" />
 
-        <copy file="tmp/code/libraries/koowa/libraries/LICENSE"
-              tofile="tmp/LICENSE" overwrite="true" />
+        <delete dir="${component.folder}/files/.git" includeemptydirs="true" />
+        <delete dir="${component.folder}/activities/.git" includeemptydirs="true" />
+        <delete dir="${component.folder}/scheduler/.git" includeemptydirs="true" />
+        <delete dir="${component.folder}/migrator/.git" includeemptydirs="true" />
 
-        <copy file="tmp/clone/pkg_koowa.xml"
-              tofile="tmp/pkg_koowa.xml" overwrite="true" />
+
+    </target>
+
+    <target name="build" depends="add_components">
+        <copy file="tmp/clone/LICENSE.txt"
+              tofile="tmp/clone/code/LICENSE" overwrite="true" />
+
+        <copy file="tmp/clone/code/plugins/system/joomlatools/joomlatools.xml"
+              tofile="tmp/clone/code/joomlatools.xml" overwrite="true" />
+
+        <copy file="tmp/clone/code/plugins/system/joomlatools/script.php"
+              tofile="tmp/clone/code/script.php" overwrite="true" />
 
         <if>
-            <equals arg1="${file.compression}" arg2="gzip" />
+            <equals arg1="${file.compression}" arg2="zip" />
             <then>
-                <delete file="koowa${file.extension}" quiet="true" />
+                <delete file="joomlatools-framework.zip" quiet="true" />
 
-                <tar destfile="koowa${file.extension}" compression="${file.compression}">
-                    <fileset dir="tmp">
-                        <include name="code/**" />
-                        <include name="pkg_koowa.xml" />
-                        <include name="LICENSE" />
-                    </fileset>
-                </tar>
+                <zip destfile="joomlatools-framework.zip" basedir="tmp/clone/code" />
             </then>
             <else>
                 <echo message="${file.compress}" />
                 <delete dir="koowa" />
 
                 <copy todir="koowa">
-                    <fileset dir="tmp">
-                        <include name="code/**" />
-                        <include name="pkg_koowa.xml" />
-                        <include name="LICENSE" />
+                    <fileset dir="tmp/clone/code">
+                        <include name="**" />
                     </fileset>
                 </copy>
             </else>
