@@ -8,9 +8,8 @@
  */
 
 defined('KOOWA') or die; ?>
-
 <!DOCTYPE html>
-<html class="koowa-html" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <base href="<?= url(); ?>" />
     <title><?= title() ?></title>
@@ -19,20 +18,6 @@ defined('KOOWA') or die; ?>
     <meta content="chrome=1" http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <ktml:style src="media://koowa/com_koowa/css/bootstrap.css" type="text/css" />
-
-    <script>
-    // Add a "joomla_modal" class to the HTML element if we are rendering inside a Squeezebox modal
-    if (window.parent && window.parent != window && window.frameElement && window.frameElement.className.match('mfp-iframe')) {
-        document.documentElement.className += " inside_modal";
-    }
-    if (window.parent.SqueezeBox && window.parent.SqueezeBox.isOpen) {
-        document.documentElement.className += " inside_modal joomla_modal";
-    }
-    if (navigator.userAgent.match(/Trident|MSIE/)) {
-        document.documentElement.className += " old-ie-html";
-    }
-    </script>
     <ktml:title>
     <ktml:meta>
     <ktml:link>
@@ -40,22 +25,10 @@ defined('KOOWA') or die; ?>
     <ktml:script>
 
 </head>
-<body class="koowa koowa_template ">
+<body class="k-template">
 
-<!--[if lte IE 8 ]>
-<div class="old-ie">
-<![endif]-->
-
-<div class="koowa_template_container">
-    <div class="koowa_messages">
-        <ktml:messages>
-    </div>
+    <ktml:messages>
     <ktml:content>
-</div>
-
-<!--[if lte IE 8 ]>
-</div>
-<![endif]-->
 
 </body>
 </html>

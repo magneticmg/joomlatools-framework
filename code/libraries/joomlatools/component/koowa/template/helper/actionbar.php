@@ -48,34 +48,14 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
 
         if (!empty($title))
         {
-            if (JFactory::getApplication()->isAdmin() && version_compare(JVERSION, '3.2', 'ge'))
-            {
-                $layout = new JLayoutFile('joomla.toolbar.title');
-                $html = $layout->render(array('title' => $title, 'icon' => $icon));
-            }
-            elseif ($this->_useBootstrap())
-            {
-                // Strip the extension.
-                $icons = explode(' ', $icon);
-                foreach ($icons as &$icon) {
-                    $icon = 'pagetitle--' . preg_replace('#\.[^.]*$#', '', $icon);
-                }
-
-                $html = '<div class="pagetitle ' . htmlspecialchars(implode(' ', $icons)) . '"><h2>' . $title . '</h2></div>';
-            }
-            else
-            {
-                $html = '<div class="header pagetitle icon-48-'.$icon.'">';
-                $html .= '<h2>'.$title.'</h2>';
-                $html .= '</div>';
-            }
+            $html = '<div class="k-heading">' . $title . '</div>';
 
             if (JFactory::getApplication()->isAdmin())
             {
                 $app = JFactory::getApplication();
                 $app->JComponentTitle = $html;
 
-                $html = '';
+                //$html = '';
 
                 JFactory::getDocument()->setTitle($app->getCfg('sitename') . ' - ' . JText::_('JADMINISTRATION') . ' - ' . $title);
             }
@@ -109,16 +89,6 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
     }
 
     /**
-     * Decides if the renderers should use Bootstrap markup or not
-     *
-     * @return bool
-     */
-    protected function _useBootstrap()
-    {
-        return version_compare(JVERSION, '3.0', '>=') || JFactory::getApplication()->isSite();
-    }
-
-    /**
      * Decides if Bootstrap buttons should use icons
      *
      * @return bool
@@ -126,30 +96,5 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
     protected function _useIcons()
     {
         return JFactory::getApplication()->isAdmin();
-    }
-
-    /**
-     * Converts Joomla 3.0+ custom icons back to Glyphicons ones used in Joomla 2.5
-     *
-     * @param  string $icon Action bar icon
-     * @return string Icon class
-     */
-    protected function _getIconClass($icon)
-    {
-        static $map = array(
-            'icon-save'   => 'icon-ok',
-            'icon-cancel' => 'icon-remove-sign',
-            'icon-apply'  => 'icon-edit'
-        );
-
-        if (version_compare(JVERSION, '3.0', '>=') || $this->getIdentifier()->domain == 'site') {
-            $icon = str_replace('icon-32-', 'icon-', $icon);
-        }
-
-        if (version_compare(JVERSION, '3.0', '<') && array_key_exists($icon, $map)) {
-            $icon = $map[$icon];
-        }
-
-        return $icon;
     }
 }

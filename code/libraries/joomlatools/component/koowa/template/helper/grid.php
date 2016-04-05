@@ -45,21 +45,23 @@ class ComKoowaTemplateHelperGrid extends KTemplateHelperGrid
         $downdata = $config->data->toArray();
         $downdata = htmlentities(json_encode($downdata));
 
+        $html .= '<span class="k-table-data--sort">';
+
         if ($config->sort === $config->field)
         {
             $tmpl = '
-                <span>
-                    <a class="jgrid" href="#" title="%s" data-action="edit" data-data="%s">
-                        <span class="state %s" style="width: 12px; height: 12px; background-repeat: no-repeat"><span class="text">%s</span></span>
-                    </a>
-                </span>
+                <a class="k-grid-sort jgrid" href="#" title="%s" data-action="edit" data-data="%s">
+                    <span class="state %s">
+                        <span class="text">%s</span>
+                    </span>
+                </a>
                 ';
         }
         else
         {
             $tmpl = '
-                <span class="jgrid">
-                    <span class="state %3$s" style="width: 12px; height: 12px; background-repeat: no-repeat; background-position: 0 -12px;">
+                <span class="k-grid-sort">
+                    <span class="state %3$s">
                         <span class="text">%4$s</span>
                     </span>
                 </span>';
@@ -67,16 +69,21 @@ class ComKoowaTemplateHelperGrid extends KTemplateHelperGrid
 
         if ($config->entity->{$config->field} > 1)
         {
-            $icon = version_compare(JVERSION, '3.0', '>=') ? '<i class="icon-arrow-up"></i>' : $translator->translate('Move up');
+            $icon  = '<span class="k-icon-chevron-top"></span>';
             $html .= sprintf($tmpl, $translator->translate('Move up'), $updata, 'uparrow', $icon);
+        } else {
+            $html .= '<span class="k-grid-sort k-icon-placeholder"></span>';
         }
 
-        $html .= $config->entity->{$config->field};
+        $html .= '<span class="k-grid-sort k-grid-sort--text">' . $config->entity->{$config->field} . '</span>';
 
         if ($config->entity->{$config->field} != $config->total)
         {
-            $icon = version_compare(JVERSION, '3.0', '>=') ? '<i class="icon-arrow-down"></i>' : $translator->translate('Move down');
+            $icon  = '<span class="k-icon-chevron-bottom"></span>';
             $html .= sprintf($tmpl, $translator->translate('Move down'), $downdata, 'downarrow', $icon);
+        }
+        else {
+            $html .= '<span class="k-grid-sort k-icon-placeholder"></span>';
         }
 
         if ($config->sort !== $config->field)
@@ -87,6 +94,8 @@ class ComKoowaTemplateHelperGrid extends KTemplateHelperGrid
                     .$html.
                     '</div>';
         }
+
+        $html .= '</span>';
 
 
         return $html;

@@ -1,2 +1,7 @@
 bower_components
 node_modules
+code/libraries/joomlatools/component/activities
+code/libraries/joomlatools/component/ckeditor
+code/libraries/joomlatools/component/files
+code/libraries/joomlatools/component/migrator
+code/libraries/joomlatools/component/scheduler
