@@ -1,0 +1,81 @@
+.ercan-todo {
+  outline: 2px solid green !important;
+  outline-offset: -1px;
+}
+
+.robin-todo {
+  outline: 2px solid purple !important;
+  outline-offset: -1px;
+}
+
+.todo {
+  outline: 2px solid red !important;
+  outline-offset: -1px;
+}
+
+.koowa_icon--48 {
+  font-size: 48px !important;
+}
+
+.k-quick-filters {
+  padding-bottom: $spacing-small;
+
+  .k-list {
+    @include js-enabled {
+      @media (min-height: $flexbox-vertical) {
+        display: none;
+      }
+    }
+
+    @media (min-height: 550px) {
+      display: block!important;
+    }
+  }
+
+  .k-sidebar__header {
+    position: relative;
+  }
+
+  .k-sidebar__toggle {
+    @include js-enabled {
+      @media (min-height: $flexbox-vertical) {
+        @include icon-after(chevron-top, true) {
+          background: white;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: $spacing;
+          right: $spacing;
+          display: block;
+          text-align: center;
+          line-height: 20px;
+          vertical-align: middle;
+          font-size: 10px;
+          cursor: pointer;
+          @include transition;
+
+        }
+
+        &.is-active:after {
+          transform: rotate(180deg);
+        }
+      }
+
+      @media (min-height: 550px) {
+        display: none;
+      }
+    }
+
+    @include rtl {
+      @include js-enabled {
+        right: auto;
+        left: $spacing;
+      }
+    }
+  }
+}
+
+
+

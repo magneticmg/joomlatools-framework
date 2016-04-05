@@ -1,0 +1,8 @@
+// Core variables and mixins
+@import "../lib/sass-twitter-bootstrap/variables";
+@import "../lib/sass-twitter-bootstrap/mixins";
+
+$koowaPath: '..' !default;
+
+// Core variables and mixins
+@import "site/koowa/koowa";

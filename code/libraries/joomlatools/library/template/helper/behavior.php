@@ -23,7 +23,68 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
     protected static $_loaded = array();
 
     /**
-     * Loads koowa.js
+     * Loads the common UI libraries
+     *
+     * @param array $config
+     * @return string
+     */
+    public function ui($config = array())
+    {
+        $identifier = $this->getTemplate()->getIdentifier();
+
+        $config = new KObjectConfigJson($config);
+        $config->append(array(
+            'debug' => false,
+            'bootstrap' => array(
+                'css'        => false,
+                'javascript' => true
+            ),
+            'package' => $identifier->package,
+            'domain'  => $identifier->type === 'mod' ? 'module' : $identifier->domain,
+            'wrapper_class' => array(
+                'koowa-container koowa',
+                $identifier->type.'_'.$identifier->package
+            ),
+        ))->append(array(
+            'css_file'    => 'assets://css/'.$config->domain.'.css',
+            'wrapper' => sprintf('<div class="%s">
+                <!--[if lte IE 8 ]><div class="old-ie"><![endif]-->
+                %%s
+                <!--[if lte IE 8 ]></div><![endif]-->
+                </div>', implode(' ', KObjectConfig::unbox($config->wrapper_class))
+            )
+        ));
+
+        $html = '';
+
+        if ($config->css_file) {
+            $html .= '<ktml:style src="'.$config->css_file.'" />';
+        }
+
+        $html .= $this->modernizr($config);
+        $html .= $this->koowa($config);
+        $html .= $this->bootstrap($config->bootstrap);
+        $html .= '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>';
+
+        if ($config->domain === 'admin') {
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
+        } else {
+            // @todo temporary until we have site.css and module.css ready
+            $config->bootstrap->css = true;
+        }
+
+        if ($config->wrapper)
+        {
+            $html .= '<ktml:template:wrapper>'; // used to make sure the template only wraps once
+            $this->getTemplate()->addFilter('wrapper');
+            $this->getTemplate()->getFilter('wrapper')->setWrapper($config->wrapper);
+        }
+
+        return $html;
+    }
+
+    /**
+     * Loads koowa essentials
      *
      * @param array|KObjectConfig $config
      * @return string
@@ -39,9 +100,35 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         if (!isset(self::$_loaded['koowa']))
         {
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/koowa'.($config->debug ? '' : '.min').'.js" />';
+            $html .= $this->jquery();
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'koowa.js" />';
 
             self::$_loaded['koowa'] = true;
+        }
+
+        return $html;
+    }
+
+    /**
+     * Loads Modernizr
+     *
+     * @param array|KObjectConfig $config
+     * @return string
+     */
+    public function modernizr($config = array())
+    {
+        $config = new KObjectConfigJson($config);
+        $config->append(array(
+            'debug' => false
+        ));
+
+        $html = '';
+
+        if (!isset(self::$_loaded['modernizr']))
+        {
+            $html = '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'modernizr.js" />';
+
+            self::$_loaded['modernizr'] = true;
         }
 
         return $html;
@@ -68,9 +155,44 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         if (!isset(self::$_loaded['jquery']))
         {
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/jquery'.($config->debug ? '' : '.min').'.js" />';
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'jquery.js" />';
 
             self::$_loaded['jquery'] = true;
+        }
+
+        return $html;
+    }
+
+    /**
+     * Add Bootstrap JS and CSS a modal box
+     *
+     * @param array|KObjectConfig $config
+     * @return string   The html output
+     */
+    public function bootstrap($config = array())
+    {
+        $config = new KObjectConfigJson($config);
+        $config->append(array(
+            'debug' => false,
+            'css'   => true,
+            'javascript' => false
+        ));
+
+        $html = '';
+
+        if ($config->javascript && !isset(self::$_loaded['bootstrap-javascript']))
+        {
+            $html .= $this->jquery($config);
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? '' : 'min/').'bootstrap.js" />';
+
+            self::$_loaded['bootstrap-javascript'] = true;
+        }
+
+        if ($config->css && !isset(self::$_loaded['bootstrap-css']))
+        {
+            $html .= '<ktml:style src="assets://css/bootstrap.css" />';
+
+            self::$_loaded['bootstrap-css'] = true;
         }
 
         return $html;
@@ -97,7 +219,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         if(!isset(self::$_loaded['modal']))
         {
             $html .= $this->jquery();
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/jquery.magnific-popup'.($config->debug ? '' : '.min').'.js" />';
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'jquery.magnific-popup.js" />';
 
             self::$_loaded['modal'] = true;
         }
@@ -149,7 +271,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         if (!isset(self::$_loaded['overlay']))
         {
             $html .= $this->koowa();
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/koowa.overlay.js" />';
+            $html .= '<ktml:script src="assets://js/koowa.overlay.js" />';
 
             $html .= '
             <style>
@@ -215,11 +337,8 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         if(!isset(self::$_loaded['validator']))
         {
-            $html .= $this->jquery();
             $html .= $this->koowa();
-
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/jquery.validate'.($config->debug ? '' : '.min').'.js" />';
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/patch.validator.js" />';
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'jquery.validate.js" />';
 
             self::$_loaded['validator'] = true;
         }
@@ -261,8 +380,8 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             'debug'   => false,
             'element' => '.select2-listbox',
             'options' => array(
-                'width' => 'resolve',
-                'dropdownCssClass' => 'koowa'
+                'theme'   => 'bootstrap',
+                'width' => 'resolve'
             )
         ));
 
@@ -271,8 +390,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         if (!isset(self::$_loaded['select2']))
         {
             $html .= $this->jquery();
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/select2'.($config->debug ? '' : '.min').'.js" />';
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/koowa.select2.js" />';
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'koowa.select2.js" />';
 
             self::$_loaded['select2'] = true;
         }
@@ -285,7 +403,6 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             $html .= '<script>
             kQuery(function($){
                 $("'.$config->element.'").select2('.$options.');
-                $("'.$config->element.'").select2(\'container\').removeClass(\'required\');
             });</script>';
 
             self::$_loaded[$signature] = true;
@@ -306,7 +423,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $config->append(array(
             'element'  => null,
             'options'  => array(
-                'dropdownCssClass' => 'koowa',
+                'minimumInputLength' => 2,
                 'validate'      => false, //Toggle if the forms validation helper is loaded
                 'queryVarName'  => 'search',
                 'width'         => 'resolve',
@@ -344,7 +461,6 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             $html .= '<script>
             kQuery(function($){
                 $("'.$config->element.'").koowaSelect2('.$options.');
-                $("'.$config->element.'").koowaSelect2(\'container\').removeClass(\'required\');
             });</script>';
 
             self::$_loaded[$signature] = true;
@@ -386,8 +502,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         if (!isset(self::$_loaded['tree']))
         {
             $html .= $this->koowa();
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/jqtree'.($config->debug ? '' : '.min').'.js" />';
-            $html .= '<ktml:script src="media://koowa/com_koowa/js/koowa.tree'.($config->debug ? '' : '.min').'.js" />';
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'koowa.tree.js" />';
 
             self::$_loaded['tree'] = true;
         }
@@ -444,6 +559,232 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         }
 
         return $html;
+    }
+
+    /**
+     * Render a tooltip
+     *
+     * @param array|KObjectConfig $config
+     * @return string   *The html output
+     */
+    public function tooltip($config = array())
+    {
+        $config = new KObjectConfigJson($config);
+        $config->append(array(
+            'selector' => '.koowa-tooltip',
+            'data'     => 'koowa-tooltip',
+            'options'  => array()
+        ));
+
+        $html = '';
+
+        // Load Bootstrap with JS plugins.
+        if(!isset(self::$_loaded['tooltip']))
+        {
+            $html .= $this->bootstrap(array('css' => false, 'javascript' => true));
+
+            self::$_loaded['tooltip'] = true;
+        }
+
+        $options = json_encode($config->options->toArray());
+
+        $signature = md5('tooltip-'.$config->selector.$options);
+
+        if(!isset(self::$_loaded[$signature]))
+        {
+            $html .= "<script>
+                kQuery(function($) {
+                    $('$config->selector').each(function(idx, el) {
+                        var el = $(el);
+                        var data = el.data('$config->data');
+                        var options = $.parseJSON('$options');
+                        if (data) {
+                            $.extend(true, options, data);
+                        }
+                        el.tooltip(options);
+                        });
+                });
+            </script>";
+
+        }
+
+        return $html;
+    }
+
+
+    /**
+     * Loads the calendar behavior and attaches it to a specified element
+     *
+     * @param array|KObjectConfig $config
+     * @return string   The html output
+     */
+    public function calendar($config = array())
+    {
+        $config = new KObjectConfigJson($config);
+        $config->append(array(
+            'debug'   => false,
+            'offset'  => 'UTC',
+            'user_offset'    => $this->getObject('user')->getParameter('timezone'),
+            'server_offset'  => date_default_timezone_get(),
+            'offset_seconds' => 0,
+            'value'	  => gmdate("M d Y H:i:s"),
+            'name'    => '',
+            'format'  => '%Y-%m-%d %H:%M:%S',
+            'first_week_day' => 0,
+            'attribs'        => array(
+                'size'        => 25,
+                'maxlength'   => 19,
+                'placeholder' => ''
+            )
+        ))->append(array(
+            'id'      => 'datepicker-'.$config->name,
+            'options' => array(
+                'todayBtn' => 'linked',
+                'todayHighlight' => true,
+                'language' => 'en-GB',
+                'autoclose' => true, //Same as singleClick in previous js plugin,
+                'keyboardNavigation' => false, //To allow editing timestamps,
+                //'orientation' => 'auto left', //popover arrow set to point at the datepicker icon,
+                //'parentEl' => false //this feature breaks if a parent el is position: relative;
+            )
+        ));
+
+        if ($config->offset)
+        {
+            if (strtoupper($config->offset) === 'SERVER_UTC') {
+                $config->offset = $config->server_offset;
+            }
+            else if (strtoupper($config->offset) === 'USER_UTC') {
+                $config->offset = $config->user_offset ?: $config->server_offset;
+            }
+
+            $timezone               = new DateTimeZone($config->offset);
+            $config->offset_seconds = $timezone->getOffset(new DateTime());
+        }
+
+        if ($config->value && $config->value != '0000-00-00 00:00:00' && $config->value != '0000-00-00')
+        {
+            if (strtoupper($config->value) == 'NOW') {
+                $config->value = strftime($config->format);
+            }
+
+            $date = new DateTime($config->value, new DateTimeZone('UTC'));
+
+            $config->value = strftime($config->format, ((int)$date->format('U')) + $config->offset_seconds);
+        } else {
+            $config->value = '';
+        }
+
+        $attribs = $this->buildAttributes($config->attribs);
+        $value   = $this->getTemplate()->escape($config->value);
+
+        if ($config->attribs->readonly === 'readonly' || $config->attribs->disabled === 'disabled')
+        {
+            $html  = '<div>';
+            $html .= '<input type="text" name="'.$config->name.'" id="'.$config->id.'" value="'.$value.'" '.$attribs.' />';
+            $html .= '</div>';
+        }
+        else
+        {
+            $html = $this->_loadCalendarScripts($config);
+
+            if (!isset(self::$_loaded['calendar-triggers'])) {
+                self::$_loaded['calendar-triggers'] = array();
+            }
+
+            // Only display the triggers once for each control.
+            if (!in_array($config->id, self::$_loaded['calendar-triggers']))
+            {
+                $html .= "<script>
+                    kQuery(function($){
+                        $('#".$config->id."').koowaDatepicker(".$config->options.");
+                    });
+                </script>";
+
+                if ($config->offset_seconds)
+                {
+                    $html .= "<script>
+                        kQuery(function($){
+                            $('.-koowa-form').on('koowa:submit', function() {
+                                var element = kQuery('#".$config->id."'),
+                                    picker  = element.data('datepicker'),
+                                    offset  = $config->offset_seconds;
+
+                                if (picker && element.children('input').val()) {
+                                    picker.setDate(new Date(picker.getDate().getTime() + (-1*offset*1000)));
+                                }
+                            });
+                        });
+                    </script>";
+                }
+
+                self::$_loaded['calendar-triggers'][] = $config->id;
+            }
+
+            $format = str_replace(
+                array('%Y', '%y', '%m', '%d', '%H', '%M', '%S'),
+                array('yyyy', 'yy', 'mm', 'dd', 'hh', 'ii', 'ss'),
+                $config->format
+            );
+
+            $html .= '<div class="input-group date datepicker" data-date-format="'.$format.'" id="'.$config->id.'">';
+            $html .= '<input class="form-control" type="text" name="'.$config->name.'" value="'.$value.'"  '.$attribs.' />';
+            $html .= '<span class="input-group-btn">';
+            $html .= '<button type="button" class="btn btn-default">';
+            $html .= '<span class="k-icon-calendar"><span class="visually-hidden">calendar</span></span>';
+            $html .= '</button>';
+            $html .= '</span>';
+            $html .= '</div>';
+        }
+
+        return $html;
+    }
+
+    /**
+     * @param KObjectConfig $config
+     * @return string
+     */
+    protected function _loadCalendarScripts(KObjectConfig $config)
+    {
+        $html = '';
+
+        if (!isset(self::$_loaded['calendar']))
+        {
+            if ($config->debug) {
+                $html .= '<ktml:script src="assets://js/datepicker.js" />';
+                $html .= '<ktml:script src="assets://js/koowa.datepicker.js" />';
+            }
+            else $html .= '<ktml:script src="assets://js/min/koowa.datepicker.js" />';
+
+
+            $locale = array(
+                'days'  =>  array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'),
+                'daysShort' => array('Sun','Mon','Tue','Wed','Thu','Fri','Sat','Sun'),
+                'daysMin' => array('Su','Mo','Tu','We','Th','Fr','Sa','Su'),
+                'months' => array('January','February','March','April','May','June','July','August','September','October','November','December'),
+                'monthsShort' => array('January_short','February_short','March_short','April_short','May_short','June_short','July_short','August_short','September_short','October_short','November_short','December_short')
+            );
+
+            $translator = $this->getObject('translator');
+
+            foreach($locale as $key => $items){
+                $locale[$key] = array_map(array($translator, 'translate'), $items);
+            }
+            $locale['today']     = $translator->translate('Today');
+            $locale['clear']     = $translator->translate('Clear');
+            $locale['weekStart'] = $config->first_week_day;
+
+            $html .= '<script>
+            (function($){
+                $.fn.datepicker.dates['.json_encode($config->options->language).'] = '.json_encode($locale).';
+            }(kQuery));
+            </script>';
+
+            self::$_loaded['calendar'] = true;
+        }
+
+        return $html;
+
     }
 
     /**
