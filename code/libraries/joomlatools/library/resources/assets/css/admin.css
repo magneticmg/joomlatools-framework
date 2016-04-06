@@ -515,13 +515,13 @@
 /* 3rd party ========================================================================== */
 .select2-container { box-sizing: border-box; display: inline-block; margin: 0; position: relative; vertical-align: middle; }
 
-.select2-container .select2-selection--single { box-sizing: border-box; cursor: pointer; display: block; height: 28px; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-select: none; }
+.select2-container .select2-selection--single { box-sizing: border-box; cursor: pointer; display: block; height: 28px; user-select: none; -webkit-user-select: none; }
 
 .select2-container .select2-selection--single .select2-selection__rendered { display: block; padding-left: 8px; padding-right: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered { padding-right: 8px; padding-left: 20px; }
 
-.select2-container .select2-selection--multiple { box-sizing: border-box; cursor: pointer; display: block; min-height: 32px; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-select: none; }
+.select2-container .select2-selection--multiple { box-sizing: border-box; cursor: pointer; display: block; min-height: 32px; user-select: none; -webkit-user-select: none; }
 
 .select2-container .select2-selection--multiple .select2-selection__rendered { display: inline-block; overflow: hidden; padding-left: 8px; text-overflow: ellipsis; white-space: nowrap; }
 
@@ -537,7 +537,7 @@
 
 .select2-results__options { list-style: none; margin: 0; padding: 0; }
 
-.select2-results__option { padding: 6px; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-select: none; }
+.select2-results__option { padding: 6px; user-select: none; -webkit-user-select: none; }
 
 .select2-results__option[aria-selected] { cursor: pointer; }
 
@@ -641,7 +641,7 @@
 
 .select2-container--default .select2-results__group { cursor: default; display: block; padding: 6px; }
 
-.select2-container--classic .select2-selection--single { background-color: #f7f7f7; border: 1px solid false; border-radius: 4px; outline: 0; background-image: -webkit-linear-gradient(top, white 50%, #eeeeee 100%); background-image: linear-gradient(to bottom, white 50%, #eeeeee 100%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#eeeeee', GradientType=0); }
+.select2-container--classic .select2-selection--single { background-color: #f7f7f7; border: 1px solid false; border-radius: 4px; outline: 0; background-image: -webkit-linear-gradient(top, white 50%, #eeeeee 100%); background-image: -o-linear-gradient(top, white 50%, #eeeeee 100%); background-image: linear-gradient(to bottom, white 50%, #eeeeee 100%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#eeeeee', GradientType=0); }
 
 .select2-container--classic .select2-selection--single:focus { border: 1px solid #5897fb; }
 
@@ -651,7 +651,7 @@
 
 .select2-container--classic .select2-selection--single .select2-selection__placeholder { color: #999; }
 
-.select2-container--classic .select2-selection--single .select2-selection__arrow { background-color: #ddd; border: none; border-left: 1px solid false; border-top-right-radius: 4px; border-bottom-right-radius: 4px; height: 26px; position: absolute; top: 1px; right: 1px; width: 20px; background-image: -webkit-linear-gradient(top, #eeeeee 50%, #cccccc 100%); background-image: linear-gradient(to bottom, #eeeeee 50%, #cccccc 100%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=0); }
+.select2-container--classic .select2-selection--single .select2-selection__arrow { background-color: #ddd; border: none; border-left: 1px solid false; border-top-right-radius: 4px; border-bottom-right-radius: 4px; height: 26px; position: absolute; top: 1px; right: 1px; width: 20px; background-image: -webkit-linear-gradient(top, #eeeeee 50%, #cccccc 100%); background-image: -o-linear-gradient(top, #eeeeee 50%, #cccccc 100%); background-image: linear-gradient(to bottom, #eeeeee 50%, #cccccc 100%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=0); }
 
 .select2-container--classic .select2-selection--single .select2-selection__arrow b { border-color: #888 transparent transparent transparent; border-style: solid; border-width: 5px 4px 0 4px; height: 0; left: 50%; margin-left: -4px; margin-top: -2px; position: absolute; top: 50%; width: 0; }
 
@@ -665,9 +665,9 @@
 
 .select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow b { border-color: transparent transparent #888 transparent; border-width: 0 4px 5px 4px; }
 
-.select2-container--classic.select2-container--open.select2-container--above .select2-selection--single { border-top: none; border-top-left-radius: 0; border-top-right-radius: 0; background-image: -webkit-linear-gradient(top, white 0%, #eeeeee 50%); background-image: linear-gradient(to bottom, white 0%, #eeeeee 50%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#eeeeee', GradientType=0); }
+.select2-container--classic.select2-container--open.select2-container--above .select2-selection--single { border-top: none; border-top-left-radius: 0; border-top-right-radius: 0; background-image: -webkit-linear-gradient(top, white 0%, #eeeeee 50%); background-image: -o-linear-gradient(top, white 0%, #eeeeee 50%); background-image: linear-gradient(to bottom, white 0%, #eeeeee 50%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#eeeeee', GradientType=0); }
 
-.select2-container--classic.select2-container--open.select2-container--below .select2-selection--single { border-bottom: none; border-bottom-left-radius: 0; border-bottom-right-radius: 0; background-image: -webkit-linear-gradient(top, #eeeeee 50%, white 100%); background-image: linear-gradient(to bottom, #eeeeee 50%, white 100%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='white', GradientType=0); }
+.select2-container--classic.select2-container--open.select2-container--below .select2-selection--single { border-bottom: none; border-bottom-left-radius: 0; border-bottom-right-radius: 0; background-image: -webkit-linear-gradient(top, #eeeeee 50%, white 100%); background-image: -o-linear-gradient(top, #eeeeee 50%, white 100%); background-image: linear-gradient(to bottom, #eeeeee 50%, white 100%); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='white', GradientType=0); }
 
 .select2-container--classic .select2-selection--multiple { background-color: white; border: 1px solid false; border-radius: 4px; cursor: text; outline: 0; }
 
@@ -720,9 +720,9 @@
 /*! Select2 Bootstrap Theme v0.1.0-beta.4 | MIT License | github.com/select2/select2-bootstrap-theme */
 .select2-container--bootstrap { display: block; /*------------------------------------*            #COMMON STYLES \*------------------------------------*/ /** Search field in the Select2 dropdown. */ /** No outline for all search fields - in the dropdown and inline in multi Select2s. */ /** Adjust Select2's choices hover and selected styles to match Bootstrap 3's default dropdown styles. @see http://getbootstrap.com/components/#dropdowns */ /** Clear the selection. */ /** Address disabled Select2 styles. @see https://select2.github.io/examples.html#disabled @see http://getbootstrap.com/css/#forms-control-disabled */ /*------------------------------------*            #DROPDOWN \*------------------------------------*/ /** Dropdown border color and box-shadow. */ /** Limit the dropdown height. */ /*------------------------------------*            #SINGLE SELECT2 \*------------------------------------*/ /*------------------------------------*        #MULTIPLE SELECT2 \*------------------------------------*/ /** Address Bootstrap control sizing classes 1. Reset Bootstrap defaults. 2. Adjust the dropdown arrow button icon position. @see http://getbootstrap.com/css/#forms-control-sizes */ /* 1 */ /*------------------------------------*        #RTL SUPPORT \*------------------------------------*/ }
 
-.select2-container--bootstrap .select2-selection { box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); background-color: #fff; border: 1px solid #ccc; border-radius: 4px; color: #555555; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; outline: 0; }
+.select2-container--bootstrap .select2-selection { -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); background-color: #fff; border: 1px solid #ccc; border-radius: 4px; color: #555555; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; outline: 0; }
 
-.select2-container--bootstrap .select2-search--dropdown .select2-search__field { box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); background-color: #fff; border: 1px solid #ccc; border-radius: 4px; color: #555555; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; }
+.select2-container--bootstrap .select2-search--dropdown .select2-search__field { -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); background-color: #fff; border: 1px solid #ccc; border-radius: 4px; color: #555555; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; }
 
 .select2-container--bootstrap .select2-search__field { outline: 0; /* Firefox 18- */ /** Firefox 19+ @see http://stackoverflow.com/questions/24236240/color-for-styled-placeholder-text-is-muted-in-firefox */ }
 
@@ -760,7 +760,7 @@
 
 .select2-container--bootstrap .select2-results__group { color: #777777; display: block; padding: 5px 10px; font-size: 12px; line-height: 1.428571429; white-space: nowrap; }
 
-.select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection { box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; border-color: #66afe9; }
+.select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection { -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; border-color: #66afe9; }
 
 .select2-container--bootstrap.select2-container--open { /** Make the dropdown arrow point up while the dropdown is visible. */ /** Handle border radii of the container when the dropdown is showing. */ }
 
@@ -774,7 +774,7 @@
 
 .select2-container--bootstrap .select2-selection__clear:hover { color: #333; }
 
-.select2-container--bootstrap.select2-container--disabled .select2-selection { border-color: #ccc; box-shadow: none; }
+.select2-container--bootstrap.select2-container--disabled .select2-selection { border-color: #ccc; -webkit-box-shadow: none; box-shadow: none; }
 
 .select2-container--bootstrap.select2-container--disabled .select2-selection, .select2-container--bootstrap.select2-container--disabled .select2-search__field { cursor: not-allowed; }
 
@@ -782,7 +782,7 @@
 
 .select2-container--bootstrap.select2-container--disabled .select2-selection__clear, .select2-container--bootstrap.select2-container--disabled .select2-selection--multiple .select2-selection__choice__remove { display: none; }
 
-.select2-container--bootstrap .select2-dropdown { box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); border-color: #66afe9; overflow-x: hidden; margin-top: -1px; }
+.select2-container--bootstrap .select2-dropdown { -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); border-color: #66afe9; overflow-x: hidden; margin-top: -1px; }
 
 .select2-container--bootstrap .select2-dropdown--above { margin-top: 1px; }
 
@@ -873,7 +873,7 @@
 /** Address Bootstrap's validation states If a Select2 widget parent has one of Bootstrap's validation state modifier classes, adjust Select2's border colors and focus states accordingly. You may apply said classes to the Select2 dropdown (body > .select2-container) via JavaScript match Bootstraps' to make its styles match. @see http://getbootstrap.com/css/#forms-control-validation */
 .has-warning .select2-dropdown, .has-warning .select2-selection { border-color: #8a6d3b; }
 
-.has-warning .select2-container--focus .select2-selection, .has-warning .select2-container--open .select2-selection { box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; border-color: #66512c; }
+.has-warning .select2-container--focus .select2-selection, .has-warning .select2-container--open .select2-selection { -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; border-color: #66512c; }
 
 .has-warning.select2-drop-active { border-color: #66512c; }
 
@@ -881,7 +881,7 @@
 
 .has-error .select2-dropdown, .has-error .select2-selection { border-color: #a94442; }
 
-.has-error .select2-container--focus .select2-selection, .has-error .select2-container--open .select2-selection { box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; border-color: #843534; }
+.has-error .select2-container--focus .select2-selection, .has-error .select2-container--open .select2-selection { -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; border-color: #843534; }
 
 .has-error.select2-drop-active { border-color: #843534; }
 
@@ -889,7 +889,7 @@
 
 .has-success .select2-dropdown, .has-success .select2-selection { border-color: #3c763d; }
 
-.has-success .select2-container--focus .select2-selection, .has-success .select2-container--open .select2-selection { box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; border-color: #2b542c; }
+.has-success .select2-container--focus .select2-selection, .has-success .select2-container--open .select2-selection { -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; border-color: #2b542c; }
 
 .has-success.select2-drop-active { border-color: #2b542c; }
 
@@ -918,7 +918,7 @@
 
 .dropdown-toggle:focus { outline: 0; }
 
-.dropdown-menu { position: absolute; top: 100%; left: 0; z-index: 1000; display: none; float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; list-style: none; font-size: 14px; text-align: left; background-color: #fff; border: 1px solid #ccc; border: 1px solid #e0e0e0; border-radius: 4px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); background-clip: padding-box; }
+.dropdown-menu { position: absolute; top: 100%; left: 0; z-index: 1000; display: none; float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; list-style: none; font-size: 14px; text-align: left; background-color: #fff; border: 1px solid #ccc; border: 1px solid #e0e0e0; border-radius: 4px; -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); background-clip: padding-box; }
 
 .dropdown-menu.pull-right { right: 0; left: auto; }
 
@@ -965,7 +965,7 @@
 
 [dir="rtl"] .mfp-wrap { left: auto; right: 0; }
 
-.mfp-wrap .well { min-height: 20px; padding: 19px; margin-bottom: 20px; background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }
+.mfp-wrap .well { min-height: 20px; padding: 19px; margin-bottom: 20px; background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }
 
 .mfp-wrap .well blockquote { border-color: #ddd; border-color: rgba(0, 0, 0, 0.15); }
 
@@ -989,13 +989,13 @@
 
 .mfp-ajax-cur { cursor: progress; }
 
-.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close { cursor: -webkit-zoom-out; cursor: zoom-out; }
+.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close { cursor: -moz-zoom-out; cursor: -webkit-zoom-out; cursor: zoom-out; }
 
-.mfp-zoom { cursor: pointer; cursor: -webkit-zoom-in; cursor: zoom-in; }
+.mfp-zoom { cursor: pointer; cursor: -webkit-zoom-in; cursor: -moz-zoom-in; cursor: zoom-in; }
 
 .mfp-auto-cursor .mfp-content { cursor: auto; }
 
-.mfp-close, .mfp-arrow, .mfp-preloader, .mfp-counter { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.mfp-close, .mfp-arrow, .mfp-preloader, .mfp-counter { user-select: none; }
 
 .mfp-loading.mfp-figure { display: none; }
 
@@ -1011,7 +1011,7 @@
 
 .mfp-s-error .mfp-content { display: none; }
 
-button.mfp-close, button.mfp-arrow { overflow: visible; cursor: pointer; background: transparent; border: 0; -webkit-appearance: none; display: block; padding: 0; z-index: 1046; box-shadow: none; }
+button.mfp-close, button.mfp-arrow { overflow: visible; cursor: pointer; background: transparent; border: 0; -webkit-appearance: none; display: block; padding: 0; z-index: 1046; -webkit-box-shadow: none; box-shadow: none; }
 
 button::-moz-focus-inner { padding: 0; border: 0; }
 
@@ -1119,9 +1119,9 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
   .mfp-img-mobile .mfp-figure small { display: inline; margin-left: 5px; }
   [dir="rtl"] .mfp-img-mobile .mfp-figure small { margin-left: 0; margin-right: 5px; } }
 
-@media all and (max-width: 900px) { .mfp-arrow { -webkit-transform: scale(0.75); transform: scale(0.75); }
-  .mfp-arrow-left { -webkit-transform-origin: 0; transform-origin: 0; }
-  .mfp-arrow-right { -webkit-transform-origin: 100%; transform-origin: 100%; }
+@media all and (max-width: 900px) { .mfp-arrow { transform: scale(0.75); }
+  .mfp-arrow-left { transform-origin: 0; }
+  .mfp-arrow-right { transform-origin: 100%; }
   .mfp-container { padding-left: 6px; padding-right: 6px; } }
 
 .mfp-ie7 .mfp-img { padding: 0; }
@@ -1300,7 +1300,7 @@ html { min-height: 100%; height: 100%; padding: 0; margin: 0; }
 /** BODY By using 100% for `height` and `min-height` we can work with full-height auto overflowing flexbox pages */
 body { min-height: 100%; height: 100%; padding: 0; margin: 0; /* Setup flexbox */ }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox body, .k-flexboxlegacy body { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox body, .k-flexboxlegacy body { display: flex; flex-direction: column; flex: 1 1 auto; } }
 
 body.k-resizing { overflow: hidden; }
 
@@ -1309,7 +1309,7 @@ body.k-resizing { overflow: hidden; }
 
 @media screen and (min-width: 400px) { .koowa-container { max-width: none; /* 2 */ } }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa-container, .k-flexboxlegacy .koowa-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa-container, .k-flexboxlegacy .koowa-container { display: flex; flex: 1 1 auto; } }
 
 .koowa--rtl.koowa-container { direction: rtl; }
 
@@ -1415,7 +1415,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa figure { margin: 1em 40px; }
 
-.koowa hr { box-sizing: content-box; height: 0; }
+.koowa hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
 
 .koowa pre { overflow: auto; }
 
@@ -1439,7 +1439,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa input[type="number"]::-webkit-inner-spin-button, .koowa input[type="number"]::-webkit-outer-spin-button { height: auto; }
 
-.koowa input[type="search"] { -webkit-appearance: textfield; box-sizing: content-box; }
+.koowa input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 
 .koowa input[type="search"]::-webkit-search-cancel-button, .koowa input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 
@@ -1493,15 +1493,15 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .alert-danger .alert-link { color: #843534; }
 
-.koowa .btn { display: inline-block; margin-bottom: 0; font-weight: normal; text-align: center; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; background-image: none; border: 1px solid transparent; white-space: nowrap; padding: 5px 10px; font-size: 14px; line-height: 1.428571429; border-radius: 4px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.koowa .btn { display: inline-block; margin-bottom: 0; font-weight: normal; text-align: center; vertical-align: middle; touch-action: manipulation; cursor: pointer; background-image: none; border: 1px solid transparent; white-space: nowrap; padding: 5px 10px; font-size: 14px; line-height: 1.428571429; border-radius: 4px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 
 .koowa .btn:focus, .koowa .btn.focus, .koowa .btn:active:focus, .koowa .btn:active.focus, .koowa .btn.active:focus, .koowa .btn.active.focus { outline: thin dotted; outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; }
 
 .koowa .btn:hover, .koowa .btn:focus, .koowa .btn.focus { color: #333; text-decoration: none; }
 
-.koowa .btn:active, .koowa .btn.active { outline: 0; background-image: none; box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+.koowa .btn:active, .koowa .btn.active { outline: 0; background-image: none; -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
-.koowa .btn.disabled, .koowa .btn[disabled], fieldset[disabled] .koowa .btn { cursor: not-allowed; pointer-events: none; opacity: 0.65; filter: alpha(opacity=65); box-shadow: none; }
+.koowa .btn.disabled, .koowa .btn[disabled], fieldset[disabled] .koowa .btn { cursor: not-allowed; pointer-events: none; opacity: 0.65; filter: alpha(opacity=65); -webkit-box-shadow: none; box-shadow: none; }
 
 .koowa .btn-default { color: #333; background-color: #fff; border-color: #ccc; }
 
@@ -1565,7 +1565,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .btn-link { color: #337ab7; font-weight: normal; border-radius: 0; }
 
-.koowa .btn-link, .koowa .btn-link:active, .koowa .btn-link.active, .koowa .btn-link[disabled], fieldset[disabled] .koowa .btn-link { background-color: transparent; box-shadow: none; }
+.koowa .btn-link, .koowa .btn-link:active, .koowa .btn-link.active, .koowa .btn-link[disabled], fieldset[disabled] .koowa .btn-link { background-color: transparent; -webkit-box-shadow: none; box-shadow: none; }
 
 .koowa .btn-link, .koowa .btn-link:hover, .koowa .btn-link:focus, .koowa .btn-link:active { border-color: transparent; }
 
@@ -1625,9 +1625,9 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .btn-group > .btn-lg + .dropdown-toggle, .koowa .btn-group-lg.btn-group > .btn + .dropdown-toggle { padding-left: 12px; padding-right: 12px; }
 
-.koowa .btn-group.open .dropdown-toggle { box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+.koowa .btn-group.open .dropdown-toggle { -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
-.koowa .btn-group.open .dropdown-toggle.btn-link { box-shadow: none; }
+.koowa .btn-group.open .dropdown-toggle.btn-link { -webkit-box-shadow: none; box-shadow: none; }
 
 .koowa .btn .caret { margin-left: 0; }
 
@@ -1667,7 +1667,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa [data-toggle="buttons"] > .btn input[type="radio"], .koowa [data-toggle="buttons"] > .btn input[type="checkbox"], .koowa [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], .koowa [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] { position: absolute; clip: rect(0, 0, 0, 0); pointer-events: none; }
 
-.koowa .thumbnail { display: block; padding: 4px; margin-bottom: 20px; line-height: 1.428571429; background-color: #fff; border: 1px solid #ddd; border-radius: 4px; -webkit-transition: border 0.2s ease-in-out 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: border 0.2s ease-in-out 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .thumbnail { display: block; padding: 4px; margin-bottom: 20px; line-height: 1.428571429; background-color: #fff; border: 1px solid #ddd; border-radius: 4px; transition: border 0.2s ease-in-out 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .thumbnail > img, .koowa .thumbnail a > img { display: block; max-width: 100%; height: auto; margin-left: auto; margin-right: auto; }
 
@@ -1681,7 +1681,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa label { display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight: bold; }
 
-.koowa input[type="search"] { box-sizing: border-box; }
+.koowa input[type="search"] { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .koowa input[type="radio"], .koowa input[type="checkbox"] { margin: 4px 0 0; margin-top: 1px \9; line-height: normal; }
 
@@ -1695,9 +1695,9 @@ body.k-resizing { overflow: hidden; }
 
 .koowa output { display: block; padding-top: 6px; font-size: 14px; line-height: 1.428571429; color: #555555; }
 
-.koowa .form-control { display: block; width: 100%; height: 32px; padding: 5px 10px; font-size: 14px; line-height: 1.428571429; color: #555555; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -webkit-transition: border-color ease-in-out 0.15s box-shadow ease-in-out 0.15s cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: border-color ease-in-out 0.15s box-shadow ease-in-out 0.15s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .form-control { display: block; width: 100%; height: 32px; padding: 5px 10px; font-size: 14px; line-height: 1.428571429; color: #555555; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); transition: border-color ease-in-out 0.15s box-shadow ease-in-out 0.15s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
-.koowa .form-control:focus { border-color: #66afe9; outline: 0; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
+.koowa .form-control:focus { border-color: #66afe9; outline: 0; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
 
 .koowa .form-control::-moz-placeholder { color: #999; opacity: 1; }
 
@@ -1781,9 +1781,9 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .has-success .help-block, .koowa .has-success .control-label, .koowa .has-success .radio, .koowa .has-success .checkbox, .koowa .has-success .radio-inline, .koowa .has-success .checkbox-inline, .koowa .has-success.radio label, .koowa .has-success.checkbox label, .koowa .has-success.radio-inline label, .koowa .has-success.checkbox-inline label { color: #3c763d; }
 
-.koowa .has-success .form-control { border-color: #3c763d; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+.koowa .has-success .form-control { border-color: #3c763d; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
-.koowa .has-success .form-control:focus { border-color: #2b542c; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; }
+.koowa .has-success .form-control:focus { border-color: #2b542c; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; }
 
 .koowa .has-success .input-group-addon { color: #3c763d; border-color: #3c763d; background-color: #dff0d8; }
 
@@ -1791,9 +1791,9 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .has-warning .help-block, .koowa .has-warning .control-label, .koowa .has-warning .radio, .koowa .has-warning .checkbox, .koowa .has-warning .radio-inline, .koowa .has-warning .checkbox-inline, .koowa .has-warning.radio label, .koowa .has-warning.checkbox label, .koowa .has-warning.radio-inline label, .koowa .has-warning.checkbox-inline label { color: #8a6d3b; }
 
-.koowa .has-warning .form-control { border-color: #8a6d3b; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+.koowa .has-warning .form-control { border-color: #8a6d3b; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
-.koowa .has-warning .form-control:focus { border-color: #66512c; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; }
+.koowa .has-warning .form-control:focus { border-color: #66512c; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; }
 
 .koowa .has-warning .input-group-addon { color: #8a6d3b; border-color: #8a6d3b; background-color: #fcf8e3; }
 
@@ -1801,9 +1801,9 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .has-error .help-block, .koowa .has-error .control-label, .koowa .has-error .radio, .koowa .has-error .checkbox, .koowa .has-error .radio-inline, .koowa .has-error .checkbox-inline, .koowa .has-error.radio label, .koowa .has-error.checkbox label, .koowa .has-error.radio-inline label, .koowa .has-error.checkbox-inline label { color: #a94442; }
 
-.koowa .has-error .form-control { border-color: #a94442; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+.koowa .has-error .form-control { border-color: #a94442; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
-.koowa .has-error .form-control:focus { border-color: #843534; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
+.koowa .has-error .form-control:focus { border-color: #843534; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
 
 .koowa .has-error .input-group-addon { color: #a94442; border-color: #a94442; background-color: #f2dede; }
 
@@ -1955,33 +1955,33 @@ body.k-resizing { overflow: hidden; }
 
 .koowa--rtl.koowa .input-group-btn:last-child > .btn, .koowa--rtl.koowa .input-group-btn:last-child > .btn-group { margin-left: 0; margin-right: -1px; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-component, .k-flexboxlegacy .koowa .k-component { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; overflow: auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-component, .k-flexboxlegacy .koowa .k-component { display: flex; flex-direction: column; flex: 1 1 auto; overflow: auto; } }
 
 .k-is-resizing .koowa .k-component { overflow: hidden; }
 
-.koowa .k-content { position: relative; /* 1 */ z-index: 2; /* 1 */ background: white; /* 2 */ -webkit-transition: -webkit-transform 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: transform 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* 3 */ /* Faking flexbox on older browsers by using table styling */ /* RTL */ /** When flexbox is in use 1. Reset width needed for table 2. Set overflow for breadcrumbs to properly work */ }
+.koowa .k-content { position: relative; /* 1 */ z-index: 2; /* 1 */ background: white; /* 2 */ transition: transform 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* 3 */ /* Faking flexbox on older browsers by using table styling */ /* RTL */ /** When flexbox is in use 1. Reset width needed for table 2. Set overflow for breadcrumbs to properly work */ }
 
 @media screen and (min-width: 768px) { .koowa .k-content { display: table-cell; width: 100%; } }
 
 .koowa--rtl.koowa .k-content { direction: rtl; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-content, .k-flexboxlegacy .koowa .k-content { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; width: auto; /* 1 */ overflow: hidden; /* 2 */ } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-content, .k-flexboxlegacy .koowa .k-content { display: flex; flex: 1 1 auto; flex-direction: column; width: auto; /* 1 */ overflow: hidden; /* 2 */ } }
 
-.koowa .show-left-menu .k-content, .koowa .show-left-menu .k-titlebar { -webkit-transform: translate(270px, 0); transform: translate(270px, 0); /* 1 */ }
+.koowa .show-left-menu .k-content, .koowa .show-left-menu .k-titlebar { transform: translate(270px, 0); /* 1 */ }
 
-@media screen and (min-width: 768px) { .koowa .show-left-menu .k-content, .koowa .show-left-menu .k-titlebar { -webkit-transform: translate(0, 0); transform: translate(0, 0); /* 3 */ } }
+@media screen and (min-width: 768px) { .koowa .show-left-menu .k-content, .koowa .show-left-menu .k-titlebar { transform: translate(0, 0); /* 3 */ } }
 
-.koowa--rtl.koowa .show-left-menu .k-content, .koowa--rtl.koowa .show-left-menu .k-titlebar { -webkit-transform: translate(-270px, 0); transform: translate(-270px, 0); }
+.koowa--rtl.koowa .show-left-menu .k-content, .koowa--rtl.koowa .show-left-menu .k-titlebar { transform: translate(-270px, 0); }
 
-@media screen and (min-width: 768px) { .koowa--rtl.koowa .show-left-menu .k-content, .koowa--rtl.koowa .show-left-menu .k-titlebar { -webkit-transform: translate(0, 0); transform: translate(0, 0); } }
+@media screen and (min-width: 768px) { .koowa--rtl.koowa .show-left-menu .k-content, .koowa--rtl.koowa .show-left-menu .k-titlebar { transform: translate(0, 0); } }
 
-.koowa .show-right-menu .k-content, .koowa .show-right-menu .k-titlebar { -webkit-transform: translate(-270px, 0); transform: translate(-270px, 0); /* 2 */ }
+.koowa .show-right-menu .k-content, .koowa .show-right-menu .k-titlebar { transform: translate(-270px, 0); /* 2 */ }
 
-@media screen and (min-width: 768px) { .koowa .show-right-menu .k-content, .koowa .show-right-menu .k-titlebar { -webkit-transform: translate(0, 0); transform: translate(0, 0); /* 3 */ } }
+@media screen and (min-width: 768px) { .koowa .show-right-menu .k-content, .koowa .show-right-menu .k-titlebar { transform: translate(0, 0); /* 3 */ } }
 
-.koowa--rtl.koowa .show-right-menu .k-content, .koowa--rtl.koowa .show-right-menu .k-titlebar { -webkit-transform: translate(270px, 0); transform: translate(270px, 0); }
+.koowa--rtl.koowa .show-right-menu .k-content, .koowa--rtl.koowa .show-right-menu .k-titlebar { transform: translate(270px, 0); }
 
-@media screen and (min-width: 768px) { .koowa--rtl.koowa .show-right-menu .k-content, .koowa--rtl.koowa .show-right-menu .k-titlebar { -webkit-transform: translate(0, 0); transform: translate(0, 0); } }
+@media screen and (min-width: 768px) { .koowa--rtl.koowa .show-right-menu .k-content, .koowa--rtl.koowa .show-right-menu .k-titlebar { transform: translate(0, 0); } }
 
 .koowa .opened--left .k-content, .koowa .opened--right .k-content { overflow: hidden; }
 
@@ -1989,7 +1989,7 @@ body.k-resizing { overflow: hidden; }
 
 .k-is-resizing .koowa .opened--left .k-content, .k-is-resizing .koowa .opened--right .k-content { overflow: hidden; }
 
-.koowa .k-off-canvas-overlay { position: absolute; /* 1 */ top: 0; /* 1 */ right: 0; /* 1 */ bottom: 0; /* 1 */ left: 0; /* 1 */ z-index: -1; /* 2 */ display: block; opacity: 0; /* 3 */ content: " "; background: black; -webkit-transition: opacity 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: opacity 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .k-off-canvas-overlay { position: absolute; /* 1 */ top: 0; /* 1 */ right: 0; /* 1 */ bottom: 0; /* 1 */ left: 0; /* 1 */ z-index: -1; /* 2 */ display: block; opacity: 0; /* 3 */ content: " "; background: black; transition: opacity 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 @media screen and (min-width: 768px) { .koowa .k-off-canvas-overlay { display: none; /* 4 */ } }
 
@@ -2003,11 +2003,11 @@ body.k-resizing { overflow: hidden; }
 
 .koowa--rtl.koowa .k-content-wrapper { direction: rtl; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-content-wrapper, .k-flexboxlegacy .koowa .k-content-wrapper { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; border-bottom: none; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-content-wrapper, .k-flexboxlegacy .koowa .k-content-wrapper { display: flex; flex-direction: row; flex: 1 1 auto; border-bottom: none; } }
 
 .koowa .k-form-layout { margin: 0; background: #fafafa; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-form-layout, .k-flexboxlegacy .koowa .k-form-layout { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; overflow: auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-form-layout, .k-flexboxlegacy .koowa .k-form-layout { display: flex; flex-direction: column; flex: 1 1 auto; overflow: auto; } }
 
 .k-is-resizing .koowa .k-form-layout { overflow: hidden; }
 
@@ -2025,7 +2025,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-container:after { clear: both; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-container, .k-flexboxlegacy .koowa .k-container { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-container, .k-flexboxlegacy .koowa .k-container { flex: 0 0 auto; } }
 
 .k-is-resizing .koowa .k-container { overflow: hidden; }
 
@@ -2057,9 +2057,9 @@ body.k-resizing { overflow: hidden; }
 @media screen and (min-width: 768px) { .koowa--rtl.koowa .k-container__sub { float: none; margin-right: 0; float: right; display: block; margin-left: 2.4590413082%; width: 31.6939724612%; }
   .koowa--rtl.koowa .k-container__sub:last-child { margin-left: 0; } }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-grid-table-container, .k-flexboxlegacy .koowa .k-grid-table-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1; -webkit-flex-shrink: 1; -ms-flex-negative: 1; flex-shrink: 1; overflow: hidden; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-grid-table-container, .k-flexboxlegacy .koowa .k-grid-table-container { display: flex; flex-grow: 1; flex-shrink: 1; overflow: hidden; } }
 
-.koowa .files-layout-switcher { margin: 0; padding: 0; list-style: none; border: none; background: transparent; display: block; float: left; width: 31px; height: 31px; margin: 4px; margin-left: 0; border-radius: 2px; text-align: center; line-height: 31px; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; border: 1px solid transparent; }
+.koowa .files-layout-switcher { margin: 0; padding: 0; list-style: none; border: none; background: transparent; display: block; float: left; width: 31px; height: 31px; margin: 4px; margin-left: 0; border-radius: 2px; text-align: center; line-height: 31px; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; border: 1px solid transparent; }
 
 .koowa--rtl.koowa .files-layout-switcher { float: right; margin-left: auto; margin-right: 0; }
 
@@ -2073,23 +2073,23 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-list-layout { margin: 0; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-list-layout, .k-flexboxlegacy .koowa .k-list-layout { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; overflow: auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-list-layout, .k-flexboxlegacy .koowa .k-list-layout { display: flex; flex-direction: column; flex: 1 1 auto; overflow: auto; } }
 
 .k-is-resizing .koowa .k-list-layout { overflow: hidden; }
 
-.koowa .k-mobile-title { background: #e1e1e1; border-bottom: 1px solid #c2c2c2; padding: 7px; }
+.koowa .k-mobile-title { background: #e1e1e1; border-bottom: 1px solid #c2c2c2; padding: 13px; }
 
-.koowa .k-mobile-title .k-heading { margin: 0; font-size: 21px; line-height: 32px; }
+.koowa .k-mobile-title .k-heading { margin: 0; font-size: 21px; line-height: 19px; }
 
 @media screen and (min-width: 768px) { .koowa .k-mobile-title { display: none; } }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-mobile-title, .k-flexboxlegacy .koowa .k-mobile-title { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-mobile-title, .k-flexboxlegacy .koowa .k-mobile-title { flex: 0 0 auto; } }
 
-.koowa .overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
+.koowa .overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .overflowing--flex, .k-flexboxlegacy .koowa .overflowing--flex { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; /* 1 */ -webkit-box-flex: 0; -webkit-flex: 0 1 auto; -ms-flex: 0 1 auto; flex: 0 1 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .overflowing--flex, .k-flexboxlegacy .koowa .overflowing--flex { display: flex; /* 1 */ flex: 0 1 auto; } }
 
-.koowa .overflowing--top, .koowa .overflowing--right, .koowa .overflowing--bottom, .koowa .overflowing--left { position: absolute; /* 2 */ z-index: 99; background: transparent; margin: 0; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .overflowing--top, .koowa .overflowing--right, .koowa .overflowing--bottom, .koowa .overflowing--left { position: absolute; /* 2 */ z-index: 99; background: transparent; margin: 0; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .overflowing--top.js-is-hidden, .koowa .overflowing--right.js-is-hidden, .koowa .overflowing--bottom.js-is-hidden, .koowa .overflowing--left.js-is-hidden { opacity: 0; }
 
@@ -2127,8 +2127,8 @@ body.k-resizing { overflow: hidden; }
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar, .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
 
-@media (min-width: 768px) and (min-height: 460px) { .k-flexbox .koowa .k-sidebar, .k-flexboxlegacy .koowa .k-sidebar, .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; }
-  .k-flexbox .koowa .k-sidebar .k-sidebar__navigation, .k-flexbox .koowa .k-sidebar .k-sidebar__footer, .k-flexboxlegacy .koowa .k-sidebar .k-sidebar__navigation, .k-flexboxlegacy .koowa .k-sidebar .k-sidebar__footer, .k-flexbox .koowa .k-sidebar-right .k-sidebar__navigation, .k-flexbox .koowa .k-sidebar-right .k-sidebar__footer, .k-flexboxlegacy .koowa .k-sidebar-right .k-sidebar__navigation, .k-flexboxlegacy .koowa .k-sidebar-right .k-sidebar__footer { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 768px) and (min-height: 460px) { .k-flexbox .koowa .k-sidebar, .k-flexboxlegacy .koowa .k-sidebar, .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: flex; flex-direction: column; flex: 0 0 auto; }
+  .k-flexbox .koowa .k-sidebar .k-sidebar__navigation, .k-flexbox .koowa .k-sidebar .k-sidebar__footer, .k-flexboxlegacy .koowa .k-sidebar .k-sidebar__navigation, .k-flexboxlegacy .koowa .k-sidebar .k-sidebar__footer, .k-flexbox .koowa .k-sidebar-right .k-sidebar__navigation, .k-flexbox .koowa .k-sidebar-right .k-sidebar__footer, .k-flexboxlegacy .koowa .k-sidebar-right .k-sidebar__navigation, .k-flexboxlegacy .koowa .k-sidebar-right .k-sidebar__footer { flex: 0 0 auto; } }
 
 .koowa--rtl.koowa .k-sidebar, .koowa--rtl.koowa .k-sidebar-right { direction: rtl; }
 
@@ -2156,8 +2156,8 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-sidebar__item + .koowa .k-sidebar__item { margin-top: 20px; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-sidebar__item, .k-flexboxlegacy .koowa .k-sidebar__item { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; }
-  .k-flexbox .koowa .k-sidebar__item--flex, .k-flexboxlegacy .koowa .k-sidebar__item--flex { -webkit-box-flex: 1; -webkit-flex: 1 0 auto; -ms-flex: 1 0 auto; flex: 1 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-sidebar__item, .k-flexboxlegacy .koowa .k-sidebar__item { flex: 0 0 auto; }
+  .k-flexbox .koowa .k-sidebar__item--flex, .k-flexboxlegacy .koowa .k-sidebar__item--flex { flex: 1 0 auto; } }
 
 .koowa .k-sidebar__header { padding: 20px 20px 0; font-weight: 700; text-transform: uppercase; font-size: 12px; }
 
@@ -2165,33 +2165,33 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-sidebar__item--overflow { overflow: auto; /* 1 */ /** Box shadow for overflowing containers 1. Set as same color as background to make it look like text is fading */ }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-sidebar__item--overflow, .k-flexboxlegacy .koowa .k-sidebar__item--overflow { -webkit-box-flex: 0; -webkit-flex: 0 1 auto; -ms-flex: 0 1 auto; flex: 0 1 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-sidebar__item--overflow, .k-flexboxlegacy .koowa .k-sidebar__item--overflow { flex: 0 1 auto; } }
 
 .k-is-resizing .koowa .k-sidebar__item--overflow { overflow: hidden; }
 
 .koowa .k-sidebar__item--overflow ~ [class^="overflowing"] { color: #eeeeee; }
 
-.koowa .k-titlebar { border-bottom: 1px solid #cdcdcd; position: relative; /* 1 */ z-index: 2; /* 1 */ display: table; width: 100%; background: #ececec; /* 2 */ color: #333333; -webkit-transition: -webkit-transform 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: transform 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* 3 */ /** Create custom 'overlay' for off canvas sidebar 1. Overlay over bottom border 2. Hide with negative z-index and opacity: 0 3. Give it a transition 4. Do not display when screen is wide enough */ position: relative; /* When flexbox is in use */ }
+.koowa .k-titlebar { border-bottom: 1px solid #cdcdcd; position: relative; /* 1 */ z-index: 2; /* 1 */ display: table; width: 100%; background: #ececec; /* 2 */ color: #333333; transition: transform 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* 3 */ /** Create custom 'overlay' for off canvas sidebar 1. Overlay over bottom border 2. Hide with negative z-index and opacity: 0 3. Give it a transition 4. Do not display when screen is wide enough */ position: relative; /* When flexbox is in use */ }
 
-.koowa .k-titlebar:before { display: block; position: absolute; content: " "; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin-bottom: -1px; /* 1 */ z-index: -1; /* 2 */ opacity: 0; /* 2 */ background: black; -webkit-transition: opacity 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: opacity 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* 3 */ }
+.koowa .k-titlebar:before { display: block; position: absolute; content: " "; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin-bottom: -1px; /* 1 */ z-index: -1; /* 2 */ opacity: 0; /* 2 */ background: black; transition: opacity 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* 3 */ }
 
 @media screen and (min-width: 768px) { .koowa .k-titlebar:before { display: none; /* 4 */ } }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-titlebar, .k-flexboxlegacy .koowa .k-titlebar { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-titlebar, .k-flexboxlegacy .koowa .k-titlebar { flex: 0 0 auto; } }
 
-.koowa .show-left-menu .k-titlebar { -webkit-transform: translate(270px, 0); transform: translate(270px, 0); /* 1 */ }
+.koowa .show-left-menu .k-titlebar { transform: translate(270px, 0); /* 1 */ }
 
-.koowa--rtl.koowa .show-left-menu .k-titlebar { -webkit-transform: translate(-270px, 0); transform: translate(-270px, 0); }
+.koowa--rtl.koowa .show-left-menu .k-titlebar { transform: translate(-270px, 0); }
 
-@media screen and (min-width: 768px) { .koowa .show-left-menu .k-titlebar { -webkit-transform: translate(0, 0); transform: translate(0, 0); /* 3 */ }
-  .koowa--rtl.koowa .show-left-menu .k-titlebar { -webkit-transform: translate(0, 0); transform: translate(0, 0); } }
+@media screen and (min-width: 768px) { .koowa .show-left-menu .k-titlebar { transform: translate(0, 0); /* 3 */ }
+  .koowa--rtl.koowa .show-left-menu .k-titlebar { transform: translate(0, 0); } }
 
-.koowa .show-right-menu .k-titlebar { -webkit-transform: translate(-270px, 0); transform: translate(-270px, 0); /* 2 */ }
+.koowa .show-right-menu .k-titlebar { transform: translate(-270px, 0); /* 2 */ }
 
-.koowa--rtl.koowa .show-right-menu .k-titlebar { -webkit-transform: translate(270px, 0); transform: translate(270px, 0); /* 2 */ }
+.koowa--rtl.koowa .show-right-menu .k-titlebar { transform: translate(270px, 0); /* 2 */ }
 
-@media screen and (min-width: 768px) { .koowa .show-right-menu .k-titlebar { -webkit-transform: translate(0, 0); transform: translate(0, 0); /* 3 */ }
-  .koowa--rtl.koowa .show-right-menu .k-titlebar { -webkit-transform: translate(0, 0); transform: translate(0, 0); } }
+@media screen and (min-width: 768px) { .koowa .show-right-menu .k-titlebar { transform: translate(0, 0); /* 3 */ }
+  .koowa--rtl.koowa .show-right-menu .k-titlebar { transform: translate(0, 0); } }
 
 .koowa .show-left-menu .k-titlebar:before, .koowa .show-right-menu .k-titlebar:before { opacity: .75; /* 1 */ }
 
@@ -2210,7 +2210,7 @@ body.k-resizing { overflow: hidden; }
 
 @media screen and (min-width: 768px) { .koowa .k-toolbar { width: 100%; display: table; } }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-toolbar, .k-flexboxlegacy .koowa .k-toolbar { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-toolbar, .k-flexboxlegacy .koowa .k-toolbar { flex: 0 0 auto; } }
 
 .koowa .k-toolbar { /** Alternative button colors If the button colors don't fit the toolbar you can have alternative colors */ /** Position the icons Only position them if media queries are supported By default we just want them aligned normally */ }
 
@@ -2232,7 +2232,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa--rtl.koowa .k-wrapper { direction: rtl; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-wrapper, .k-flexboxlegacy .koowa .k-wrapper { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; overflow: hidden; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-wrapper, .k-flexboxlegacy .koowa .k-wrapper { display: flex; flex-direction: column; flex: 1 1 auto; overflow: hidden; } }
 
 .koowa .opened--left, .koowa .opened--right { overflow: hidden; /* 1 */ }
 
@@ -2264,9 +2264,9 @@ body.k-resizing { overflow: hidden; }
 
 .k-checked .koowa .k-booleanlist { position: relative; z-index: 1; display: block; margin: 0; border: 1px solid #ccc; padding: 1px; width: 100%; height: 32px; border-radius: 4px; background: white; /* Hiding the input but keeping accessible */ /** Label styling 1. Float left so the two labels line up next to each other 2. Display block so we have styling control 3. Set height to input height minus border and spacing 4. Take up half of the parent 5. Take one pixel off the radius to look smooth 6. Don't let the user select */ /** Styling label on hover, focus and checked 1. White text on colored labels 2. Display colored background when item is :checked 3. Show fake :focus when any item has :active or :focus */ /** Positioning the colored backgrounds We're not using transform here since an 'overflow:hidden' on the parent would make our fake :focus disappear 1. Set correct color to item 2. Start with 0% (not 0) to have smooth transitions 3. Set position to half so the background takes only up half the space of the parent */ /** Positioning the colored backgrounds when :checked 1. 1px to account for padding in parent element 2. Set position to half so the background takes only up half the space of the parent */ }
 
-.k-checked .koowa .k-booleanlist label { float: left; /* 1 */ display: block; /* 2 */ margin: 0; padding: 0; height: 28px; /* 3 */ line-height: 28px; /* 3 */ width: 50%; /* 4 */ text-align: center; color: #555555; font-weight: normal; border-radius: 3px; /* 5 */ cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; /* 6 */ -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /** Colored backgrounds 1. Position absolute to place behind the label 2. Set background behind the text on the label but on top of the parent 3. Respect the 1px padding set on the parent 4. Set to black and set content to display psuedo element 5. Hide by default, using opacity for performance reasons 6. Take one pixel off the radius to look smooth */ /** Faking :focus on parent 1. Position absolute to parent 2. Set below label itself but above parent 3. Set 1px back because of padding on parent element 4. Hide by default, using opacity for performance reasons 5. Set to black and set content to display psuedo element 6. Same border-radius as parent 7. Same "focus" styling as input elements */ /* A little darker background on hovering */ }
+.k-checked .koowa .k-booleanlist label { float: left; /* 1 */ display: block; /* 2 */ margin: 0; padding: 0; height: 28px; /* 3 */ line-height: 28px; /* 3 */ width: 50%; /* 4 */ text-align: center; color: #555555; font-weight: normal; border-radius: 3px; /* 5 */ cursor: pointer; user-select: none; /* 6 */ transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /** Colored backgrounds 1. Position absolute to place behind the label 2. Set background behind the text on the label but on top of the parent 3. Respect the 1px padding set on the parent 4. Set to black and set content to display psuedo element 5. Hide by default, using opacity for performance reasons 6. Take one pixel off the radius to look smooth */ /** Faking :focus on parent 1. Position absolute to parent 2. Set below label itself but above parent 3. Set 1px back because of padding on parent element 4. Hide by default, using opacity for performance reasons 5. Set to black and set content to display psuedo element 6. Same border-radius as parent 7. Same "focus" styling as input elements */ /* A little darker background on hovering */ }
 
-.k-checked .koowa .k-booleanlist label:before { position: absolute; /* 1 */ z-index: -1; /* 2 */ top: 1px; /* 3 */ bottom: 1px; /* 3 */ display: block; /* 4 */ content: " "; /* 4 */ opacity: 0; /* 5 */ border-radius: 3px; /* 6 */ -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.k-checked .koowa .k-booleanlist label:before { position: absolute; /* 1 */ z-index: -1; /* 2 */ top: 1px; /* 3 */ bottom: 1px; /* 3 */ display: block; /* 4 */ content: " "; /* 4 */ opacity: 0; /* 5 */ border-radius: 3px; /* 6 */ transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .k-checked .koowa .k-booleanlist label:after { position: absolute; /* 1 */ z-index: -1; /* 2 */ top: -1px; /* 3 */ right: -1px; /* 3 */ bottom: -1px; /* 3 */ left: -1px; /* 3 */ opacity: 0; /* 4 */ display: block; /* 5 */ content: " "; /* 5 */ border-radius: 4px; /* 6 */ border: 1px solid #66afe9; /* 7 */ box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); /* 7 */ }
 
@@ -2306,7 +2306,7 @@ body.k-resizing { overflow: hidden; }
 
 .k-appearance.k-checked .koowa { /* Put some space between the box and the label */ }
 
-.k-appearance.k-checked .koowa input[type="checkbox"], .k-appearance.k-checked .koowa input[type="radio"] { /** 1. Resetting the default styling used by browsers. Don't do this for -moz- because the checkbox and radio box will look very ugly 2. Positioning relative to position psuedo before element nicely 3. Vertically positioning next to text 4. Aligning vertically next to labels 5. Indicate that element is clickable */ -webkit-appearance: none; /* 1 */ /* -moz-appearance: don't set this; /* 1 */ position: relative; /* 2 */ height: 15px; width: 15px; margin-top: -1px; /* 3 */ margin-bottom: 2px; /* 3 */ margin-left: 0; margin-right: .33em; border: 1px solid #aaa; padding: 0; background: white; display: inline-block; vertical-align: middle; cursor: pointer; /* 5 */ box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15); -webkit-transition: background 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: background 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* Hover to indicate element is clickable */ /* Set disabled border color a bit lighter so it won't appear to be larger */ /** 1. Position psuedo element absolute to have full control 2. Position top-left, margin, width and height will take care of centering 3. Initially hide the psuedo element 4. Show the psuedo element when item is checked */ }
+.k-appearance.k-checked .koowa input[type="checkbox"], .k-appearance.k-checked .koowa input[type="radio"] { /** 1. Resetting the default styling used by browsers. Don't do this for -moz- because the checkbox and radio box will look very ugly 2. Positioning relative to position psuedo before element nicely 3. Vertically positioning next to text 4. Aligning vertically next to labels 5. Indicate that element is clickable */ -webkit-appearance: none; /* 1 */ /* -moz-appearance: don't set this; /* 1 */ position: relative; /* 2 */ height: 15px; width: 15px; margin-top: -1px; /* 3 */ margin-bottom: 2px; /* 3 */ margin-left: 0; margin-right: .33em; border: 1px solid #aaa; padding: 0; background: white; display: inline-block; vertical-align: middle; cursor: pointer; /* 5 */ box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15); transition: background 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* Hover to indicate element is clickable */ /* Set disabled border color a bit lighter so it won't appear to be larger */ /** 1. Position psuedo element absolute to have full control 2. Position top-left, margin, width and height will take care of centering 3. Initially hide the psuedo element 4. Show the psuedo element when item is checked */ }
 
 .k-appearance.k-checked .koowa input[type="checkbox"]:hover, .k-appearance.k-checked .koowa input[type="radio"]:hover { background: #f1f1f1; }
 
@@ -2348,17 +2348,17 @@ body.k-resizing { overflow: hidden; }
 
 .k-appearance.k-checked .koowa .k-checkbox-toggle label:before, .k-appearance.k-checked .koowa .k-checkbox-toggle label:after, .k-appearance.k-checked .koowa .k-checkbox-toggle span:before, .k-appearance.k-checked .koowa .k-checkbox-toggle span:after { position: absolute; display: block; }
 
-.k-appearance.k-checked .koowa .k-checkbox-toggle label:before { top: 0; right: 0; width: 64px; height: 32px; border: 1px solid #ccc; border-radius: 6px; content: " "; background: white; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.k-appearance.k-checked .koowa .k-checkbox-toggle label:before { top: 0; right: 0; width: 64px; height: 32px; border: 1px solid #ccc; border-radius: 6px; content: " "; background: white; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
-.k-appearance.k-checked .koowa .k-checkbox-toggle label:after { top: 2px; right: 2px; width: 60px; height: 28px; border-radius: 5px; content: " "; background: #c0392b; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.k-appearance.k-checked .koowa .k-checkbox-toggle label:after { top: 2px; right: 2px; width: 60px; height: 28px; border-radius: 5px; content: " "; background: #c0392b; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .k-appearance.k-checked .koowa .k-checkbox-toggle span { position: relative; z-index: 1; overflow: hidden; }
 
-.k-appearance.k-checked .koowa .k-checkbox-toggle span:before, .k-appearance.k-checked .koowa .k-checkbox-toggle span:after { -webkit-font-smoothing: antialiased; font-size: .8125em; line-height: 26px; text-transform: uppercase; text-align: center; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.k-appearance.k-checked .koowa .k-checkbox-toggle span:before, .k-appearance.k-checked .koowa .k-checkbox-toggle span:after { -webkit-font-smoothing: antialiased; font-size: .8125em; line-height: 26px; text-transform: uppercase; text-align: center; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .k-appearance.k-checked .koowa .k-checkbox-toggle span:before { top: 2px; right: 2px; width: 32px; height: 28px; border: 1px solid transparent; content: attr(data-false); color: white; }
 
-.k-appearance.k-checked .koowa .k-checkbox-toggle span:after { top: 2px; right: 34px; width: 28px; height: 28px; border: 1px solid #c0392b; border-radius: 5px; background: white; content: attr(data-true); /* 1 */ text-indent: -60px; /* 1 */ text-align: center; color: rgba(255, 255, 255, 0); /* 2 */ -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.k-appearance.k-checked .koowa .k-checkbox-toggle span:after { top: 2px; right: 34px; width: 28px; height: 28px; border: 1px solid #c0392b; border-radius: 5px; background: white; content: attr(data-true); /* 1 */ text-indent: -60px; /* 1 */ text-align: center; color: rgba(255, 255, 255, 0); /* 2 */ transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .k-appearance.k-checked .koowa .k-checkbox-toggle input:active + label:before, .k-appearance.k-checked .koowa .k-checkbox-toggle input:focus + label:before { border: 1px solid #66afe9; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
 
@@ -2427,7 +2427,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .floatThead-wrapper { z-index: 1 !important; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .floatThead-wrapper, .k-flexboxlegacy .koowa .floatThead-wrapper { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex: 0; -webkit-flex: 0 1 auto; -ms-flex: 0 1 auto; flex: 0 1 auto; overflow: auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .floatThead-wrapper, .k-flexboxlegacy .koowa .floatThead-wrapper { display: flex; flex: 0 1 auto; overflow: auto; } }
 
 .k-is-resizing .koowa .floatThead-wrapper { overflow: hidden; }
 
@@ -2445,7 +2445,7 @@ body.k-resizing { overflow: hidden; }
 
 @media screen and (min-width: 768px) { .k-js-enabled .koowa .off-canvas-menu-toggle { display: none; /* 3 */ } }
 
-.koowa .off-canvas-menu-toggle .bar1, .koowa .off-canvas-menu-toggle .bar2, .koowa .off-canvas-menu-toggle .bar3 { position: absolute; left: 9px; display: block; width: 15px; height: 3px; border-radius: 1px; background: white; vertical-align: middle; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .off-canvas-menu-toggle .bar1, .koowa .off-canvas-menu-toggle .bar2, .koowa .off-canvas-menu-toggle .bar3 { position: absolute; left: 9px; display: block; width: 15px; height: 3px; border-radius: 1px; background: white; vertical-align: middle; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa--rtl.koowa .off-canvas-menu-toggle .bar1, .koowa--rtl.koowa .off-canvas-menu-toggle .bar2, .koowa--rtl.koowa .off-canvas-menu-toggle .bar3 { left: auto; right: 9px; }
 
@@ -2463,13 +2463,13 @@ body.k-resizing { overflow: hidden; }
 
 .koowa--rtl.koowa #right-menu-toggle { right: auto; left: 0; }
 
-.koowa .show-left-menu .off-canvas-menu-toggle .bar1, .koowa .show-right-menu .off-canvas-menu-toggle .bar1 { top: 15px; -webkit-transform: rotate(135deg); transform: rotate(135deg); }
+.koowa .show-left-menu .off-canvas-menu-toggle .bar1, .koowa .show-right-menu .off-canvas-menu-toggle .bar1 { top: 15px; transform: rotate(135deg); }
 
-.koowa .show-left-menu .off-canvas-menu-toggle .bar2, .koowa .show-right-menu .off-canvas-menu-toggle .bar2 { opacity: 0; -webkit-transform: translate(-100%, 0); transform: translate(-100%, 0); }
+.koowa .show-left-menu .off-canvas-menu-toggle .bar2, .koowa .show-right-menu .off-canvas-menu-toggle .bar2 { opacity: 0; transform: translate(-100%, 0); }
 
-.koowa--rtl.koowa .show-left-menu .off-canvas-menu-toggle .bar2, .koowa .show-right-menu .off-canvas-menu-toggle .bar2 { -webkit-transform: translate(100%, 0); transform: translate(100%, 0); }
+.koowa--rtl.koowa .show-left-menu .off-canvas-menu-toggle .bar2, .koowa .show-right-menu .off-canvas-menu-toggle .bar2 { transform: translate(100%, 0); }
 
-.koowa .show-left-menu .off-canvas-menu-toggle .bar3, .koowa .show-right-menu .off-canvas-menu-toggle .bar3 { top: 15px; -webkit-transform: rotate(-135deg); transform: rotate(-135deg); }
+.koowa .show-left-menu .off-canvas-menu-toggle .bar3, .koowa .show-right-menu .off-canvas-menu-toggle .bar3 { top: 15px; transform: rotate(-135deg); }
 
 .koowa .k-heading { font-size: 21px; line-height: 32px; margin: 0 0 20px; }
 
@@ -2547,15 +2547,15 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .jqtree-toggler { position: relative; }
 
-.koowa .jqtree-toggler:before { display: block; position: absolute; content: " "; top: 50%; margin-top: -2px; left: 4px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .jqtree-toggler:before { display: block; position: absolute; content: " "; top: 50%; margin-top: -2px; left: 4px; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa--rtl.koowa .jqtree-toggler:before { left: auto; right: 4px; }
 
 .koowa .jqtree-toggler:hover:before, .koowa .jqtree-toggler:focus:before { border-top-color: black; }
 
-.koowa .jqtree-toggler.jqtree-closed:before { -webkit-transform: rotate(-90deg); transform: rotate(-90deg); }
+.koowa .jqtree-toggler.jqtree-closed:before { transform: rotate(-90deg); }
 
-.koowa--rtl.koowa .jqtree-toggler.jqtree-closed:before { -webkit-transform: rotate(90deg); transform: rotate(90deg); }
+.koowa--rtl.koowa .jqtree-toggler.jqtree-closed:before { transform: rotate(90deg); }
 
 .koowa .jqtree_common.active > .jqtree-element { color: #3071a9; font-weight: 700; }
 
@@ -2605,11 +2605,11 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .no-items-container.alert p:last-child { margin-bottom: 0; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .no-items-container.alert, .k-flexboxlegacy .koowa .no-items-container.alert { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .no-items-container.alert, .k-flexboxlegacy .koowa .no-items-container.alert { flex: 0 0 auto; } }
 
 .k-checked .koowa .k-option-list { position: relative; z-index: 1; display: table; margin: 0; border: 1px solid #ccc; padding: 1px; width: 100%; height: 32px; border-radius: 4px; background: white; /* Hiding the input but keeping accessible */ /** Label styling 1. Display as table cell so the labels line up next to each other 2. Set height to input height minus border and spacing 3. Take one pixel off the radius to look smooth 4. Don't let the user select */ /** Styling label when checked 1. White text on colored labels 2. Display colored background when item is :checked */ /** Fake focus We need to create a separate element for the fake focus since we're dealing with more than two items here 1. Position it on top of the parent element but behind the labels 2. Hide by default 3. Display on focus 4. Set border-radius same as parent */ }
 
-.k-checked .koowa .k-option-list label { position: relative; z-index: 1; display: table-cell; /* 1 */ margin: 0; padding: 0; height: 28px; /* 2 */ line-height: 28px; /* 2 */ text-align: center; color: #555555; font-weight: normal; border-radius: 3px; /* 3 */ cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; /* 4 */ -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* A little darker background on hovering */ }
+.k-checked .koowa .k-option-list label { position: relative; z-index: 1; display: table-cell; /* 1 */ margin: 0; padding: 0; height: 28px; /* 2 */ line-height: 28px; /* 2 */ text-align: center; color: #555555; font-weight: normal; border-radius: 3px; /* 3 */ cursor: pointer; user-select: none; /* 4 */ transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* A little darker background on hovering */ }
 
 .k-checked .koowa .k-option-list label:hover { background: rgba(0, 0, 0, 0.15); }
 
@@ -2623,7 +2623,7 @@ body.k-resizing { overflow: hidden; }
 
 .k-is-resizing .koowa .k-breadcrumb { overflow: hidden; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb, .k-flexboxlegacy .koowa .k-breadcrumb { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb, .k-flexboxlegacy .koowa .k-breadcrumb { flex: 0 0 auto; } }
 
 .koowa .k-breadcrumb { /** Links 1. Full background hover */ /** List 1. Reset unordered list styling */ /** Styling list items 1. Set z-index to 0 so the :after psuedo element will be on top 2. Make room for the psuedo element separator 3. Make each item at least one breadcrumb size wide 4. Hide by default so we can show only a few on mobile 5. Hide overflowing content 6. Proper spacing for non-flexbox use */ /** Home and last elements 1. Always display these items 2. No flexing for these items so the are readable */ /** Root element 1. Hide root text by default 2. Show and position it when root is the active item to show more then just a home icon */ /** One but last item Show this item on mobile to get a sense of where you are 1. Set 'missing' content 2. Reset to default content on wider screens */ /* Active item */ }
 
@@ -2633,7 +2633,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-breadcrumb ul { margin: 0; padding: 0; list-style: none; border: none; background: transparent; /* 1 */ /* Flexing items to get overflow ellipsis */ }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb ul, .k-flexboxlegacy .koowa .k-breadcrumb ul { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb ul, .k-flexboxlegacy .koowa .k-breadcrumb ul { display: flex; } }
 
 .koowa .k-breadcrumb li { position: relative; /* 1 */ z-index: 0; /* 1 */ padding-left: 20px; /* 2 */ min-width: 39px; /* 3 */ display: none; /* 4 */ overflow: hidden; /* 5 */ vertical-align: middle; /* 6 */ /* Display on larger screens */ /* Flexing items to get overflow ellipsis */ /* List item separator */ position: relative; /* No separator on first item */ /** Hover 1. Reset flexbox so the whole item is visible */ }
 
@@ -2641,7 +2641,7 @@ body.k-resizing { overflow: hidden; }
 
 @media screen and (min-width: 768px) { .koowa .k-breadcrumb li { display: inline-block; } }
 
-@media (min-width: 768px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb li, .k-flexboxlegacy .koowa .k-breadcrumb li { display: block; -webkit-box-flex: 0; -webkit-flex: 0 1 auto; -ms-flex: 0 1 auto; flex: 0 1 auto; } }
+@media (min-width: 768px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb li, .k-flexboxlegacy .koowa .k-breadcrumb li { display: block; flex: 0 1 auto; } }
 
 .koowa .k-breadcrumb li:before { display: block; position: absolute; top: 0; bottom: 0; left: 0; width: 20px; padding-top: 9.75px; padding-bottom: 9.75px; text-align: center; line-height: 19.5px; content: "»"; }
 
@@ -2655,11 +2655,11 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-breadcrumb li:hover { overflow: visible; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb li:hover, .k-flexboxlegacy .koowa .k-breadcrumb li:hover { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; /* 1 */ } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb li:hover, .k-flexboxlegacy .koowa .k-breadcrumb li:hover { flex: 0 0 auto; /* 1 */ } }
 
 .koowa .k-breadcrumb .k-breadcrumb__active, .koowa .k-breadcrumb .k-breadcrumb__home { display: inline-block; /* 1 */ overflow: visible; /* 1 */ }
 
-@media (min-width: 768px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb .k-breadcrumb__active, .k-flexboxlegacy .koowa .k-breadcrumb .k-breadcrumb__active, .k-flexbox .koowa .k-breadcrumb .k-breadcrumb__home, .k-flexboxlegacy .koowa .k-breadcrumb .k-breadcrumb__home { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; /* 2 */ } }
+@media (min-width: 768px) and (min-height: 460px) { .k-flexbox .koowa .k-breadcrumb .k-breadcrumb__active, .k-flexboxlegacy .koowa .k-breadcrumb .k-breadcrumb__active, .k-flexbox .koowa .k-breadcrumb .k-breadcrumb__home, .k-flexboxlegacy .koowa .k-breadcrumb .k-breadcrumb__home { flex: 0 0 auto; /* 2 */ } }
 
 .koowa .k-breadcrumb .k-breadcrumb_root-text { /* 1 */ }
 
@@ -2677,7 +2677,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-breadcrumb__item { position: relative; z-index: 2; display: block; padding: 10px; min-width: 39px; min-height: 39px; overflow: hidden; text-align: center; line-height: 19px; text-decoration: none; white-space: nowrap; text-overflow: ellipsis; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-grid-container, .k-flexboxlegacy .koowa .k-grid-container { -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-grid-container, .k-flexboxlegacy .koowa .k-grid-container { flex: 1 1 auto; } }
 
 .koowa .k-grid { background: #ffffff; border-bottom: 1px solid #dbdbdb; padding: 8px; }
 
@@ -2731,7 +2731,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-grid__item--folder { cursor: pointer; }
 
-.koowa .k-grid__item--folder .k-grid__item__title { padding: 10px; border: 1px solid #ddd; background: #fafafa; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .k-grid__item--folder .k-grid__item__title { padding: 10px; border: 1px solid #ddd; background: #fafafa; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .k-grid__item--folder .k-grid__item__title:before { content: ""; padding-right: 5px; }
 
@@ -2741,7 +2741,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-grid__item--file { cursor: pointer; }
 
-.koowa .k-grid__item--file .k-grid__item__content { position: relative; background: #ffffff; border: 1px solid #ddd; padding: 1px; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .k-grid__item--file .k-grid__item__content { position: relative; background: #ffffff; border: 1px solid #ddd; padding: 1px; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .k-grid__item--file .k-grid__item__content:before { display: block; content: " "; padding-top: 75%; }
 
@@ -2753,7 +2753,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-grid__item--file .k-grid__file img { display: inline-block; vertical-align: middle; max-width: 100%; }
 
-.koowa .k-grid__item--file .k-grid__item__title { padding: 10px; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .k-grid__item--file .k-grid__item__title { padding: 10px; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .k-grid__item--file:focus .k-grid__item__title, .koowa .k-grid__item--file:hover .k-grid__item__title { background: #f1f1f1; }
 
@@ -2761,16 +2761,16 @@ body.k-resizing { overflow: hidden; }
 
 @media screen and (min-width: 1024px) { .koowa .k-scopebar { display: table; width: 100%; } }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-scopebar, .k-flexboxlegacy .koowa .k-scopebar { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-scopebar, .k-flexboxlegacy .koowa .k-scopebar { flex: 0 0 auto; } }
 
-@media (min-width: 1024px) and (min-height: 460px) { .k-flexbox .koowa .k-scopebar, .k-flexboxlegacy .koowa .k-scopebar { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; width: auto; -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 1024px) and (min-height: 460px) { .k-flexbox .koowa .k-scopebar, .k-flexboxlegacy .koowa .k-scopebar { display: flex; width: auto; flex: 0 0 auto; } }
 
-.koowa .k-scopebar .k-breadcrumb { -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; }
+.koowa .k-scopebar .k-breadcrumb { flex: 1 1 auto; }
 
 .koowa .k-scopebar__item { border-bottom: 1px solid #d2d2d2; vertical-align: middle; /** When flexbox is in use */ }
 
-@media (min-width: 1024px) and (min-height: 460px) { .k-flexbox .koowa .k-scopebar__item, .k-flexboxlegacy .koowa .k-scopebar__item { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; /* Search item */ }
-  .k-flexbox .koowa .k-scopebar__item.k-scopebar__item--search, .k-flexboxlegacy .koowa .k-scopebar__item.k-scopebar__item--search { display: block; -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 1024px) and (min-height: 460px) { .k-flexbox .koowa .k-scopebar__item, .k-flexboxlegacy .koowa .k-scopebar__item { display: block; flex: 0 0 auto; /* Search item */ }
+  .k-flexbox .koowa .k-scopebar__item.k-scopebar__item--search, .k-flexboxlegacy .koowa .k-scopebar__item.k-scopebar__item--search { display: block; flex: 0 0 auto; } }
 
 .koowa .k-scopebar__item--fluid:before, .koowa .k-scopebar__item--fluid:after { display: table; content: " "; }
 
@@ -2778,7 +2778,7 @@ body.k-resizing { overflow: hidden; }
 
 @media screen and (min-width: 1024px) { .koowa .k-scopebar__item--fluid { display: table-cell; width: 99%; } }
 
-@media (min-width: 1024px) and (min-height: 460px) { .k-flexbox .koowa .k-scopebar__item--fluid, .k-flexboxlegacy .koowa .k-scopebar__item--fluid { -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; width: auto; } }
+@media (min-width: 1024px) and (min-height: 460px) { .k-flexbox .koowa .k-scopebar__item--fluid, .k-flexboxlegacy .koowa .k-scopebar__item--fluid { flex: 1 1 auto; width: auto; } }
 
 .koowa .k-scopebar__filters { /* 1 */ border-left: 1px solid #d2d2d2; position: relative; /* 2 */ z-index: 2; /* 2 */ }
 
@@ -2847,11 +2847,11 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-scopebar__item--search .k-search__button-empty.is-visible { display: inline-block; }
 
-.koowa .k-scopebar__item--search .k-search__button-empty span { margin: 3px; box-sizing: border-box; width: 16px; height: 16px; display: inline-block; line-height: 16px; text-align: center; border-radius: 100%; color: #777; text-decoration: none; font-weight: 700; font-family: Arial, helvetica, sans-serif; font-size: 10px; }
+.koowa .k-scopebar__item--search .k-search__button-empty span { margin: 3px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 16px; height: 16px; display: inline-block; line-height: 16px; text-align: center; border-radius: 100%; color: #777; text-decoration: none; font-weight: 700; font-family: Arial, helvetica, sans-serif; font-size: 10px; }
 
 .koowa .k-scopebar__item--search .k-search__button-empty:hover { cursor: pointer; }
 
-.koowa .k-scopebar__item--search .k-search__button-empty:hover span { background: #ea9393; border: 1px solid #ce4c4c; color: #fff; text-shadow: 1px 1px 1px #ce4c4c; box-shadow: inset 1px 2px 1px #d97474; }
+.koowa .k-scopebar__item--search .k-search__button-empty:hover span { background: #ea9393; border: 1px solid #ce4c4c; color: #fff; text-shadow: 1px 1px 1px #ce4c4c; -webkit-box-shadow: inset 1px 2px 1px #d97474; box-shadow: inset 1px 2px 1px #d97474; }
 
 .koowa .k-scopebar-icon-button { position: relative; display: none; overflow: hidden; width: 39px; height: 0; margin: 0; border: none; padding: 0; padding-top: 39px; background: transparent; }
 
@@ -2861,7 +2861,7 @@ body.k-resizing { overflow: hidden; }
 
 .k-js-enabled .koowa .k-scopebar-icon-button { display: block; }
 
-.koowa .k-scopebar__filter-toggle-wrapper, .koowa .k-scopebar__search-toggle-wrapper { width: 39px; height: 39px; }
+.koowa .k-scopebar__filter-toggle-wrapper, .koowa .k-scopebar__search-toggle-wrapper { width: 39px; max-width: 39px; height: 39px; white-space: nowrap; }
 
 .koowa .k-scopebar__filter-toggle-wrapper { position: relative; }
 
@@ -2870,6 +2870,10 @@ body.k-resizing { overflow: hidden; }
 .koowa .k-scopebar__filters-wrapper { display: table; width: 100%; height: auto; }
 
 .koowa .k-scopebar__filter-toggle-wrapper, .koowa .k-scopebar__filters-content, .koowa .k-scopebar__search-toggle-wrapper { display: table-cell; vertical-align: top; }
+
+@media screen and (min-width: 1024px) { .koowa .k-scopebar__search-toggle-wrapper { display: none; } }
+
+.koowa .k-scopebar__filters-content { min-height: 39px; min-width: 39px; width: 99%; }
 
 .k-js-enabled .koowa .k-scopebar__filters { display: none; }
 
@@ -2885,8 +2889,6 @@ body.k-resizing { overflow: hidden; }
 
 .k-js-enabled .koowa .k-toggle-search { display: block; float: right; }
 
-@media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-toggle-search { display: none; } }
-
 .koowa--rtl.k-js-enabled .koowa .k-toggle-search { float: left; }
 
 .koowa .k-scopebar__group--right { float: right; }
@@ -2899,13 +2901,13 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-table-container { /* Table container */ /** Cells 1. Position checkbox 2. Remove default margin and set negative top margin to visually align vertically */ /** Head 1. Don't set a vertical padding on table headers. Set padding on table heading children We do this so <a> elements are fully clickable for sorting 2. Don't use long header titles since they won't be wrapped 3. Whole <th> should be clickable 4. Set padding here */ /** Body 1. Small extra info below title display:block to display below title */ /* Hover background */ /** Table classes Classes to add to table cells */ /** Table levels Indented levels for a clearer overview */ /** Selected When rows are selected they are highlighted 1. Coloring Links and extra elements that don't color automatically with it's parent */ /* Sub headings */ /** Sorting arrows 1. Display table to line them up horizontally while: - We keep everything vertically centered - We keep it all on one line but don't have to deal with inline-block spacing trouble 2. Set base line-height to 16px to keep it all vertically centered 3. Set min-width to 16px so icons and placeholder have the same width, lining all arrows perfectly below each other 4. Aligning items in center 5. Min-width for text larger to fit 3 digits by default. Icons will line up nice to at least 999 6. Set a little padding for when text item gets 4 digits */ }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-table-container, .k-flexboxlegacy .koowa .k-table-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; overflow: auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-table-container, .k-flexboxlegacy .koowa .k-table-container { display: flex; flex: 1 1 auto; flex-direction: column; overflow: auto; } }
 
 .k-is-resizing .koowa .k-table-container { overflow: hidden; }
 
 .koowa .k-table-container .k-table { overflow: auto; background: #ffffff; min-height: 180px; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-table-container .k-table, .k-flexboxlegacy .koowa .k-table-container .k-table { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex: 0; -webkit-flex: 0 1 auto; -ms-flex: 0 1 auto; flex: 0 1 auto; background: #ffffff; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-table-container .k-table, .k-flexboxlegacy .koowa .k-table-container .k-table { display: flex; flex: 0 1 auto; background: #ffffff; } }
 
 .k-is-resizing .koowa .k-table-container .k-table { overflow: hidden; }
 
@@ -2913,11 +2915,11 @@ body.k-resizing { overflow: hidden; }
 
 .koowa--rtl.koowa .k-table-container table { text-align: right; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-table-container table, .k-flexboxlegacy .koowa .k-table-container table { -webkit-box-flex: 1; -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-table-container table, .k-flexboxlegacy .koowa .k-table-container table { flex: 1 1 auto; } }
 
 .k-is-resizing .koowa .k-table-container table { overflow: hidden; }
 
-.koowa .k-table-container th, .koowa .k-table-container td { position: relative; height: 39px; vertical-align: middle; text-align: left; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .k-table-container th, .koowa .k-table-container td { position: relative; height: 39px; vertical-align: middle; text-align: left; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .k-table-container th input, .koowa .k-table-container td input { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ margin: -1px 0 0 0; /* 2 */ }
 
@@ -2925,7 +2927,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-table-container th { border-bottom: 1px solid #dbdbdb; z-index: 1; padding: 0 10px; /* 1 */ white-space: nowrap; /* 2 */ background: #fafafa; }
 
-.koowa .k-table-container th a { display: block; /* 3 */ padding: 10px 10px; /* 4 */ margin-left: -10px; margin-right: -10px; line-height: 19px; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .k-table-container th a { display: block; /* 3 */ padding: 10px 10px; /* 4 */ margin-left: -10px; margin-right: -10px; line-height: 19px; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .k-table-container th a:focus, .koowa .k-table-container th a:hover { background: #f1f1f1; }
 
@@ -2943,7 +2945,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-table-container a:hover, .koowa .k-table-container a:focus { text-decoration: underline; }
 
-.koowa .k-table-container a { -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .k-table-container a { transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .k-table-container .k-table-data--right { text-align: right; }
 
@@ -3079,7 +3081,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-table-pagination { padding: 7px; background: #fafafa; border-top: 1px solid #d2d2d2; box-shadow: 0 1px 0 #dbdbdb; /* 1 */ /* Flexbox */ /** Pagination contents 1. Align vertically 2. Remove standard Bootstrap margin 3. Style <select> to be as large as the pagination 4. Make sure <select> is always as small as possible 5. Separate <select> from pagination */ }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-table-pagination, .k-flexboxlegacy .koowa .k-table-pagination { -webkit-box-flex: 0; -webkit-flex: 0 0 auto; -ms-flex: 0 0 auto; flex: 0 0 auto; } }
+@media (min-width: 300px) and (min-height: 460px) { .k-flexbox .koowa .k-table-pagination, .k-flexboxlegacy .koowa .k-table-pagination { flex: 0 0 auto; } }
 
 .koowa .k-table-pagination .limit, .koowa .k-table-pagination .pagination { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
 
@@ -3097,13 +3099,13 @@ body.k-resizing { overflow: hidden; }
 
 .koowa--rtl.koowa .footable.breakpoint .footable-toggle { margin-right: 0; margin-left: 10px; }
 
-.koowa .footable.breakpoint .footable-toggle:after { content: ""; display: inline-block; width: 10px; height: 10px; margin: 4px; color: #b3b3b3; font-size: 10px; line-height: 1.3em; -webkit-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .footable.breakpoint .footable-toggle:after { content: ""; display: inline-block; width: 10px; height: 10px; margin: 4px; color: #b3b3b3; font-size: 10px; line-height: 1.3em; transform: rotate(-90deg); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .footable.breakpoint tr.selected .footable-toggle { border-color: white; }
 
 .koowa .footable.breakpoint tr.selected .footable-toggle:after { color: white; }
 
-.koowa .footable.breakpoint tr.footable-detail-show .footable-toggle:after { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+.koowa .footable.breakpoint tr.footable-detail-show .footable-toggle:after { transform: rotate(0deg); }
 
 .koowa .footable.breakpoint .footable-row-detail-row { margin-bottom: 10px; }
 
@@ -3131,7 +3133,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .margin-bottom.margin-bottom.margin-bottom { margin-bottom: 20px; }
 
-.koowa .no-transition.no-transition.no-transition { -webkit-transition: none; transition: none; }
+.koowa .no-transition.no-transition.no-transition { transition: none; }
 
 .koowa .k-nowrap.k-nowrap.k-nowrap { white-space: nowrap; }
 
@@ -3159,8 +3161,8 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-quick-filters .k-sidebar__header { position: relative; }
 
-@media (min-height: 460px) { .k-js-enabled .koowa .k-quick-filters .k-sidebar__toggle:after { content: ""; background: white; border: 1px solid #ddd; border-radius: 10px; width: 20px; height: 20px; position: absolute; top: 20px; right: 20px; display: block; text-align: center; line-height: 20px; vertical-align: middle; font-size: 10px; cursor: pointer; -webkit-transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
-  .k-js-enabled .koowa .k-quick-filters .k-sidebar__toggle.is-active:after { -webkit-transform: rotate(180deg); transform: rotate(180deg); } }
+@media (min-height: 460px) { .k-js-enabled .koowa .k-quick-filters .k-sidebar__toggle:after { content: ""; background: white; border: 1px solid #ddd; border-radius: 10px; width: 20px; height: 20px; position: absolute; top: 20px; right: 20px; display: block; text-align: center; line-height: 20px; vertical-align: middle; font-size: 10px; cursor: pointer; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+  .k-js-enabled .koowa .k-quick-filters .k-sidebar__toggle.is-active:after { transform: rotate(180deg); } }
 
 @media (min-height: 550px) { .k-js-enabled .koowa .k-quick-filters .k-sidebar__toggle { display: none; } }
 

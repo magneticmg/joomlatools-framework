@@ -1,31 +1,53 @@
-// Bootsrap variables and mixins used in files
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
+/**
+ * Default Joomla theme
+ * ====================
+ * Styled to fit nicely within the Joomla administrator layout
+ */
 
-// Our own variables and mixins
-@import "generic/variables";
-@import "generic/mixins";
 
-// Outside of the koowa scope
-@import "generic/general";
+/**
+ * Joomla variables
+ * ----------------
+ * Load first to win over "!default" variables defined in core/_tools.scss
+ */
 
-$koowaPath: '..' !default;
+@import "variables";
 
-// Core variables and mixins
-@import "koowa/koowa";
 
-// Inside koowa scope
-.koowa {
-  @import "generic/grid";
-  @import "generic/header";
-  @import "generic/input-file";
-  @import "generic/dialog";
-  @import "generic/inputgroups";
-  @import "generic/pagination";
-  @import "generic/sidebar-nav";
+/**
+ * Global tools
+ * ------------
+ * Containing different libraries, variables, mixins and functions
+ */
 
-  @import "admin/layout";
-  @import "admin/scopebar";
-  @import "admin/table";
-  @import "admin/pagination";
-}
+@import "../../../../../library/resources/assets/scss/admin/core/tools";
+
+
+/**
+ * Joomla specific
+ * ---------------
+ * Styles that apply to the Joomla administrator
+ */
+
+@import "isis";
+@import "hathor";
+
+
+/**
+ * Core styling
+ * ------------
+ * Finally loading the default styling
+ */
+
+@import "../../../../../library/resources/assets/scss/admin/core/core";
+
+
+/**
+ * Extra styling
+ * -------------
+ * Extra styling that can't be done by merely using variables
+ */
+
+@import "styles";
+@import "modals";
+
