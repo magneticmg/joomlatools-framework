@@ -69,7 +69,6 @@ $grid-width: 2560px !default;
 
 .k-grid {
   background: $table-background;
-  @include border(bottom, $table-header-border);
   padding: $grid-spacing / 2;
 }
 
