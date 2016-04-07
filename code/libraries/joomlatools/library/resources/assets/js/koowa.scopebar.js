@@ -146,7 +146,7 @@ $.widget("koowa.scopebar", {
                 self.openDropdown(button);
 
                 // Set focus to hovered item
-                $(this).focus();
+                button.focus();
             }
         });
 
@@ -209,6 +209,8 @@ $.widget("koowa.scopebar", {
         if (select.length === 1 && select.data('select2')) {
             //select.select2('open');
         }
+
+        element.focus();
     },
 
     closeDropdown: function() {
