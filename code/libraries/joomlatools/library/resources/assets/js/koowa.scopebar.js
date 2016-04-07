@@ -15,6 +15,7 @@ $.widget("koowa.scopebar", {
         var prototype = $('.js-filter-prototype');
 
         this.template = prototype.clone();
+        this.template.removeClass('.js-filter-prototype');
 
         prototype.remove();
 
@@ -124,8 +125,16 @@ $.widget("koowa.scopebar", {
             event.stopPropagation();
         });
 
-        this.element.on('hover', '.js-dropdown-button', function(event) {
+        this.element.on('hover', '*', function(event) {
             var button = $(event.target);
+
+            if (!button.hasClass('js-dropdown-button')) {
+                button = button.parents('.js-dropdown-button');
+            }
+
+            if (button.length === 0) {
+                return;
+            }
 
             // Check if any dropdown is active
             // Check if the hovered item isn't the active item
