@@ -106,10 +106,10 @@ module.exports = function(grunt) {
                 files: {
                     '<%= nookuFrameworkAssetsPath %>/js/build/admin.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/select2/dist/js/select2.full.min.js',
-                        'bower_components/magnific-popup/dist/jquery.magnific-popup.min.js',
-                        'bower_components/footable/dist/footable.min.js',
-                        'bower_components/floatThead/dist/jquery.floatThead.min.js',
+                        'node_modules/select2/dist/js/select2.full.min.js',
+                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+                        'node_modules/footable/dist/footable.min.js',
+                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
                         '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
                         '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
                         '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
@@ -117,29 +117,29 @@ module.exports = function(grunt) {
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.js': [
-                        'bower_components/jquery/dist/jquery.js',
+                        'node_modules/jquery/dist/jquery.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.magnific-popup.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
+                        'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.validate.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/jquery-validation/dist/jquery.validate.js',
+                        'node_modules/jquery-validation/dist/jquery.validate.js',
                         '<%= nookuFrameworkAssetsPath %>/js/jquery.validate.patch.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/koowa.select2.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/select2/dist/js/select2.full.js',
+                        'node_modules/select2/dist/js/select2.full.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.select2.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/koowa.tree.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/jqtree/tree.jquery.js',
+                        'node_modules/jqtree/tree.jquery.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.tree.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
@@ -164,10 +164,10 @@ module.exports = function(grunt) {
                 files: {
                     '<%= nookuFrameworkAssetsPath %>/js/min/admin.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/select2/dist/js/select2.full.min.js',
-                        'bower_components/magnific-popup/dist/jquery.magnific-popup.min.js',
-                        'bower_components/footable/dist/footable.min.js',
-                        'bower_components/floatThead/dist/jquery.floatThead.min.js',
+                        'node_modules/select2/dist/js/select2.full.min.js',
+                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+                        'node_modules/footable/dist/footable.min.js',
+                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
                         '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
                         '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
                         '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
@@ -178,17 +178,17 @@ module.exports = function(grunt) {
                         '<%= nookuFrameworkAssetsPath %>/js/bootstrap.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.js': [
-                        'bower_components/jquery/dist/jquery.js',
+                        'node_modules/jquery/dist/jquery.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.magnific-popup.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
+                        'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.validate.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/jquery-validation/dist/jquery.validate.js',
+                        'node_modules/jquery-validation/dist/jquery.validate.js',
                         '<%= nookuFrameworkAssetsPath %>/js/jquery.validate.patch.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
@@ -202,7 +202,7 @@ module.exports = function(grunt) {
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.tree.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'bower_components/jqtree/tree.jquery.js',
+                        'node_modules/jqtree/tree.jquery.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.tree.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
