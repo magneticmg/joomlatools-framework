@@ -11,7 +11,9 @@
             $clickable = $('a, button'),
             $searchtoggle = $('.js-toggle-search'),
             $filtertoggle = $('.js-toggle-filters'),
-            $footable = $('.footable');
+            $footable = $('.footable'),
+            $overflow = $('.k-sidebar__item--overflow'),
+            resizeClass = 'k-is-resizing';
 
         // Sidebar
         if ( ($toolbar.length || $titlebar.length) && $wrapper.length && $content.length)
@@ -56,13 +58,14 @@
                     position: 'right'
                 });
             }
-
-            // Overflowing sidebar items
-            $('.k-sidebar__item--overflow').overflowing();
         }
 
+        // Overflowing items
+        if ( $overflow.length ) {
+            $overflow.overflowing();
+        }
 
-
+        // Footable
         if ( $footable.length ) {
             $footable.on('click', '.footable-toggle', function(event){
                 event.stopPropagation();
@@ -80,12 +83,6 @@
                 $fixedtable.floatThead('reflow');
             });
         }
-
-        // WP sidebar toggle
-        $('#collapse-menu').on('click', function() {
-            $fixedtable.floatThead('destroy');
-            fixedTable();
-        });
 
         // Sticky table header and footer
         function fixedTable() {
@@ -118,19 +115,18 @@
             $('.k-scopebar__filters').toggle('fast');
         });
 
-
         // Add a class during resizing event so we can hide overflowing stuff
         var resizeTimer;
 
         $(window).on('resize', function(e) {
 
             // Add the class
-            $('body').addClass('k-is-resizing');
+            $('body').addClass(resizeClass);
 
             // Remove the class when resize is done
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function() {
-                $('body').removeClass('k-is-resizing');
+                $('body').removeClass(resizeClass);
                 $fixedtable.floatThead('reflow');
             }, 250);
 
@@ -139,4 +135,3 @@
     });
 
 })(jQuery);
-

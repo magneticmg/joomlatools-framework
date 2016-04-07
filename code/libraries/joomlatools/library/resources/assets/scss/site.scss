@@ -1,32 +1,43 @@
-// Bootsrap variables and mixins used in files
+/* Bootsrap variables and mixins used in files */
 @import "../lib/sass-twitter-bootstrap/variables";
 @import "../lib/sass-twitter-bootstrap/mixins";
 
-// Our own variables and mixins
-@import "site/generic/variables";
-@import "site/generic/mixins";
+/* Variables */
+@import "koowa/utilities/variables";
+@import "site/molecules/variables";
 
-// Outside of the koowa scope
-@import "site/generic/general";
+/* Mixins */
+@import "koowa/utilities/mixins";
 
-$koowaPath: '..' !default;
-$icon-path: '..' !default;
+/* Outside of the koowa scope */
+@import "site/molecules/general";
+@import "site/molecules/modal";
 
-// Core variables and mixins
-@import "site/koowa/koowa";
+/* Icons */
+@import "koowa/utilities/koowa-icons";
 
-// Inside koowa scope
+/* Inside koowa scope */
 .koowa {
-  @import "site/generic/grid";
-  @import "site/generic/header";
-  @import "site/generic/input-file";
-  @import "site/generic/dialog";
-  @import "site/generic/inputgroups";
-  @import "site/generic/pagination";
-  @import "site/generic/sidebar-nav";
 
-  @import "site/site/anchor";
-  @import "site/site/radio";
-  @import "site/site/table";
-  @import "site/site/toolbar";
+  /* Border-box size everything */
+
+  &, *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+
+  /* Koowa */
+
+  @import "koowa/molecules/jqtree";
+
+
+  /* Molecules */
+
+  @import "site/molecules/anchor";
+  @import "site/molecules/header";
+  @import "site/molecules/icons";
+  @import "site/molecules/input-file";
+  @import "site/molecules/table";
+  @import "site/molecules/wrapped-content";
+
 }

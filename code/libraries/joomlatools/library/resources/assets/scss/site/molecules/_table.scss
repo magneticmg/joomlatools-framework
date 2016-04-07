@@ -5,25 +5,14 @@ table td {
   * {
     vertical-align: middle;
   }
+
   input[type="checkbox"] {
     margin: 0;
   }
+
   a.iconImage {
     display: inline-block;
     text-decoration: none;
-  }
-}
-
-table.parameters {
-  td {
-    white-space: normal !important;
-    @include wrap_words();
-
-    &.detail-label {
-      white-space: nowrap !important;
-      font-weight: bold;
-      font-size: 14px;
-    }
   }
 }
 

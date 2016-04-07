@@ -1,5 +1,6 @@
 @charset "UTF-8";
-/** Joomla Hathor template specific styling / overrides =================================================== */
+/** Component styling ================= Used in Joomla views that are not controlled by us, such as menu and module views */
+/** Global tools ------------ Containing different libraries, variables, mixins and functions */
 /* ========================================================================== Tools ========================================================================== */
 /* Variables, functions and mixins ========================================================================== */
 /** 1. Bourbon, needed for neat 2. Extending the neat library with own mixins 3. Neat: grid system */
@@ -507,14 +508,4 @@
 
 .k-icon-zoom-out:before { content: ""; }
 
-body.tmpl-hathor .subheader, body.tmpl-hathor .toolbar-box { display: none !important; }
-
-body.tmpl-hathor #content { margin: 15px; }
-
-body.tmpl-hathor #content > .k-heading { display: none !important; }
-
-body.tmpl-hathor #element-box { border: 1px solid #ccc; }
-
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox body.tmpl-hathor #element-box, .k-flexboxlegacy body.tmpl-hathor #element-box { display: flex; width: 100%; } }
-
-body.tmpl-hathor .koowa-container { width: 100%; max-width: none; }
+/** Needed styling -------------- Load needed styling in here */

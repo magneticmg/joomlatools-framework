@@ -6,7 +6,6 @@
 
 "use strict";
 
-
 (function($) {
 
     $.offCanvasMenu = function(element, options) {

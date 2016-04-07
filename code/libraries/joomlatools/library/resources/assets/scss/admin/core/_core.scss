@@ -63,6 +63,10 @@
   @import "../../../../../../../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
 
 
+  /* Koowa */
+  @import "../../koowa/molecules/jqtree";
+
+
   /* Bootstrap overrides / extensions */
 
   @import "../molecules/bootstrap/buttons";
@@ -109,7 +113,7 @@
   @import "../molecules/hamburger";
   @import "../molecules/heading";
   @import "../molecules/icons";
-  @import "../molecules/jqtree";
+  @import "../molecules/tree";
   @import "../molecules/list";
   @import "../molecules/navigation";
   @import "../molecules/no-items-alert";
@@ -130,7 +134,7 @@
    * loading last so we have the biggest chance of 'winning' specificity wars without using !important
    */
 
-  @import "../utilities/utilities";
+  @import "../../koowa/utilities/utilities";
 
 
   /**
@@ -140,7 +144,7 @@
   * Ideally this should be moved as fast as possible but at least before shipping
   */
 
-  @import "../utilities/shame";
+  @import "../shame";
 
 }
 
@@ -156,4 +160,4 @@
  * Making the font size 16px fixes this behaviour since iOs believes the input is readable enough
  */
 
-@import "../utilities/ios-autozoom-fix";
+@import "../../koowa/utilities/ios-autozoom-fix";

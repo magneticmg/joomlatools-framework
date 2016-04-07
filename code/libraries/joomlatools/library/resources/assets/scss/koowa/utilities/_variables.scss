@@ -1,0 +1,21 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+$flexbox:             true !default; // 4
+$flexbox-horizontal:  300px !default; // 5
+$flexbox-vertical:    460px !default; // 5
+
+$light-percentage:      3% !default;
+$lighter-percentage:    7% !default;
+$lightest-percentage:   12% !default;
+
+$dark-percentage:       3% !default;
+$darker-percentage:     7% !default;
+$darkest-percentage:    12% !default;
+
+$transition-duration:   180ms !default;
+$transition-easing:     cubic-bezier(.2,.57,.44,.83) !default;
+$transition:            $transition-duration $transition-easing !default;
+
+$bold:                  bold;

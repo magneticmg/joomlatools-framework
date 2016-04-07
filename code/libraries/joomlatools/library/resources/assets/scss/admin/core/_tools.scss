@@ -11,14 +11,14 @@
  * 3. Neat: grid system
  */
 
-@import "../utilities/functions";
-@import "../utilities/variables";
+@import "../../koowa/utilities/functions";
+@import "variables";
 @import "../../../../../../../../../bower_components/bourbon/app/assets/stylesheets/bourbon"; /* 1 */
-@import "../utilities/neat-extended"; /* 2 */
+@import "../../koowa/utilities/neat-extended"; /* 2 */
 @import "../../../../../../../../../bower_components/neat/app/assets/stylesheets/neat"; /* 3 */
 @import "../../../../../../../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "../../../../../../../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-@import "../utilities/mixins";
+@import "../../koowa/utilities/mixins";
 
 
 /* Icons
@@ -29,4 +29,4 @@
  * To change this file, change the assets/icons/template.css file
  */
 
-@import "../utilities/koowa-icons";
+@import "../../koowa/utilities/koowa-icons";

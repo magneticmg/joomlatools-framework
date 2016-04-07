@@ -1,18 +1,6 @@
-@import "../../admin/utilities/koowa-icons";
-
-// Loading the fonts
-@font-face {
-  font-family: 'koowa';
-  src: url('#{$koowaPath}/fonts/koowa-icons/koowa-icons.eot');
-  src: url('#{$koowaPath}/fonts/koowa-icons/koowa-icons.eot?#iefix') format('embedded-opentype'), url('#{$koowaPath}/fonts/koowa-icons/koowa-icons.ttf') format('truetype'), url('#{$koowaPath}/fonts/koowa-icons/koowa-icons.woff') format('woff'), url('#{$koowaPath}/fonts/koowa-icons/koowa-icons.svg#koowa') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 [class^="koowa_icon--"],
 [class*=" koowa_icon--"],
 .koowa_icon_font /* Used as mixin */  {
-  font-family: 'koowa';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -33,7 +21,6 @@
 
   /* Styling the before element */
   &:before {
-    font-family: 'koowa';
     display: block;
     overflow: visible;
     width: 16px;
@@ -102,79 +89,79 @@
 
 // Actual icons
 .koowa_icon--default {
-  @include icon-before(k-default,true);
+  @include icon-before(k-default, true);
 }
 
 .koowa_icon--image {
-  @include icon-before(k-image,true);
+  @include icon-before(k-image, true);
 }
 
 .koowa_icon--video {
-  @include icon-before(k-video,true);
+  @include icon-before(k-video, true);
 }
 
 .koowa_icon--archive {
-  @include icon-before(k-archive,true);
+  @include icon-before(k-archive, true);
 }
 
 .koowa_icon--folder {
-  @include icon-before(k-folder,true);
+  @include icon-before(k-folder, true);
 }
 
 .koowa_icon--pdf {
-  @include icon-before(k-pdf,true);
+  @include icon-before(k-pdf, true);
 }
 
 .koowa_icon--audio {
-  @include icon-before(k-audio,true);
+  @include icon-before(k-audio, true);
 }
 
 .koowa_icon--document {
-  @include icon-before(k-document,true);
+  @include icon-before(k-document, true);
 }
 
 .koowa_icon--spreadsheet {
-  @include icon-before(k-spreadsheet,true);
+  @include icon-before(k-spreadsheet, true);
 }
 
 .koowa_icon--locked {
-  @include icon-before(k-locked,true);
+  @include icon-before(k-locked, true);
 }
 
 .koowa_icon--unlocked {
-  @include icon-before(k-unlocked,true);
+  @include icon-before(k-unlocked, true);
 }
 
 .koowa_icon--disabled {
-  @include icon-before(k-disabled,true);
+  @include icon-before(k-disabled, true);
 }
 
 .koowa_icon--enabled {
-  @include icon-before(k-enabled,true);
+  @include icon-before(k-enabled, true);
 }
 
 .koowa_icon--open {
-  @include icon-before(k-open,true);
+  @include icon-before(k-open, true);
 }
 
 .koowa_icon--close {
-  @include icon-before(k-close,true);
+  @include icon-before(k-close, true);
 }
 
 .koowa_icon--folder_open {
-  @include icon-before(k-folder-open,true);
+  @include icon-before(k-folder-open, true);
 }
 
 .koowa_icon--calendar {
-  @include icon-before(k-calendar,true);
+  @include icon-before(k-calendar, true);
 }
 
 .koowa_icon--menu {
-  @include icon-before(k-menu,true);
+  @include icon-before(k-menu, true);
 }
 
 .koowa_icon--menu_open {
-  @include icon-before(k-menu_open,true);
+  @include icon-before(k-menu_open, true);
 }
 
 .koowa_icon--sort:before {
@@ -221,34 +208,5 @@
   }
   .icon-toggler {
     vertical-align: top;
-  }
-}
-
-.old-ie {
-  [class^="koowa_icon--"],
-  [class*=" koowa_icon--"] {
-    .koowa_icon--24 {
-      width: 24px;
-      height: 24px;
-
-      &:before {
-        width: 24px;
-        height: 24px;
-        font-size: 24px;
-        line-height: 24px;
-      }
-    }
-
-    .koowa_icon--48 {
-      width: 48px;
-      height: 48px;
-
-      &:before {
-        width: 48px;
-        height: 48px;
-        font-size: 48px;
-        line-height: 48px;
-      }
-    }
   }
 }

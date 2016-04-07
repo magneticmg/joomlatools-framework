@@ -3594,8 +3594,6 @@ module.exports = '1.2.1';
                     },
                 'tree.init':
                     function() {
-                        // .sidebar-nav needed for bootstrap styling to apply
-                        $(this).find('ul.jqtree-tree').addClass('sidebar-nav');
 
                         // If a node should be preselected on init, select it right away
                         if(options.selected) {
@@ -3606,7 +3604,6 @@ module.exports = '1.2.1';
                     },
                 'tree.refresh': //Refreshes reset the html, and happen on events like setState
                     function() {
-                        $(this).find('ul.jqtree-tree').addClass('sidebar-nav'); // .sidebar-nav needed for bootstrap styling to apply
                         $(this).find('.jqtree-selected').addClass('active');
                     }
             });

@@ -10,7 +10,7 @@
 @font-face {
   font-family: "<%= fontBaseName %>";
   src:    url("#{$icon-path}/<%= fontBaseName %>/<%= fontBaseName %>.eot");
-  src:    url("#{$icon-path}/fonts/<%= fontBaseName %>/<%= fontBaseName %>.eot?#iefix") format("embedded-opentype"),
+  src:    url("#{$icon-path}/<%= fontBaseName %>/<%= fontBaseName %>.eot?#iefix") format("embedded-opentype"),
   url("#{$icon-path}/<%= fontBaseName %>/<%= fontBaseName %>.woff") format("woff"),
   url("#{$icon-path}/<%= fontBaseName %>/<%= fontBaseName %>.ttf") format("truetype"),
   url("#{$icon-path}/<%= fontBaseName %>/<%= fontBaseName %>.svg#<%= fontBaseName %>") format("svg");
@@ -102,23 +102,6 @@ $icons: (<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
 // For adding icons to elements using CSS pseudo-elements
 
 @mixin icon-after($icon: false, $styles: false) {
-  &:after {
-    @if $icon {
-      content: "#{map-get($icons, $icon)}";
-    }
-    @if $styles {
-      @extend %icon;
-    }
-    @content;
-  }
-}
-
-
-// 'Icon both' mixin
-// For adding icons to elements using CSS pseudo-elements
-
-@mixin icon-both($icon: false, $styles: false) {
-  &:before,
   &:after {
     @if $icon {
       content: "#{map-get($icons, $icon)}";

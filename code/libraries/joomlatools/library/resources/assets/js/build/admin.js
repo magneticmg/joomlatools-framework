@@ -273,7 +273,6 @@ b.id!=f.id&&d.push(f.id)}c.$element.val(d.join(c._valueSeparator)),c.$element.tr
 
 "use strict";
 
-
 (function($) {
 
     $.offCanvasMenu = function(element, options) {
@@ -621,7 +620,9 @@ b.id!=f.id&&d.push(f.id)}c.$element.val(d.join(c._valueSeparator)),c.$element.tr
             $clickable = $('a, button'),
             $searchtoggle = $('.js-toggle-search'),
             $filtertoggle = $('.js-toggle-filters'),
-            $footable = $('.footable');
+            $footable = $('.footable'),
+            $overflow = $('.k-sidebar__item--overflow'),
+            resizeClass = 'k-is-resizing';
 
         // Sidebar
         if ( ($toolbar.length || $titlebar.length) && $wrapper.length && $content.length)
@@ -666,13 +667,14 @@ b.id!=f.id&&d.push(f.id)}c.$element.val(d.join(c._valueSeparator)),c.$element.tr
                     position: 'right'
                 });
             }
-
-            // Overflowing sidebar items
-            $('.k-sidebar__item--overflow').overflowing();
         }
 
+        // Overflowing items
+        if ( $overflow.length ) {
+            $overflow.overflowing();
+        }
 
-
+        // Footable
         if ( $footable.length ) {
             $footable.on('click', '.footable-toggle', function(event){
                 event.stopPropagation();
@@ -690,12 +692,6 @@ b.id!=f.id&&d.push(f.id)}c.$element.val(d.join(c._valueSeparator)),c.$element.tr
                 $fixedtable.floatThead('reflow');
             });
         }
-
-        // WP sidebar toggle
-        $('#collapse-menu').on('click', function() {
-            $fixedtable.floatThead('destroy');
-            fixedTable();
-        });
 
         // Sticky table header and footer
         function fixedTable() {
@@ -728,19 +724,18 @@ b.id!=f.id&&d.push(f.id)}c.$element.val(d.join(c._valueSeparator)),c.$element.tr
             $('.k-scopebar__filters').toggle('fast');
         });
 
-
         // Add a class during resizing event so we can hide overflowing stuff
         var resizeTimer;
 
         $(window).on('resize', function(e) {
 
             // Add the class
-            $('body').addClass('k-is-resizing');
+            $('body').addClass(resizeClass);
 
             // Remove the class when resize is done
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function() {
-                $('body').removeClass('k-is-resizing');
+                $('body').removeClass(resizeClass);
                 $fixedtable.floatThead('reflow');
             }, 250);
 
@@ -749,7 +744,6 @@ b.id!=f.id&&d.push(f.id)}c.$element.val(d.join(c._valueSeparator)),c.$element.tr
     });
 
 })(jQuery);
-
 
 
 

@@ -343,6 +343,10 @@ img.mfp-img {
 
 .mfp-figure {
   line-height: 0;
+
+  figure {
+    margin: 0;
+  }
 }
 
 .mfp-bottom-bar {

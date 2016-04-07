@@ -2,11 +2,6 @@
  * JQTree
  */
 
-.k-tree {
-  @include clearfix;
-  margin: $list-spacing 0;
-}
-
 .jqtree-tree {
   @include clearfix;
 
@@ -29,22 +24,16 @@
   @include clearfix;
 }
 
-
 .jqtree-element {
   position: relative;
   display: block;
   width: 100%;
   font-size: 0;
   line-height: 0;
-  padding: 0 $spacing-tiny 0 $spacing;
+  padding: 0;
   white-space: nowrap;
   height: auto;
   cursor: pointer;
-
-  &:hover,
-  &:focus {
-    background: $jqtree-hover-background;
-  }
 
   a {
     padding: 0;
@@ -78,11 +67,17 @@
 }
 
 .k-icon-folder {
-  @include icon-before(k-folder,true) {font-size: 16px;margin-bottom: -1px;}
+  @include icon-before(k-folder, true) {
+    font-size: 16px;
+    margin-bottom: -1px;
+  }
 }
 
 .k-icon-folder--open {
-  @include icon-before(k-folder_open,true) {font-size: 16px;margin-bottom: -1px;}
+  @include icon-before(k-folder_open, true) {
+    font-size: 16px;
+    margin-bottom: -1px;
+  }
 }
 
 .jqtree-title {
@@ -107,7 +102,6 @@
     }
   }
 
-
   &:hover,
   &:focus {
     &:before {
@@ -126,9 +120,10 @@
   }
 }
 
-.jqtree_common.active > .jqtree-element {
-  color: $color-accent;
-  font-weight: $bold;
+.jqtree_common.active {
+  & > .jqtree-element {
+    font-weight: $bold;
+  }
 }
 
 .jqtree-closed {
