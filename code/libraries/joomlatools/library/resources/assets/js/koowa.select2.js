@@ -41,10 +41,10 @@
                     var results = [],
                         more = (page * 10) < data.meta.total; // whether or not there are more results available
 
-                    $.each(data.data, function(i, item) {
+                    $.each(data.entities, function(i, item) {
                         // Change format to what select2 expects
-                        item.id   = item.attributes[options.value];
-                        item.text = item.attributes[options.text];
+                        item.id   = item[options.value];
+                        item.text = item[options.text];
 
                         results.push(item);
                     });
