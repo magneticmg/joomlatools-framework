@@ -199,6 +199,8 @@ $.widget("koowa.scopebar", {
     openDropdown: function(element) {
         var parent = element.parent();
 
+        this.closeDropdown();
+
         // Set active class to parent
         parent.addClass('is-active');
 
