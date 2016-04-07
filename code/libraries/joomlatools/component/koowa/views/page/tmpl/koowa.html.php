@@ -25,7 +25,7 @@ defined('KOOWA') or die; ?>
     <ktml:script>
 
 </head>
-<body class="k-template">
+<body>
 
     <ktml:messages>
     <ktml:content>
