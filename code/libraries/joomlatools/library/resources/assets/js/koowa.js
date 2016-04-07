@@ -319,7 +319,7 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
     },
 
     setFilters: function() {
-        new Koowa.Grid.Filter(this.form.find('.k-filter-container'));
+        $('.js-filter-container').scopebar();
     },
 
     setTableHeaders: function() {
