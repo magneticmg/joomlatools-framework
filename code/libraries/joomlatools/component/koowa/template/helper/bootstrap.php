@@ -35,12 +35,8 @@ class ComKoowaTemplateHelperBootstrap extends ComKoowaTemplateHelperBehavior
                 $html .= $this->jquery($config);
             }
 
-            if (version_compare(JVERSION, '3.0', '>='))
-            {
-                JHtml::_('bootstrap.framework');
-                self::$_loaded['bootstrap-javascript'] = true;
-            }
-            else $html .= '<ktml:script src="media://koowa/framework/js/bootstrap'.($config->debug ? '' : '.min').'.js" />';
+            JHtml::_('bootstrap.framework');
+            self::$_loaded['bootstrap-javascript'] = true;
         }
 
         return $html;
@@ -62,7 +58,7 @@ class ComKoowaTemplateHelperBootstrap extends ComKoowaTemplateHelperBehavior
             'javascript'     => false,
             'package'        => $identifier->package,
             'file'           => $identifier->type === 'mod' ? 'module' : $identifier->domain,
-            'load_base'      => version_compare(JVERSION, '3.0', '<'),
+            'load_base'      => false,
             'class'          => array(
                 'koowa',
                 $identifier->type.'_'.$identifier->package,
@@ -111,10 +107,6 @@ class ComKoowaTemplateHelperBootstrap extends ComKoowaTemplateHelperBehavior
             $try_files = array(
                 sprintf($template, $config->package, $config->file)
             );
-
-            if (version_compare(JVERSION, '3.0', '<')) {
-                array_unshift($try_files, sprintf($template, $config->package, $config->file.'-25'));
-            }
 
             foreach ($try_files as $file)
             {
