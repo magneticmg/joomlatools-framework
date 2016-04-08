@@ -12,7 +12,7 @@
   height: 90%!important;
   left: 5%!important;
   top: 5% !important;
-  padding: 10px!important;
+  padding: 1px!important;
 
   @include rtl-outside-koowa {
     left: auto !important;
@@ -39,9 +39,19 @@
     display: table-row;
     padding: 0;
     white-space: nowrap;
-    height: 34px;
+    height: 0;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    .mce-close {
+      color: #333;
+      right: 19px;
+      top: 11px;
+    }
+  }
+
+  .mce-title {
+    display: none;
   }
 
   .mce-window-body.mce-window-body {
@@ -51,34 +61,7 @@
   }
 
   .mce-foot.mce-foot {
-    display: table-row;
-    width: 100%!important;;
-    height: 38px!important;
-    white-space: nowrap;
-
-    .mce-container-body {
-      position: relative;
-      top: 0;
-      left: 0;
-      width: 100% !important;
-      height: 100% !important;
-
-      @include rtl-outside-koowa {
-        left: auto;
-        right: 0;
-      }
-    }
-
-    .mce-btn {
-      top: auto !important;
-      left: auto !important;
-      right: 0 !important;
-      bottom: 0 !important;
-
-      @include rtl-outside-koowa {
-        right: auto !important;
-      }
-    }
+    display: none;
   }
 }
 
