@@ -98,9 +98,12 @@ $.widget("koowa.scopebar", {
         });
 
         // Close dropdown on clicking outside
+        // Do not close item on clicking the dropdown body
         $('html').click(function (event) {
-            // Do not close item on clicking the dropdown body
-            if ($(event.target).parents('.js-filter-container').length === 0) {
+            var target = $(event.target),
+                isSelect2 = event.target.className.search('select2-') !== -1;
+
+            if (!isSelect2 && target.parents('.js-filter-container').length === 0) {
                 self.closeDropdown();
             }
         });
