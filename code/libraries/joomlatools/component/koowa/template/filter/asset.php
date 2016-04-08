@@ -40,6 +40,7 @@ class ComKoowaTemplateFilterAsset extends KTemplateFilterAsset
             'assets://js'  => $nooku_path.'/js',
             'assets://css' => $nooku_path.'/css',
             'assets://img' => $nooku_path.'/img',
+            'assets://koowa' => $path.'/media/koowa/com_koowa',
             'media://'     => $path.'/media/',
             'root://'      => $path.'/',
             'base://'      => rtrim($this->getObject('request')->getBaseUrl()->getPath(), '/').'/'

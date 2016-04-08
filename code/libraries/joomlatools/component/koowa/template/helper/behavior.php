@@ -31,19 +31,36 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
             )
         ));
 
-        $identifier = $this->getTemplate()->getIdentifier();
+        $html = '';
 
-        $domain = $identifier->type === 'mod' ? 'module' : $identifier->domain;
-        $path   = sprintf('com_%s/css/%s.css', $config->package, $domain);
+        if (!$config->css_file)
+        {
+            $identifier = $this->getTemplate()->getIdentifier();
 
-        if (file_exists(JPATH_ROOT.'/media/'.$path)) {
-            $config->css_file = 'assets://'.$path;
+            $domain = $identifier->type === 'mod' ? 'module' : $identifier->domain;
+            $path   = sprintf('com_%s/css/%s.css', $config->package, $domain);
+
+            if (file_exists(JPATH_ROOT.'/media/'.$path)) {
+                $config->css_file = 'assets://'.$path;
+            }
+            else {
+                $config->css_file = 'assets://koowa/css/'.$domain.'.css';
+            }
+
+            $app = JFactory::getApplication();
+            if ($app->isAdmin())
+            {
+                $template = $app->getTemplate();
+
+                if (file_exists(JPATH_ROOT.'/media/koowa/com_koowa/css/'.$template.'.css')) {
+                    $html .= '<ktml:style src="assets://koowa/css/'.$template.'.css" />';
+                }
+            }
         }
-        else {
-            $config->css_file = 'assets://koowa/css/'.$domain.'.css';
-        }
 
-        return parent::ui($config);
+        $html .= parent::ui($config);
+
+        return $html;
     }
 
     /**
