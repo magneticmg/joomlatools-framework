@@ -50,6 +50,7 @@ class ComKoowaTemplateHelperListbox extends KTemplateHelperListbox
             'attribs'   => array(),
             'deselect_value' => '',
             'deselect'  => true,
+            'select2' => false,
             'prompt'    => '- '.$this->getObject('translator')->translate('Select').' -'
         ))->append(array(
             'selected'  => $config->{$config->name}
@@ -63,6 +64,13 @@ class ComKoowaTemplateHelperListbox extends KTemplateHelperListbox
         }
 
         $html = JHtml::_('access.level', $config->name, $config->selected, $config->attribs->toArray(), $prompt);
+
+        if ($config->select2)
+        {
+            $html .= $this->getTemplate()->helper('behavior.select2', array(
+                'element' => 'select[name=\"'.$config->name.'\"]'
+            ));
+        }
     
         return $html;
     }
