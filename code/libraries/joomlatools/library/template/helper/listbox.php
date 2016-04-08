@@ -45,6 +45,12 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
 
         if ($config->select2)
         {
+            if (!$config->name) {
+                $config->attribs->append(array(
+                    'id' => 'select2-element-'.mt_rand(1000, 100000)
+                ));
+            }
+
             $config->append(array(
                 'select2_options' => array(
                     'element' => $config->attribs->id ? '#'.$config->attribs->id : 'select[name=\"'.$config->name.'\"]'

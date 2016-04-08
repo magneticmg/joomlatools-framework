@@ -65,7 +65,6 @@ class KTemplateHelperSelect extends KTemplateHelperAbstract implements KTemplate
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'options'   => array(),
-            'name'      => 'id',
             'selected'  => null,
             'disabled'  => null,
             'translate' => false,
