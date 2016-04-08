@@ -40,7 +40,7 @@ class ComKoowaTemplateHelperBootstrap extends ComKoowaTemplateHelperBehavior
                 JHtml::_('bootstrap.framework');
                 self::$_loaded['bootstrap-javascript'] = true;
             }
-            else $html .= '<ktml:script src="media://koowa/com_koowa/js/bootstrap'.($config->debug ? '' : '.min').'.js" />';
+            else $html .= '<ktml:script src="media://koowa/framework/js/bootstrap'.($config->debug ? '' : '.min').'.js" />';
         }
 
         return $html;
@@ -92,13 +92,13 @@ class ComKoowaTemplateHelperBootstrap extends ComKoowaTemplateHelperBehavior
             if ($config->load_base)
             {
                 if (!file_exists($template.'/disable-koowa-bootstrap.txt')) {
-                    $html .= '<ktml:style src="media://koowa/com_koowa/css/bootstrap.css" />';
+                    $html .= '<ktml:style src="media://koowa/framework/css/bootstrap.css" />';
                 }
             }
             else
             {
                 if (file_exists($template.'/enable-koowa-bootstrap.txt')) {
-                    $html .= '<ktml:style src="media://koowa/com_koowa/css/bootstrap.css" />';
+                    $html .= '<ktml:style src="media://koowa/framework/css/bootstrap.css" />';
                 }
             }
 
