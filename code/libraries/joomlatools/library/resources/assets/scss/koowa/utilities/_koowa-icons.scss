@@ -9,11 +9,11 @@
 
 @font-face {
   font-family: "koowa-icons";
-  src:    url("http://joomla.box/ercan/media/koowa/framework/fonts/koowa-icons/koowa-icons.eot");
-  src:    url("http://joomla.box/ercan/media/koowa/framework/fonts/koowa-icons/koowa-icons.eot?#iefix") format("embedded-opentype"),
-  url("http://joomla.box/ercan/media/koowa/framework/fonts/koowa-icons/koowa-icons.woff") format("woff"),
-  url("http://joomla.box/ercan/media/koowa/framework/fonts/koowa-icons/koowa-icons.ttf") format("truetype"),
-  url("http://joomla.box/ercan/media/koowa/framework/fonts/koowa-icons/koowa-icons.svg#koowa-icons") format("svg");
+  src:    url("../../koowa/framework/fonts/koowa-icons/koowa-icons.eot");
+  src:    url("../../koowa/framework/fonts/koowa-icons/koowa-icons.eot?#iefix") format("embedded-opentype"),
+  url("../../koowa/framework/fonts/koowa-icons/koowa-icons.woff") format("woff"),
+  url("../../koowa/framework/fonts/koowa-icons/koowa-icons.ttf") format("truetype"),
+  url("../../koowa/framework/fonts/koowa-icons/koowa-icons.svg#koowa-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -28,7 +28,7 @@
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: "koowa-icons";
-    src: url("http://joomla.box/ercan/media/koowa/framework/fonts/koowa-icons/koowa-icons.svg#koowa-icons") format("svg");
+    src: url("../../koowa/fonts/koowa-icons/koowa-icons.svg#koowa-icons") format("svg");
   }
 }
 
