@@ -23,6 +23,8 @@
         }
     ],
     "require": {
+        "php": ">=5.3",
+        "ext-mbstring": "*",
         "nooku/installer": "~1.0",
         "symfony/yaml": "~2.6"
     },
