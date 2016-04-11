@@ -39,16 +39,13 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
 
         if (!$config->css_file)
         {
-            $identifier = $this->getTemplate()->getIdentifier();
-
-            $domain = $identifier->type === 'mod' ? 'module' : $identifier->domain;
-            $path   = sprintf('com_%s/css/%s.css', $config->package, $domain);
+            $path   = sprintf('com_%s/css/%s.css', $config->package, $config->domain);
 
             if (file_exists(JPATH_ROOT.'/media/'.$path)) {
                 $config->css_file = 'assets://'.$path;
             }
             else {
-                $config->css_file = 'assets://koowa/css/'.$domain.'.css';
+                $config->css_file = 'assets://koowa/css/'.$config->domain.'.css';
             }
 
             $app = JFactory::getApplication();
