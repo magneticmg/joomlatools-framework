@@ -87,6 +87,31 @@ $grid-width: 2560px !default;
 
   // Set breakpoints
   @include setGridBreakpoint;
+
+  // Selected styling
+  &.selected {
+    .k-grid__item__title {
+      background: $color-accent;
+      border-color: darkest($color-accent);
+      color: $color-accent-type;
+
+      a {
+        color: $color-accent-type;
+      }
+    }
+
+    .k-grid__item__content {
+      color: $color-accent-type;
+      border-color: darker($color-accent);
+    }
+
+    &:hover,
+    &:focus {
+      .k-grid__item__title {
+        background: darkest($color-accent);
+      }
+    }
+  }
 }
 
 .k-grid__item__title {
@@ -126,7 +151,6 @@ $grid-width: 2560px !default;
   cursor: pointer;
 
   .k-grid__item__content {
-    @include ratio-block(4 to 3);
     background: colorpicker(primary, 6);
     border: 1px solid #ddd;
     padding: 1px;
@@ -134,9 +158,9 @@ $grid-width: 2560px !default;
   }
 
   .k-grid__file-wrapper {
-    @include coverall(1px);
     text-align: center;
     font-size: 0;
+    vertical-align: middle;
 
     &:before {
       content: '';
