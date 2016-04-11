@@ -637,6 +637,7 @@ c(a.element).is("option")?(a.element.selected=!1,void this.$element.trigger("cha
 
             if (sidebar_left.length) {
                 var left_toggle = $(toggle_button);
+                left_toggle.addClass('off-canvas-menu-toggle-holder--right');
 
                 if ($titlebar.length) {
                     $titlebar.prepend(left_toggle);
@@ -653,6 +654,7 @@ c(a.element).is("option")?(a.element.selected=!1,void this.$element.trigger("cha
 
             if (sidebar_right.length) {
                 var right_toggle = $(toggle_button);
+                right_toggle.addClass('off-canvas-menu-toggle-holder--right');
 
                 if ($titlebar.length) {
                     $titlebar.append(right_toggle);
