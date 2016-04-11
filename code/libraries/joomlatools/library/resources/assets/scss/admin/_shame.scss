@@ -104,3 +104,25 @@ input[type="color"],
 .k-button-container {
   margin-bottom: $spacing;
 }
+
+a.-koowa-asc,
+a.-koowa-desc {
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a.-koowa-asc {
+  @include icon-after(sort-ascending, true) {
+    margin-left: .5em;
+    vertical-align: middle;
+  }
+}
+
+a.-koowa-desc {
+  @include icon-after(sort-descending, true) {
+    margin-left: .5em;
+    vertical-align: middle;
+  }
+}
