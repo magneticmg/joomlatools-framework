@@ -727,7 +727,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .koowa--rtl.koowa .jqtree-toggler.jqtree-closed:before { transform: rotate(90deg); }
 
-.koowa .jqtree_common.active > .jqtree-element { font-weight: bold; }
+.koowa .jqtree_common.active > .jqtree-element { font-weight: 700; }
 
 .koowa .jqtree-closed ul { display: none; }
 

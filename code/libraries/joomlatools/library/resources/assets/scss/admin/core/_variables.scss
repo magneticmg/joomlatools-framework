@@ -17,12 +17,6 @@
 // 3. Separate $desktop variable is being used so all styles
 //    change together when going from small to larger screen.
 // 2. The max width of the frontend form layout
-// 4. Wether or not to Use flexbox in layouts
-// 5. Separate $flexbox variables are being used
-//    - 300px so flexbox will be active on 320px wide screens
-//    - 460px so flexbox will be active on 480px tall screens
-//      - 25-09-2015 http://mydevice.io/devices/
-//        The only phone at the time to have flexbox in landscape mode is the Blackberry passport
 
 $alpha:               400px !default;
 $beta:                600px !default;
@@ -32,26 +26,6 @@ $delta:               1024px !default;
 $minwidth:            $alpha !default; // 1
 $desktop:             $charlie !default; // 2
 $maxwidth:            $delta !default; // 3
-
-$flexbox:             true !default; // 4
-$flexbox-horizontal:  300px !default; // 5
-$flexbox-vertical:    460px !default; // 5
-
-
-// Function variables
-// ==========================================================================
-//
-// These are used by our light, lighter, lightest, dark, darker and darkest funxtions
-// This way we can change the amounts all in one.
-// Overwrite-able per function call
-
-$light-percentage:      3% !default;
-$lighter-percentage:    7% !default;
-$lightest-percentage:   12% !default;
-
-$dark-percentage:       3% !default;
-$darker-percentage:     7% !default;
-$darkest-percentage:    12% !default;
 
 
 // Typography
@@ -91,17 +65,6 @@ $spacing-huge:    $font-size * 3 !default;
 // ==========================================================================
 
 $unit-size: $spacing-huge !default;
-
-
-// Transition
-// ==========================================================================
-//
-// The basic transition being used everywhere to get consistent animations
-// Remember to sync the JavaScript animation time with this setting
-
-$transition-duration:   180ms !default;
-$transition-easing:     cubic-bezier(.2,.57,.44,.83) !default;
-$transition:            $transition-duration $transition-easing !default;
 
 
 // Colors

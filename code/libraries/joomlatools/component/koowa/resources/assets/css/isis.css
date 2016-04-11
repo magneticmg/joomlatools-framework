@@ -539,7 +539,7 @@ body .container-main { margin-left: -20px; margin-right: -20px; padding: 0; }
 
 body .container-main #content .row-fluid .span12 .k-overview { margin-top: 0; }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox body, .k-flexboxlegacy body { display: flex; flex-direction: column; overflow: auto; padding-top: 0; /** Set navbar from fixed to static */ /** Do not flex following items */ /** The main container */ /** Remove spacing and border-radius to align alerts to the side */ }
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox body, .k-flexboxlegacy body { display: flex; flex-direction: column; overflow: auto; padding-top: 0; /** Set navbar from fixed to static */ /** Do not flex following items */ /** The main container */ /** Remove spacing and border-radius to align alerts to the side */ }
   .k-flexbox body nav.navbar, .k-flexboxlegacy body nav.navbar { position: static; }
   .k-flexbox body nav.navbar, .k-flexbox body header.header, .k-flexbox body .subhead-collapse, .k-flexbox body #status, .k-flexbox body #system-message-container, .k-flexbox body #system-debug, .k-flexboxlegacy body nav.navbar, .k-flexboxlegacy body header.header, .k-flexboxlegacy body .subhead-collapse, .k-flexboxlegacy body #status, .k-flexboxlegacy body #system-message-container, .k-flexboxlegacy body #system-debug { flex: 0 0 auto; }
   .k-flexbox body .container-main, .k-flexboxlegacy body .container-main { display: flex; flex: 1 1 auto; overflow: auto; /** Flex all children of main container */ /** Remove clearfix psuedo elements Otherwise they'll be treated as 1 pixel flex items */ /** No longer a fixed position for the statusbar since that doesn't play nice with flexbox */ /** Remove the border on successful flexbox */ }
@@ -559,6 +559,6 @@ body a:focus { outline: auto 5px -webkit-focus-ring-color; }
 
 @media screen and (min-width: 768px) { .k-js-enabled body .koowa-container { padding-bottom: 29px; } }
 
-@media (min-width: 300px) and (min-height: 460px) { .k-flexbox body .koowa-container, .k-flexboxlegacy body .koowa-container { padding-bottom: 0; } }
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox body .koowa-container, .k-flexboxlegacy body .koowa-container { padding-bottom: 0; } }
 
 body .status-top ~ .container-main .koowa-container { padding-bottom: 0; }
