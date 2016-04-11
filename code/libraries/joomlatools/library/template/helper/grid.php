@@ -117,7 +117,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
                                 && controller.grid && typeof controller.grid.uncheckAll !== "undefined") {
                             controller.grid.uncheckAll();
                         }
-
+    
                         form[0].submit();
                     }
                 },
@@ -137,7 +137,13 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
 
             kQuery(function($) {
                 $(".k-search__field").on("input", send);
-                $(".k-search__button-empty").click(function(event) {
+                var empty_button = $(".k-search__button-empty");
+                
+                if (value) {
+                    empty_button.addClass("is-visible");
+                }
+                
+                empty_button.click(function(event) {
                     event.preventDefault();
 
                     var input = $(this).siblings("input");
