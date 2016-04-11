@@ -156,7 +156,14 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $html .= '<input type="search" name="search" class="k-search__field" placeholder="'.$config->placeholder.'" value="'.$this->getTemplate()->escape($config->search).'" />';
         $html .= '<button type="submit" class="k-search__button-search"><span class="k-icon-magnifying-glass"></span></button>';
         $html .= '<button class="k-search__button-empty"><span>X</span></button>';
+
+        if ($config->search) {
+            $html .= '<div class="k-scopebar__item__label—numberless"></div>';
+        }
+
         $html .= '</div>';
+
+
 
         return $html;
     }
