@@ -1,6 +1,10 @@
-/* Bootsrap variables and mixins used in files */
+/* Bootstrap 2.3.2 variables and mixins used in files (Joomla uses old Bootstrap) */
 @import "../lib/sass-twitter-bootstrap/variables";
 @import "../lib/sass-twitter-bootstrap/mixins";
+
+/* Bootstrap 3.x variables and mixins (select2 bootstrap styling uses BS 3) */
+@import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
 /* Variables */
 @import "koowa/utilities/variables";
@@ -12,6 +16,9 @@
 /* Outside of the koowa scope */
 @import "site/molecules/general";
 @import "site/molecules/modal";
+
+@import "../../../../../../../node_modules/select2/src/scss/core";
+@import "../../../../../../../node_modules/select2-bootstrap-theme/src/select2-bootstrap";
 
 /* Icons */
 @import "koowa/utilities/koowa-icons";
@@ -29,6 +36,7 @@
   /* Koowa */
 
   @import "koowa/molecules/jqtree";
+  @import "koowa/molecules/select2";
 
 
   /* Molecules */

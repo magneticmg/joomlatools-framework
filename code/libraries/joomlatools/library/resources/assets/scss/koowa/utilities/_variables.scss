@@ -54,3 +54,15 @@ $firefox-font-smoothing:  grayscale !default;
 $transition-duration:   180ms !default;
 $transition-easing:     cubic-bezier(.2,.57,.44,.83) !default;
 $transition:            $transition-duration $transition-easing !default;
+
+
+// Bootstrap overrides
+// ==========================================================================
+//
+// We depend on Bootstrap 3 for a few basic things
+// This is the place to overwrite the used variables
+
+$input-height-base:         32px !default;
+
+$padding-base-vertical:     5px !default;
+$padding-base-horizontal:   10px !default;

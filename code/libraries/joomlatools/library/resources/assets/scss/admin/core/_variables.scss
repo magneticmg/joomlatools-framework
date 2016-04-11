@@ -452,11 +452,6 @@ $no-items-color:        darken($color-neutral, 5%) !default;
 // We depend on Bootstrap 3 for a few basic things
 // This is the place to overwrite the used variables
 
-$input-height-base:         32px !default;
-
-$padding-base-vertical:     5px !default;
-$padding-base-horizontal:   10px !default;
-
 $btn-success-bg:            $color-success !default;
 $btn-success-color:         $color-success-type !default;
 
