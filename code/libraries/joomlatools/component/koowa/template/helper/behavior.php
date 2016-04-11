@@ -44,6 +44,9 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
             if (file_exists(JPATH_ROOT.'/media/'.$path)) {
                 $config->css_file = 'assets://'.$path;
             }
+            else if ($config->domain === 'module') {
+                $config->css_file = false;
+            }
             else {
                 $config->css_file = 'assets://koowa/css/'.$config->domain.'.css';
             }
