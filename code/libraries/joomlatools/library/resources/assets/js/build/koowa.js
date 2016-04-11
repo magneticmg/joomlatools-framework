@@ -670,9 +670,10 @@ $.widget("koowa.scopebar", {
         // Do not close item on clicking the dropdown body
         $('html').click(function (event) {
             var target = $(event.target),
-                isSelect2 = event.target.className.search('select2-') !== -1;
+                isSelect2 = event.target.className.search('select2-') !== -1,
+                isDatepicker = target.parents('.datepicker-dropdown').length !== -1;
 
-            if (!isSelect2 && target.parents('.js-filter-container').length === 0) {
+            if (!isSelect2 && !isDatepicker && target.parents('.js-filter-container').length === 0) {
                 self.closeDropdown();
             }
         });
