@@ -23,12 +23,16 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
      */
     public function ui($config = array())
     {
+        $identifier = $this->getTemplate()->getIdentifier();
+
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => JFactory::getApplication()->getCfg('debug'),
             'wrapper_class' => array(
                 JFactory::getLanguage()->isRTL() ? 'koowa--rtl' : '',
-            )
+            ),
+            'package' => $identifier->package,
+            'domain'  => $identifier->type === 'mod' ? 'module' : $identifier->domain,
         ));
 
         $html = '';
