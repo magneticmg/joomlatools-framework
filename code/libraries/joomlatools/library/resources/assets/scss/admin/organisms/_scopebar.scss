@@ -279,7 +279,11 @@
   position: relative;
 
   @include breakpoint($delta) {
-    @include allwidth(200px);
+    @include allwidth(220px);
+  }
+
+  @include breakpoint($echo) {
+    @include allwidth(280px);
   }
 
   @include js-enabled {
