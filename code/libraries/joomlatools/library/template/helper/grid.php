@@ -164,7 +164,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $html .= '<button class="k-search__button-empty"><span>X</span></button>';
 
         if ($config->search) {
-            $html .= '<div class="k-scopebar__item__label—numberless"></div>';
+            $html .= '<div class="k-scopebar__item__label k-scopebar__item__label--numberless"></div>';
         }
 
         $html .= '</div>';

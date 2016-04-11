@@ -429,6 +429,19 @@
       }
     }
   }
+
+  // The active search label
+  .k-scopebar__item__label--numberless {
+    position: absolute;
+    right: auto;
+    left: 13px;
+    top: 5px;
+
+    @include rtl {
+      left: auto;
+      right: 13px;
+    }
+  }
 }
 
 
