@@ -106,9 +106,8 @@ abstract class KTemplateFilterAbstract extends KObject implements KTemplateFilte
         {
             $attr = array();
 
-            preg_match_all('/([\w:-]+)[\s]?=[\s]?"([^"]*)"/i', $string, $attr);
-
-            if (is_array($attr))
+            //Find name/value attributes
+            if(preg_match_all('/(?<name>[\w:-]+)[\s]?=[\s]?"(?<value>[^"]*)"/is', $string, $attr))
             {
                 $numPairs = count($attr[1]);
                 for ($i = 0; $i < $numPairs; $i++)
