@@ -10,14 +10,20 @@
 /**
  * Config Interface
  *
- * KObjectConfig provides a property based interface to an array. Data is can be modified unless the object is marked
- * as readonly.
+ * ObjectConfig provides a property based interface to an array.
  *
  * @author  Johan Janssens <https://github.com/johanjanssens>
  * @package Koowa\Library\Object\Config
  */
-interface KObjectConfigInterface extends IteratorAggregate, ArrayAccess, Countable
+interface KObjectConfigInterface extends \IteratorAggregate, \ArrayAccess, \Countable
 {
+    /**
+     * Get a new instance
+     *
+     * @return KObjectConfigInterface
+     */
+    public static function getInstance();
+
     /**
      * Retrieve a configuration option
      *
@@ -34,8 +40,8 @@ interface KObjectConfigInterface extends IteratorAggregate, ArrayAccess, Countab
      *
      * @param  string $name
      * @param  mixed  $value
-     * @throws RuntimeException If the config is read only
-     * @return KObjectConfig
+     * @throws \RuntimeException If the config is read only
+     * @return KObjectConfigInterface
      */
     public function set($name, $value);
 
@@ -48,11 +54,11 @@ interface KObjectConfigInterface extends IteratorAggregate, ArrayAccess, Countab
     public function has($name);
 
     /**
-     * Remove a configuration option
+     * Remove a configuration option by name
      *
      * @param   string $name The configuration option name.
-     * @throws  RuntimeException If the config is read only
-     * @return  KObjectConfig
+     * @throws  \RuntimeException If the config is read only
+     * @return  KObjectConfigInterface
      */
     public function remove( $name );
 
@@ -67,8 +73,8 @@ interface KObjectConfigInterface extends IteratorAggregate, ArrayAccess, Countab
      * - Items in $options with INTEGER keys will be appended.
      * - Items in $options with STRING keys will overwrite current values.
      *
-     * @param  array|Traversable|KObjectConfig  $options A KObjectConfig object an or array of options to be added
-     * @throws RuntimeException If the config is read only
+     * @param  array|\Traversable|KObjectConfigInterface  $options A ObjectConfig object an or array of options to be added
+     * @throws \RuntimeException If the config is read only
      * @return KObjectConfigInterface
      */
     public function merge($options);
@@ -78,8 +84,8 @@ interface KObjectConfigInterface extends IteratorAggregate, ArrayAccess, Countab
      *
      * This function only adds keys that don't exist and it filters out any duplicate values
      *
-     * @param  array|Traversable|KObjectConfig  $options A KObjectConfig object an or array of options to be appended
-     * @throws RuntimeException If the config is read only
+     * @param  array|\Traversable|KObjectConfigInterface  $options A ObjectConfigInterface instance an or array of options to be appended
+     * @throws \RuntimeException If the config is read only
      * @return KObjectConfigInterface
      */
     public function append($options);
@@ -87,10 +93,10 @@ interface KObjectConfigInterface extends IteratorAggregate, ArrayAccess, Countab
     /**
      * Return the data
      *
-     * If the data being passed is an instance of KObjectConfig the data will be transformed
+     * If the data being passed is an instance of ObjectConfigInterface the data will be transformed
      * to an associative array.
      *
-     * @param mixed|KObjectConfig $data
+     * @param mixed|KObjectConfigInterface $data
      * @return mixed|array
      */
     public static function unbox($data);
@@ -101,28 +107,4 @@ interface KObjectConfigInterface extends IteratorAggregate, ArrayAccess, Countab
      * @return array
      */
     public function toArray();
-
-    /**
-     * Prevent any more modifications being made to this instance.
-     *
-     * Useful after merge() has been used to merge multiple Config objects into one object which should then not be
-     * modified again.
-     *
-     * @return KObjectConfigInterface
-     */
-    public function setReadOnly();
-
-    /**
-     * Returns whether this ObjectConfig object is read only or not.
-     *
-     * @return bool
-     */
-    public function isReadOnly();
-
-    /**
-     * Get a new instance
-     *
-     * @return KObjectConfigInterface
-     */
-    public function getInstance();
 }

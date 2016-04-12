@@ -190,9 +190,9 @@ class KEvent extends KObjectConfig implements KEventInterface
      *
      * @return KObjectConfig
      */
-    final public function getInstance()
+    final public static function getInstance()
     {
-        $instance = new KObjectConfig(array(), $this->_readonly);
+        $instance = new KObjectConfig(array());
         return $instance;
     }
 
