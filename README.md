@@ -48,7 +48,7 @@ compatibility is not guaranteed.
 Go to the root directory of your Joomla installation in command line and execute this command:
 
 ```
-composer require joomlatools/joomlatools-framework:2.*
+composer require joomlatools/framework:2.*
 ```
 
 ## Contributing
