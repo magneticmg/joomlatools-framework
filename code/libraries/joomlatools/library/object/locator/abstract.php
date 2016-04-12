@@ -69,7 +69,7 @@ abstract class KObjectLocatorAbstract extends KObject implements KObjectLocatorI
     {
         $domain  = empty($identifier->domain) ? 'koowa' : ucfirst($identifier->domain);
         $package = ucfirst($identifier->package);
-        $path    = KStringInflector::camelize(implode('_', $identifier->path));
+        $path    = KStringInflector::implode($identifier->path);
         $file    = ucfirst($identifier->name);
         $class   = $path.$file;
 

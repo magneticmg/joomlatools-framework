@@ -209,25 +209,23 @@ class KStringInflector implements KStringInflectorInterface
     }
 
     /**
-     * Returns given word as CamelCased
+     * Convert a word to "CamelCased"
      *
-     * Converts a word like "foo_bar" or "foo bar" to "FooBar". It will remove non alphanumeric characters from the
-     * word, so "who's online" will be converted to "WhoSOnline"
+     * Converts a word like "foo_bar" or "foo bar" to "FooBar".
      *
      * @param   string  $word    Word to convert to camel case
      * @return  string  UpperCamelCasedWord
      */
     public static function camelize($word)
     {
-        $word = preg_replace('/[^a-zA-Z0-9\s]/', ' ', $word);
         $word = str_replace(' ', '', ucwords(strtolower(str_replace('_', ' ', $word))));
         return $word;
     }
 
     /**
-     * Converts a word "into_it_s_underscored_version"
+     * Convert a word "into_it_s_underscored_version"
      *
-     * Convert any "CamelCased" or "ordinary Word" into an "underscored_word".
+     * Convert any "OrdinaryWord" or "ordinary word" into an "ordinary_word".
      *
      * @param  string $word  Word to underscore
      * @return string Underscored word
@@ -240,7 +238,7 @@ class KStringInflector implements KStringInflectorInterface
     }
 
     /**
-     * Convert any "CamelCased" word into an array of strings
+     * Convert a "CamelCased" word into an array of strings
      *
      * Returns an array of strings each of which is a substring of string formed by splitting it at the camelcased `
      * letters.
@@ -255,15 +253,15 @@ class KStringInflector implements KStringInflectorInterface
     }
 
     /**
-     * Convert  an array of strings into a "CamelCased" word
+     * Convert a "CamelCased" word into an array of strings
      *
      * @param  array    $words   Array to implode
      * @return string  UpperCamelCasedWord
      */
     public static function implode($words)
     {
-        $result = self::camelize(implode('_', $words));
-        return $result;
+        $word = implode(array_map('ucfirst', $words));
+        return $word;
     }
 
     /**
