@@ -204,7 +204,7 @@ abstract class PlgKoowaFinder extends FinderIndexerAdapter
      */
     protected function setup()
     {
-        if (!$this->bootFramework()) {
+        if (!$this->bootFramework() || !function_exists('iconv')) {
             return false;
         }
 
