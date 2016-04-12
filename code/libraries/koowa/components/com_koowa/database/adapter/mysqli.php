@@ -56,7 +56,7 @@ class ComKoowaDatabaseAdapterMysqli extends KDatabaseAdapterMysqli
         ));
 
         //Set the database connection
-        if (JFactory::getDbo() instanceof JDatabaseDriverMysqli || JFactory::getDbo() instanceof JDatabaseMySQLi)
+        if ($db->getName() === 'mysqli')
         {
             $config->append(array(
                 'connection'   => $db->getConnection(),
