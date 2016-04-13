@@ -9,15 +9,20 @@
 .mce-window.mce-in {
   opacity: 1;
   width: 90%!important;
-  height: 90%!important;
+  height: auto !important;
   left: 5%!important;
-  top: 5% !important;
+  top: 50px !important;
+  bottom: 5% !important;
   padding: 1px!important;
 
   @include rtl-outside-koowa {
     left: auto !important;
     right: 5% !important;
   }
+}
+
+#mce-modal-block.mce-in.mce-in {
+  opacity: .8;
 }
 
 .mce-reset,
@@ -44,9 +49,8 @@
     text-overflow: ellipsis;
 
     .mce-close {
-      color: #333;
-      right: 19px;
-      top: 11px;
+      right: 10px;
+      top: -35px;
     }
   }
 

@@ -4374,9 +4374,11 @@ body.k-resizing { overflow: hidden; }
 .icon-picture:before, .icon-image:before { content: "\2f"; }
 
 /** Style the new Joomla modals =========================== By default we only get a very small modal window Overriding styles make sure we get the most space out of it (at least on our views) */
-.mce-window.mce-in { opacity: 1; width: 90% !important; height: 90% !important; left: 5% !important; top: 5% !important; padding: 1px !important; }
+.mce-window.mce-in { opacity: 1; width: 90% !important; height: auto !important; left: 5% !important; top: 50px !important; bottom: 5% !important; padding: 1px !important; }
 
 [dir="rtl"] .mce-window.mce-in { left: auto !important; right: 5% !important; }
+
+#mce-modal-block.mce-in.mce-in { opacity: .8; }
 
 .mce-reset, .mce-window-body.mce-window-body { width: 100% !important; height: 100% !important; }
 
@@ -4386,7 +4388,7 @@ body.k-resizing { overflow: hidden; }
 
 .mce-reset .mce-window-head.mce-window-head { display: table-row; padding: 0; white-space: nowrap; height: 0; overflow: hidden; text-overflow: ellipsis; }
 
-.mce-reset .mce-window-head.mce-window-head .mce-close { color: #333; right: 19px; top: 11px; }
+.mce-reset .mce-window-head.mce-window-head .mce-close { right: 10px; top: -35px; }
 
 .mce-reset .mce-title { display: none; }
 
