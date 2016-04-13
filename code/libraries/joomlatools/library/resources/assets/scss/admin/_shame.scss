@@ -126,3 +126,9 @@ a.-koowa-desc {
     vertical-align: middle;
   }
 }
+
+.k-grid__items__folders,
+.k-grid__items__files {
+  @include clearfix;
+  clear: both;
+}

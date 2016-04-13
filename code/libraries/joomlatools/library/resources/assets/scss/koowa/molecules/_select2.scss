@@ -2,59 +2,35 @@
    Select2
    ========================================================================== */
 
-/* 100% wide by default instead of just 200px */
+/* 100% wide by default instead of just 220px making it responsive */
 
-.koowa .select2 {
-  width: auto !important;
-  min-width: 120px;
+.select2-container.select2-container--bootstrap {
+  width: 100% !important;
   max-width: 100% !important;
-}
 
 
-/* Setting a min-width now the width is 100% by default */
+  /* Set proper line-height so text is vertically centered */
 
-.select2-dropdown {
-  min-width: 120px;
-}
-
-
-/* Properly styling the search input */
-
-.select2-container--bootstrap {
-
-  /* Single select box */
-
-  .select2-search {
-    float: none;
-
-    .select2-search__field {
-      width: 100% !important;
-      margin: 0;
-      height: $input-height-base;
-      line-height: $input-height-base;
-      -webkit-appearance: none;
-      display: block;
-    }
-  }
-
-  /* Multiple select box */
-
-  .select2-selection--multiple {
+  .select2-selection--single {
     .select2-selection__rendered {
-      cursor: text;
-    }
-
-    .select2-search--inline {
-      .select2-search__field {
-        box-shadow: none;
-        margin: 0;
-        width: 20px !important;
-        min-width: 0;
-      }
-    }
-
-    .select2-selection__choice {
-      margin: 5px 0 0 5px;
+      line-height: $line-height-base;
     }
   }
+
+
+  /* Set proper height so arrow is vertically centered */
+
+  .select2-selection--single {
+    .select2-selection__arrow {
+      height: $input-height-base;
+    }
+  }
+
+  /* Set proper styling for the search */
+
+  .select2-search__field {
+    height: $input-height-base;
+    margin: 0;
+  }
 }
+

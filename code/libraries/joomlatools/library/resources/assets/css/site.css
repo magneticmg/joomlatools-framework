@@ -1077,7 +1077,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 .k-icon-zoom-out:before { content: ""; }
 
 /* Inside koowa scope */
-.koowa { /* Border-box size everything */ /* Koowa */ /** JQTree */ /* ========================================================================== Select2 ========================================================================== */ /* 100% wide by default instead of just 200px */ /* Setting a min-width now the width is 100% by default */ /* Properly styling the search input */ /* Molecules */ }
+.koowa { /* Border-box size everything */ /* Koowa */ /** JQTree */ /* ========================================================================== Select2 ========================================================================== */ /* 100% wide by default instead of just 220px making it responsive */ /* Molecules */ }
 
 .koowa, .koowa *, .koowa *:before, .koowa *:after { box-sizing: border-box; }
 
@@ -1133,21 +1133,13 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .koowa .jqtree-closed ul { display: none; }
 
-.koowa .koowa .select2 { width: auto !important; min-width: 120px; max-width: 100% !important; }
+.koowa .select2-container.select2-container--bootstrap { width: 100% !important; max-width: 100% !important; /* Set proper line-height so text is vertically centered */ /* Set proper height so arrow is vertically centered */ /* Set proper styling for the search */ }
 
-.koowa .select2-dropdown { min-width: 120px; }
+.koowa .select2-container.select2-container--bootstrap .select2-selection--single .select2-selection__rendered { line-height: 1.428571429; }
 
-.koowa .select2-container--bootstrap { /* Single select box */ /* Multiple select box */ }
+.koowa .select2-container.select2-container--bootstrap .select2-selection--single .select2-selection__arrow { height: 34px; }
 
-.koowa .select2-container--bootstrap .select2-search { float: none; }
-
-.koowa .select2-container--bootstrap .select2-search .select2-search__field { width: 100% !important; margin: 0; height: 34px; line-height: 34px; -webkit-appearance: none; display: block; }
-
-.koowa .select2-container--bootstrap .select2-selection--multiple .select2-selection__rendered { cursor: text; }
-
-.koowa .select2-container--bootstrap .select2-selection--multiple .select2-search--inline .select2-search__field { box-shadow: none; margin: 0; width: 20px !important; min-width: 0; }
-
-.koowa .select2-container--bootstrap .select2-selection--multiple .select2-selection__choice { margin: 5px 0 0 5px; }
+.koowa .select2-container.select2-container--bootstrap .select2-search__field { height: 34px; margin: 0; }
 
 .koowa .koowa_anchor { visibility: hidden; display: block; position: absolute; left: 0; top: 0; width: auto; height: 100%; padding: 1px 5px; background: #fff; margin: -1px 0; border-right: 2px solid #bbb; -webkit-border-radius: 0 5px 5px 0; -moz-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; }
 
