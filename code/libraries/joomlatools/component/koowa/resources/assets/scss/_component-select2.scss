@@ -1,0 +1,12 @@
+.select2-container.select2-container {
+  width: 320px !important;
+  max-width: 100% !important;
+
+  .select2-selection__rendered {
+    line-height: 1.5em !important;
+  }
+
+  .select2-selection__arrow.select2-selection__arrow {
+    height: $input-height-base;
+  }
+}
