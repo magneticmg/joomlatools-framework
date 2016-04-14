@@ -129,7 +129,7 @@ $.widget("koowa.scopebar", {
             event.stopPropagation();
         });
 
-        this.element.on('hover', '*', function(event) {
+        this.element.on('mouseenter mouseleave', '*', function(event) {
             var button = $(event.target);
 
             if (!button.hasClass('js-dropdown-button')) {
