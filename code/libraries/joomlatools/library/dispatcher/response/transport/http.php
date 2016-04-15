@@ -173,11 +173,6 @@ class KDispatcherResponseTransportHttp extends KDispatcherResponseTransportAbstr
             if($response->isAttachable()) {
                 $response->setContentType('application/octet-stream');
             }
-
-            //Explicitly disable the IE pause button
-            if(!$response->headers->has('Accept-Ranges')) {
-                $response->headers->set('Accept-Ranges', 'none');
-            }
         }
 
         //Add Last-Modified header if not present
