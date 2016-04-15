@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             icons: {
                 src: '<%= nookuFrameworkAssetsPath %>/icons/svg/*.svg',
                 dest: '<%= nookuFrameworkAssetsPath %>/fonts/koowa-icons',
-                destCss: '<%= nookuFrameworkAssetsPath %>/scss/utilities',
+                destCss: '<%= nookuFrameworkAssetsPath %>/scss/koowa/utilities',
                 options: {
                     font: 'koowa-icons',
                     hashes: false,
