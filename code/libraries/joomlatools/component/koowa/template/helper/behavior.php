@@ -23,48 +23,7 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
      */
     public function ui($config = array())
     {
-        $identifier = $this->getTemplate()->getIdentifier();
-
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'debug' => JFactory::getApplication()->getCfg('debug'),
-            'wrapper_class' => array(
-                JFactory::getLanguage()->isRTL() ? 'koowa--rtl' : '',
-            ),
-            'package' => $identifier->package,
-            'domain'  => $identifier->type === 'mod' ? 'module' : $identifier->domain,
-        ));
-
-        $html = '';
-
-        if (!$config->css_file)
-        {
-            $path   = sprintf('com_%s/css/%s.css', $config->package, $config->domain);
-
-            if (file_exists(JPATH_ROOT.'/media/'.$path)) {
-                $config->css_file = 'assets://'.$path;
-            }
-            else if ($config->domain === 'module') {
-                $config->css_file = false;
-            }
-            else {
-                $config->css_file = 'assets://koowa/css/'.$config->domain.'.css';
-            }
-
-            $app = JFactory::getApplication();
-            if ($app->isAdmin())
-            {
-                $template = $app->getTemplate();
-
-                if (file_exists(JPATH_ROOT.'/media/koowa/com_koowa/css/'.$template.'.css')) {
-                    $html .= '<ktml:style src="assets://koowa/css/'.$template.'.css" />';
-                }
-            }
-        }
-
-        $html .= parent::ui($config);
-
-        return $html;
+        return $this->getTemplate()->helper('ui.load');
     }
 
     /**

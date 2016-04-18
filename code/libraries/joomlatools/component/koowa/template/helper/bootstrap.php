@@ -23,23 +23,11 @@ class ComKoowaTemplateHelperBootstrap extends ComKoowaTemplateHelperBehavior
      */
     public function javascript($config = array())
     {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'debug' => JFactory::getApplication()->getCfg('debug')
+        return $this->getTemplate()->helper('ui.bootstrap', array(
+            'debug' => JFactory::getApplication()->getCfg('debug'),
+            'css' => false,
+            'javascript' => true
         ));
-        $html   = '';
-
-        if (!isset(self::$_loaded['bootstrap-javascript']))
-        {
-            if (!isset(self::$_loaded['jquery'])) {
-                $html .= $this->jquery($config);
-            }
-
-            JHtml::_('bootstrap.framework');
-            self::$_loaded['bootstrap-javascript'] = true;
-        }
-
-        return $html;
     }
 
     /**
@@ -50,81 +38,7 @@ class ComKoowaTemplateHelperBootstrap extends ComKoowaTemplateHelperBehavior
      */
     public function load($config = array())
     {
-        $identifier = $this->getTemplate()->getIdentifier();
-
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'debug'          => JFactory::getApplication()->getCfg('debug'),
-            'javascript'     => false,
-            'package'        => $identifier->package,
-            'file'           => $identifier->type === 'mod' ? 'module' : $identifier->domain,
-            'load_base'      => false,
-            'class'          => array(
-                'koowa',
-                $identifier->type.'_'.$identifier->package,
-                JFactory::getLanguage()->isRTL() ? 'koowa--rtl' : '',
-            ),
-        ))->append(array(
-            'wrapper' => sprintf('<div class="%s">
-                <!--[if lte IE 8 ]><div class="old-ie"><![endif]-->
-                %%s
-                <!--[if lte IE 8 ]></div><![endif]-->
-                </div>', implode(' ', KObjectConfig::unbox($config->class))
-            )
-        ));
-
-        $html = '';
-
-        if ($config->javascript && !isset(self::$_loaded['bootstrap-javascript'])) {
-            $html .= $this->javascript($config);
-        }
-
-        // Load the generic files
-        // We assume that the template has either loaded Bootstrap or provided styles for it in 3.0+
-        if (!isset(self::$_loaded['bootstrap-css']))
-        {
-            $template = JPATH_THEMES.'/'.JFactory::getApplication()->getTemplate();
-
-            if ($config->load_base)
-            {
-                if (!file_exists($template.'/disable-koowa-bootstrap.txt')) {
-                    $html .= '<ktml:style src="media://koowa/framework/css/bootstrap.css" />';
-                }
-            }
-            else
-            {
-                if (file_exists($template.'/enable-koowa-bootstrap.txt')) {
-                    $html .= '<ktml:style src="media://koowa/framework/css/bootstrap.css" />';
-                }
-            }
-
-            self::$_loaded['bootstrap-css'] = true;
-        }
-
-        if (!isset(self::$_loaded[$config->package.'-'.$config->file]))
-        {
-            $template  = 'com_%s/css/%s.css';
-            $try_files = array(
-                sprintf($template, $config->package, $config->file)
-            );
-
-            foreach ($try_files as $file)
-            {
-                if (file_exists(JPATH_ROOT.'/media/'.$file))
-                {
-                    $html .= sprintf('<ktml:style src="media://%s" />', $file);
-
-                    self::$_loaded[$config->package.'-'.$config->file] = true;
-                    break;
-                }
-            }
-        }
-
-        if ($config->wrapper) {
-            $this->wrapper($config);
-        }
-
-        return $html;
+        return $this->getTemplate()->helper('ui.load', $config);
     }
 
     /**
@@ -134,15 +48,6 @@ class ComKoowaTemplateHelperBootstrap extends ComKoowaTemplateHelperBehavior
      */
     public function wrapper($config = array())
     {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'wrapper' => null
-        ));
-
-        if ($config->wrapper)
-        {
-            $this->getTemplate()->addFilter('wrapper');
-            $this->getTemplate()->getFilter('wrapper')->setWrapper($config->wrapper);
-        }
+        return $this->getTemplate()->helper('ui.wrapper', $config);
     }
 }

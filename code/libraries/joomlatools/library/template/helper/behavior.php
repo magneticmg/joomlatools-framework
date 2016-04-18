@@ -23,67 +23,6 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
     protected static $_loaded = array();
 
     /**
-     * Loads the common UI libraries
-     *
-     * @param array $config
-     * @return string
-     */
-    public function ui($config = array())
-    {
-        $identifier = $this->getTemplate()->getIdentifier();
-
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'debug' => false,
-            'bootstrap' => array(
-                'css'        => false,
-                'javascript' => true
-            ),
-            'package' => $identifier->package,
-            'domain'  => $identifier->type === 'mod' ? 'module' : $identifier->domain,
-            'wrapper_class' => array(
-                'koowa-container koowa',
-                $identifier->type.'_'.$identifier->package
-            ),
-        ))->append(array(
-            'css_file'    => 'assets://css/'.$config->domain.'.css',
-            'wrapper' => sprintf('<div class="%s">
-                <!--[if lte IE 8 ]><div class="old-ie"><![endif]-->
-                %%s
-                <!--[if lte IE 8 ]></div><![endif]-->
-                </div>', implode(' ', KObjectConfig::unbox($config->wrapper_class))
-            )
-        ));
-
-        $html = '';
-
-        if ($config->css_file) {
-            $html .= '<ktml:style src="'.$config->css_file.'" />';
-        }
-
-        $html .= $this->modernizr($config);
-        $html .= $this->koowa($config);
-        $html .= $this->bootstrap($config->bootstrap);
-        $html .= '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>';
-
-        if ($config->domain === 'admin') {
-            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
-        } else {
-            // @todo temporary until we have site.css and module.css ready
-            $config->bootstrap->css = true;
-        }
-
-        if ($config->wrapper)
-        {
-            $html .= '<ktml:template:wrapper>'; // used to make sure the template only wraps once
-            $this->getTemplate()->addFilter('wrapper');
-            $this->getTemplate()->getFilter('wrapper')->setWrapper($config->wrapper);
-        }
-
-        return $html;
-    }
-
-    /**
      * Loads koowa essentials
      *
      * @param array|KObjectConfig $config
