@@ -60,8 +60,10 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
             }
         }
 
-        $app = JFactory::getApplication();
-        $tmpl = $this->getObject('request')->getQuery()->tmpl;
+        $app    = JFactory::getApplication();
+        $tmpl   = $this->getObject('request')->getQuery()->tmpl;
+        $layout = $this->getObject('request')->getQuery()->layout;
+
         if ($app->isAdmin() && $config->file === 'admin' && (empty($tmpl) || $tmpl === 'index'))
         {
             $template = $app->getTemplate();
@@ -69,6 +71,9 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
             if (file_exists(JPATH_ROOT.'/media/koowa/com_koowa/css/'.$template.'.css')) {
                 $html .= '<ktml:style src="assets://koowa/css/'.$template.'.css" />';
             }
+        } else if ($app->isSite() && $tmpl === 'koowa' && $layout === 'form') {
+            // Load the admin styles in frontend forms
+            $config->file = 'admin';
         }
 
         $html .= parent::styles($config);
