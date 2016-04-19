@@ -104,16 +104,20 @@ abstract class KTemplateFilterAbstract extends KObject implements KTemplateFilte
 
         if (!empty($string))
         {
-            $attr = array();
+            $pattern = '#(?(DEFINE)
+                (?<name>[a-zA-Z][a-zA-Z0-9-_:]*)
+                (?<value_double>"[^"]+")
+                (?<value_none>[^\s>]+)
+                (?<value>((?&value_double)|(?&value_none)))
+            )
+            (?<n>(?&name))[\s]*(=[\s]*(?<v>(?&value)))?#xs';
 
-            preg_match_all('/([\w:-]+)[\s]?=[\s]?"([^"]*)"/i', $string, $attr);
-
-            if (is_array($attr))
+            if (preg_match_all($pattern, $string, $matches, PREG_SET_ORDER))
             {
-                $numPairs = count($attr[1]);
-                for ($i = 0; $i < $numPairs; $i++)
-                {
-                    $result[$attr[1][$i]] = $attr[2][$i];
+                foreach ($matches as $match) {
+                    if (!empty($match['n'])) {
+                        $result[$match['n']] = isset($match['v']) ? trim($match['v'], '\'"') : '';
+                    }
                 }
             }
         }
