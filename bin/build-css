@@ -1,0 +1,6 @@
+
+FRAMEWORK=code/libraries/joomlatools/library/resources/assets
+KOOWA=code/libraries/joomlatools/component/koowa/resources/assets
+
+node-sass --include-path="$FRAMEWORK/scss" --output="$KOOWA/css" --output-style=compressed $KOOWA/scss
+#node-sass --output="$FRAMEWORK/css" $FRAMEWORK/scss

@@ -1,0 +1,68 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+
+// Flexbox
+// ==========================================================================
+//
+// 1. Wether or not to Use flexbox in layouts
+// 2. Separate $flexbox variables are being used
+//    - 300px so flexbox will be active on 320px wide screens
+//    - 391px so flexbox will be active on 400px tall screens
+//      - 25-09-2015 http://mydevice.io/devices/
+//        The only phones at the time to have flexbox in landscape mode are:
+//        - Samsung Galaxy Note (This is where the 391 number comes from)
+//        - Blackberry passport
+
+$flexbox:             true !default; // 1
+$flexbox-horizontal:  300px !default; // 2
+$flexbox-vertical:    391px !default; // 2
+
+
+// Function variables
+// ==========================================================================
+//
+// These are used by our light, lighter, lightest, dark, darker and darkest funxtions
+// This way we can change the amounts all in one.
+// Overwrite-able per function call
+
+$light-percentage:      3% !default;
+$lighter-percentage:    7% !default;
+$lightest-percentage:   12% !default;
+
+$dark-percentage:       3% !default;
+$darker-percentage:     7% !default;
+$darkest-percentage:    12% !default;
+
+
+// Typography
+// ==========================================================================
+
+$bold:                    700 !default;
+$regular:                 400 !default;
+$webkit-font-smoothing:   antialiased !default;
+$firefox-font-smoothing:  grayscale !default;
+
+
+// Transition
+// ==========================================================================
+//
+// The basic transition being used everywhere to get consistent animations
+// Remember to sync the JavaScript animation time with this setting
+
+$transition-duration:   180ms !default;
+$transition-easing:     cubic-bezier(.2,.57,.44,.83) !default;
+$transition:            $transition-duration $transition-easing !default;
+
+
+// Bootstrap overrides
+// ==========================================================================
+//
+// We depend on Bootstrap 3 for a few basic things
+// This is the place to overwrite the used variables
+
+$input-height-base:         32px !default;
+
+$padding-base-vertical:     5px !default;
+$padding-base-horizontal:   10px !default;

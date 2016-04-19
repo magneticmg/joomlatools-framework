@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Form layout
+   ========================================================================== */
+
+.k-form-layout {
+  margin: 0;
+  background: $form-background;
+
+  @include flexbox {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: auto;
+  }
+
+  @include resizing {
+    overflow: hidden;
+  }
+}
+
+
+
+
+/* ==========================================================================
+   Frontend form layout
+   ========================================================================== */
+
+// @TODO: Refactor this since we are no longer using .k-form
+
+/**
+ * Building on top of the _form.scss file
+ * The main thing we're doing here is adding a dark background to make it look
+ * like a modal as if you're editing on top of the website
+ */
+
+@at-root .k-template {
+  background: $form-front-background;
+  padding: 65px 10px 30px;
+  height: auto;
+  max-height: none;
+
+  .koowa-container {
+    margin: 0 auto;
+    max-width: 1020px;
+    height: 100%;
+  }
+
+  .koowa {
+    &,
+    .k-wrapper,
+    .k-content-wrapper,
+    .k-content,
+    .k-component,
+    .k-form-layout {
+      @include flexbox {
+        overflow: visible;
+        height: auto;
+        max-height: none;
+        display: block;
+      }
+    }
+  }
+
+  .k-toolbar {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: auto;
+    right: auto;
+    width: 100%;
+    margin: 0 auto;
+    float: none;
+    border-top: 15px solid #333;
+    max-width: 1020px;
+  }
+}

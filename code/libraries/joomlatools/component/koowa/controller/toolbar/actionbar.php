@@ -137,7 +137,7 @@ class ComKoowaControllerToolbarActionbar extends KControllerToolbarActionbar
     protected function _commandSave2new(KControllerToolbarCommand $command)
     {
         $command->label = 'JTOOLBAR_SAVE_AND_NEW';
-        $command->icon = 'icon-32-save-new';
+        $command->icon = 'icon-save-new';
     
         $command->append(array(
             'attribs' => array(
@@ -155,7 +155,7 @@ class ComKoowaControllerToolbarActionbar extends KControllerToolbarActionbar
     protected function _commandCancel(KControllerToolbarCommand $command)
     {
         $command->label = 'JTOOLBAR_CANCEL';
-        $command->icon = 'icon-32-cancel';
+        $command->icon = 'icon-cancel';
 
         $command->append(array(
             'attribs' => array(
@@ -175,28 +175,11 @@ class ComKoowaControllerToolbarActionbar extends KControllerToolbarActionbar
     {
         $option = $this->getIdentifier()->package;
         $icon   = 'options';
+
+        $return = urlencode(base64_encode(JUri::getInstance()));
+        $link   = 'option=com_config&view=component&component=com_'.$option.'&path=&return='.$return;
         
-        if (version_compare(JVERSION, '3.0', '>='))
-        {
-        	$return = urlencode(base64_encode(JUri::getInstance()));
-        	$link   = 'option=com_config&view=component&component=com_'.$option.'&path=&return='.$return;
-        }
-        else
-        {
-            JHtml::_('behavior.modal');
-
-            $link = 'option=com_config&view=component&component=com_'.$option.'&path=&tmpl=component';
-
-            $command->append(array(
-                'attribs' => array(
-                    'rel'   => "{handler: 'iframe', size: {x: 875, y: 550}, onClose: function() {}}",
-                    'class' => array('modal')
-                )
-            ));
-        }
-
-        $command->label = 'Configure';
-        $command->icon = sprintf('icon-32-%s', $icon);
+        $command->icon = sprintf('icon-%s', $icon);
         // Need to do a JRoute call here, otherwise component is turned into option in the query string by our router
         $command->attribs['href'] = JRoute::_('index.php?'.$link, false);
     }

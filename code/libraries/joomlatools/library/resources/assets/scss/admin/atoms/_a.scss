@@ -1,0 +1,12 @@
+/**
+ * Default link style
+ */
+
+a {
+  color: $color-type;
+
+  &:focus,
+  &:hover {
+    color: $color-type;
+  }
+}

@@ -131,7 +131,7 @@ class KTemplateHelperPaginator extends KTemplateHelperSelect
 
         $this->_initialize($config);
 
-        $html = '<div class="pagination pagination-toolbar">';
+        $html = '<div class="k-pagination">';
 
         if($config->show_limit) {
             $html .= '<div class="limit">'.$this->limit($config).'</div>';
@@ -139,13 +139,19 @@ class KTemplateHelperPaginator extends KTemplateHelperSelect
 
         if ($config->show_pages)
         {
-            $html .= '<ul class="pagination-list">';
+            $html .= '<ul class="pagination">';
             $html .=  $this->_pages($this->_items($config));
             $html .= '</ul>';
         }
 
-        if($config->show_count) {
-            $html .= sprintf($this->getObject('translator')->translate('Page %s of %s'), $config->current, $config->count);
+        if($config->show_count)
+        {
+            $current = '<strong class="page-current">'.$config->current.'</strong>';
+            $total   = '<strong class="page-total">'.$config->count.'</strong>';
+
+            $html .= '<div class="k-pagination-pages">';
+            $html .= sprintf($this->getObject('translator')->translate('Page %s of %s'), $current, $total);
+            $html .= '</div>';
         }
 
         $html .= '</div>';
@@ -171,7 +177,7 @@ class KTemplateHelperPaginator extends KTemplateHelperSelect
         foreach ($pages['pages'] as $page)
         {
             if ($previous && $page->page - $previous->page > 1) {
-                $html .= '<li class="disabled"><a>&hellip;</a></li>';
+                $html .= '<li class="disabled"><span>&hellip;</span></li>';
             }
 
             $html .= '<li class="'.($page->active && !$page->current ? '' : 'active').'">';

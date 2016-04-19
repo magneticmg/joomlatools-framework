@@ -219,11 +219,7 @@ class PlgSystemJoomlatools extends JPlugin
     {
         if ($event->getException()->getCode() === KHttpResponse::NOT_FOUND && JFactory::getApplication()->isSite())
         {
-            if (version_compare(JVERSION, '3.0', '<')) {
-                $hash = JApplication::getHash('plgSystemLogout'); // Watch out. Starts with lowercase p for 2.5
-            } else {
-                $hash = JApplicationHelper::getHash('PlgSystemLogout');
-            }
+            $hash = JApplicationHelper::getHash('PlgSystemLogout');
 
             $app = JFactory::getApplication();
             if ($app->input->cookie->getString($hash, null)) // just logged out

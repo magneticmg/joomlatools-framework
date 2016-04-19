@@ -28,15 +28,27 @@ class ComKoowaTemplateHelperMenubar extends KTemplateHelperAbstract
             'toolbar' => null
         ));
 
+        $html = '<ul class="k-navigation">';
+
         foreach ($config->toolbar->getCommands() as $command)
         {
             if(!empty($command->href)) {
                 $command->href = $this->getTemplate()->route($command->href);
             }
 
-            JSubmenuHelper::addEntry($this->getObject('translator')->translate($command->label), $command->href, $command->active);
+            $url    = Khttpurl::fromString($command->href);
+            $view   = isset($url->query['view']) ? $url->query['view'] : false;
+            $class  = $command->active ? ' class="active"' : '';
+
+            $html .= '<li'.$class.'>';
+            $html .= '<a class="'.($view ? 'k-icon-'.$view : '').'" href="'.$command->href.'">';
+            $html .= $this->getObject('translator')->translate($command->label);
+            $html .= '</a>';
+            $html .= '</li>';
         }
 
-        return '';
+        $html .= '</ul>';
+
+        return $html;
     }
 }

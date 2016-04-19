@@ -31,11 +31,9 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
             'icon' => $config->toolbar->getName()
         ));
 
+
         //Set a custom title
-        if ($config->title === 'false' || $config->title === false) {
-            $config->toolbar->removeCommand('title');
-        }
-        elseif($config->title || $config->icon)
+        if($config->title || $config->icon)
         {
             if($config->toolbar->hasCommand('title'))
             {
@@ -53,35 +51,22 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         }
 
         //Render the buttons
-        if ($this->_useBootstrap())
-        {
-            $html = '<div class="btn-toolbar koowa-toolbar" id="toolbar-'.$config->toolbar->getName().'">';
-            $html .= '%s';
-            $html .= '</div>';
-        }
-        else
-        {
-            $html  = '<div class="toolbar-list koowa-toolbar" id="toolbar-'.$config->toolbar->getName().'">';
-            $html .= '<ul>';
-            $html .= '%s';
-            $html .= '</ul>';
-            $html .= '<div class="clr"></div>';
-            $html .= '</div>';
-        }
+        $html = '';
 
-        $buttons = '';
         foreach ($config->toolbar->getCommands() as $command)
         {
             $name = $command->getName();
 
+            if (($name === 'title' && $config->{'no-title'} === '') || ($name !== 'title' && $config->{'no-buttons'} === '')) {
+                continue;
+            }
+
             if(method_exists($this, $name)) {
-                $buttons .= $this->$name(array('command' => $command));
+                $html .= $this->$name(array('command' => $command));
             } else {
-                $buttons .= $this->command(array('command' => $command));
+                $html .= $this->command(array('command' => $command));
             }
         }
-
-        $html = sprintf($html, $buttons);
 
         return $html;
     }
@@ -118,46 +103,29 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         }
 
         //Create the id
-        $id = 'toolbar-'.$command->id;
+        $command->attribs->id = 'toolbar-'.$command->id;
 
-        if ($this->_useBootstrap())
-        {
-            $command->attribs->class->append(array('btn', 'btn-small'));
+        $command->attribs->class->append(array('btn', 'btn-default', 'btn-sm', 'k-btn-'.$command->id));
 
-            $icon = $this->_getIconClass($command->icon);
-            if ($command->id === 'new' || $command->id === 'apply') {
-                $command->attribs->class->append(array('btn-success'));
-                $icon .= ' icon-white';
-            }
-
-            $attribs = clone $command->attribs;
-            $attribs->class = implode(" ", KObjectConfig::unbox($attribs->class));
-
-            $html = '<div class="btn-group" id="'.$id.'">';
-            $html .= '<a '.$this->buildAttributes($attribs).'>';
-
-            if ($this->_useIcons()) {
-                $html .= '<i class="'.$icon.'"></i> ';
-            }
-
-            $html .= $translator->translate($command->label);
-            $html .= '</a>';
-            $html .= '</div>';
+        $icon = $this->_getIconClass($command->icon);
+        if ($command->id === 'new' || $command->id === 'apply') {
+            $command->attribs->class->append(array('btn-success'));
+            $icon .= ' icon-white';
         }
-        else
-        {
-            $attribs = clone $command->attribs;
-            $attribs->class = implode(" ", KObjectConfig::unbox($attribs->class));
 
-            $html = '<li class="button" id="'.$id.'">';
+        $attribs = clone $command->attribs;
+        $attribs->class = implode(" ", KObjectConfig::unbox($attribs->class));
 
-            $html .= '<a '.$this->buildAttributes($attribs).'>';
-            $html .= '<span class="'.$command->icon.'" title="'.$translator->translate($command->title).'"></span>';
-            $html .= $translator->translate($command->label);
-            $html .= '</a>';
+        $html = '<a '.$this->buildAttributes($attribs).'>';
 
-            $html .= '</li>';
+        if ($this->_useIcons()) {
+            $html .= '<i class="'.$icon.'"></i> ';
         }
+
+        $html .= '<span class="k-toolbar__text">';
+        $html .= $translator->translate($command->label);
+        $html .= '</span>';
+        $html .= '</a>';
 
         return $html;
     }
@@ -205,14 +173,8 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         $config->append(array(
             'command' => NULL
         ));
-        
-        if ($this->_useBootstrap()) {
-            $html = '<div class="btn-group"></div>';
-        } else {
-            $html = '<li class="divider"></li>';
-        }
 
-        return $html;
+        return '';
     }
 
     /**
@@ -231,16 +193,6 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         $html = $this->command($config);
 
         return $html;
-    }
-
-    /**
-     * Decides if the renderers should use Bootstrap markup or not
-     *
-     * @return bool
-     */
-    protected function _useBootstrap()
-    {
-        return true;
     }
 
     /**

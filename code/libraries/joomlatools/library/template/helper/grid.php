@@ -117,19 +117,33 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
                                 && controller.grid && typeof controller.grid.uncheckAll !== "undefined") {
                             controller.grid.uncheckAll();
                         }
-
+    
                         form[0].submit();
                     }
                 },
                 send = function(event) {
-                    if (event.which === 13 || event.type === "blur") {
+                    var v = kQuery(this).val();
+
+                    if (v) {
+                        kQuery(".k-search__button-empty").addClass("is-visible");
+                    } else {
+                        kQuery(".k-search__button-empty").removeClass("is-visible");
+                    }
+
+                    if (event.which === 13) {
                         submitForm(kQuery(this).parents("form"));
                     }
                 };
 
             kQuery(function($) {
-                $(".search_button").keypress(send).blur(send);
-                $(".search_button--empty").click(function(event) {
+                $(".k-search__field").on("input", send);
+                var empty_button = $(".k-search__button-empty");
+                
+                if (value) {
+                    empty_button.addClass("is-visible");
+                }
+                
+                empty_button.click(function(event) {
                     event.preventDefault();
 
                     var input = $(this).siblings("input");
@@ -144,11 +158,18 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
             </script>';
         }
 
-        $html .= '<div class="search__container search__container--has_empty_button">';
-        $html .= '<label for="search"><i class="icon-search"></i></label>';
-        $html .= '<input type="search" name="search" class="search_button" placeholder="'.$config->placeholder.'" value="'.$this->getTemplate()->escape($config->search).'" />';
-        $html .= '<a class="search_button--empty"><span>X</span></a>';
+        $html .= '<div class="k-search__container k-search__container--has-both-buttons">';
+        $html .= '<input type="search" name="search" class="k-search__field" placeholder="'.$config->placeholder.'" value="'.$this->getTemplate()->escape($config->search).'" />';
+        $html .= '<button type="submit" class="k-search__button-search"><span class="k-icon-magnifying-glass"></span></button>';
+        $html .= '<button class="k-search__button-empty"><span>X</span></button>';
+
+        if ($config->search) {
+            $html .= '<div class="k-scopebar__item__label k-scopebar__item__label--numberless"></div>';
+        }
+
         $html .= '</div>';
+
+
 
         return $html;
     }
@@ -196,8 +217,8 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $class = '';
         if($config->column == $config->sort)
         {
-            $direction = $direction == 'desc' ? 'asc' : 'desc'; // toggle
             $class = 'class="-koowa-'.$direction.'"';
+            $direction = $direction == 'desc' ? 'asc' : 'desc'; // toggle
         }
 
         $url = clone $this->getTemplate()->url();
@@ -209,17 +230,6 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
 
         $html  = '<a href="'.$url.'" title="'.$translator->translate('Click to sort by this column').'"  '.$class.'>';
         $html .= $translator->translate($config->title);
-
-        // Mark the current column
-        if ($config->column == $config->sort)
-        {
-            if (strtolower($config->direction) === 'asc') {
-                $html .= ' <span class="koowa_icon--sort_up koowa_icon--12"></span>';
-            } else {
-                $html .= ' <span class="koowa_icon--sort_down koowa_icon--12"></span>';
-            }
-        }
-        else $html .= ' <span class="koowa_icon--sort koowa_icon--12"></span>';
 
         $html .= '</a>';
 

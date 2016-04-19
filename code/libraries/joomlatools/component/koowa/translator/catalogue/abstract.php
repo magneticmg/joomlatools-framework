@@ -103,6 +103,7 @@ abstract class ComKoowaTranslatorCatalogueAbstract extends KTranslatorCatalogueA
                 '%a, %b %e'                     => 'JLIB_HTML_BEHAVIOR_TT_DATE_FORMAT',
                 'start'                         => 'JLIB_HTML_START',
                 'end'                           => 'JLIB_HTML_END',
+                'page %s of %s'                 => 'JLIB_HTML_PAGE_CURRENT_OF_TOTAL',
                 '(shift-)click or drag to change value' => 'JLIB_HTML_BEHAVIOR_SHIFT_CLICK_OR_DRAG_TO_CHANGE_VALUE',
             )
         ));

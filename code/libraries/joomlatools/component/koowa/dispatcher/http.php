@@ -103,15 +103,11 @@ class ComKoowaDispatcherHttp extends KDispatcherHttp
 
             $message = $this->getObject('translator')->translate($message);
 
-            if (version_compare(JVERSION, '3.0', '>='))
-            {
-                $class = get_class($exception);
-                $error = new $class($message, $exception->getCode());
-                JErrorPage::render($error);
+            $class = get_class($exception);
+            $error = new $class($message, $exception->getCode());
+            JErrorPage::render($error);
 
-                JFactory::getApplication()->close(0);
-            }
-            else JError::raiseError($exception->getCode(), $message);
+            JFactory::getApplication()->close(0);
 
             return false;
         }

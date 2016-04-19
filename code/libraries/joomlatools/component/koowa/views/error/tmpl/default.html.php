@@ -11,9 +11,9 @@ defined('KOOWA') or die; ?>
 
 <title content="replace"><?= translate('Error').' '.$code.' - '. KHttpResponse::$status_messages[$code]; ?></title>
 
-<ktml:style src="media://koowa/com_koowa/css/debugger.css" />
-<ktml:script src="media://koowa/com_koowa/js/debugger.js" />
-<ktml:script src="media://koowa/com_koowa/js/dumper.js" />
+<ktml:style src="media://koowa/framework/css/debugger.css" />
+<ktml:script src="media://koowa/framework/js/debugger.js" />
+<ktml:script src="media://koowa/framework/js/dumper.js" />
 
 <script data-inline type="text/javascript">
 // Remove all classes from html and body
@@ -99,9 +99,6 @@ document.body.className = ''; document.documentElement.className = '';
             <? endif ?>
             <? unset($args_id, $source_id); ?>
             <? endforeach ?>
-            <div class="page_data">
-                - That's it! -
-            </div>
         </div>
     </div>
 </div>
