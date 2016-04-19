@@ -108,11 +108,7 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
             $config->javascript = false;
         }
 
-        $template = JPATH_THEMES.'/'.JFactory::getApplication()->getTemplate();
-
-        if (file_exists($template.'/enable-koowa-bootstrap.txt')) {
-            $html .= parent::bootstrap($config);
-        }
+        $html .= parent::bootstrap($config);
 
         return $html;
     }
