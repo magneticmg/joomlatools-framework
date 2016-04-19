@@ -57,7 +57,7 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         {
             $name = $command->getName();
 
-            if (($name === 'title' && $config->{'no-title'} === '') || $config->{'no-buttons'} === '') {
+            if (($name === 'title' && $config->{'no-title'} === '') || ($name !== 'title' && $config->{'no-buttons'} === '')) {
                 continue;
             }
 
