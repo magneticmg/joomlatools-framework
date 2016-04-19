@@ -31,14 +31,9 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
             'icon' => $config->toolbar->getName()
         ));
 
-        $config->render_title   = !in_array($config->render_title, array('false', false), true);
-        $config->render_buttons = !in_array($config->render_buttons, array('false', false), true);
 
         //Set a custom title
-        if ($config->title === 'false' || $config->title === false) {
-            //$config->toolbar->removeCommand('title');
-        }
-        elseif($config->title || $config->icon)
+        if($config->title || $config->icon)
         {
             if($config->toolbar->hasCommand('title'))
             {
@@ -62,11 +57,7 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         {
             $name = $command->getName();
 
-            if ($name === 'title') {
-                if (!$config->render_title) {
-                    continue;
-                }
-            } elseif (!$config->render_buttons) {
+            if (($name === 'title' && $config->{'no-title'} === '') || $config->{'no-buttons'} === '') {
                 continue;
             }
 
