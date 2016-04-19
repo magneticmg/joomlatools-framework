@@ -21,6 +21,8 @@ $.widget("koowa.scopebar", {
 
         this._addEvents();
 
+        var container = $('.js-filter-container');
+
         $('.js-filters div[data-filter]').each(function(i, item) {
             var template = prototype.clone();
 
@@ -48,9 +50,9 @@ $.widget("koowa.scopebar", {
             item.show();
             template.show();
 
-            $('.js-filter-container').append(template);
+            container.append(template);
 
-            $('.js-filter-count').text($('.js-dropdown').length);
+            $('.js-filter-count').text(container.find('.js-dropdown-label:visible').length);
         });
     },
 
