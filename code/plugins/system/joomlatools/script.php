@@ -46,6 +46,13 @@ class PlgSystemJoomlatoolsInstallerScript
                 JFolder::create($media);
             }
 
+            $assets = JPATH_LIBRARIES.'/joomlatools/library/resources/assets';
+            $target = $media.'/framework';
+
+            if (!is_link($target)) {
+                $this->_moveFolder($assets, $target);
+            }
+
             // Move component assets
             $results = glob(JPATH_LIBRARIES . '/joomlatools/component/*/resources/assets', GLOB_ONLYDIR);
 
