@@ -25,7 +25,10 @@
             <then>
 				<echo message="Using local checkout of Joomlatools framework" />
 				<copy todir="tmp/clone">
-					<fileset dir="." defaultexcludes="no" />
+                    <fileset dir=".">
+                        <include name="**"/>
+                        <exclude name="**/node_modules/**"/>
+                    </fileset>
 				</copy>
 
                 <if>
@@ -55,8 +58,13 @@
 
     <target name="add_components" depends="clone">
         <property name="component.folder" value="${project.basedir}/tmp/clone/code/libraries/joomlatools/component" />
-        <exec command="git clone --depth 1 --branch 2.2 git@github.com:joomlatools/joomlatools-framework-files.git ${component.folder}/files" />
-        <exec command="git clone --depth 1 --branch 2.2 git@github.com:joomlatools/joomlatools-framework-activities.git ${component.folder}/activities" />
+        <delete file="${component.folder}/files" includeemptydirs="true" />
+        <delete file="${component.folder}/activities" includeemptydirs="true" />
+        <delete file="${component.folder}/scheduler" includeemptydirs="true" />
+        <delete file="${component.folder}/migrator" includeemptydirs="true" />
+
+        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-files.git ${component.folder}/files" />
+        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-activities.git ${component.folder}/activities" />
         <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-scheduler.git ${component.folder}/scheduler" />
         <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-migrator.git ${component.folder}/migrator" />
 
