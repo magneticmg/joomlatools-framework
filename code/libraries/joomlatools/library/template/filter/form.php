@@ -139,45 +139,54 @@ class KTemplateFilterForm extends KTemplateFilterAbstract
     protected function _addQueryParameters(&$text)
     {
         $matches = array();
-        if (preg_match_all('#<form.*action="[^"]*\?(.*)".*method="get".*>(.*)</form>#siU', $text, $matches))
+
+        if (preg_match_all('#(<\s*form[^>]+action="[^"]*?\?(.*?)"[^>]*>)(.*?)</form>#si', $text, $matches))
         {
-            foreach ($matches[1] as $key => $query)
+            foreach ($matches[1] as $key => $match)
             {
-                parse_str(str_replace('&amp;', '&', $query), $query);
-
-                $input = '';
-                foreach ($query as $name => $value)
+                // Only deal with GET forms.
+                if (strpos($match, 'method="get"') !== false)
                 {
-                    if (is_array($value)) {
-                        $name = $name . '[]';
-                    }
+                    $query = $matches[2][$key];
 
-                    if (strpos($matches[2][$key], 'name="' . $name . '"') !== false) {
-                        continue;
-                    }
+                    parse_str(str_replace('&amp;', '&', $query), $query);
 
-                    $name =  $this->getTemplate()->escape($name);
+                    $input = '';
 
-                    if (is_array($value))
+                    foreach ($query as $name => $value)
                     {
-                        foreach ($value as $k => $v)
+                        if (is_array($value)) {
+                            $name = $name . '[]';
+                        }
+
+                        if (strpos($matches[3][$key], 'name="' . $name . '"') !== false) {
+                            continue;
+                        }
+
+                        $name =  $this->getTemplate()->escape($name);
+
+                        if (is_array($value))
                         {
-                            if (!is_scalar($v) || !is_numeric($k)) {
-                                continue;
+                            foreach ($value as $k => $v)
+                            {
+                                if (!is_scalar($v) || !is_numeric($k)) {
+                                    continue;
+                                }
+
+                                $v = $this->getTemplate()->escape($v);
+
+                                $input .= PHP_EOL.'<input type="hidden" name="'.$name.'" value="'.$v.'" />';
                             }
-
-                            $v = $this->getTemplate()->escape($v);
-
-                            $input .= PHP_EOL.'<input type="hidden" name="'.$name.'" value="'.$v.'" />';
+                        }
+                        else {
+                            $value  = $this->getTemplate()->escape($value);
+                            $input .= PHP_EOL.'<input type="hidden" name="'.$name.'" value="'.$value.'" />';
                         }
                     }
-                    else {
-                        $value  = $this->getTemplate()->escape($value);
-                        $input .= PHP_EOL.'<input type="hidden" name="'.$name.'" value="'.$value.'" />';
-                    }
+
+                    $text = str_replace($matches[3][$key], $input.$matches[3][$key], $text);
                 }
 
-                $text = str_replace($matches[2][$key], $input.$matches[2][$key], $text);
             }
         }
 
