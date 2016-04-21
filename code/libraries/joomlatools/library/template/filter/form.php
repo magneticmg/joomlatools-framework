@@ -115,7 +115,7 @@ class KTemplateFilterForm extends KTemplateFilterAbstract
         if (!empty($this->_token_value))
         {
             // POST: Add token
-            $text    = preg_replace('/(<form.*method="post"[^>]*>)/si',
+            $text    = preg_replace('#(<\s*form[^>]+method="post"[^>]*>)#si',
                 '\1'.PHP_EOL.'<input type="hidden" name="'.$this->_token_name.'" value="'.$this->_token_value.'" />',
                 $text
             );
