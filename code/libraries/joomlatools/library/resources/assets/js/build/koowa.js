@@ -673,7 +673,7 @@ $.widget("koowa.scopebar", {
         $('html').click(function (event) {
             var target = $(event.target),
                 isSelect2 = event.target.className.search('select2-') !== -1,
-                isDatepicker = target.parents('.datepicker-dropdown').length !== -1;
+                isDatepicker = (target.parents('.datepicker-dropdown').length > 0 || (target.is('td') && target.hasClass('day')));
 
             if (!isSelect2 && !isDatepicker && target.parents('.js-filter-container').length === 0) {
                 self.closeDropdown();
