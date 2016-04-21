@@ -32,12 +32,6 @@ class PlgSystemJoomlatools extends JPlugin
             @ini_set('pcre.backtrack_limit', 1000000);
         }
 
-        // 2.5.7+ bug - you always need to supply a toolbar title to avoid notices
-        // This happens when the component does not supply an output at all
-        if (class_exists('JToolbarHelper')) {
-            JToolbarHelper::title('');
-        }
-
         //Bugfix: Set offset according to user's timezone
         if (!JFactory::getUser()->guest)
         {
