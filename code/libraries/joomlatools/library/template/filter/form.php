@@ -121,7 +121,7 @@ class KTemplateFilterForm extends KTemplateFilterAbstract
             );
 
             // GET: Add token to .-koowa-grid forms
-            $text    = preg_replace('#(<\s*?form\s+?.*?class=(?:\'|")[^\'"]*?-koowa-grid.*?(?:\'|").*?)>#sim',
+            $text    = preg_replace('#(<\s*form[^>]+class=(?:\'|")[^\'"]*?-koowa-grid.*?(?:\'|")[^>]*)>#si',
                 '\1 data-token-name="'.$this->_token_name.'" data-token-value="'.$this->_token_value.'">',
                 $text
             );
