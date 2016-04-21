@@ -90,7 +90,7 @@ class KTemplateFilterForm extends KTemplateFilterAbstract
     protected function _addAction(&$text)
     {
         // All: Add the action if left empty
-        if (preg_match_all('#<\s*form.*?action=""#sim', $text, $matches, PREG_SET_ORDER))
+        if (preg_match_all('#<\s*form[^>]+action=""#si', $text, $matches, PREG_SET_ORDER))
         {
             $action = $this->getTemplate()->route();
 
