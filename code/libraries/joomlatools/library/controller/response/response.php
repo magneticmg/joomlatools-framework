@@ -123,7 +123,8 @@ class KControllerResponse extends KHttpResponse implements KControllerResponseIn
      *
      * @see http://tools.ietf.org/html/rfc2616#section-10.3
      *
-     * @param  string   $location   The redirect location
+     * @param string $location      The URL to redirect to. The URL should be a full URL, with schema etc.,
+     *                              but practically every browser redirects on paths only as well
      * @param  string   $message    The flash message
      * @param  string   $type       The flash message category type. Default is 'success'.
      * @throws InvalidArgumentException If the location is empty
