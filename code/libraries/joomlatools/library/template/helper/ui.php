@@ -35,7 +35,8 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => false,
-            'styles' => true,
+            'package' => $identifier->package,
+            'styles' => array(),
             'wrapper_class' => array(
                 'koowa-container koowa',
                 $identifier->type.'_'.$identifier->package
@@ -44,9 +45,17 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
             'wrapper' => sprintf('<div class="%s">%%s</div>', implode(' ', KObjectConfig::unbox($config->wrapper_class)))
         ));
 
+
         $html = '';
 
-        if (!empty($config->styles)) {
+        if ($config->styles !== false)
+        {
+            if ($config->package) {
+                $config->styles->package = $config->package;
+            }
+
+            $config->styles->debug = $config->debug;
+
             $html .= $this->styles($config->styles);
         }
 

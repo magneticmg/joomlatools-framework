@@ -43,7 +43,7 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
             'debug' => JFactory::getApplication()->getCfg('debug'),
             'package' => $identifier->package
         ))->append(array(
-            'folder' => 'com_'.$identifier->package,
+            'folder' => 'com_'.$config->package,
             'file'   => ($identifier->type === 'mod' ? 'module' : $identifier->domain) ?: 'admin',
             'media_path' => JPATH_ROOT.'/media'
         ));
