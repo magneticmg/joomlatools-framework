@@ -25,6 +25,22 @@ class PlgSystemKoowa extends JPlugin
      */
     public function __construct($subject, $config = array())
     {
+        // Check if database type is MySQLi
+        if (!(JFactory::getDbo() instanceof JDatabaseDriverMysqli || JFactory::getDbo() instanceof JDatabaseMySQLi))
+        {
+            if (JFactory::getApplication()->getName() === 'administrator')
+            {
+                $link   = JRoute::_('index.php?option=com_config');
+                $error  = 'In order to use Nooku Framework, your database type in Global Configuration should be
+                           set to <strong>MySQLi</strong>. Please go to <a href="%s">Global Configuration</a> and in
+                           the \'Server\' tab change your Database Type to <strong>MySQLi</strong>.';
+
+                JFactory::getApplication()->enqueueMessage(sprintf(JText::_($error), $link), 'warning');
+            }
+
+            return;
+        }
+
         // Try to raise Xdebug nesting level
         @ini_set('xdebug.max_nesting_level', 200);
 
