@@ -483,7 +483,7 @@ abstract class KDispatcherRequestAbstract extends KControllerRequest implements 
     public function getPort()
     {
         if ($this->isProxied() && $this->_headers->has('X-Forwarded-Port')) {
-            $port = $this->_headers->has('X-Forwarded-Port');
+            $port = $this->_headers->get('X-Forwarded-Port');
         } else {
             $port = @$_SERVER['SERVER_PORT'];
         }
