@@ -27,7 +27,7 @@ class Koowa
      *
      * @var string
      */
-    const VERSION = '2.1.5';
+    const VERSION = '2.1.6';
 
     /**
      * The root path
