@@ -26,7 +26,10 @@ defined('KOOWA') or die; ?>
     if (window.parent && window.parent != window && window.frameElement && window.frameElement.className.match('mfp-iframe')) {
         document.documentElement.className += " inside_modal";
     }
-    if (window.parent.SqueezeBox && window.parent.SqueezeBox.isOpen) {
+    if (
+        (window.parent && window.parent.SqueezeBox && window.parent.SqueezeBox.isOpen) ||
+        (window.frameElement && window.frameElement.parentElement.className.match('mce-container-body'))
+    ) {
         document.documentElement.className += " inside_modal joomla_modal";
     }
     if (navigator.userAgent.match(/Trident|MSIE/)) {
