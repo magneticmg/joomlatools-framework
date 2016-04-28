@@ -132,3 +132,15 @@ a.-koowa-desc {
   @include clearfix;
   clear: both;
 }
+
+.remove-tag {
+  color: #888;
+  font-weight: $bold;
+  padding: 0 2px 0 4px;
+  @include transition;
+  
+  &:focus,
+  &:hover {
+    color: black;
+  }
+}
