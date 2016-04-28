@@ -114,10 +114,12 @@
 
   /* Molecules */
 
+  @import "../molecules/acl";
   @import "../molecules/booleanlist";
   @import "../molecules/checkbox-radio";
   @import "../molecules/checkbox-toggle";
   @import "../molecules/dropdown";
+  @import "../molecules/extension-groups";
   @import "../molecules/floatthead";
   @import "../molecules/form-block";
   @import "../molecules/hamburger";
