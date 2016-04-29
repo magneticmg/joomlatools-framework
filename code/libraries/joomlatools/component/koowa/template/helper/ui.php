@@ -60,20 +60,31 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
             }
         }
 
-        $app    = JFactory::getApplication();
-        $tmpl   = $this->getObject('request')->getQuery()->tmpl;
-        $layout = $this->getObject('request')->getQuery()->layout;
+        $app      = JFactory::getApplication();
+        $template = $app->getTemplate();
+        $tmpl     = $this->getObject('request')->getQuery()->tmpl;
+        $layout   = $this->getObject('request')->getQuery()->layout;
+
+
+
+        if ($app->isSite())
+        {
+            // Load Bootstrap file if it's explicitly asked for
+            if ($tmpl !== 'koowa' && file_exists(JPATH_THEMES.'/'.$template.'/enable-koowa-bootstrap.txt')) {
+                $html .= $this->bootstrap(array('javascript' => false, 'css' => true));
+            }
+
+            // Load the admin styles in frontend forms
+            if ($tmpl === 'koowa' && $layout === 'form') {
+                $config->file = 'admin';
+            }
+        }
 
         if ($app->isAdmin() && $config->file === 'admin' && (empty($tmpl) || $tmpl === 'index'))
         {
-            $template = $app->getTemplate();
-
             if (file_exists(JPATH_ROOT.'/media/koowa/com_koowa/css/'.$template.'.css')) {
                 $html .= '<ktml:style src="assets://koowa/css/'.$template.'.css" />';
             }
-        } else if ($app->isSite() && $tmpl === 'koowa' && $layout === 'form') {
-            // Load the admin styles in frontend forms
-            $config->file = 'admin';
         }
 
         $html .= parent::styles($config);
