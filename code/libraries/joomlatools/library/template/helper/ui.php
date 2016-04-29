@@ -101,6 +101,8 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
 
     public function scripts($config = array())
     {
+        $identifier = $this->getTemplate()->getIdentifier();
+
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => false,
@@ -113,8 +115,10 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $html .= $this->bootstrap(array('css' => false, 'javascript' => true, 'debug' => $config->debug));
         $html .= '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>';
 
-        if ($config->domain === 'admin' && !isset(self::$_loaded['admin.js'])) {
+        if ($identifier->domain === 'admin' && !isset(self::$_loaded['admin.js'])) {
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
+
+            self::$_loaded['admin.js'] = true;
         }
 
         return $html;
