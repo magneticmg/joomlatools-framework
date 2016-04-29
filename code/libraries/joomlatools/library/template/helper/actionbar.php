@@ -51,7 +51,7 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         }
 
         //Render the buttons
-        $html = '';
+        $html = '<span class="k-toolbar-buttons">';
 
         foreach ($config->toolbar->getCommands() as $command)
         {
@@ -67,6 +67,8 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
                 $html .= $this->command(array('command' => $command));
             }
         }
+
+        $html .= "</span>";
 
         return $html;
     }

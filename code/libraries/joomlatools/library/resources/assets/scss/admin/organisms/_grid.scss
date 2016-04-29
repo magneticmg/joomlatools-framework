@@ -63,17 +63,30 @@ $grid-width: 2560px !default;
 
 .k-grid-container {
   @include flexbox {
+    display: flex;
+    flex-direction: column;
     flex: 1 1 auto;
+    overflow: auto;
   }
 }
 
 .k-grid {
   background: $table-background;
   padding: $grid-spacing / 2;
+  overflow: auto;
+
+  @include flexbox {
+    display: flex;
+    flex: 0 1 auto;
+  }
 }
 
 .k-grid__items {
   @include clearfix;
+
+  @include flexbox {
+    flex: 1 1 auto;
+  }
 }
 
 .k-grid__item {
@@ -112,7 +125,81 @@ $grid-width: 2560px !default;
       }
     }
   }
+
+  // 4:3 ratio block with border and background
+  .k-grid__item__content {
+    @include ratio-block(4 to 3);
+    @include transition;
+    background: colorpicker(primary, 6);
+    font-size: 14px;
+    border: 1px solid #ddd;
+  }
+
+  // Cover entire ratio block
+  .k-grid__file-wrapper {
+    @include coverall;
+  }
+
+  // Display table for vertical and horizontal centering
+  .k-grid__file {
+    width: 100%;
+    height: 100%;
+    color: $color-accent; // This is the <a> so put color here
+    cursor: pointer; // This is the <a> so put cursor here
+    max-height: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+    font-size: 0;
+    white-space: nowrap;
+    padding: 1px; // space images with 1px
+
+    &:before {
+      content: ' ';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    @include flexbox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  // Center vertical and horizontal
+  .k-grid__item__cell {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+    @include flexbox {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .koowa_icon--48,
+  img {
+    display: inline-block;
+    max-height: 100%;
+    vertical-align: middle;
+
+    @include flexbox {
+      flex: 0 1 auto;
+    }
+  }
+
 }
+
+
 
 .k-grid__item__title {
   overflow: hidden;
@@ -147,40 +234,11 @@ $grid-width: 2560px !default;
   }
 }
 
+
+
 .k-grid__item--file {
-  cursor: pointer;
-
   .k-grid__item__content {
-    background: colorpicker(primary, 6);
-    border: 1px solid #ddd;
-    padding: 1px;
-    @include transition;
-  }
 
-  .k-grid__file-wrapper {
-    text-align: center;
-    font-size: 0;
-    vertical-align: middle;
-
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-    }
-  }
-
-  .k-grid__file {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 14px;
-    color: $color-accent;
-
-    img {
-      display: inline-block;
-      vertical-align: middle;
-      max-width: 100%;
-    }
   }
 
   .k-grid__item__title {
