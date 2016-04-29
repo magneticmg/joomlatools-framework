@@ -33,8 +33,6 @@ class ComKoowaTemplateHelperGrid extends KTemplateHelperGrid
 
         $translator = $this->getObject('translator');
 
-        $html = '';
-
         $config->data->order = -1;
 
         $updata = $config->data->toArray();
@@ -44,6 +42,8 @@ class ComKoowaTemplateHelperGrid extends KTemplateHelperGrid
 
         $downdata = $config->data->toArray();
         $downdata = htmlentities(json_encode($downdata));
+
+        $html = '';
 
         $html .= '<span class="k-table-data--sort">';
 
@@ -88,8 +88,10 @@ class ComKoowaTemplateHelperGrid extends KTemplateHelperGrid
 
         if ($config->sort !== $config->field)
         {
+            $html .= $this->getTemplate()->helper('behavior.tooltip');
+
             $html = '<div class="koowa-tooltip"
-                          data-koowa-tooltip="'.htmlentities(json_encode(array('placement' => 'left'))).'"
+                          data-koowa-tooltip="'.htmlentities(json_encode(array('placement' => 'bottom'))).'"
                           title="'.$translator->translate('Please order by this column first by clicking the column title').'">'
                     .$html.
                     '</div>';
