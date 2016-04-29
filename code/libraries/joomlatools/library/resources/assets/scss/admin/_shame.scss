@@ -144,3 +144,9 @@ a.-koowa-desc {
     color: black;
   }
 }
+
+.k-migrator-container {
+  @include flexbox {
+    flex: 1 1 auto;
+  }
+}

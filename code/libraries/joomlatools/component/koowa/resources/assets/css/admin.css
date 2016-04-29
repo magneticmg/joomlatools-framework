@@ -2758,13 +2758,17 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-breadcrumb__item { position: relative; z-index: 2; display: block; padding: 10px; min-width: 39px; min-height: 39px; overflow: hidden; text-align: center; line-height: 19px; text-decoration: none; white-space: nowrap; text-overflow: ellipsis; }
 
-@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-grid-container, .k-flexboxlegacy .koowa .k-grid-container { flex: 1 1 auto; } }
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-grid-container, .k-flexboxlegacy .koowa .k-grid-container { display: flex; flex-direction: column; flex: 1 1 auto; overflow: auto; } }
 
-.koowa .k-grid { background: #ffffff; padding: 8px; }
+.koowa .k-grid { background: #ffffff; padding: 8px; overflow: auto; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-grid, .k-flexboxlegacy .koowa .k-grid { display: flex; flex: 0 1 auto; } }
 
 .koowa .k-grid__items:before, .koowa .k-grid__items:after { display: table; content: " "; }
 
 .koowa .k-grid__items:after { clear: both; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-grid__items, .k-flexboxlegacy .koowa .k-grid__items { flex: 1 1 auto; } }
 
 .koowa .k-grid__item { float: left; padding: 8px; width: 100%; }
 
@@ -2816,6 +2820,26 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-grid__item.selected:hover .k-grid__item__title, .koowa .k-grid__item.selected:focus .k-grid__item__title { background: #225179; }
 
+.koowa .k-grid__item .k-grid__item__content { position: relative; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; background: #ffffff; font-size: 14px; border: 1px solid #ddd; }
+
+.koowa .k-grid__item .k-grid__item__content:before { display: block; content: " "; padding-top: 75%; }
+
+.koowa .k-grid__item .k-grid__file-wrapper { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.koowa .k-grid__item .k-grid__file { width: 100%; height: 100%; color: #3071a9; cursor: pointer; max-height: 100%; overflow: hidden; vertical-align: middle; display: inline-block; text-align: center; font-size: 0; white-space: nowrap; padding: 1px; }
+
+.koowa .k-grid__item .k-grid__file:before { content: ' '; display: inline-block; height: 100%; vertical-align: middle; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-grid__item .k-grid__file, .k-flexboxlegacy .koowa .k-grid__item .k-grid__file { display: flex; align-items: center; justify-content: center; } }
+
+.koowa .k-grid__item .k-grid__item__cell { display: inline-block; vertical-align: middle; text-align: center; max-height: 100%; max-width: 100%; overflow: hidden; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-grid__item .k-grid__item__cell, .k-flexboxlegacy .koowa .k-grid__item .k-grid__item__cell { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; } }
+
+.koowa .k-grid__item .koowa_icon--48, .koowa .k-grid__item img { display: inline-block; max-height: 100%; vertical-align: middle; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-grid__item .koowa_icon--48, .k-flexboxlegacy .koowa .k-grid__item .koowa_icon--48, .k-flexbox .koowa .k-grid__item img, .k-flexboxlegacy .koowa .k-grid__item img { flex: 0 1 auto; } }
+
 .koowa .k-grid__item__title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .koowa .k-grid__item--folder { cursor: pointer; }
@@ -2827,18 +2851,6 @@ body.k-resizing { overflow: hidden; }
 .koowa--rtl.koowa .k-grid__item--folder .k-grid__item__title:before { padding-right: 0; padding-left: 5px; }
 
 .koowa .k-grid__item--folder:hover .k-grid__item__title, .koowa .k-grid__item--folder:focus .k-grid__item__title { background: #ececec; }
-
-.koowa .k-grid__item--file { cursor: pointer; }
-
-.koowa .k-grid__item--file .k-grid__item__content { background: #ffffff; border: 1px solid #ddd; padding: 1px; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
-
-.koowa .k-grid__item--file .k-grid__file-wrapper { text-align: center; font-size: 0; vertical-align: middle; }
-
-.koowa .k-grid__item--file .k-grid__file-wrapper:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; }
-
-.koowa .k-grid__item--file .k-grid__file { display: inline-block; vertical-align: middle; font-size: 14px; color: #3071a9; }
-
-.koowa .k-grid__item--file .k-grid__file img { display: inline-block; vertical-align: middle; max-width: 100%; }
 
 .koowa .k-grid__item--file .k-grid__item__title { padding: 10px; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
@@ -2873,7 +2885,9 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-scopebar__filters:after { clear: both; }
 
-.koowa .k-scopebar__item--filter { position: relative; display: block; float: left; width: auto; line-height: 39px; border-right: 1px solid #ccc; height: 39px; font-size: 12px; }
+.koowa .k-scopebar__item--filter { display: block; float: left; width: auto; line-height: 39px; border-right: 1px solid #ccc; height: 39px; font-size: 12px; }
+
+@media screen and (min-width: 600px) { .koowa .k-scopebar__item--filter { position: relative; } }
 
 .koowa--rtl.koowa .k-scopebar__item--filter { border-right: none; border-left: 1px solid #ccc; float: right; }
 
@@ -3280,6 +3294,8 @@ body.k-resizing { overflow: hidden; }
 .koowa .remove-tag { color: #888; font-weight: 700; padding: 0 2px 0 4px; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .remove-tag:focus, .koowa .remove-tag:hover { color: black; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-migrator-container, .k-flexboxlegacy .koowa .k-migrator-container { flex: 1 1 auto; } }
 
 /* ========================================================================== Fixes ========================================================================== */
 /** iOs autozzom fix iOs zooms automatically when an input or select is focused Making the font size 16px fixes this behaviour since iOs believes the input is readable enough */
