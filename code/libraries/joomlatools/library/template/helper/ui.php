@@ -42,7 +42,12 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
                 $identifier->type.'_'.$identifier->package
             ),
         ))->append(array(
-            'wrapper' => sprintf('<div class="%s">%%s</div>', implode(' ', KObjectConfig::unbox($config->wrapper_class)))
+            'wrapper' => sprintf('<div class="%s">
+                <!--[if lte IE 8 ]><div class="old-ie"><![endif]-->
+                %%s
+                <!--[if lte IE 8 ]></div><![endif]-->
+                </div>', implode(' ', KObjectConfig::unbox($config->wrapper_class))
+            )
         ));
 
 
