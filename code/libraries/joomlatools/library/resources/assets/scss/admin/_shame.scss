@@ -105,10 +105,13 @@ input[type="color"],
   margin-bottom: $spacing;
 }
 
+.files__sortable,
 .files__sortable--sorted,
 .files__sortable--sorted-desc,
 a.-koowa-asc,
 a.-koowa-desc {
+  cursor: pointer;
+
   &:focus,
   &:hover {
     text-decoration: none;
