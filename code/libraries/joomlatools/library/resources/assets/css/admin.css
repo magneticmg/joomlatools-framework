@@ -2872,9 +2872,7 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-scopebar__filters:after { clear: both; }
 
-.koowa .k-scopebar__item--filter { display: block; float: left; width: auto; line-height: 39px; border-right: 1px solid #ccc; height: 39px; font-size: 12px; }
-
-@media screen and (min-width: 600px) { .koowa .k-scopebar__item--filter { position: relative; } }
+.koowa .k-scopebar__item--filter { position: relative; display: block; float: left; width: auto; line-height: 39px; border-right: 1px solid #ccc; height: 39px; font-size: 12px; }
 
 .koowa--rtl.koowa .k-scopebar__item--filter { border-right: none; border-left: 1px solid #ccc; float: right; }
 
@@ -3278,6 +3276,10 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .k-grid__items__folders:after, .koowa .k-grid__items__files:after { clear: both; }
 
+.koowa .remove-tag { color: #888; font-weight: 700; padding: 0 2px 0 4px; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+
+.koowa .remove-tag:focus, .koowa .remove-tag:hover { color: black; }
+
 /* ========================================================================== Fixes ========================================================================== */
 /** iOs autozzom fix iOs zooms automatically when an input or select is focused Making the font size 16px fixes this behaviour since iOs believes the input is readable enough */
 /** Set font-size to selectable elements to 16px to avoid iOs to zoom automatically This way the user is still able to zoom manually Acknowledgements: Doesn't work within framed content. The whole body will zoom regardless */
@@ -3298,5 +3300,3 @@ body.k-resizing { overflow: hidden; }
 
 /* iPad 3 and 4 */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) { select, textarea, input { font-size: 16px !important; } }
-
-body { border: 30px solid red !important; }
