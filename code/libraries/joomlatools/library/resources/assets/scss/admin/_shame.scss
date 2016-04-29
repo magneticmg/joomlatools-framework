@@ -105,6 +105,8 @@ input[type="color"],
   margin-bottom: $spacing;
 }
 
+.files__sortable--sorted,
+.files__sortable--sorted-desc,
 a.-koowa-asc,
 a.-koowa-desc {
   &:focus,
@@ -113,6 +115,7 @@ a.-koowa-desc {
   }
 }
 
+.files__sortable--sorted,
 a.-koowa-asc {
   @include icon-after(sort-ascending, true) {
     margin-left: .5em;
@@ -120,6 +123,7 @@ a.-koowa-asc {
   }
 }
 
+.files__sortable--sorted-desc,
 a.-koowa-desc {
   @include icon-after(sort-descending, true) {
     margin-left: .5em;
