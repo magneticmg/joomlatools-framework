@@ -16,17 +16,6 @@
 class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
 {
     /**
-     * Loads the common UI libraries
-     *
-     * @param array $config
-     * @return string
-     */
-    public function ui($config = array())
-    {
-        return $this->getTemplate()->helper('ui.load');
-    }
-
-    /**
      * Loads koowa.js
      *
      * @param array|KObjectConfig $config
