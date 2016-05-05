@@ -20,26 +20,3 @@
 
 
 
-
-/* ==========================================================================
-   Frontend form layout
-   ========================================================================== */
-
-@at-root .k-template {
-  background: $form-front-background;
-
-  .koowa-container {
-    background: $form-front-background;
-    max-width: 1280px;
-    margin: auto;
-
-    @include breakpoint($beta) {
-      padding: 20px;
-    }
-  }
-
-  .k-wrapper {
-    position: relative;
-    box-shadow: 0 0 10px rgba(0,0,0,1);
-  }
-}
