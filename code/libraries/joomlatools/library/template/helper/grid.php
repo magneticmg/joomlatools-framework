@@ -228,7 +228,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $query['direction'] = $direction;
         $url->setQuery($query);
 
-        $html  = '<a class="koowa-tooltip" href="'.$url.'" data-koowa-tooltip=\'{"container":"body","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'"  '.$class.'>';
+        $html  = '<a class="koowa-tooltip" href="'.$url.'" data-koowa-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'"  '.$class.'>';
         $html .= $translator->translate($config->title);
 
         $html .= '</a>';

@@ -12,7 +12,6 @@
    ========================================================================== */
 
 @import "../../../../../../../../../node_modules/select2/src/scss/core";
-
 @import "../../../../../../../../../node_modules/select2-bootstrap-theme/src/select2-bootstrap";
 @import "../../../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns"; /* We need the dropdowns for the datepicker until we found a better datepicker */
 @import "../organisms/modal";
@@ -72,6 +71,8 @@
   @import "../../../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/forms";
   @import "../../../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
   @import "../../../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+  @import "../../../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+  @import "../../../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
 
 
 
