@@ -172,7 +172,9 @@
   width: auto;
   line-height: $scopebar-size;
   @include border(right, #ccc);
-  height: $scopebar-size;
+  @include border(bottom, #ccc);
+  margin-bottom: -1px;
+  height: $scopebar-size + 1px;
   font-size: $scopebar-filter-font-size;
 
   @include breakpoint($beta) {
@@ -356,6 +358,9 @@
 
     @include breakpoint($delta) {
       @include border(left, $scopebar-border);
+      @include border(bottom, $scopebar-border);
+      height: $scopebar-size + 1px;
+      margin-bottom: -1px;
 
       @include rtl {
         border-left: none;
@@ -455,7 +460,6 @@
 .k-scopebar-icon-button {
   position: relative;
   display: none;
-  overflow: hidden;
   width: $scopebar-size;
   height: 0;
   margin: 0;

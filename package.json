@@ -44,8 +44,5 @@
     "grunt-webfont": "^0.4.8",
     "jit-grunt": "^0.9.1",
     "time-grunt": "^1.2.1"
-  },
-  "dependencies": {
-    "hint.css": "^2.2.1"
   }
 }
