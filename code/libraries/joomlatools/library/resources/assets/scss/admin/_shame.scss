@@ -157,3 +157,14 @@ a.-koowa-desc {
     flex: 1 1 auto;
   }
 }
+
+// Custom overwrite since in Bootstrap 3 they use .form-group instead of .control-group
+.form-group.warning {
+  @include form-control-validation($state-warning-text, $state-warning-text, $state-warning-bg);
+}
+.form-group.error {
+  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+}
+.form-group.success {
+  @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
+}

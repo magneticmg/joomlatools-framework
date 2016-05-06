@@ -66,16 +66,16 @@
         errorElement: 'p',
         highlight: function (element, errorClass, validClass) {
             if (element.type === 'radio') {
-                this.findByName(element.name).closest('div.control-group').removeClass(validClass).addClass(errorClass);
+                this.findByName(element.name).closest('div.form-group').removeClass(validClass).addClass(errorClass);
             }else {
-                $(element).closest('div.control-group').removeClass(validClass).addClass(errorClass);
+                $(element).closest('div.form-group').removeClass(validClass).addClass(errorClass);
             }
         },
         unhighlight: function (element, errorClass, validClass) {
             if (element.type === 'radio') {
                 this.findByName(element.name).parent('div').parent('div').removeClass(errorClass).addClass(validClass);
             } else {
-                $(element).closest('div.control-group').removeClass(errorClass).addClass(validClass);
+                $(element).closest('div.form-group').removeClass(errorClass).addClass(validClass);
                 $(element).next('span.help-inline').text('');
             }
         },
