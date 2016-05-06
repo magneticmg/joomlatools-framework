@@ -43,7 +43,6 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
         ));
 
         $title = $this->getObject('translator')->translate($config->command->title);
-        $icon  = $config->command->icon;
         $html  = '';
 
         if (!empty($title))
@@ -54,8 +53,6 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
             {
                 $app = JFactory::getApplication();
                 $app->JComponentTitle = $html;
-
-                //$html = '';
 
                 JFactory::getDocument()->setTitle($app->getCfg('sitename') . ' - ' . JText::_('JADMINISTRATION') . ' - ' . $title);
             }
@@ -73,28 +70,5 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
     public function options($config = array())
     {
         return $this->dialog($config);
-    }
-
-    /**
-     * Render a modal button
-     *
-     * @param   array   $config An optional array with configuration options
-     * @return  string  Html
-     */
-    public function dialog($config = array())
-    {
-        JHtml::_('behavior.modal');
-
-        return parent::dialog($config);
-    }
-
-    /**
-     * Decides if Bootstrap buttons should use icons
-     *
-     * @return bool
-     */
-    protected function _useIcons()
-    {
-        return JFactory::getApplication()->isAdmin();
     }
 }
