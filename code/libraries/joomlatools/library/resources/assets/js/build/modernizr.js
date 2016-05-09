@@ -1,6 +1,6 @@
 /*!
  * modernizr v3.3.1
- * Build http://modernizr.com/download?-appearance-checked-flexbox-flexboxlegacy-flexboxtweener-flexwrap-prefixedcss-setclasses-shiv-dontmin
+ * Build http://modernizr.com/download?-appearance-checked-flexbox-flexboxlegacy-flexboxtweener-flexwrap-prefixedcss-setclasses-shiv-dontmin-cssclassprefix:k-
  *
  * Copyright (c)
  *  Faruk Ates
@@ -41,7 +41,7 @@
     // Any settings that don't work as separate modules
     // can go in here as configuration.
     _config: {
-      'classPrefix': '',
+      'classPrefix': "k-",
       'enableClasses': true,
       'enableJSClass': true,
       'usePrefixes': true

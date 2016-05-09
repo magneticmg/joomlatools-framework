@@ -77,7 +77,8 @@ module.exports = function(grunt) {
                     "flexwrap"
                 ],
                 "crawl" : false,
-                "customTests" : []
+                "customTests" : [],
+                "classPrefix": "k-"
             }
         },
 
@@ -145,6 +146,8 @@ module.exports = function(grunt) {
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/koowa.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/jquery.ui.widget.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/koowa.scopebar.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.class.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
@@ -211,6 +214,8 @@ module.exports = function(grunt) {
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/jquery.ui.widget.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/koowa.scopebar.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.class.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
@@ -306,7 +311,7 @@ module.exports = function(grunt) {
     });
 
     // The dev task will be used during development
-    grunt.registerTask('javascript', ['modernizr', 'string-replace', 'uglify', 'concat']);
+    grunt.registerTask('javascript', ['modernizr', 'uglify', 'concat']);
     grunt.registerTask('default', ['shell', 'watch']);
 
 };
