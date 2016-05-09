@@ -62,16 +62,19 @@
         <delete file="${component.folder}/activities" includeemptydirs="true" />
         <delete file="${component.folder}/scheduler" includeemptydirs="true" />
         <delete file="${component.folder}/migrator" includeemptydirs="true" />
+        <delete file="${component.folder}/tags" includeemptydirs="true" />
 
         <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-files.git ${component.folder}/files" />
         <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-activities.git ${component.folder}/activities" />
         <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-scheduler.git ${component.folder}/scheduler" />
         <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-migrator.git ${component.folder}/migrator" />
+        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-tags.git ${component.folder}/tags" />
 
         <delete dir="${component.folder}/files/.git" includeemptydirs="true" />
         <delete dir="${component.folder}/activities/.git" includeemptydirs="true" />
         <delete dir="${component.folder}/scheduler/.git" includeemptydirs="true" />
         <delete dir="${component.folder}/migrator/.git" includeemptydirs="true" />
+        <delete dir="${component.folder}/tags/.git" includeemptydirs="true" />
 
 
     </target>
