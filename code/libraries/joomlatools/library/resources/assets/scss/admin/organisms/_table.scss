@@ -172,6 +172,11 @@
     @include transition;
   }
 
+  [class^="koowa_icon"] {
+    vertical-align: middle;
+    line-height: 0;
+  }
+
 
 
   /**
@@ -511,6 +516,7 @@
 
 .k-table__item--state {
   cursor: pointer;
+  @include transition;
 
   &:focus,
   &:hover {

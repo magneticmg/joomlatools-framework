@@ -168,3 +168,56 @@ a.-koowa-desc {
 .form-group.success {
   @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
 }
+
+
+
+.k-positioner {
+  $k-positioner-width: 16px;
+  $k-positioner-color: #ccc;
+
+  display: inline-block;
+  vertical-align: middle;
+  width: $k-positioner-width;
+  height: 4px;
+  border-top: 1px solid $k-positioner-color;
+  border-bottom: 1px solid $k-positioner-color;
+  cursor: move;
+  counter-increment: positioner-counter;
+
+  @include psuedo(before) {
+    width: $k-positioner-width;
+    height: 10px;
+    border-top: 1px solid $k-positioner-color;
+    border-bottom: 1px solid $k-positioner-color;
+    top: -4px;
+  }
+
+  &:after {
+    position: absolute;
+    width: ($k-positioner-width * 2);
+    height: ($k-positioner-width * 2);
+    top: -($k-positioner-width - 1px);
+    left: -($k-positioner-width / 2);
+    content: counter(positioner-counter);
+    font-size: 10px;
+    line-height: ($k-positioner-width * 2.75);
+    text-indent: 3px;
+    vertical-align: bottom;
+    color: #333;
+    text-shadow: 0 0 3px white;
+    @include transition;
+  }
+}
+
+.k-table {
+  counter-reset: positioner-counter;
+}
+
+tr.selected {
+  .k-positioner {
+    &:after {
+      color: white;
+      text-shadow: none;
+    }
+  }
+}

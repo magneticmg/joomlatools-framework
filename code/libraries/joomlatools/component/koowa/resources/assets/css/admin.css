@@ -3377,6 +3377,8 @@ body.k-resizing { overflow: hidden; }
 
 .koowa .form-group.success .form-control-feedback { color: #3c763d; }
 
+.koowa .k-positioner { display: inline-block; width: 16px; height: 16px; border: 1px solid red; }
+
 /* ========================================================================== Fixes ========================================================================== */
 /** iOs autozzom fix iOs zooms automatically when an input or select is focused Making the font size 16px fixes this behaviour since iOs believes the input is readable enough */
 /** Set font-size to selectable elements to 16px to avoid iOs to zoom automatically This way the user is still able to zoom manually Acknowledgements: Doesn't work within framed content. The whole body will zoom regardless */
