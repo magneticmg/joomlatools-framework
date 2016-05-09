@@ -41,7 +41,7 @@ class ComKoowaTemplateHelperMenubar extends KTemplateHelperAbstract
             $class  = $command->active ? ' class="active"' : '';
 
             $html .= '<li'.$class.'>';
-            $html .= '<a class="'.($view ? 'k-icon-'.$view : '').'" href="'.$command->href.'">';
+            $html .= '<a class="'.($view ? 'k-navigation-'.$view : '').'" href="'.$command->href.'">';
             $html .= $this->getObject('translator')->translate($command->label);
             $html .= '</a>';
             $html .= '</li>';
