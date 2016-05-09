@@ -82,23 +82,6 @@ module.exports = function(grunt) {
             }
         },
 
-        "string-replace": {
-            inline: {
-                files: {
-                    "<%= nookuFrameworkAssetsPath %>/js/build/modernizr.js": "<%= nookuFrameworkAssetsPath %>/js/build/modernizr.js"
-                },
-                options: {
-                    replacements: [
-                        // place files inline example
-                        {
-                            pattern: "'classPrefix' : ''",
-                            replacement: "'classPrefix' : 'k-'"
-                        }
-                    ]
-                }
-            }
-        },
-
 
         // Concatenate files
 
