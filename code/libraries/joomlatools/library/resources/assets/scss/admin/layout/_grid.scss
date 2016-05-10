@@ -38,7 +38,13 @@
 }
 
 
-/* Grid children */
+/* --------------------------------------------------------------------------
+   Grid children
+   -------------------------------------------------------------------------- */
+
+/**
+ * Main container
+ */
 
 .k-container__main {
   margin-bottom: $spacing;
@@ -53,6 +59,25 @@
   }
 }
 
+/* When a sidebar is active next to it */
+
+.k-sidebar + .k-content .k-container__main {
+  @include breakpoint($charlie) {
+    @include span(12);
+    margin-bottom: $spacing;
+  }
+
+  @include breakpoint($delta) {
+    @include span(8);
+    margin-bottom: 0;
+  }
+}
+
+
+/**
+ * Sub container
+ */
+
 .k-container__sub {
   margin-bottom: $spacing;
 
@@ -65,6 +90,25 @@
     margin-bottom: 0;
   }
 }
+
+/* When a sidebar is active next to it */
+
+.k-sidebar + .k-content .k-container__sub {
+  @include breakpoint($charlie) {
+    @include span(12);
+    margin-bottom: $spacing;
+  }
+
+  @include breakpoint($delta) {
+    @include span(4);
+    margin-bottom: 0;
+  }
+}
+
+
+/**
+ * Full container
+ */
 
 .k-container__full {
   @include clearfix;
