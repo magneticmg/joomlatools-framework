@@ -285,6 +285,7 @@
    * 1. Coloring Links and extra elements that don't color automatically with it's parent
    */
 
+  tr.active,
   tr.selected {
     td {
       background: $table-cell-accent-background;
@@ -302,6 +303,7 @@
       }
     }
   }
+
 
 
   /* Sub headings */
