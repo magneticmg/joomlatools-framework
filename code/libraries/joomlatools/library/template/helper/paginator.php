@@ -139,9 +139,11 @@ class KTemplateHelperPaginator extends KTemplateHelperSelect
 
         if ($config->show_pages)
         {
-            $html .= '<ul class="pagination">';
+            $html .= '<div class="pagination">';
+            $html .= '<ul>';
             $html .=  $this->_pages($this->_items($config));
             $html .= '</ul>';
+            $html .= '</div>';
         }
 
         if($config->show_count)

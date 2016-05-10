@@ -1243,6 +1243,16 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .koowa input.input-file, .koowa input[type=file] { margin: 0; padding: 0; border: none; font-size: 16px; line-height: 16px; width: auto; height: auto; }
 
+.koowa .k-pagination { margin-top: 20px; }
+
+.koowa .k-pagination .limit { margin-right: 1em; display: inline-block; vertical-align: top; padding: 0; border: none; }
+
+.koowa .k-pagination .limit select { width: auto; margin: 0; height: 30px; }
+
+.koowa .k-pagination .pagination { margin: 0; display: inline-block; vertical-align: top; }
+
+.koowa .k-pagination ul { margin: 0; }
+
 .koowa table td { vertical-align: middle; }
 
 .koowa table td * { vertical-align: middle; }
