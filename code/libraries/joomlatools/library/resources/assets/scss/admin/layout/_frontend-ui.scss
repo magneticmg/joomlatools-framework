@@ -7,11 +7,9 @@
 
   .koowa-container {
     background: $form-front-background;
-    max-width: 1280px;
-    margin: auto;
 
     @include breakpoint($beta) {
-      padding: 20px;
+      padding: 15px;
     }
   }
 
