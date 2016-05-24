@@ -6,6 +6,11 @@
  * Re-setting the Joomla default icons with our icons
  */
 
+[class^="icon-"],
+[class*=" icon-"] {
+  margin: 0;
+}
+
 .icon-new {
   @include icon-before(plus, true);
 }

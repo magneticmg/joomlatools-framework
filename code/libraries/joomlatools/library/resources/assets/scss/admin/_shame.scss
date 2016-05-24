@@ -221,3 +221,21 @@ tr.selected {
     }
   }
 }
+
+.k-ellipsis-item {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// Larger tooltips
+.tooltip-inner {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+  max-width: 320px;
+}
