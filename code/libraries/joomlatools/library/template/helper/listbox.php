@@ -198,18 +198,22 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
         ))->append(array(
             'value'      => $config->name,
             'selected'   => $config->{$config->name},
-            'identifier' => 'com://'.$this->getIdentifier()->domain.'/'.$this->getIdentifier()->package.'.model.'.$config->model
         ))->append(array(
             'label'      => $config->value,
         ))->append(array(
             'filter'     => array('sort' => $config->label),
         ));
 
-        if(!$config->model instanceof KModelInterface) {
+        //Get the model object
+        if(!$config->model instanceof KModelInterface)
+        {
+            $config->append(array(
+                'identifier' => 'com://'.$this->getIdentifier()->domain.'/'.$this->getIdentifier()->package.'.model.'.$config->model
+            ));
+
             $model = $this->getObject($config->identifier);
-        } else {
-            $model = $config->model;
         }
+        else $model = $config->model;
 
         //Get the list of items
         $items = array();
@@ -274,7 +278,6 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
             'options'    => array('multiple' => (bool) $config->attribs->multiple),
             'value'      => $config->name,
             'selected'   => $config->{$config->name},
-            'identifier' => 'com://'.$this->getIdentifier()->domain.'/'.$this->getIdentifier()->package.'.model.'.$config->model
         ))->append(array(
             'label'      => $config->value,
         ))->append(array(
@@ -285,12 +288,18 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
         //Add name to attribs
         $config->attribs->name = $config->name;
 
-        if(!$config->model instanceof KModelInterface) {
-            $model = $this->getObject($config->identifier);
-        } else {
-            $model = $config->model;
-        }
+        //Get the model object
+        if(!$config->model instanceof KModelInterface)
+        {
+            $config->append(array(
+                'identifier' => 'com://'.$this->getIdentifier()->domain.'/'.$this->getIdentifier()->package.'.model.'.$config->model
+            ));
 
+            $model = $this->getObject($config->identifier);
+        }
+        else $model = $config->model;
+
+        //Get the autocomplete url
         if (!$config->url)
         {
             $identifier = $this->getIdentifier($model);
@@ -310,6 +319,7 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
         $html = '';
         $html .= $this->getTemplate()->createHelper('behavior')->autocomplete($config);
 
+        //Get the selected items
         $options = array();
         if (is_scalar($config->selected) ? !empty($config->selected) : count($config->selected))
         {
@@ -332,7 +342,7 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
             }
         }
 
-         $html .= $this->optionlist(array(
+        $html .= $this->optionlist(array(
             'name'     => $config->name,
             'id'       => $config->id,
             'options' => $options,
