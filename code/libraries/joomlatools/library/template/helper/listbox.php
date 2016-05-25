@@ -37,10 +37,6 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
             $config->name .= '[]';
         }
 
-        if($config->deselect) {
-            $config->options = array_merge(array($this->option(array('label' => $config->prompt))), $config->options->toArray());
-        }
-
         $html = '';
 
         if ($config->select2)
