@@ -239,3 +239,19 @@ tr.selected {
   hyphens: none;
   max-width: 320px;
 }
+
+.k-link-coverall {
+  &:after {
+    display: block;
+    content: " ";
+    @include coverall;
+  }
+}
+
+.k-link-ontop {
+  position: relative;
+  z-index: 2;
+}
+
+
+

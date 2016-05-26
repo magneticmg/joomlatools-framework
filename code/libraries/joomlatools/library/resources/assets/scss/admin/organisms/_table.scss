@@ -301,6 +301,45 @@
   }
 
 
+
+  /**
+   * Table elements
+   */
+
+  .k-table-button {
+    appearance: none;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 0;
+    color: #555;
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+    line-height: 16px;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 6px;
+
+    &:focus,
+    &:hover {
+      color: $color-error;
+      border-color: #aaa;
+      background: #eee;
+    }
+
+    & + a {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+
   /**
    * Selected
    *
@@ -317,6 +356,17 @@
 
       a, i, span {
         color: $table-cell-accent-color; /* 1 */
+      }
+
+      .k-table-button {
+        border-color: white;
+        background: transparent;
+
+        &:focus,
+        &:hover {
+          border-color: white;
+          background: white;
+        }
       }
     }
 
