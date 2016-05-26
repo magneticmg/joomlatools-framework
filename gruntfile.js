@@ -6,6 +6,13 @@ module.exports = function(grunt) {
     // load time-grunt and all grunt plugins found in the package.json
     require('jit-grunt')(grunt);
 
+    // Variables
+    var gulp = require('gulp'),
+        styleguide = require('sc5-styleguide'),
+        buildPath = './code/libraries/joomlatools/library/resources/assets',
+        styleguideAppRoot = '/styleguide',
+        styleguideBuildPath = buildPath + styleguideAppRoot;
+
     // grunt config
     grunt.initConfig({
 
@@ -233,6 +240,39 @@ module.exports = function(grunt) {
         },
 
 
+        // Gulp commands
+        gulp: {
+            'styleguide-generate': function() {
+                return gulp.src([
+                    buildPath + '/scss/admin.scss',
+                    buildPath + '/scss/admin/core/_core.scss',
+                    buildPath + '/scss/admin/atoms/*.scss'
+                ])
+                    .pipe(styleguide.generate({
+                        title: 'Nooku Framework Styleguide',
+                        rootPath: styleguideBuildPath, // This is where resources are loaded from
+                        appRoot: '../styleguide', // This is where the styleguide is rendered
+                        overviewPath: buildPath + '/documentation/README.md',
+                        disableEncapsulation: true,
+                        disableHtml5Mode: true,
+                        previousSection: true,
+                        nextSection: true,
+                        extraHead: [
+                            //'<link href="/templates/perfecttemplate/css/font.css" rel="stylesheet" type="text/css">',
+                            //'<script src="/templates/perfecttemplate/js/modernizr.js"></script>',
+                            //'<script src="/templates/perfecttemplate/js/scripts.js"></script>'
+                        ]
+                    }
+                )).pipe(gulp.dest(styleguideBuildPath)); // This is where the styleguide source files get rendered
+            },
+            'styleguide-applystyles': function() {
+                return gulp.src('<%= nookuFrameworkAssetsPath %>/css/admin.css')
+                    .pipe(styleguide.applyStyles())
+                    .pipe(gulp.dest(styleguideBuildPath));
+            }
+        },
+
+
         // Shell commands
         shell: {
             updateCanIUse: {
@@ -296,7 +336,12 @@ module.exports = function(grunt) {
     });
 
     // The dev task will be used during development
+    grunt.registerTask('default', ['shell', 'gulp:styleguide-generate', 'gulp:styleguide-applystyles', 'watch']);
+
+    // Javascript only
     grunt.registerTask('javascript', ['modernizr', 'uglify', 'concat']);
-    grunt.registerTask('default', ['shell', 'watch']);
+
+    // create Styleguide
+    grunt.registerTask('styleguide', ['gulp:styleguide-generate', 'gulp:styleguide-applystyles']);
 
 };

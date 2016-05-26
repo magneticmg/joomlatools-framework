@@ -1,3 +1,5 @@
+// styleguide:ignore:start
+
 /* ==========================================================================
    Outside of the koowa namespace
    ========================================================================== */
@@ -47,8 +49,11 @@
  * For example when using Nooku inside of another framework or CMS like Joomla or Wordpress
  */
 
+// styleguide:ignore:end
+
 .koowa {
 
+  // styleguide:ignore:start
 
   /* Border-box size everything */
 
@@ -105,15 +110,16 @@
   @import "../layout/toolbar";
   @import "../layout/wrapper";
 
+  // styleguide:ignore:end
+
+
 
   /* Atoms */
+  @import "../atoms/atoms";
 
-  @import "../atoms/a";
-  @import "../atoms/fieldset";
-  @import "../atoms/img";
-  @import "../atoms/legend";
-  @import "../atoms/p";
 
+
+  // styleguide:ignore:start
 
   /* Molecules */
 
@@ -162,8 +168,11 @@
 
   @import "../shame";
 
+  // styleguide:ignore:end
+
 }
 
+// styleguide:ignore:start
 
 /* ==========================================================================
    Fixes
@@ -177,3 +186,5 @@
  */
 
 @import "../../koowa/utilities/ios-autozoom-fix";
+
+// styleguide:ignore:end
