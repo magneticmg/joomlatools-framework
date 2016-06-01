@@ -173,6 +173,12 @@ class PlgSystemJoomlatoolsInstallerScript
     {
         $errors = array();
 
+        if(version_compare(JVERSION, '3.5', '<'))
+        {
+            $errors[] = sprintf(JText::_('Your site is running Joomla %s which is an unsupported version.
+            Please upgrade Joomla to the latest version first.'), phpversion());
+        }
+
         if(version_compare(phpversion(), '5.3.9', '<'))
         {
             $errors[] = sprintf(JText::_('Your server is running PHP %s which is an old and insecure version.
