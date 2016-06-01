@@ -7,6 +7,7 @@
 
 @import "admin/core/tools";
 
+
 /* Core styling
    ========================================================================== */
 
@@ -15,3 +16,11 @@
  */
 
 @import "admin/core/core";
+
+
+/* Disable styleguide CSS view
+   ========================================================================== */
+
+[ng-if="section.css"] {
+  display: none;
+}

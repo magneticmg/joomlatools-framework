@@ -251,24 +251,40 @@ module.exports = function(grunt) {
                     .pipe(styleguide.generate({
                         title: 'Nooku Framework Styleguide',
                         rootPath: styleguideBuildPath, // This is where resources are loaded from
-                        appRoot: '../styleguide', // This is where the styleguide is rendered
+                        appRoot: './', // This is where the styleguide is rendered
                         overviewPath: buildPath + '/documentation/README.md',
                         disableEncapsulation: true,
                         disableHtml5Mode: true,
                         previousSection: true,
+                        commonClass: 'koowa',
                         nextSection: true,
                         extraHead: [
-                            //'<link href="/templates/perfecttemplate/css/font.css" rel="stylesheet" type="text/css">',
-                            //'<script src="/templates/perfecttemplate/js/modernizr.js"></script>',
-                            //'<script src="/templates/perfecttemplate/js/scripts.js"></script>'
+                            '<link href="koowa/css/admin.css" rel="stylesheet" type="text/css">'
                         ]
                     }
                 )).pipe(gulp.dest(styleguideBuildPath)); // This is where the styleguide source files get rendered
             },
             'styleguide-applystyles': function() {
-                return gulp.src('<%= nookuFrameworkAssetsPath %>/css/admin.css')
-                    .pipe(styleguide.applyStyles())
-                    .pipe(gulp.dest(styleguideBuildPath));
+                return gulp.src([
+                    'koowa/css/admin.css'
+                ])
+                .pipe(styleguide.applyStyles())
+                .pipe(gulp.dest(styleguideBuildPath));
+            }
+        },
+
+
+        // Copy
+        copy: {
+            koowaToStyleguide: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['<%= nookuFrameworkAssetsPath %>/css/admin.css'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/styleguide/koowa/css',
+                        flatten: true
+                    }
+                ]
             }
         },
 
@@ -342,6 +358,6 @@ module.exports = function(grunt) {
     grunt.registerTask('javascript', ['modernizr', 'uglify', 'concat']);
 
     // create Styleguide
-    grunt.registerTask('styleguide', ['gulp:styleguide-generate', 'gulp:styleguide-applystyles']);
+    grunt.registerTask('styleguide', ['sass', 'autoprefixer', 'copy:koowaToStyleguide', 'gulp:styleguide-generate', 'gulp:styleguide-applystyles']);
 
 };
