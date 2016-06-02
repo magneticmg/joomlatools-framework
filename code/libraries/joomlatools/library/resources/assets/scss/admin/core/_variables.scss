@@ -171,6 +171,7 @@ $mobile-title-line-height:  $line-height !default;
 // 1. When true; these colors are being used, when false; bootsrap defaults are being used
 
 $toolbar-spacing:                       round($font-size * 0.7) !default;
+$toolbar-height:                        50px !default;
 
 $toolbar-background:                    colorpicker(primary, 3) !default;
 $toolbar-border:                        darkest($toolbar-background) !default;

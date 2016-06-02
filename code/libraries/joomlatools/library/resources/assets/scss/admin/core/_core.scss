@@ -1,4 +1,3 @@
-// styleguide:ignore:start
 
 /* ==========================================================================
    Outside of the koowa namespace
@@ -13,12 +12,14 @@
 /* 3rd party
    ========================================================================== */
 
+// styleguide:ignore:start
 @import "../../../../../../../../../node_modules/select2/src/scss/core";
 @import "../../../../../../../../../node_modules/select2-bootstrap-theme/src/select2-bootstrap";
 @import "../../../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns"; /* We need the dropdowns for the datepicker until we found a better datepicker */
 @import "../organisms/modal";
 @import "../../koowa/molecules/select2";
 @import "../molecules/datepicker";
+// styleguide:ignore:end
 
 
 /* Setup html, body and .koowa-container
@@ -49,7 +50,65 @@
  * For example when using Nooku inside of another framework or CMS like Joomla or Wordpress
  */
 
-// styleguide:ignore:end
+
+
+// Molecules
+//
+// Styleguide 2.0
+
+// Organisms
+//
+// Styleguide 3.0
+
+// Layout
+//
+// Styleguide 4.0
+
+// Pages
+//
+// Styleguide 5.0
+
+/**
+ * List view
+ *
+ * Complete list view
+
+markup:
+<!-- Wrapper -->
+<div class="k-wrapper">
+    <!-- Overview -->
+    <div class="k-content-wrapper">
+        <!-- Sidebar -->
+        <div class="k-sidebar">
+            <div class="k-sidebar__item">
+                {content}
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="k-content">
+            <!-- Title when sidebar is inivisible -->
+            <div class="k-mobile-title">
+                Title
+            </div>
+            <!-- Toolbar -->
+            <sg-insert>4.1</sg-insert>
+            <!-- Component -->
+            <div class="k-component">
+                <!-- Form -->
+                <form class="k-list-layout -koowa-grid" id="k-offcanvas-container" action="" method="get">
+                    <sg-insert>3.1</sg-insert>
+                    <sg-insert>3.4</sg-insert>
+                    <sg-insert>3.5</sg-insert>
+                </form><!-- .k-list-layout -->
+            </div><!-- .k-component -->
+        </div><!-- k-content -->
+    </div><!-- .k-content-wrapper -->
+</div><!-- .k-wrapper -->
+
+ Styleguide 5.1
+
+ */
+
 
 .koowa {
 

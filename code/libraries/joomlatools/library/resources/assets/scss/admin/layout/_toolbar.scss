@@ -2,9 +2,27 @@
    Toolbar
    ========================================================================== */
 
+/*
+Toolbar
+
+Default toolbar
+
+Markup:
+<div class="k-toolbar">
+    <span class="k-toolbar-buttons">
+        <sg-insert>4.1.1-2</sg-insert>
+        <sg-insert>4.1.1-1</sg-insert>
+    </span>
+</div><!-- .k-toolbar -->
+
+Styleguide 4.1
+
+*/
+
 .k-toolbar {
   @include border(bottom, $toolbar-border);
   background: $toolbar-background;
+  min-height: $toolbar-height;
 
 
   /* Faking flexbox for older browsers */
@@ -108,3 +126,28 @@
     visibility: hidden;
   }
 }
+
+
+/*
+Toolbar buttons
+
+.btn-default - Default button style
+.btn-success - Add button styling, only one per toolbar
+.disabled - Hidden until useful (when items in table are selected)
+
+markup:
+<a class="btn btn-sm {$modifiers}" href="#">
+    <i class="icon-new"></i>
+    <span class="k-toolbar__text">{content}</span>
+</a>
+
+sg-wrapper:
+<div class="k-toolbar">
+    <span class="k-toolbar-buttons">
+        <sg-wrapper-content/>
+    </span>
+</div>
+
+Styleguide 4.1.1
+
+*/

@@ -246,7 +246,10 @@ module.exports = function(grunt) {
                 return gulp.src([
                     buildPath + '/scss/admin.scss',
                     buildPath + '/scss/admin/core/_core.scss',
-                    buildPath + '/scss/admin/atoms/*.scss'
+                    buildPath + '/scss/admin/atoms/*.scss',
+                    buildPath + '/scss/admin/layout/*.scss',
+                    buildPath + '/scss/admin/molecules/*.scss',
+                    buildPath + '/scss/admin/organisms/*.scss'
                 ])
                     .pipe(styleguide.generate({
                         title: 'Nooku Framework Styleguide',
@@ -256,10 +259,11 @@ module.exports = function(grunt) {
                         disableEncapsulation: true,
                         disableHtml5Mode: true,
                         previousSection: true,
-                        commonClass: 'koowa',
+                        commonClass: 'koowa koowa-container',
                         nextSection: true,
                         extraHead: [
-                            '<link href="koowa/css/admin.css" rel="stylesheet" type="text/css">'
+                            '<link href="koowa/css/admin.css" rel="stylesheet" type="text/css">',
+                            '<script src="koowa/js/modernizr.js"></script>'
                         ]
                     }
                 )).pipe(gulp.dest(styleguideBuildPath)); // This is where the styleguide source files get rendered
@@ -282,6 +286,18 @@ module.exports = function(grunt) {
                         expand: true,
                         src: ['<%= nookuFrameworkAssetsPath %>/css/admin.css'],
                         dest: '<%= nookuFrameworkAssetsPath %>/styleguide/koowa/css',
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        src: ['<%= nookuFrameworkAssetsPath %>/js/min/modernizr.js'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/styleguide/koowa/js',
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        src: ['<%= nookuFrameworkAssetsPath %>/fonts/koowa-icons/*.*'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/styleguide/koowa/fonts/koowa-icons',
                         flatten: true
                     }
                 ]
