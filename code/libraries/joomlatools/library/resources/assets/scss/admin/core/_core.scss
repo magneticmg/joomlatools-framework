@@ -80,9 +80,7 @@ markup:
     <div class="k-content-wrapper">
         <!-- Sidebar -->
         <div class="k-sidebar">
-            <div class="k-sidebar__item">
-                {content}
-            </div>
+            <sg-insert>2.15-all</sg-insert>
         </div>
         <!-- Content -->
         <div class="k-content">

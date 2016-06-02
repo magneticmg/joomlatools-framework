@@ -2,22 +2,30 @@
    Sidebar navigation
    ========================================================================== */
 
-/**
+/*
+Navigation
+
+Sidebar navigation styling
+
+.active - Active item
+
+markup:
 <!-- Navigation -->
 <ul class="k-navigation">
-    <!-- Active item -->
-    <li class="active">
-        <a class="k-icon-activities" href="#">
-            Activities
+    <li>
+        <a href="#">
+            {content}
         </a>
     </li>
-    <!-- Other items -->
-    <li>
-        <a class="k-icon-tasks" href="#">
-            Tasks
+    <li class="{$modifiers}">
+        <a href="#">
+            {content}
         </a>
     </li>
 </ul>
+
+Styleguide 2.15
+
 */
 
 
