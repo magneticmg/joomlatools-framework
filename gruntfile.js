@@ -264,6 +264,9 @@ module.exports = function(grunt) {
                         extraHead: [
                             '<link href="koowa/css/admin.css" rel="stylesheet" type="text/css">',
                             '<script src="koowa/js/modernizr.js"></script>'
+                        ],
+                        afterBody: [
+                            '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>'
                         ]
                     }
                 )).pipe(gulp.dest(styleguideBuildPath)); // This is where the styleguide source files get rendered
