@@ -662,31 +662,3 @@ Styleguide 3.5
     color: $color-success;
   }
 }
-
-.k-table-container {
-  counter-reset: counter-level1 counter-level2;
-
-  .k-table__item-level1 {
-    counter-increment: counter-level1;
-
-    &:after {
-      content: counter(counter-level1);
-    }
-  }
-
-  .k-table__item-level2 {
-    counter-increment: counter-level2;
-
-    &:after {
-      content: counter(counter-level2);
-    }
-  }
-
-  .k-table__item-level3 {
-    counter-increment: counter-level3;
-
-    &:after {
-      content: counter(counter-level3);
-    }
-  }
-}
