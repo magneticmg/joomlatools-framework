@@ -314,8 +314,8 @@ Styleguide 3.5
     }
   }
 
-  @for $i from 1 through 20 {
-    .k-table__item-level#{$i}{
+  @for $i from 1 through 15 {
+    .k-table__item-level#{$i} {
       padding-left: 24px * ($i - 1);
 
       @include rtl {
@@ -660,5 +660,33 @@ Styleguide 3.5
 
   &.k-published {
     color: $color-success;
+  }
+}
+
+.k-table-container {
+  counter-reset: counter-level1 counter-level2;
+
+  .k-table__item-level1 {
+    counter-increment: counter-level1;
+
+    &:after {
+      content: counter(counter-level1);
+    }
+  }
+
+  .k-table__item-level2 {
+    counter-increment: counter-level2;
+
+    &:after {
+      content: counter(counter-level2);
+    }
+  }
+
+  .k-table__item-level3 {
+    counter-increment: counter-level3;
+
+    &:after {
+      content: counter(counter-level3);
+    }
   }
 }

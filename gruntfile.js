@@ -252,7 +252,7 @@ module.exports = function(grunt) {
                     buildPath + '/scss/admin/organisms/*.scss'
                 ])
                     .pipe(styleguide.generate({
-                        title: 'Nooku Framework Styleguide',
+                        title: 'Joomlatools UI Styleguide',
                         rootPath: styleguideBuildPath, // This is where resources are loaded from
                         appRoot: './', // This is where the styleguide is rendered
                         overviewPath: buildPath + '/documentation/README.md',

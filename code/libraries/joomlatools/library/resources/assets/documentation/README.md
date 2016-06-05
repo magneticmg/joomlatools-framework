@@ -1,4 +1,4 @@
-Nooku Framework UI
+Joomlatools UI
 ==================
 
 Add readme here

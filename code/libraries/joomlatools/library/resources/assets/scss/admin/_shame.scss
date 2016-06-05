@@ -207,10 +207,36 @@ a.-koowa-desc {
     text-shadow: 0 0 3px white;
     @include transition;
   }
+
+  @for $i from 1 through 15 {
+    &--level#{$i} {
+      counter-increment: positioner-counter#{$i};
+
+      &:after {
+        content: counter(positioner-counter#{$i});
+      }
+    }
+  }
 }
 
-.k-table {
-  counter-reset: positioner-counter;
+.k-table-container {
+  counter-reset:
+    positioner-counter
+    positioner-counter-level1
+    positioner-counter-level2
+    positioner-counter-level3
+    positioner-counter-level4
+    positioner-counter-level5
+    positioner-counter-level6
+    positioner-counter-level7
+    positioner-counter-level8
+    positioner-counter-level9
+    positioner-counter-level10
+    positioner-counter-level11
+    positioner-counter-level12
+    positioner-counter-level13
+    positioner-counter-level14
+    positioner-counter-level15;
 }
 
 tr.selected {
