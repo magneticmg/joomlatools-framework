@@ -181,19 +181,23 @@ markup:
   /* Molecules */
 
   @import "../molecules/acl";
+  @import "../molecules/batch-list";
   @import "../molecules/booleanlist";
   @import "../molecules/checkbox-radio";
   @import "../molecules/checkbox-toggle";
   @import "../molecules/details";
   @import "../molecules/dropdown";
+  @import "../molecules/dropdowngrid";
   @import "../molecules/extension-groups";
   @import "../molecules/floatthead";
   @import "../molecules/form-block";
   @import "../molecules/hamburger";
   @import "../molecules/heading";
+  @import "../molecules/iconpicker";
   @import "../molecules/icons";
   @import "../molecules/tree";
   @import "../molecules/list";
+  @import "../molecules/move-modal";
   @import "../molecules/navigation";
   @import "../molecules/no-items-alert";
   @import "../molecules/optionlist";
