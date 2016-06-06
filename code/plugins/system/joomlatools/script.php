@@ -72,7 +72,32 @@ class PlgSystemJoomlatoolsInstallerScript
             return false;
         }
 
+        if (!$this->_uninstallExtman()) {
+            JFactory::getApplication()->enqueueMessage(JText::_('Could not automatically uninstall EXTman. 
+            Please go to Extension Manager and remove EXTman first in order to upgrade to the latest version'), 'error');
+
+            return false;
+        }
+
         return true;
+    }
+
+    protected function _uninstallExtman()
+    {
+        $result = true;
+        $query = /** @lang text */"SELECT extension_id FROM #__extensions
+            WHERE type = 'component' AND element = 'com_extman'
+            LIMIT 1
+        ";
+
+        $extension_id = \JFactory::getDbo()->setQuery($query)->loadResult();
+
+        if ($extension_id) {
+            $installer = new \JInstaller();
+            $result = $installer->uninstall('component', $extension_id, 1);
+        }
+
+        return $result;
     }
 
     public function postflight($type, $installer)
