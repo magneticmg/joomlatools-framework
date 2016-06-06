@@ -205,15 +205,23 @@ class PlgSystemJoomlatoolsInstallerScript
             $errors[] = JText::_("Joomlatools framework requires MySQL InnoDB support. Please contact your host and ask them to enable InnoDB.");
         }
 
-        // Check a bunch of Ohanah v2 files to see if it is installed
-        if (file_exists(JPATH_ADMINISTRATOR.'/components/com_ohanah/controllers/event.php')
-            || file_exists(JPATH_SITE.'/components/com_ohanah/dispatcher.php')
-            || file_exists(JPATH_SITE.'/components/com_ohanah/controllers/event.php'))
+        // Check if Ohanah v2 or v3 is installed
+        $ohanah_manifest = JPATH_ADMINISTRATOR.'/components/com_ohanah/ohanah.xml';
+        if (file_exists($ohanah_manifest))
         {
-            $errors[] = sprintf("You have an older version of Ohanah event management extension installed.
+            $manifest = simplexml_load_file($ohanah_manifest);
+
+            if ($manifest && $manifest->version)
+            {
+                $version = (string) $manifest->version;
+                if ($version && version_compare($version, '4', '<'))
+                {
+                    $errors[] = sprintf("You have an older version of Ohanah event management extension installed.
             Installing this version of Joomlatools framework now would break your site. Please upgrade Ohanah to the latest version first.
             Installation is aborting. For more information please read our detailed explanation <a target=\"_blank\" href=\"%s\">here</a>.",
-                'http://www.joomlatools.com/framework-known-issues');
+                        'http://www.joomlatools.com/framework-known-issues');
+                }
+            }
         }
 
         if (class_exists('Koowa') && (!method_exists('Koowa', 'getInstance') || version_compare(Koowa::getInstance()->getVersion(), '1', '<')))
