@@ -7,8 +7,57 @@
  * @link        https://github.com/nooku/nooku-framework for the canonical source repository
  */
 
+
+class JoomlatoolsTemporaryDispatcher extends JDispatcher
+{
+    /**
+     * Get rid of registered Logman plugins and disable it permanently afterwards if it's version 1 or 2
+     */
+    public static function disableLogman()
+    {
+        $dispatcher = JDispatcher::getInstance();
+
+        foreach ($dispatcher->_observers as $key => $observer)
+        {
+            if (is_object($observer) && substr(get_class($observer), 0, 9) === 'PlgLogman') {
+                $dispatcher->detach($observer);
+            }
+        }
+
+        $logman_manifest = JPATH_ADMINISTRATOR.'/components/com_logman/logman.xml';
+        if (file_exists($logman_manifest))
+        {
+            $manifest = simplexml_load_file($logman_manifest);
+
+            if ($manifest && $manifest->version)
+            {
+                $version = (string)$manifest->version;
+
+                if ($version && version_compare($version, '3', '<'))
+                {
+                    $db = JFactory::getDbo();
+
+                    $query = "UPDATE #__extensions SET enabled = 0 WHERE type='plugin' AND folder='koowa' AND element='logman'";
+                    $db->setQuery($query)->query();
+
+                    $query = "UPDATE #__extensions SET enabled = 0 WHERE type='plugin' AND folder='system' AND element='logman'";
+                    $db->setQuery($query)->query();
+
+                    $query = "UPDATE #__modules SET published = 0 WHERE module='mod_logman'";
+                    $db->setQuery($query)->query();
+                }
+            }
+        }
+    }
+}
+
 class PlgSystemJoomlatoolsInstallerScript
 {
+    public function __construct($installer)
+    {
+        JoomlatoolsTemporaryDispatcher::disableLogman();
+    }
+
     public function preflight($type, $installer)
     {
         if ($errors = $this->getServerErrors())
