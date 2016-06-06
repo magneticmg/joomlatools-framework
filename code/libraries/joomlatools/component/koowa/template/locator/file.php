@@ -61,25 +61,32 @@ class ComKoowaTemplateLocatorFile extends KTemplateLocatorFile
      */
     public function find(array $info)
     {
-        if(!empty($this->_override_path))
+        //Qualify partial templates.
+        if(dirname($info['url']) === '.')
         {
-            //Qualify partial templates.
-            if(dirname($info['url']) === '.')
-            {
-                if(empty($info['base'])) {
-                    throw new RuntimeException('Cannot qualify partial template path');
-                }
-
-                $path = dirname($info['base']);
+            if(empty($info['base'])) {
+                throw new RuntimeException('Cannot qualify partial template path');
             }
-            else $path = dirname($info['url']);
 
-            $file   = pathinfo($info['url'], PATHINFO_FILENAME);
-            $format = pathinfo($info['url'], PATHINFO_EXTENSION);
-            $path   = $this->_override_path.'/'.str_replace(parse_url($path, PHP_URL_SCHEME).'://', '', $path);
+            $relative_path = dirname($info['base']);
+        }
+        else $relative_path = dirname($info['url']);
+
+        $file   = pathinfo($info['url'], PATHINFO_FILENAME);
+        $format = pathinfo($info['url'], PATHINFO_EXTENSION);
+
+        $base_paths = array(JPATH_ROOT);
+
+        if (!empty($this->_override_path)) {
+            array_unshift($base_paths, $this->_override_path);
+        }
+
+        foreach ($base_paths as $base_path)
+        {
+            $path = $base_path.'/'.str_replace(parse_url($relative_path, PHP_URL_SCHEME).'://', '', $relative_path);
 
             // Remove /view from the end of the override path
-            if (substr($path, strrpos($path, '/')) === '/view') {
+            if ($base_path == $this->_override_path && substr($path, strrpos($path, '/')) === '/view') {
                 $path = substr($path, 0, -5);
             }
 
@@ -101,6 +108,6 @@ class ComKoowaTemplateLocatorFile extends KTemplateLocatorFile
             }
         }
 
-        return parent::find($info);
+        return $result;
     }
 }
