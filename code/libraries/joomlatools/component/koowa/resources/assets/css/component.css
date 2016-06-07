@@ -1,3 +1,4 @@
+/** Joomlatools UI ============== */
 /** Component styling ================= Used in Joomla views that are not controlled by us, such as menu and module views */
 /** Global tools ------------ Containing different libraries, variables, mixins and functions */
 /* ========================================================================== Tools ========================================================================== */
@@ -80,6 +81,8 @@
 .select2-container--default .select2-selection--multiple { background-color: white; border: 1px solid #aaa; border-radius: 4px; cursor: text; }
 
 .select2-container--default .select2-selection--multiple .select2-selection__rendered { box-sizing: border-box; list-style: none; margin: 0; padding: 0 5px; width: 100%; }
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li { list-style: none; }
 
 .select2-container--default .select2-selection--multiple .select2-selection__placeholder { color: #999; margin-top: 5px; float: left; }
 
@@ -683,5 +686,3 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 .select2-container.select2-container--bootstrap .select2-selection--single .select2-selection__arrow { height: 32px; }
 
 .select2-container.select2-container--bootstrap .select2-search__field { height: 32px; margin: 0; }
-
-.select2-container.select2-container.select2-container--bootstrap { width: 320px !important; max-width: 100% !important; }

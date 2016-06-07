@@ -1,35 +1,7 @@
 /**
- * Joomla Hathor template specific styling / overrides
- * ===================================================
+ * Joomlatools UI
+ * ==============
  */
 
-@import "../../../../../library/resources/assets/scss/admin/core/tools";
 
-body.tmpl-hathor {
-  .subheader,
-  .toolbar-box {
-    display: none!important;
-  }
-
-  #content {
-    margin: 15px;
-
-    & > .k-heading {
-      display: none!important;
-    }
-  }
-
-  #element-box {
-    border: 1px solid #ccc;
-
-    @include flexbox {
-      display: flex;
-      width: 100%;
-    }
-  }
-
-  .koowa-container {
-    width: 100%;
-    max-width: none;
-  }
-}
+@import "../../../../../../../../../joomlatools-ui/src/scss/hathor";
