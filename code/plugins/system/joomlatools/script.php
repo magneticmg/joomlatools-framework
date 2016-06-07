@@ -19,7 +19,8 @@ class JoomlatoolsTemporaryDispatcher extends JDispatcher
 
         foreach ($dispatcher->_observers as $key => $observer)
         {
-            if (is_object($observer) && substr(get_class($observer), 0, 9) === 'PlgLogman') {
+            if (is_object($observer)
+                && (substr(get_class($observer), 0, 9) === 'PlgLogman' || get_class($observer) === 'PlgSystemKoowa')) {
                 $dispatcher->detach($observer);
             }
         }
@@ -95,19 +96,21 @@ class PlgSystemJoomlatoolsInstallerScript
         if ($extension_id) {
             $installer = new \JInstaller();
             $result = $installer->uninstall('component', $extension_id, 1);
-        }
 
-        if ($result) {
-            // Make extensions uninstallable by Joomla extension manager
-            $query = /** @lang text */'UPDATE j_extensions SET protected = 0
-              WHERE extension_id IN (SELECT joomla_extension_id FROM j_extman_extensions)';
-            \JFactory::getDbo()->setQuery($query)->query();
+            if ($result) {
+                // Make extensions uninstallable by Joomla extension manager
+                $query = /** @lang text */'UPDATE #__extensions SET protected = 0
+              WHERE extension_id IN (SELECT joomla_extension_id FROM #__extman_extensions)';
+                \JFactory::getDbo()->setQuery($query)->query();
 
-            // Delete old Koowa folder
-            if (is_dir(JPATH_LIBRARIES.'/koowa')) {
-                JFolder::delete(JPATH_LIBRARIES.'/koowa');
+                // Delete old Koowa folder
+                if (is_dir(JPATH_LIBRARIES.'/koowa')) {
+                    JFolder::delete(JPATH_LIBRARIES.'/koowa');
+                }
             }
         }
+
+
 
         return $result;
     }
