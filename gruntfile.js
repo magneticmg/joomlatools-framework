@@ -71,22 +71,6 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 files: {
-                    '<%= nookuFrameworkAssetsPath %>/js/build/admin.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'node_modules/select2/dist/js/select2.full.min.js',
-                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
-                        'node_modules/footable/dist/footable.min.js',
-                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/main.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
-                    ],
-                    '<%= nookuFrameworkAssetsPath %>/js/build/jquery.js': [
-                        'node_modules/jquery/dist/jquery.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
-                    ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.magnific-popup.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
                         'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
@@ -131,24 +115,8 @@ module.exports = function(grunt) {
             },
             build: {
                 files: {
-                    '<%= nookuFrameworkAssetsPath %>/js/min/admin.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'node_modules/select2/dist/js/select2.full.min.js',
-                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
-                        'node_modules/footable/dist/footable.min.js',
-                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/main.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
-                    ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/bootstrap.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/bootstrap.js'
-                    ],
-                    '<%= nookuFrameworkAssetsPath %>/js/min/jquery.js': [
-                        'node_modules/jquery/dist/jquery.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.magnific-popup.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
@@ -218,12 +186,24 @@ module.exports = function(grunt) {
 
         // Copy
         copy: {
-            koowaToStyleguide: {
+            KUItoFramework: {
                 files: [
                     {
                         expand: true,
-                        src: ['../kodekit-ui/dist/fontskoowa-icons/*.*'],
+                        src: ['../kodekit-ui/dist/fonts/koowa-icons/*.*'],
                         dest: '<%= nookuFrameworkAssetsPath %>/fonts/koowa-icons',
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        src: ['../kodekit-ui/dist/js/build/*.*'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/js/build',
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        src: ['../kodekit-ui/dist/js/min/*.*'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/js/min',
                         flatten: true
                     }
                 ]
