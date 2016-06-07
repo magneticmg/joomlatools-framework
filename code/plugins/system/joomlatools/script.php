@@ -97,6 +97,18 @@ class PlgSystemJoomlatoolsInstallerScript
             $result = $installer->uninstall('component', $extension_id, 1);
         }
 
+        if ($result) {
+            // Make extensions uninstallable by Joomla extension manager
+            $query = /** @lang text */'UPDATE j_extensions SET protected = 0
+              WHERE extension_id IN (SELECT joomla_extension_id FROM j_extman_extensions)';
+            \JFactory::getDbo()->setQuery($query)->query();
+
+            // Delete old Koowa folder
+            if (is_dir(JPATH_LIBRARIES.'/koowa')) {
+                JFolder::delete(JPATH_LIBRARIES.'/koowa');
+            }
+        }
+
         return $result;
     }
 
