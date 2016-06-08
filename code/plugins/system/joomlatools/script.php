@@ -86,23 +86,34 @@ class PlgSystemJoomlatoolsInstallerScript
     protected function _uninstallExtman()
     {
         $result = true;
-        $query = /** @lang text */"SELECT extension_id FROM #__extensions
+        $db     = \JFactory::getDbo();
+        $query  = /** @lang text */"SELECT extension_id FROM #__extensions
             WHERE type = 'component' AND element = 'com_extman'
             LIMIT 1
         ";
 
-        $extension_id = \JFactory::getDbo()->setQuery($query)->loadResult();
+        $extension_id = $db->setQuery($query)->loadResult();
 
         if ($extension_id) {
+            // Make extensions uninstallable by Joomla extension manager
+            $query = /** @lang text */'UPDATE #__extensions SET protected = 0
+              WHERE extension_id IN (SELECT joomla_extension_id FROM #__extman_extensions)';
+            \JFactory::getDbo()->setQuery($query)->query();
+
+            // First we remove the extension list so Extman does not give an error
+            $query = /** @lang text */'CREATE TABLE IF NOT EXISTS #__extman_extensions_bkp AS SELECT * FROM #__extman_extensions;';
+            $db->setQuery($query)->query();
+            $query = /** @lang text */'TRUNCATE TABLE #__extman_extensions_bkp;';
+            $db->setQuery($query)->query();
+
+            // Temporary fix to avoid errors on uninstall
+            $query = /** @lang text */"UPDATE #__extensions SET element = 'files_koowa' WHERE element = 'koowa' AND type = 'file';";
+            $db->setQuery($query)->query();
+
             $installer = new \JInstaller();
             $result = $installer->uninstall('component', $extension_id, 1);
 
             if ($result) {
-                // Make extensions uninstallable by Joomla extension manager
-                $query = /** @lang text */'UPDATE #__extensions SET protected = 0
-              WHERE extension_id IN (SELECT joomla_extension_id FROM #__extman_extensions)';
-                \JFactory::getDbo()->setQuery($query)->query();
-
                 // Delete old Koowa folder
                 if (is_dir(JPATH_LIBRARIES.'/koowa')) {
                     JFolder::delete(JPATH_LIBRARIES.'/koowa');
