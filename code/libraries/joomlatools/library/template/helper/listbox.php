@@ -216,6 +216,11 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
         $offset  = 0;
         $limit   = 100;
 
+        /*
+         * We fetch data gradually here and convert it directly into options
+         * This only loads 100 entities into memory at once so that
+         * we do not run into memory limit issues
+         */
         while ($offset < $count)
         {
             $entities = $model->setState($state)->limit($limit)->offset($offset)->fetch();
