@@ -33,6 +33,20 @@ $.widget("koowa.scopebar", {
             template.find('.js-dropdown-body').prepend(item);
             template.find('.js-dropdown-title').html(item.data('title'));
 
+            var dropdown_button = template.find('.js-dropdown-button'),
+                tooltip = dropdown_button.data('tooltip-title');
+
+            if (tooltip) {
+                tooltip = tooltip.replace('%s', item.data('title'));
+
+                dropdown_button.tooltip({
+                    "container":".koowa-container",
+                    "delay":{"show":500,"hide":50},
+                    'title': tooltip
+                });
+            }
+
+
             var label_el = template.find('.js-dropdown-label'),
                 label = item.data('label'),
                 count = item.data('count');
