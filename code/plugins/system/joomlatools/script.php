@@ -103,7 +103,7 @@ class PlgSystemJoomlatoolsInstallerScript
             // First we remove the extension list so Extman does not give an error
             $query = /** @lang text */'CREATE TABLE IF NOT EXISTS #__extman_extensions_bkp AS SELECT * FROM #__extman_extensions;';
             $db->setQuery($query)->query();
-            $query = /** @lang text */'TRUNCATE TABLE #__extman_extensions_bkp;';
+            $query = /** @lang text */'TRUNCATE TABLE #__extman_extensions;';
             $db->setQuery($query)->query();
 
             // Temporary fix to avoid errors on uninstall
