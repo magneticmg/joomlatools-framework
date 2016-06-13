@@ -28,10 +28,19 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'prompt'    => '- '.$translator->translate('Select').' -',
+            'deselect'  => false,
             'options'   => array(),
             'select2'   => false,
             'attribs'   => array(),
         ));
+
+        if ($config->deselect)
+        {
+            $deselect = $this->option(array('value' => '', 'label' => $config->prompt));
+            $options  = $config->options->toArray();
+            array_unshift($options, $deselect);
+            $config->options = $options;
+        }
 
         if ($config->attribs->multiple && $config->name && substr($config->name, -2) !== '[]') {
             $config->name .= '[]';
@@ -47,27 +56,21 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
                 ));
             }
 
-            $config->append(array(
-                'select2_options' => array(
-                    'element' => $config->attribs->id ? '#'.$config->attribs->id : 'select[name=\"'.$config->name.'\"]'
-                )
-            ));
-
-            // special configuration for select2 placeholder
-            if ($config->deselect)
-            {
-                $config->append(array(
-                    'select2_options' => array(
-                        'options' => array(
-                            'placeholder' => array(
-                                'id' => '',
-                                'text' => $config->prompt
-                            ),
-                            'allowClear'  => true
-                        )
-                    )
+            if ($config->deselect) {
+                $config->attribs->append(array(
+                    'data-placeholder' => $config->prompt
                 ));
             }
+
+            $config->append(array(
+                'select2_options' => array(
+                    'element' => $config->attribs->id ? '#'.$config->attribs->id : 'select[name=\"'.$config->name.'\"]',
+                    'options' => array(
+                        'allowClear'  => $config->deselect
+                    )
+
+                )
+            ));
 
             $html .= $this->getTemplate()->createHelper('behavior')->select2($config->select2_options);
         }
