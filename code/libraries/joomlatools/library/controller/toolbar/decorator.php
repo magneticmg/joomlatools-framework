@@ -31,7 +31,7 @@ abstract class KControllerToolbarDecorator extends KObjectDecorator implements K
         if(method_exists($this, $method)) {
             $this->$method($command);
         } else {
-            $this->getDelegate()->execute($command);
+            $this->getDelegate()->execute($command, $chain);
         }
     }
 
@@ -110,7 +110,7 @@ abstract class KControllerToolbarDecorator extends KObjectDecorator implements K
             else $this->getDelegate()->getCommand($name, $config);
 
         }
-        else $command = $this->getDelegate()->getCommand($name);
+        else $command = $this->getDelegate()->getCommand($name, $config);
 
         return $command;
     }
