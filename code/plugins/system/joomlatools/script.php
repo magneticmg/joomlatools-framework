@@ -299,10 +299,11 @@ class PlgSystemJoomlatoolsInstallerScript
             $errors[] = sprintf(JText::_('Joomlatools framework requires MySQL 5.1 or later.
             Please contact your host and ask them to upgrade MySQL to 5.1 or a newer version on your server.'), JFactory::getDbo()->getVersion());
         }
-
-        $result = JFactory::getDbo()->setQuery("SELECT SUPPORT FROM INFORMATION_SCHEMA.ENGINES WHERE ENGINE = 'InnoDB'")->loadResult();
-        if(!in_array(strtoupper($result), array('YES', 'DEFAULT'))) {
-            $errors[] = JText::_("Joomlatools framework requires MySQL InnoDB support. Please contact your host and ask them to enable InnoDB.");
+        else {
+            $result = JFactory::getDbo()->setQuery("SELECT SUPPORT FROM INFORMATION_SCHEMA.ENGINES WHERE ENGINE = 'InnoDB'")->loadResult();
+            if(!in_array(strtoupper($result), array('YES', 'DEFAULT'))) {
+                $errors[] = JText::_("Joomlatools framework requires MySQL InnoDB support. Please contact your host and ask them to enable InnoDB.");
+            }
         }
 
         // Check if Ohanah v2 or v3 is installed
