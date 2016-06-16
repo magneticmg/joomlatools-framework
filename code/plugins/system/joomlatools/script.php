@@ -332,7 +332,7 @@ class PlgSystemJoomlatoolsInstallerScript
         }
 
         if (class_exists('Koowa') && method_exists('Koowa', 'getInstance') && version_compare(Koowa::getInstance()->getVersion(), '2.2', '<')) {
-            //$errors[] = JText::_("You cannot upgrade an existing installation during the beta program. Please use a test site instead.");
+            $errors[] = JText::_("You cannot upgrade an existing installation during the beta program. Please use a test site instead.");
         }
 
         //Some hosts that specialize on Joomla are known to lock permissions to the libraries folder
