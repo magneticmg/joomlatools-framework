@@ -214,10 +214,10 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $direction 	= in_array($direction, array('asc', 'desc')) ? $direction : 'asc';
 
         //Set the class
-        $class = '';
+        $class = 'koowa-tooltip ';
         if($config->column == $config->sort)
         {
-            $class = 'class="-koowa-'.$direction.'"';
+            $class .= ' -koowa-'.$direction;
             $direction = $direction == 'desc' ? 'asc' : 'desc'; // toggle
         }
 
@@ -228,9 +228,8 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $query['direction'] = $direction;
         $url->setQuery($query);
 
-        $html  = '<a class="koowa-tooltip" href="'.$url.'" data-koowa-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'"  '.$class.'>';
+        $html  = '<a class="'.$class.'" href="'.$url.'" data-koowa-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
         $html .= $translator->translate($config->title);
-
         $html .= '</a>';
 
         return $html;
