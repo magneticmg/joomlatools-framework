@@ -28,11 +28,11 @@ abstract class KControllerToolbarDecorator extends KObjectDecorator implements K
         $parts  = explode('.', $command->getName());
         $method = '_'.$parts[0].ucfirst($parts[1]);
 
+        $this->getDelegate()->execute($command, $chain);
+
         if(method_exists($this, $method)) {
             $this->$method($command);
-        } else {
-            $this->getDelegate()->execute($command, $chain);
-        }
+        } 
     }
 
     /**
@@ -81,6 +81,10 @@ abstract class KControllerToolbarDecorator extends KObjectDecorator implements K
      */
     public function addCommand($command, $config = array())
     {
+        if (!($command instanceof KControllerToolbarCommand)) {
+            $command = $this->getCommand($command, $config);
+        }
+
         return $this->getDelegate()->addCommand($command, $config);
     }
 
