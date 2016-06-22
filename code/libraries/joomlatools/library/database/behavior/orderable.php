@@ -95,8 +95,8 @@ class KDatabaseBehaviorOrderable extends KDatabaseBehaviorAbstract
             else
             {
                 $query->values('ordering = ordering - 1')
-                ->where('ordering >  :new')
-                ->where('ordering <= :old')
+                ->where('ordering <=  :new')
+                ->where('ordering > :old')
                 ->bind(array('new' => $new, 'old' => $old));
             }
 
