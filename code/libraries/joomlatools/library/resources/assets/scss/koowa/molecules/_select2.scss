@@ -32,5 +32,9 @@
     height: $input-height-base;
     margin: 0;
   }
+
+  input[type]:focus {
+    box-shadow: none;
+  }
 }
 
