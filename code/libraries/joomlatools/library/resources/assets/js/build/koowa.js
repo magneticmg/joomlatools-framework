@@ -1154,7 +1154,7 @@ if (!Koowa.Translator) {
  * Creates a 'virtual form'
  *
  * @param   {object} config Configuration object. Accepted keys: method, url, params, element
- * @example new KForm({url:'foo=bar&id=1', params:{field1:'val1', field2...}}).submit();
+ * @example new Koowa.Form({url:'foo=bar&id=1', params:{field1:'val1', field2...}}).submit();
  * @extends Koowa.Class
  */
 Koowa.Form = Koowa.Class.extend({
@@ -1173,12 +1173,26 @@ Koowa.Form = Koowa.Class.extend({
         }
     },
     addField: function(name, value) {
-        var elem = $('<input/>', {
-            name: name,
-            value: value,
-            type: 'hidden'
-        });
-        elem.appendTo(this.form);
+        if ($.isArray(value)) {
+            var self = this,
+                n;
+
+            if (name.substr(-2) === '[]') {
+                name = name.substr(0, name.length-2);
+            }
+
+            $.each(value, function(i, v) {
+                n = name+'['+i+']';
+                self.addField(n, v);
+            });
+        } else {
+            var elem = $('<input/>', {
+                name: name,
+                value: value,
+                type: 'hidden'
+            });
+            elem.appendTo(this.form);
+        }
 
         return this;
     },
