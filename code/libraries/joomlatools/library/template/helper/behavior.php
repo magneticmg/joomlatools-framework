@@ -318,6 +318,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             'cleanup' => false,
             'debug'   => false,
             'element' => '.select2-listbox',
+            'options_callback' => null, // wraps the call to select2 options in JavaScript, can be used to add JS code
             'options' => array(
                 'theme'   => 'bootstrap',
                 'width' => 'resolve'
@@ -339,6 +340,12 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         if($config->element && !isset(self::$_loaded[$signature]))
         {
+            $options = (string) $options;
+
+            if ($config->options_callback) {
+                $options = $config->options_callback.'('.$options.')';
+            }
+
             $html .= '<script>
             kQuery(function($){
                 $("'.$config->element.'").select2('.$options.');
@@ -361,6 +368,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'element'  => null,
+            'options_callback' => null, // wraps the call to select2 options in JavaScript, can be used to add JS code
             'options'  => array(
                 'minimumInputLength' => 2,
                 'validate'      => false, //Toggle if the forms validation helper is loaded
@@ -396,6 +404,12 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         if($config->element && !isset(self::$_loaded[$signature]))
         {
+            $options = (string) $options;
+
+            if ($config->options_callback) {
+                $options = $config->options_callback.'('.$options.')';
+            }
+
             $html .= $this->select2(array('element' => false));
             $html .= '<script>
             kQuery(function($){
