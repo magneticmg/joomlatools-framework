@@ -97,7 +97,6 @@ module.exports = function(grunt) {
                 files: {
                     '<%= nookuFrameworkAssetsPath %>/js/build/admin.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'node_modules/select2/dist/js/select2.full.min.js',
                         'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
                         'node_modules/footable/dist/footable.min.js',
                         'node_modules/floatthead/dist/jquery.floatThead.min.js',
