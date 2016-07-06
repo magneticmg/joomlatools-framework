@@ -682,13 +682,15 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 /* ========================================================================== Select2 ========================================================================== */
 /* 100% wide by default instead of just 220px making it responsive */
-.select2-container.select2-container--bootstrap { width: 100% !important; max-width: 100% !important; /* Set proper line-height so text is vertically centered */ /* Set proper height so arrow is vertically centered */ /* Set proper styling for the search */ }
+.select2.select2-container.select2-container--bootstrap { width: 100% !important; max-width: 100% !important; /* Set proper line-height so text is vertically centered */ /* Set proper height so arrow is vertically centered */ /* Set proper styling for the search */ }
 
-.select2-container.select2-container--bootstrap .select2-selection--single .select2-selection__rendered { line-height: 1.428571429; }
+.select2.select2-container.select2-container--bootstrap .select2-selection--single .select2-selection__rendered { line-height: 1.428571429; }
 
-.select2-container.select2-container--bootstrap .select2-selection--single .select2-selection__arrow { height: 32px; }
+.select2.select2-container.select2-container--bootstrap .select2-selection--single .select2-selection__arrow { height: 32px; }
 
-.select2-container.select2-container--bootstrap .select2-search__field { height: 32px; margin: 0; }
+.select2.select2-container.select2-container--bootstrap .select2-search__field { height: 32px; margin: 0; }
+
+.select2.select2-container.select2-container--bootstrap input[type]:focus { box-shadow: none; }
 
 /** Datepicker for Bootstrap Copyright 2012 Stefan Petre Improvements by Andrew Rowls Licensed under the Apache License v2.0 http://www.apache.org/licenses/LICENSE-2.0 */
 .datepicker { font-family: "Helvetica", "Arial", sans-serif; font-size: 13px; line-height: 19px; direction: ltr; }
@@ -2281,9 +2283,9 @@ Styleguide 3.5
 
 .koowa .opened--left .k-off-canvas-overlay, .koowa .opened--right .k-off-canvas-overlay { z-index: 9; /* 2 */ }
 
-.koowa .k-content-wrapper { clear: both; /* 1 */ margin: 0; overflow: hidden; border-bottom: 1px solid #cfcfcf; /* Faking flexbox on older browsers by using table styling */ /* RTL */ /* When flexbox is in use */ }
+.koowa .k-content-wrapper { clear: both; /* 1 */ margin: 0; overflow: hidden; /* Faking flexbox on older browsers by using table styling */ /* RTL */ /* When flexbox is in use */ }
 
-@media screen and (min-width: 768px) { .koowa .k-content-wrapper { display: table; width: 100%; } }
+@media screen and (min-width: 768px) { .koowa .k-content-wrapper { display: table; width: 100%; border-bottom: 1px solid #cfcfcf; } }
 
 .koowa--rtl.koowa .k-content-wrapper { direction: rtl; }
 
@@ -3733,73 +3735,13 @@ Styleguide 3.5
 
 .koowa .form-group.success .form-control-feedback { color: #3c763d; }
 
-.koowa .k-positioner { display: inline-block; vertical-align: middle; width: 16px; height: 4px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; cursor: move; counter-increment: positioner-counter; position: relative; }
+.koowa .k-positioner { display: inline-block; vertical-align: middle; width: 16px; height: 4px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; cursor: no-drop; position: relative; }
+
+.koowa .k-positioner.is-active { cursor: move; }
 
 .koowa .k-positioner:before { display: block; position: absolute; content: " "; width: 16px; height: 10px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; top: -4px; }
 
-.koowa .k-positioner:after { position: absolute; width: 32px; height: 32px; top: -15px; left: -8px; content: counter(positioner-counter); font-size: 10px; line-height: 44px; text-indent: 3px; vertical-align: bottom; color: #333; text-shadow: 0 0 3px white; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
-
-.koowa .k-positioner--level1 { counter-increment: positioner-counter1; }
-
-.koowa .k-positioner--level1:after { content: counter(positioner-counter1); }
-
-.koowa .k-positioner--level2 { counter-increment: positioner-counter2; }
-
-.koowa .k-positioner--level2:after { content: counter(positioner-counter2); }
-
-.koowa .k-positioner--level3 { counter-increment: positioner-counter3; }
-
-.koowa .k-positioner--level3:after { content: counter(positioner-counter3); }
-
-.koowa .k-positioner--level4 { counter-increment: positioner-counter4; }
-
-.koowa .k-positioner--level4:after { content: counter(positioner-counter4); }
-
-.koowa .k-positioner--level5 { counter-increment: positioner-counter5; }
-
-.koowa .k-positioner--level5:after { content: counter(positioner-counter5); }
-
-.koowa .k-positioner--level6 { counter-increment: positioner-counter6; }
-
-.koowa .k-positioner--level6:after { content: counter(positioner-counter6); }
-
-.koowa .k-positioner--level7 { counter-increment: positioner-counter7; }
-
-.koowa .k-positioner--level7:after { content: counter(positioner-counter7); }
-
-.koowa .k-positioner--level8 { counter-increment: positioner-counter8; }
-
-.koowa .k-positioner--level8:after { content: counter(positioner-counter8); }
-
-.koowa .k-positioner--level9 { counter-increment: positioner-counter9; }
-
-.koowa .k-positioner--level9:after { content: counter(positioner-counter9); }
-
-.koowa .k-positioner--level10 { counter-increment: positioner-counter10; }
-
-.koowa .k-positioner--level10:after { content: counter(positioner-counter10); }
-
-.koowa .k-positioner--level11 { counter-increment: positioner-counter11; }
-
-.koowa .k-positioner--level11:after { content: counter(positioner-counter11); }
-
-.koowa .k-positioner--level12 { counter-increment: positioner-counter12; }
-
-.koowa .k-positioner--level12:after { content: counter(positioner-counter12); }
-
-.koowa .k-positioner--level13 { counter-increment: positioner-counter13; }
-
-.koowa .k-positioner--level13:after { content: counter(positioner-counter13); }
-
-.koowa .k-positioner--level14 { counter-increment: positioner-counter14; }
-
-.koowa .k-positioner--level14:after { content: counter(positioner-counter14); }
-
-.koowa .k-positioner--level15 { counter-increment: positioner-counter15; }
-
-.koowa .k-positioner--level15:after { content: counter(positioner-counter15); }
-
-.koowa .k-table-container { counter-reset: positioner-counter positioner-counter-level1 positioner-counter-level2 positioner-counter-level3 positioner-counter-level4 positioner-counter-level5 positioner-counter-level6 positioner-counter-level7 positioner-counter-level8 positioner-counter-level9 positioner-counter-level10 positioner-counter-level11 positioner-counter-level12 positioner-counter-level13 positioner-counter-level14 positioner-counter-level15; }
+.koowa .k-positioner:after { position: absolute; width: 32px; height: 32px; top: -15px; left: -8px; content: attr(data-position); font-size: 10px; line-height: 44px; text-indent: 3px; vertical-align: bottom; color: #333; text-shadow: 0 0 3px white; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa tr.selected .k-positioner:after { color: white; text-shadow: none; }
 
