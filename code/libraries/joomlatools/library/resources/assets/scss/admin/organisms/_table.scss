@@ -638,11 +638,10 @@ Styleguide 3.5
 /* Table item states */
 
 .k-table__item--state {
-  cursor: pointer;
   @include transition;
 
-  &:focus,
-  &:hover {
+  a#{&}:focus,
+  a#{&}:hover {
     text-decoration: underline;
   }
 
