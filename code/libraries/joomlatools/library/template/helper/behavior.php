@@ -150,6 +150,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             'debug'    => false,
             'selector' => '.koowa-modal',
             'data'     => 'koowa-modal',
+            'options_callback' => null,
             'options'  => array('type' => 'image')
         ));
 
@@ -163,17 +164,21 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             self::$_loaded['modal'] = true;
         }
 
-        $options   = json_encode($config->options->toArray());
-        $signature = md5('modal-'.$config->selector.$options);
+        $options   = (string)$config->options;
+        $signature = md5('modal-'.$config->selector.$config->options_callback.$options);
 
         if(!isset(self::$_loaded[$signature]))
         {
+            if ($config->options_callback) {
+                $options = $config->options_callback.'('.$options.')';
+            }
+
             $html .= "<script>
             kQuery(function($){
                 $('$config->selector').each(function(idx, el) {
                     var el = $(el);
                     var data = el.data('$config->data');
-                    var options = $.parseJSON('$options');
+                    var options = ".$options.";
                     if (data) {
                         $.extend(true, options, data);
                     }
@@ -199,6 +204,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'url'       => '',
+            'options_callback' => null,
             'options'   => array(),
             'attribs'   => array(),
         ));
@@ -246,8 +252,12 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $config->options->url = (string) $url;
 
-        //Don't pass an empty array as options
-        $options = json_encode($config->options->toArray());
+        $options   = (string)$config->options;
+
+        if ($config->options_callback) {
+            $options = $config->options_callback.'('.$options.')';
+        }
+
         $html .= sprintf("<script>kQuery(function(){ new Koowa.Overlay('#%s', %s);});</script>", $id, $options);
 
         $html .= '<div class="-koowa-overlay" id="'.$id.'" '.$attribs.'><div class="-koowa-overlay-status">'.$translator->translate('Loading...').'</div></div>';
@@ -266,6 +276,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $config->append(array(
             'debug' => false,
             'selector' => '.-koowa-form',
+            'options_callback' => null,
             'options'  => array(
                 'ignoreTitle' => true,
                 'onsubmit'    => false // We run the validation ourselves
@@ -282,11 +293,15 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             self::$_loaded['validator'] = true;
         }
 
-        $options   = json_encode($config->options->toArray());
-        $signature = md5('validator-'.$config->selector.$options);
+        $options   = (string) $config->options;
+        $signature = md5('validator-'.$config->selector.$config->options_callback.$options);
 
         if(!isset(self::$_loaded[$signature]))
         {
+            if ($config->options_callback) {
+                $options = $config->options_callback.'('.$options.')';
+            }
+
             $html .= "<script>
             kQuery(function($){
                 $('$config->selector').on('koowa:validate', function(event){
@@ -336,7 +351,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         }
 
         $options   = $config->options;
-        $signature = md5('select2-'.$config->element.$options);
+        $signature = md5('select2-'.$config->element.$config->options_callback.$options);
 
         if($config->element && !isset(self::$_loaded[$signature]))
         {
@@ -400,7 +415,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $config->options->url = (string)$config->options->url;
 
         $options   = $config->options;
-        $signature = md5('autocomplete-'.$config->element.$options);
+        $signature = md5('autocomplete-'.$config->element.$config->options_callback.$options);
 
         if($config->element && !isset(self::$_loaded[$signature]))
         {
@@ -442,10 +457,11 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             'selected'  => '',
             'list'    => array()
         ))->append(array(
-                'options' => array(
-                    'selected' => $config->selected
-                )
-            ));
+            'options_callback' => null,
+            'options' => array(
+                'selected' => $config->selected
+            )
+        ));
 
         $html = '';
 
@@ -501,7 +517,11 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                 }
             }
 
-            $options = $config->options;
+            $options = (string) $config->options;
+
+            if ($config->options_callback) {
+                $options = $config->options_callback.'('.$options.')';
+            }
 
             $html .= '<script>
             kQuery(function($){
@@ -526,6 +546,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $config->append(array(
             'selector' => '.koowa-tooltip',
             'data'     => 'koowa-tooltip',
+            'options_callback' => null,
             'options'  => array()
         ));
 
@@ -539,7 +560,11 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             self::$_loaded['tooltip'] = true;
         }
 
-        $options = json_encode($config->options->toArray());
+        $options = (string) $config->options;
+
+        if ($config->options_callback) {
+            $options = $config->options_callback.'('.$options.')';
+        }
 
         $signature = md5('tooltip-'.$config->selector.$options);
 
@@ -550,7 +575,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                     $('$config->selector').each(function(idx, el) {
                         var el = $(el);
                         var data = el.data('$config->data');
-                        var options = $.parseJSON('$options');
+                        var options = ".$options.";
                         if (data) {
                             $.extend(true, options, data);
                         }
@@ -591,6 +616,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             )
         ))->append(array(
             'id'      => 'datepicker-'.$config->name,
+            'options_callback' => null,
             'options' => array(
                 'todayBtn' => 'linked',
                 'todayHighlight' => true,
@@ -648,9 +674,15 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             // Only display the triggers once for each control.
             if (!in_array($config->id, self::$_loaded['calendar-triggers']))
             {
+                $options = (string) $config->options;
+
+                if ($config->options_callback) {
+                    $options = $config->options_callback.'('.$options.')';
+                }
+
                 $html .= "<script>
                     kQuery(function($){
-                        $('#".$config->id."').koowaDatepicker(".$config->options.");
+                        $('#".$config->id."').koowaDatepicker(".$options.");
                     });
                 </script>";
 
