@@ -50,6 +50,10 @@
   color: $color-success;
 }
 
+.icon-preview {
+  @include icon-before(eye, true);
+}
+
 .icon-cancel {
   @include icon-before(circle-x, true);
   color: $color-error;
