@@ -30,7 +30,7 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
 
         // FIXME: take this out when we refactor UI
         if (JFactory::getApplication()->isSite()) {
-            $html = str_replace('k-toolbar-buttons', 'btn-group', $html);
+            $html = str_replace('k-toolbar-buttons', 'k-toolbar-buttons btn-group', $html);
         }
 
         return $html;
