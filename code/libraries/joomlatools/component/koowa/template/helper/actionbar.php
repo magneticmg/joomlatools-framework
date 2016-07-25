@@ -54,7 +54,7 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
 
         if (!empty($title))
         {
-            $html = '<div class="k-heading">' . $title . '</div>';
+            $html = '<div class="k-title-bar__heading">' . $title . '</div>';
 
             if (JFactory::getApplication()->isAdmin())
             {

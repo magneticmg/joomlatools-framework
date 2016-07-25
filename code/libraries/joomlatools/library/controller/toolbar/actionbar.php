@@ -136,7 +136,7 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
      */
     protected function _commandEnable(KControllerToolbarCommand $command)
     {
-        $command->icon = 'icon-publish';
+        $command->icon = 'k-icon-check k-icon--success';
 
         $command->append(array(
             'attribs' => array(
@@ -154,7 +154,7 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
      */
     protected function _commandDisable(KControllerToolbarCommand $command)
     {
-        $command->icon = 'icon-unpublish';
+        $command->icon = 'k-icon-x k-icon--error';
 
         $command->append(array(
             'attribs' => array(

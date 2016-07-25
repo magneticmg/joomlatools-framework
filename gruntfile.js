@@ -13,21 +13,42 @@ module.exports = function(grunt) {
         // Grunt variables
         nookuFrameworkAssetsPath: 'code/libraries/joomlatools/library/resources/assets',
         joomlatoolsFrameworkAssetsPath: 'code/libraries/joomlatools/component/koowa/resources/assets',
+        JUIPath: '../joomlatools-ui/dist',
 
-        // Iconfont
-        webfont: {
-            icons: {
-                src: '<%= nookuFrameworkAssetsPath %>/icons/svg/*.svg',
-                dest: '<%= nookuFrameworkAssetsPath %>/fonts/koowa-icons',
-                destCss: '<%= nookuFrameworkAssetsPath %>/scss/koowa/utilities',
-                options: {
-                    font: 'koowa-icons',
-                    hashes: false,
-                    stylesheet: 'scss',
-                    relativeFontPath: '../fonts/icons/',
-                    template: '<%= nookuFrameworkAssetsPath %>/icons/template.css',
-                    htmlDemo: false
-                }
+
+        // Copy Joomlatools UI files
+        copy: {
+            JUItoJUIFramework: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['<%= JUIPath %>/css/*.*'],
+                        dest: '<%= joomlatoolsFrameworkAssetsPath %>/css',
+                        flatten: true
+                    }
+                ]
+            },
+            JUItoKUIFramework: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['<%= JUIPath %>/css/admin.*'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/css',
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= JUIPath %>/fonts',
+                        src: ['**'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/fonts'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= JUIPath %>/js',
+                        src: ['**'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/js'
+                    }
+                ]
             }
         },
 
@@ -53,33 +74,6 @@ module.exports = function(grunt) {
                     '<%= joomlatoolsFrameworkAssetsPath %>/css/isis.css': '<%= joomlatoolsFrameworkAssetsPath %>/scss/isis.scss',
                     '<%= joomlatoolsFrameworkAssetsPath %>/css/hathor.css': '<%= joomlatoolsFrameworkAssetsPath %>/scss/hathor.scss'
                 }
-            }
-        },
-
-
-        // Modernizr
-        modernizr: {
-            dist: {
-                "cache": true,
-
-                "dest": "<%= nookuFrameworkAssetsPath %>/js/build/modernizr.js",
-                "options": [
-                    "html5shiv",
-                    "prefixedCSS",
-                    "setClasses"
-                ],
-                "uglify": false,
-                "tests": [
-                    "appearance",
-                    "checked",
-                    "flexbox",
-                    "flexboxlegacy",
-                    "flexboxtweener",
-                    "flexwrap"
-                ],
-                "crawl" : false,
-                "customTests" : [],
-                "classPrefix": "k-"
             }
         },
 
@@ -148,8 +142,24 @@ module.exports = function(grunt) {
             },
             build: {
                 files: {
+                    '<%= nookuFrameworkAssetsPath %>/js/min/admin.js': [
+                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        'node_modules/select2/dist/js/select2.full.min.js',
+                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+                        'node_modules/footable/dist/footable.min.js',
+                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
+                        '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
+                        '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
+                        '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
+                        '<%= nookuFrameworkAssetsPath %>/scripts/main.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                    ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/bootstrap.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/bootstrap.js'
+                    ],
+                    '<%= nookuFrameworkAssetsPath %>/js/min/jquery.js': [
+                        'node_modules/jquery/dist/jquery.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.magnific-popup.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
@@ -280,7 +290,7 @@ module.exports = function(grunt) {
     });
 
     // The dev task will be used during development
-    grunt.registerTask('default', ['shell', 'watch']);
+    grunt.registerTask('default', ['shell', 'copy', 'watch']);
 
     // Javascript only
     grunt.registerTask('javascript', ['modernizr', 'uglify', 'concat']);

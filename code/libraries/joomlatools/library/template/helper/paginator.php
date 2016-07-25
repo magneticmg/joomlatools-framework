@@ -134,16 +134,14 @@ class KTemplateHelperPaginator extends KTemplateHelperSelect
         $html = '<div class="k-pagination">';
 
         if($config->show_limit) {
-            $html .= '<div class="limit">'.$this->limit($config).'</div>';
+            $html .= '<div class="k-pagination__limit">'.$this->limit($config).'</div>';
         }
 
         if ($config->show_pages)
         {
-            $html .= '<div class="pagination">';
-            $html .= '<ul>';
+            $html .= '<ul class="k-pagination__pages">';
             $html .=  $this->_pages($this->_items($config));
             $html .= '</ul>';
-            $html .= '</div>';
         }
 
         if($config->show_count)
@@ -182,7 +180,7 @@ class KTemplateHelperPaginator extends KTemplateHelperSelect
                 $html .= '<li class="disabled"><span>&hellip;</span></li>';
             }
 
-            $html .= '<li class="'.($page->active && !$page->current ? '' : 'active').'">';
+            $html .= '<li class="'.($page->active && !$page->current ? '' : 'k-is-active').'">';
             $html .= $this->_link($page, $page->page);
             $html .= '</li>';
 

@@ -51,7 +51,7 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         }
 
         //Render the buttons
-        $html = '<span class="k-toolbar-buttons">';
+        $html = '';
 
         foreach ($config->toolbar->getCommands() as $command)
         {
@@ -67,8 +67,6 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
                 $html .= $this->command(array('command' => $command));
             }
         }
-
-        $html .= "</span>";
 
         return $html;
     }
@@ -107,12 +105,11 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         //Create the id
         $command->attribs->id = 'toolbar-'.$command->id;
 
-        $command->attribs->class->append(array('btn', 'btn-default', 'btn-sm', 'k-btn-'.$command->id));
+        $command->attribs->class->append(array('k-button', 'k-button--default', 'k-button-'.$command->id));
 
-        $icon = $this->_getIconClass($command->icon);
+        $icon = $this-> _getIconClass($command->icon);
         if ($command->id === 'new' || $command->id === 'apply') {
-            $command->attribs->class->append(array('btn-success'));
-            $icon .= ' icon-white';
+            $command->attribs->class->append(array('k-button--success'));
         }
 
         $attribs = clone $command->attribs;
@@ -121,12 +118,10 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         $html = '<a '.$this->buildAttributes($attribs).'>';
 
         if ($this->_useIcons()) {
-            $html .= '<i class="'.$icon.'"></i> ';
+            $html .= '<span class="'.$icon.'" aria-hidden="true"></span> ';
         }
 
-        $html .= '<span class="k-toolbar__text">';
         $html .= $translator->translate($command->label);
-        $html .= '</span>';
         $html .= '</a>';
 
         return $html;

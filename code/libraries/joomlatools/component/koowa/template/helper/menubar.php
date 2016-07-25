@@ -38,7 +38,7 @@ class ComKoowaTemplateHelperMenubar extends KTemplateHelperAbstract
 
             $url    = KHttpUrl::fromString($command->href);
             $view   = isset($url->query['view']) ? $url->query['view'] : false;
-            $class  = $command->active ? ' class="active"' : '';
+            $class  = $command->active ? ' class="k-is-active"' : '';
 
             $html .= '<li'.$class.'>';
             $html .= '<a class="'.($view ? 'k-navigation-'.$view : '').'" href="'.$command->href.'">';
