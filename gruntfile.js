@@ -6,12 +6,6 @@ module.exports = function(grunt) {
     // load time-grunt and all grunt plugins found in the package.json
     require('jit-grunt')(grunt);
 
-    // Variables
-    var gulp = require('gulp'),
-        styleguide = require('sc5-styleguide'),
-        buildPath = './code/libraries/joomlatools/library/resources/assets',
-        styleguideAppRoot = '/styleguide',
-        styleguideBuildPath = buildPath + styleguideAppRoot;
 
     // grunt config
     grunt.initConfig({
@@ -239,74 +233,6 @@ module.exports = function(grunt) {
         },
 
 
-        // Gulp commands
-        gulp: {
-            'styleguide-generate': function() {
-                return gulp.src([
-                    buildPath + '/scss/admin.scss',
-                    buildPath + '/scss/admin/core/_core.scss',
-                    buildPath + '/scss/admin/atoms/*.scss',
-                    buildPath + '/scss/admin/layout/*.scss',
-                    buildPath + '/scss/admin/molecules/*.scss',
-                    buildPath + '/scss/admin/organisms/*.scss'
-                ])
-                    .pipe(styleguide.generate({
-                        title: 'Joomlatools UI Styleguide',
-                        rootPath: styleguideBuildPath, // This is where resources are loaded from
-                        appRoot: './', // This is where the styleguide is rendered
-                        overviewPath: buildPath + '/documentation/README.md',
-                        disableEncapsulation: true,
-                        disableHtml5Mode: true,
-                        previousSection: true,
-                        commonClass: 'koowa koowa-container',
-                        nextSection: true,
-                        extraHead: [
-                            '<link href="koowa/css/admin.css" rel="stylesheet" type="text/css">',
-                            '<script src="koowa/js/modernizr.js"></script>'
-                        ],
-                        afterBody: [
-                            '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>'
-                        ]
-                    }
-                )).pipe(gulp.dest(styleguideBuildPath)); // This is where the styleguide source files get rendered
-            },
-            'styleguide-applystyles': function() {
-                return gulp.src([
-                    'koowa/css/admin.css'
-                ])
-                .pipe(styleguide.applyStyles())
-                .pipe(gulp.dest(styleguideBuildPath));
-            }
-        },
-
-
-        // Copy
-        copy: {
-            koowaToStyleguide: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['<%= nookuFrameworkAssetsPath %>/css/admin.css'],
-                        dest: '<%= nookuFrameworkAssetsPath %>/styleguide/koowa/css',
-                        flatten: true
-                    },
-                    {
-                        expand: true,
-                        src: ['<%= nookuFrameworkAssetsPath %>/js/min/modernizr.js'],
-                        dest: '<%= nookuFrameworkAssetsPath %>/styleguide/koowa/js',
-                        flatten: true
-                    },
-                    {
-                        expand: true,
-                        src: ['<%= nookuFrameworkAssetsPath %>/fonts/koowa-icons/*.*'],
-                        dest: '<%= nookuFrameworkAssetsPath %>/styleguide/koowa/fonts/koowa-icons',
-                        flatten: true
-                    }
-                ]
-            }
-        },
-
-
         // Shell commands
         shell: {
             updateCanIUse: {
@@ -370,12 +296,9 @@ module.exports = function(grunt) {
     });
 
     // The dev task will be used during development
-    grunt.registerTask('default', ['shell', 'gulp:styleguide-generate', 'gulp:styleguide-applystyles', 'watch']);
+    grunt.registerTask('default', ['shell', 'watch']);
 
     // Javascript only
     grunt.registerTask('javascript', ['modernizr', 'uglify', 'concat']);
-
-    // create Styleguide
-    grunt.registerTask('styleguide', ['sass', 'autoprefixer', 'copy:koowaToStyleguide', 'gulp:styleguide-generate', 'gulp:styleguide-applystyles']);
 
 };
