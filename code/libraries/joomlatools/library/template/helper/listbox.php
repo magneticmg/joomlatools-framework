@@ -28,10 +28,19 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'prompt'    => '- '.$translator->translate('Select').' -',
+            'deselect'  => false,
             'options'   => array(),
             'select2'   => false,
             'attribs'   => array(),
         ));
+
+        if ($config->deselect && !$config->attribs->multiple)
+        {
+            $deselect = $this->option(array('value' => '', 'label' => $config->prompt));
+            $options  = $config->options->toArray();
+            array_unshift($options, $deselect);
+            $config->options = $options;
+        }
 
         if ($config->attribs->multiple && $config->name && substr($config->name, -2) !== '[]') {
             $config->name .= '[]';
@@ -47,27 +56,21 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
                 ));
             }
 
-            $config->append(array(
-                'select2_options' => array(
-                    'element' => $config->attribs->id ? '#'.$config->attribs->id : 'select[name=\"'.$config->name.'\"]'
-                )
-            ));
-
-            // special configuration for select2 placeholder
-            if ($config->deselect)
-            {
-                $config->append(array(
-                    'select2_options' => array(
-                        'options' => array(
-                            'placeholder' => array(
-                                'id' => '',
-                                'text' => $config->prompt
-                            ),
-                            'allowClear'  => true
-                        )
-                    )
+            if ($config->deselect) {
+                $config->attribs->append(array(
+                    'data-placeholder' => $config->prompt
                 ));
             }
+
+            $config->append(array(
+                'select2_options' => array(
+                    'element' => $config->attribs->id ? '#'.$config->attribs->id : 'select[name=\"'.$config->name.'\"]',
+                    'options' => array(
+                        'allowClear'  => $config->deselect
+                    )
+
+                )
+            ));
 
             $html .= $this->getTemplate()->createHelper('behavior')->select2($config->select2_options);
         }
@@ -189,8 +192,7 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
             'name'       => '',
             'attribs'    => array(),
             'model'      => KStringInflector::pluralize($this->getIdentifier()->package),
-            'deselect'   => true,
-            'unique'     => true
+            'deselect'   => true
         ))->append(array(
             'value'      => $config->name,
             'selected'   => $config->{$config->name},
@@ -211,25 +213,26 @@ class KTemplateHelperListbox extends KTemplateHelperSelect
         }
         else $model = $config->model;
 
-        //Get the list of items
-        $items = array();
-
-        $list = $model->setState(KObjectConfig::unbox($config->filter))->fetch();
-        foreach($list as $key => $item) {
-            $items[$key] = $item->getProperty($config->value);
-        }
-
-        if ($config->unique) {
-            $items = array_unique($items);
-        }
-
-        //Compose the options array
         $options = array();
+        $state   = KObjectConfig::unbox($config->filter);
+        $count   = $model->setState($state)->count();
+        $offset  = 0;
+        $limit   = 100;
 
-        foreach ($items as $key => $value)
+        /*
+         * We fetch data gradually here and convert it directly into options
+         * This only loads 100 entities into memory at once so that
+         * we do not run into memory limit issues
+         */
+        while ($offset < $count)
         {
-            $item      = $list->find($key);
-            $options[] = $this->option(array('label' => $item->{$config->label}, 'value' => $item->{$config->value}));
+            $entities = $model->setState($state)->limit($limit)->offset($offset)->fetch();
+
+            foreach ($entities as $entity) {
+                $options[] = $this->option(array('label' => $entity->{$config->label}, 'value' => $entity->{$config->value}));
+            }
+
+            $offset += $limit;
         }
 
         //Compose the selected array

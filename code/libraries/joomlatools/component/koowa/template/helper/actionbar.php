@@ -26,7 +26,14 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
         // Load the language strings for toolbar button labels
         JFactory::getLanguage()->load('joomla', JPATH_ADMINISTRATOR);
 
-        return parent::render($config);
+        $html = parent::render($config);
+
+        // FIXME: take this out when we refactor UI
+        if (JFactory::getApplication()->isSite()) {
+            $html = str_replace('k-toolbar-buttons', 'k-toolbar-buttons btn-group', $html);
+        }
+
+        return $html;
     }
 
     /**

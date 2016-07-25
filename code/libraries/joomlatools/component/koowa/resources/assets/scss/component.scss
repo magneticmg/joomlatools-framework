@@ -1,7 +1,39 @@
 /**
- * Joomlatools UI
- * ==============
+ * Component styling
+ * =================
+ * Used in Joomla views that are not controlled by us, such as menu and module views
  */
 
 
-@import "../../../../../../../../../joomlatools-ui/src/scss/component";
+/**
+ * Joomla variables
+ * ----------------
+ * Load first to win over "!default" variables defined in core/_tools.scss
+ */
+
+@import "variables";
+
+
+/**
+ * Global tools
+ * ------------
+ * Containing different libraries, variables, mixins and functions
+ */
+
+@import "../../../../../library/resources/assets/scss/admin/core/tools";
+
+
+
+/**
+ * Needed styling
+ * --------------
+ * Load needed styling in here
+ */
+
+@import "../../../../../../../../node_modules/select2/src/scss/core";
+@import "../../../../../../../../node_modules/select2-bootstrap-theme/src/select2-bootstrap";
+@import "../../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns"; /* We need the dropdowns for the datepicker until we found a better datepicker */
+@import "../../../../../library/resources/assets/scss/admin/organisms/modal";
+@import "../../../../../library/resources/assets/scss/koowa/molecules/select2";
+@import "../../../../../library/resources/assets/scss/koowa/utilities/koowa-icons";
+@import "component-select2";

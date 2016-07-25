@@ -6,12 +6,30 @@ module.exports = function(grunt) {
     // load time-grunt and all grunt plugins found in the package.json
     require('jit-grunt')(grunt);
 
+
     // grunt config
     grunt.initConfig({
 
         // Grunt variables
         nookuFrameworkAssetsPath: 'code/libraries/joomlatools/library/resources/assets',
         joomlatoolsFrameworkAssetsPath: 'code/libraries/joomlatools/component/koowa/resources/assets',
+
+        // Iconfont
+        webfont: {
+            icons: {
+                src: '<%= nookuFrameworkAssetsPath %>/icons/svg/*.svg',
+                dest: '<%= nookuFrameworkAssetsPath %>/fonts/koowa-icons',
+                destCss: '<%= nookuFrameworkAssetsPath %>/scss/koowa/utilities',
+                options: {
+                    font: 'koowa-icons',
+                    hashes: false,
+                    stylesheet: 'scss',
+                    relativeFontPath: '../fonts/icons/',
+                    template: '<%= nookuFrameworkAssetsPath %>/icons/template.css',
+                    htmlDemo: false
+                }
+            }
+        },
 
 
         // Compile sass files
@@ -71,6 +89,21 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 files: {
+                    '<%= nookuFrameworkAssetsPath %>/js/build/admin.js': [
+                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+                        'node_modules/footable/dist/footable.min.js',
+                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
+                        '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
+                        '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
+                        '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
+                        '<%= nookuFrameworkAssetsPath %>/scripts/main.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                    ],
+                    '<%= nookuFrameworkAssetsPath %>/js/build/jquery.js': [
+                        'node_modules/jquery/dist/jquery.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
+                    ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.magnific-popup.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
                         'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
@@ -184,33 +217,6 @@ module.exports = function(grunt) {
         },
 
 
-        // Copy
-        copy: {
-            KUItoFramework: {
-                files: [
-                    {
-                        expand: true,
-                        src: ['../kodekit-ui/dist/fonts/koowa-icons/*.*'],
-                        dest: '<%= nookuFrameworkAssetsPath %>/fonts/koowa-icons',
-                        flatten: true
-                    },
-                    {
-                        expand: true,
-                        src: ['../kodekit-ui/dist/js/build/*.*'],
-                        dest: '<%= nookuFrameworkAssetsPath %>/js/build',
-                        flatten: true
-                    },
-                    {
-                        expand: true,
-                        src: ['../kodekit-ui/dist/js/min/*.*'],
-                        dest: '<%= nookuFrameworkAssetsPath %>/js/min',
-                        flatten: true
-                    }
-                ]
-            }
-        },
-
-
         // Shell commands
         shell: {
             updateCanIUse: {
@@ -221,6 +227,16 @@ module.exports = function(grunt) {
 
         // Watch files
         watch: {
+            fontcustom: {
+                files: [
+                    '<%= nookuFrameworkAssetsPath %>/icons/svg/*.svg'
+                ],
+                tasks: ['webfont', 'sass', 'autoprefixer'],
+                options: {
+                    interrupt: true,
+                    atBegin: false
+                }
+            },
             sass: {
                 files: [
                     '<%= nookuFrameworkAssetsPath %>/scss/*.scss',
@@ -264,7 +280,7 @@ module.exports = function(grunt) {
     });
 
     // The dev task will be used during development
-    grunt.registerTask('default', ['shell', 'copy', 'watch']);
+    grunt.registerTask('default', ['shell', 'watch']);
 
     // Javascript only
     grunt.registerTask('javascript', ['modernizr', 'uglify', 'concat']);

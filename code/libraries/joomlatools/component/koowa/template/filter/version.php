@@ -87,6 +87,9 @@ class ComKoowaTemplateFilterVersion extends KTemplateFilterAbstract
              (.*)/>
         ~siUx';
 
+        // Hold a list of already processed URLs
+        $processed = array();
+
         if(preg_match_all($pattern, $text, $matches, PREG_SET_ORDER))
         {
             foreach ($matches as $match)
@@ -95,11 +98,18 @@ class ComKoowaTemplateFilterVersion extends KTemplateFilterAbstract
 
                 if ($version)
                 {
-                    $url     = $match[1];
-                    $version = substr(md5($version), 0, 8);
-                    $suffix  = strpos($url, '?') === false ? '?'.$version : '&'.$version;
+                    $url = $match[1];
 
-                    $text    = str_replace($url, $url.$suffix, $text);
+                    if (!in_array($url, $processed))
+                    {
+                        $processed[] = $url;
+
+                        $version = substr(md5($version), 0, 8);
+                        $suffix  = strpos($url, '?') === false ? '?'.$version : '&'.$version;
+                        $text    = str_replace($url, $url.$suffix, $text);
+                    }
+
+
                 }
             }
         }
