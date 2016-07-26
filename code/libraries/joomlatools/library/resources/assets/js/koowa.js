@@ -209,7 +209,7 @@ Koowa.Controller = Koowa.Class.extend({
 
                 context.trigger = button;
 
-                if (!button.hasClass('disabled')) {
+                if (!button.hasClass('k-is-disabled')) {
                     var prompt = button.data('prompt');
 
                     if (prompt && !confirm(prompt)) {
@@ -267,9 +267,9 @@ Koowa.Controller = Koowa.Class.extend({
             buttons = this.buttons.filter('[data-novalidate!="novalidate"]');
 
             if (this.trigger('validate')) {
-                buttons.removeClass('disabled');
+                buttons.removeClass('k-is-disabled');
             } else {
-                buttons.addClass('disabled');
+                buttons.addClass('k-is-disabled');
             }
 
             this.trigger('afterValidate');
@@ -409,17 +409,17 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
                     parent = tr.parent();
 
                 if ($(this).is('[type=radio]')) {
-                    parent.find('.selected').removeClass('selected');
+                    parent.find('.k-is-selected').removeClass('k-is-selected');
                 }
 
-                $(this).prop('checked') ? tr.addClass('selected') : tr.removeClass('selected');
+                $(this).prop('checked') ? tr.addClass('k-is-selected') : tr.removeClass('k-is-selected');
 
-                selected = tr.hasClass('selected') + tr.siblings('.selected').length;
+                selected = tr.hasClass('k-is-selected') + tr.siblings('.k-is-selected').length;
 
                 if(selected > 1) {
-                    parent.addClass('selected-multiple').removeClass('selected-single')
+                    parent.addClass('k-is-selected-multiple').removeClass('k-is-selected-single')
                 } else {
-                    parent.removeClass('selected-multiple').addClass('selected-single');
+                    parent.removeClass('k-is-selected-multiple').addClass('k-is-selected-single');
                 }
             }).trigger('change', true);
 
