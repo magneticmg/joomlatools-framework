@@ -1036,6 +1036,81 @@ Koowa.Grid = Koowa.Class.extend({
                 self.setCheckAll();
             }
         });
+
+        this.setScopebar();
+        this.setTableHeaders();
+        this.setTableRows();
+    },
+    setScopebar: function() {
+        $('.js-filter-container', this.form).scopebar();
+    },
+    setTableHeaders: function() {
+        //Make the table headers "clickable" and make checkall work
+        this.form.on('click.koowa', 'th', function(event) {
+            var $target = $(event.target);
+            var link     = $target.find('a');
+
+            if (link.length) {
+                //Run this check on click, so that progressive enhancements isn't bulldozed
+                if(link.prop('href')) {
+                    window.location.href = link.prop('href');
+                } else {
+                    link.trigger('click', event);
+                }
+            }
+            else {
+                var checkall = $target.find('.-koowa-grid-checkall');
+
+                if (checkall.length) {
+                    checkall.prop('checked', checkall.is(':checked') ? false : true).trigger('change');
+                }
+            }
+        });
+    },
+    setTableRows: function() {
+        // Trigger checkbox when the user clicks anywhere in the row
+        this.form.on('click.koowa', 'tr', function(event) {
+            var target = $(event.target);
+
+            if(target.is('[type=radio], [type=checkbox], a[href], span.footable-toggle')) {
+                return;
+            }
+
+            var tr = target.is('tr') ? target : target.parents('tr'),
+                checkbox = tr.find('.-koowa-grid-checkbox');
+
+            if(tr.data('readonly') == true || !checkbox.length) {
+                return;
+            }
+
+            if (checkbox.length) {
+                checkbox.prop('checked', !checkbox.prop('checked')).trigger('change');
+            }
+        });
+
+        // Checkbox should add selected and selected-multiple classes to the row
+        this.form.on('change.koowa', '.-koowa-grid-checkbox', function(event) {
+            var selected,
+                target = $(event.target),
+                tr     = target.parents('tr'),
+                parent = tr.parent();
+
+            if (target.is('[type=radio]')) {
+                parent.find('.selected').removeClass('selected');
+            }
+
+            $(this).prop('checked') ? tr.addClass('selected') : tr.removeClass('selected');
+
+            selected = parent.find('.selected').length;
+
+            if(selected > 1) {
+                parent.addClass('selected-multiple').removeClass('selected-single')
+            } else if (selected === 1) {
+                parent.removeClass('selected-multiple').addClass('selected-single');
+            } else {
+                parent.removeClass('selected-multiple').removeClass('selected-single');
+            }
+        }).trigger('change', true);
     },
     checkAll: function(value){
         var changed = this.checkboxes.filter(function(i, checkbox){
@@ -1393,9 +1468,7 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
         this.token_name = this.form.data('token-name');
         this.token_value = this.form.data('token-value');
 
-        this.setTableHeaders();
         this.setTableRows();
-        this.setFilters();
 
         // <select> elements in headers and footers are for filters, so they need to submit the form on change
         this.form.find('thead select, tfoot select, .k-pagination select').on('change.koowa', function(){
@@ -1413,55 +1486,7 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
 
     },
 
-    setFilters: function() {
-        $('.js-filter-container').scopebar();
-    },
 
-    setTableHeaders: function() {
-        //Make the table headers "clickable"
-        this.form.find('thead tr > *').each(function() {
-            var element = $(this),
-                link = element.find('a'),
-                checkall = element.find('.-koowa-grid-checkall');
-
-            if (link.length) {
-                element.on('click.koowa', function(event){
-                    //Don't do anything if the event target is the same as the element
-                    if(event.target != element[0]) {
-                        return;
-                    }
-
-                    //Run this check on click, so that progressive enhancements isn't bulldozed
-                    if(link.prop('href')) {
-                        window.location.href = link.prop('href');
-                    } else {
-                        link.trigger('click', event);
-                    }
-                });
-
-                if(link.hasClass('-koowa-asc')) {
-                    element.addClass('-koowa-asc');
-                } else if(link.hasClass('-koowa-desc')) {
-                    element.addClass('-koowa-desc');
-                }
-
-                return this;
-            } else if(checkall.length) {
-                //Making the <td> or <th> element that's the parent of a checkall checkbox toggle the checkbox when clicked
-                element.on('click.koowa', function(event){
-                    //Don't do anything if the event target is the same as the element
-                    if(event.target != element[0]) {
-                        return true;
-                    }
-
-                    //Checkall uses change for other purposes
-                    checkall.prop('checked', checkall.is(':checked') ? false : true).trigger('change');
-                });
-            }
-
-            element.addClass('void');
-        });
-    },
     setTableRows: function() {
         var self = this,
             checkboxes = this.form.find('tbody tr .-koowa-grid-checkbox');
@@ -1473,36 +1498,6 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
             if(tr.data('readonly') == true || !checkbox.length) {
                 return;
             }
-
-            // Trigger checkbox when the user clicks anywhere in the row
-            tr.on('click.koowa', function(event){
-                var target = $(event.target);
-                if(target.is('[type=radio], [type=checkbox], a[href], span.footable-toggle')) {
-                    return;
-                }
-
-                checkbox.prop('checked', !checkbox.prop('checked')).trigger('change');
-            });
-
-            // Checkbox should add selected and selected-multiple classes to the row
-            checkbox.on('change.koowa', function(){
-                var selected,
-                    parent = tr.parent();
-
-                if ($(this).is('[type=radio]')) {
-                    parent.find('.selected').removeClass('selected');
-                }
-
-                $(this).prop('checked') ? tr.addClass('selected') : tr.removeClass('selected');
-
-                selected = tr.hasClass('selected') + tr.siblings('.selected').length;
-
-                if(selected > 1) {
-                    parent.addClass('selected-multiple').removeClass('selected-single')
-                } else {
-                    parent.removeClass('selected-multiple').addClass('selected-single');
-                }
-            }).trigger('change', true);
 
             // Set up buttons such as publish/unpublish triggers
             tr.find('[data-action]').each(function() {

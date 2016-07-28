@@ -411,7 +411,7 @@
 /** Display override for inline forms */
 .form-inline .select2-container--bootstrap { display: inline-block; }
 
-.caret { display: inline-block; width: 0; height: 0; margin-left: 2px; vertical-align: middle; border-top: 4px dashed; border-top: 4px solid \9; border-right: 4px solid transparent; border-left: 4px solid transparent; }
+.caret { display: inline-block; width: 0; height: 0; margin-left: 2px; vertical-align: middle; border-top: 4px dashed; border-right: 4px solid transparent; border-left: 4px solid transparent; }
 
 .dropup, .dropdown { position: relative; }
 
@@ -447,7 +447,7 @@
 
 .pull-right > .dropdown-menu { right: 0; left: auto; }
 
-.dropup .caret, .navbar-fixed-bottom .dropdown .caret { border-top: 0; border-bottom: 4px dashed; border-bottom: 4px solid \9; content: ""; }
+.dropup .caret, .navbar-fixed-bottom .dropdown .caret { border-top: 0; border-bottom: 4px solid; content: ""; }
 
 .dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu { top: auto; bottom: 100%; margin-bottom: 2px; }
 
