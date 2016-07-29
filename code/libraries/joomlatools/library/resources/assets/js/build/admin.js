@@ -11331,28 +11331,28 @@ module.exports = '1.3.3';
         },
 
         _create: function() {
-            var prototype = $('.js-filter-prototype');
+            var prototype = $('.k-js-filter-prototype');
 
             this.template = prototype.clone();
-            this.template.removeClass('.js-filter-prototype');
+            this.template.removeClass('.k-js-filter-prototype');
 
             prototype.remove();
 
             this._addEvents();
 
-            var container = $('.js-filter-container');
+            var container = $('.k-js-filter-container');
 
-            $('.js-filters div[data-filter]').each(function(i, item) {
+            $('.k-js-filters div[data-filter]').each(function(i, item) {
                 var template = prototype.clone();
 
                 item = $(this);
 
-                item.addClass('js-dropdown-content k-dropdown__body__content');
+                item.addClass('k-js-dropdown-content k-dropdown__body__content');
 
-                template.find('.js-dropdown-body').prepend(item);
-                template.find('.js-dropdown-title').html(item.data('title'));
+                template.find('.k-js-dropdown-body').prepend(item);
+                template.find('.k-js-dropdown-title').html(item.data('title'));
 
-                var dropdown_button = template.find('.js-dropdown-button'),
+                var dropdown_button = template.find('.k-js-dropdown-button'),
                     tooltip = dropdown_button.data('tooltip-title');
 
                 if (tooltip) {
@@ -11366,7 +11366,7 @@ module.exports = '1.3.3';
                 }
 
 
-                var label_el = template.find('.js-dropdown-label'),
+                var label_el = template.find('.k-js-dropdown-label'),
                     label = item.data('label'),
                     count = item.data('count');
 
@@ -11385,7 +11385,7 @@ module.exports = '1.3.3';
 
                 container.append(template);
 
-                $('.js-filter-count').text(container.find('.js-dropdown-label:visible').length);
+                $('.k-js-filter-count').text(container.find('.k-js-dropdown-label:visible').length);
             });
         },
 
@@ -11393,16 +11393,16 @@ module.exports = '1.3.3';
             // Dropdown menu
             var self = this,
                 hasActive = function() {
-                    return $('.js-dropdown').hasClass('is-active');
+                    return $('.k-js-dropdown').hasClass('k-is-active');
                 };
 
             // Keyboard navigation
             $(document).keyup(function (e) {
                 // Go to next dropdown with right arrow
                 if (e.keyCode == 39 && hasActive()) {
-                    var nextItem = $('.js-dropdown.is-active').next().find($('.js-dropdown-button'));
+                    var nextItem = $('.k-js-dropdown.k-is-active').next().find($('.k-js-dropdown-button'));
 
-                    if ( nextItem.hasClass('js-dropdown-button') ) {
+                    if ( nextItem.hasClass('k-js-dropdown-button') ) {
                         // Close active item
                         self.closeDropdown();
 
@@ -11414,9 +11414,9 @@ module.exports = '1.3.3';
 
                 // Go to previous dropdown with left arrow
                 if (e.keyCode == 37 && hasActive()) {
-                    var prevItem = $('.js-dropdown.is-active').prev().find($('.js-dropdown-button'));
+                    var prevItem = $('.k-js-dropdown.k-is-active').prev().find($('.k-js-dropdown-button'));
 
-                    if ( prevItem.hasClass('js-dropdown-button') ) {
+                    if ( prevItem.hasClass('k-js-dropdown-button') ) {
                         // Close active item
                         self.closeDropdown();
 
@@ -11439,7 +11439,7 @@ module.exports = '1.3.3';
                     isSelect2 = event.target.className.search('select2-') !== -1,
                     isDatepicker = (target.parents('.datepicker-dropdown').length > 0 || (target.is('td') && target.hasClass('day')));
 
-                if (!isSelect2 && !isDatepicker && target.parents('.js-filter-container').length === 0) {
+                if (!isSelect2 && !isDatepicker && target.parents('.k-js-filter-container').length === 0) {
                     self.closeDropdown();
                 }
             });
@@ -11447,15 +11447,15 @@ module.exports = '1.3.3';
             this.element.on('click', '*', function(event) {
                 var button = $(event.target);
 
-                if (!button.hasClass('js-dropdown-button')) {
-                    button = button.parents('.js-dropdown-button');
+                if (!button.hasClass('k-js-dropdown-button')) {
+                    button = button.parents('.k-js-dropdown-button');
                 }
 
                 if (button.length === 0) {
                     return;
                 }
 
-                if (button.parent().hasClass('is-active')) {
+                if (button.parent().hasClass('k-is-active')) {
                     self.closeDropdown();
                 } else {
                     self.openDropdown(button);
@@ -11467,8 +11467,8 @@ module.exports = '1.3.3';
             this.element.on('mouseenter mouseleave', '*', function(event) {
                 var button = $(event.target);
 
-                if (!button.hasClass('js-dropdown-button')) {
-                    button = button.parents('.js-dropdown-button');
+                if (!button.hasClass('k-js-dropdown-button')) {
+                    button = button.parents('.k-js-dropdown-button');
                 }
 
                 if (button.length === 0) {
@@ -11477,7 +11477,7 @@ module.exports = '1.3.3';
 
                 // Check if any dropdown is active
                 // Check if the hovered item isn't the active item
-                if (hasActive() && (!button.parent().hasClass('is-active')) ) {
+                if (hasActive() && (!button.parent().hasClass('k-is-active')) ) {
                     // Close active item
                     self.closeDropdown();
 
@@ -11504,10 +11504,10 @@ module.exports = '1.3.3';
                 form.submit();
             };
 
-            this.element.on('click', '.js-clear-filter', function(event) {
+            this.element.on('click', '.k-js-clear-filter', function(event) {
                 event.preventDefault();
 
-                var box = $(event.target).parents('.js-dropdown');
+                var box = $(event.target).parents('.k-js-dropdown');
 
                 box.find(':input')
                     .not(':button, :submit, :reset, :hidden')
@@ -11523,11 +11523,11 @@ module.exports = '1.3.3';
                     submitForm(form, box);
                 }
 
-            }).on('click', '.js-apply-filter', function(event) {
+            }).on('click', '.k-js-apply-filter', function(event) {
                 event.preventDefault();
 
                 var form = event.target.form,
-                    box = $(event.target).parents('.js-dropdown');
+                    box = $(event.target).parents('.k-js-dropdown');
 
                 if (form) {
                     submitForm(form, box);
@@ -11541,7 +11541,7 @@ module.exports = '1.3.3';
             this.closeDropdown();
 
             // Set active class to parent
-            parent.addClass('is-active');
+            parent.addClass('k-is-active');
 
             // Find select elements in dropdown
             var select = parent.find('select');
@@ -11556,13 +11556,13 @@ module.exports = '1.3.3';
 
         closeDropdown: function() {
             // Find active dropdown
-            var activeItem = $('.js-dropdown.is-active');
+            var activeItem = $('.k-js-dropdown.k-is-active');
 
             // Find select elements in active dropdown
             var select = activeItem.find('select');
 
             // Remove active class from active item
-            activeItem.removeClass('is-active');
+            activeItem.removeClass('k-is-active');
 
             // Close select2 when closing dropdown
             if (select.data('select2')) {
@@ -11571,7 +11571,6 @@ module.exports = '1.3.3';
         }
 
     });
-
 
 } (window, document, kQuery));
 /**
@@ -11743,6 +11742,174 @@ Koowa.Class = klass({
 
 })(window.kQuery);
 
+/**
+ * Nooku Framework - http://nooku.org/framework
+ *
+ * @copyright	Copyright (C) 2015 Johan Janssens and Timble CVBA. (http://www.timble.net)
+ * @license		GNU GPLv3 <http://www.gnu.org/licenses/gpl.html>
+ * @link		https://github.com/nooku/nooku-framework for the canonical source repository
+ */
+
+if (typeof Koowa === 'undefined') {
+    Koowa = {};
+}
+
+
+(function($){
+/**
+ * Grid class
+ */
+Koowa.Grid = Koowa.Class.extend({
+    initialize: function(element){
+        var self = this;
+
+        this.element    = $(element);
+        this.form       = this.element.is('form') ? this.element : this.element.closest('form');
+        this.toggles    = this.element.find('.-koowa-grid-checkall');
+        this.checkboxes = this.element.find('.-koowa-grid-checkbox').filter(function(i, checkbox) {
+            return !$(checkbox).prop('disabled');
+        });
+
+        if(!this.checkboxes.length) {
+            this.toggles.prop('disabled', true);
+        }
+
+        this.toggles.on('change.koowa', function(event, ignore){
+            if(!ignore) {
+                self.checkAll($(this).prop('checked'));
+            }
+        });
+
+        this.checkboxes.on('change.koowa', function(event, ignore){
+            if(!ignore) {
+                self.setCheckAll();
+            }
+        });
+
+        this.setScopebar();
+        this.setTableHeaders();
+        this.setTableRows();
+    },
+    setScopebar: function() {
+        $('.js-filter-container', this.form).scopebar();
+    },
+    setTableHeaders: function() {
+        //Make the table headers "clickable" and make checkall work
+        this.form.on('click.koowa', 'th', function(event) {
+            var $target = $(event.target);
+            var link     = $target.find('a');
+
+            if (link.length) {
+                //Run this check on click, so that progressive enhancements isn't bulldozed
+                if(link.prop('href')) {
+                    window.location.href = link.prop('href');
+                } else {
+                    link.trigger('click', event);
+                }
+            }
+            else {
+                var checkall = $target.find('.-koowa-grid-checkall');
+
+                if (checkall.length) {
+                    checkall.prop('checked', checkall.is(':checked') ? false : true).trigger('change');
+                }
+            }
+        });
+    },
+    setTableRows: function() {
+        // Trigger checkbox when the user clicks anywhere in the row
+        this.form.on('click.koowa', 'tr', function(event) {
+            var target = $(event.target);
+
+            if(target.is('[type=radio], [type=checkbox], a[href], span.footable-toggle')) {
+                return;
+            }
+
+            var tr = target.is('tr') ? target : target.parents('tr'),
+                checkbox = tr.find('.-koowa-grid-checkbox');
+
+            if(tr.data('readonly') == true || !checkbox.length) {
+                return;
+            }
+
+            if (checkbox.length) {
+                checkbox.prop('checked', !checkbox.prop('checked')).trigger('change');
+            }
+        });
+
+        // Checkbox should add selected and selected-multiple classes to the row
+        this.form.on('change.koowa', '.-koowa-grid-checkbox', function(event) {
+            var selected,
+                target = $(event.target),
+                tr     = target.parents('tr'),
+                parent = tr.parent();
+
+            if (target.is('[type=radio]')) {
+                parent.find('.k-is-selected').removeClass('k-is-selected');
+            }
+
+            $(this).prop('checked') ? tr.addClass('k-is-selected') : tr.removeClass('k-is-selected');
+
+            selected = parent.find('.k-is-selected').length;
+
+            if(selected > 1) {
+                parent.addClass('k-has-selected-multiple').removeClass('k-has-selected-single')
+            } else if (selected === 1) {
+                parent.removeClass('k-has-selected-multiple').addClass('k-has-selected-single');
+            } else {
+                parent.removeClass('k-has-selected-multiple').removeClass('k-has-selected-single');
+            }
+        }).trigger('change', true);
+    },
+    checkAll: function(value){
+        var changed = this.checkboxes.filter(function(i, checkbox){
+            return $(checkbox).prop('checked') !== value;
+        });
+
+        this.checkboxes.prop('checked', value);
+        changed.trigger('change', true);
+    },
+    uncheckAll: function() {
+        this.checkAll(false);
+    },
+    setCheckAll: function(){
+        var total = this.checkboxes.filter(function(i, checkbox){
+            return $(checkbox).prop('checked') !== false;
+        }).length;
+
+        this.toggles.prop('checked', this.checkboxes.length === total);
+        this.toggles.trigger('change', true);
+    }
+});
+
+/**
+ * Find all selected checkboxes' ids in the grid
+ *
+ * @param   {string|object|null} [context]   A DOM Element, Document, or jQuery to use as context
+ * @return  array           The items' ids
+ */
+Koowa.Grid.getAllSelected = function(context) {
+    return $('.-koowa-grid-checkbox:checked', context);
+};
+
+/**
+ * Get a query string for selected checkboxes
+ *
+ * @param   {string|object|null} [context]   A DOM Element, Document, or jQuery to use as context
+ * @return  array           The items' ids
+ */
+Koowa.Grid.getIdQuery = function(context) {
+    return decodeURIComponent(this.getAllSelected(context).serialize());
+};
+
+$(function() {
+    $('.k-js-grid').each(function(i, el) {
+        new Koowa.Grid($(el));
+    })
+});
+
+
+})(window.kQuery);
 /**
  * Koowa jqTree wrapper
  *
@@ -14239,8 +14406,9 @@ var Konami = function (callback) {
             $footable = $('.k-js-responsive-table'),
             $overflow = $('.k-sidebar-item--overflow'),
             resizeClass = 'k-is-resizing',
-            $sidebarToggle = $('.k-sidebar-item--toggle'),
-            $scopebar = $('.k-scopebar');
+            $sidebarToggle = $('.k-sidebar-item--toggle')
+            ;
+            //$scopebar = $('.k-scopebar');
 
         // Sidebar
         if ( ($toolbar.length || $titlebar.length ) && $wrapper.length && $content.length)
@@ -14351,7 +14519,7 @@ var Konami = function (callback) {
 
 
         // Scopebar
-        if ( $scopebar.length ) {
+        /*if ( $scopebar.length ) {
 
             $.each($scopebar, function(e) {
 
@@ -14414,7 +14582,7 @@ var Konami = function (callback) {
                     $(this).parent().siblings('.k-scopebar__item--search').slideToggle('fast');
                 });
             }
-        }
+        }*/
 
 
         // Select2
@@ -14456,11 +14624,20 @@ var Konami = function (callback) {
         }
 
         // Magnific
-        var magnific = $('.k-js-modal');
-        if ( magnific.length ) {
-            magnific.magnificPopup({type: 'image'});
+        var magnificImage = $('.k-js-image-modal');
+        if ( magnificImage.length ) {
+            magnificImage.magnificPopup({type:'image'});
         }
 
+        var magnificInline = $('.k-js-inline-modal');
+        if ( magnificInline.length ) {
+            magnificInline.magnificPopup({type:'inline'});
+        }
+
+        var magnificIframe = $('.k-js-iframe-modal');
+        if ( magnificIframe.length ) {
+            magnificIframe.magnificPopup({type:'iframe'});
+        }
 
         // Tooltips
         var tooltip = $('.k-js-tooltip');
@@ -14510,8 +14687,6 @@ var Konami = function (callback) {
     });
 
 })(kQuery);
-
-
 
 
 window.jQuery = globalCacheForjQueryReplacement;
