@@ -20,13 +20,13 @@ $(function() {
         new Koowa.Form($(event.target).data('config')).submit();
     });
 
-    $('.-koowa-grid').each(function() {
+    $('.k-js-grid-controller').each(function() {
         new Koowa.Controller.Grid({
             form: this
         });
     });
 
-    $('.-koowa-form').each(function() {
+    $('.k-js-form-controller').each(function() {
         new Koowa.Controller.Form({
             form: this
         });
@@ -286,7 +286,7 @@ Koowa.Controller = Koowa.Class.extend({
 Koowa.Controller.Grid = Koowa.Controller.extend({
     getOptions: function() {
         return $.extend(this.supr(), {
-            inputs: '.-koowa-grid-checkbox, .-koowa-grid-checkall',
+            inputs: '.k-js-grid-checkbox, .k-js-grid-checkall',
             ajaxify: false
         });
     },
@@ -333,11 +333,11 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
 
     setTableRows: function() {
         var self = this,
-            checkboxes = this.form.find('tbody tr .-koowa-grid-checkbox');
+            checkboxes = this.form.find('tbody tr .k-js-grid-checkbox');
 
         this.form.find('tbody tr').each(function(){
             var tr = $(this),
-                checkbox = tr.find('.-koowa-grid-checkbox');
+                checkbox = tr.find('.k-js-grid-checkbox');
 
             if(tr.data('readonly') == true || !checkbox.length) {
                 return;

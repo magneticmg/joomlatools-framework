@@ -1016,8 +1016,8 @@ Koowa.Grid = Koowa.Class.extend({
 
         this.element    = $(element);
         this.form       = this.element.is('form') ? this.element : this.element.closest('form');
-        this.toggles    = this.element.find('.-koowa-grid-checkall');
-        this.checkboxes = this.element.find('.-koowa-grid-checkbox').filter(function(i, checkbox) {
+        this.toggles    = this.element.find('.k-js-grid-checkall');
+        this.checkboxes = this.element.find('.k-js-grid-checkbox').filter(function(i, checkbox) {
             return !$(checkbox).prop('disabled');
         });
 
@@ -1059,7 +1059,7 @@ Koowa.Grid = Koowa.Class.extend({
                 }
             }
             else {
-                var checkall = $target.find('.-koowa-grid-checkall');
+                var checkall = $target.find('.k-js-grid-checkall');
 
                 if (checkall.length) {
                     checkall.prop('checked', checkall.is(':checked') ? false : true).trigger('change');
@@ -1077,7 +1077,7 @@ Koowa.Grid = Koowa.Class.extend({
             }
 
             var tr = target.is('tr') ? target : target.parents('tr'),
-                checkbox = tr.find('.-koowa-grid-checkbox');
+                checkbox = tr.find('.k-js-grid-checkbox');
 
             if(tr.data('readonly') == true || !checkbox.length) {
                 return;
@@ -1089,7 +1089,7 @@ Koowa.Grid = Koowa.Class.extend({
         });
 
         // Checkbox should add selected and selected-multiple classes to the row
-        this.form.on('change.koowa', '.-koowa-grid-checkbox', function(event) {
+        this.form.on('change.koowa', '.k-js-grid-checkbox', function(event) {
             var selected,
                 target = $(event.target),
                 tr     = target.parents('tr'),
@@ -1140,7 +1140,7 @@ Koowa.Grid = Koowa.Class.extend({
  * @return  array           The items' ids
  */
 Koowa.Grid.getAllSelected = function(context) {
-    return $('.-koowa-grid-checkbox:checked', context);
+    return $('.k-js-grid-checkbox:checked', context);
 };
 
 /**
@@ -1176,13 +1176,13 @@ $(function() {
         new Koowa.Form($(event.target).data('config')).submit();
     });
 
-    $('.-koowa-grid').each(function() {
+    $('.k-js-grid-controller').each(function() {
         new Koowa.Controller.Grid({
             form: this
         });
     });
 
-    $('.-koowa-form').each(function() {
+    $('.k-js-form-controller').each(function() {
         new Koowa.Controller.Form({
             form: this
         });
@@ -1442,7 +1442,7 @@ Koowa.Controller = Koowa.Class.extend({
 Koowa.Controller.Grid = Koowa.Controller.extend({
     getOptions: function() {
         return $.extend(this.supr(), {
-            inputs: '.-koowa-grid-checkbox, .-koowa-grid-checkall',
+            inputs: '.k-js-grid-checkbox, .k-js-grid-checkall',
             ajaxify: false
         });
     },
@@ -1489,11 +1489,11 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
 
     setTableRows: function() {
         var self = this,
-            checkboxes = this.form.find('tbody tr .-koowa-grid-checkbox');
+            checkboxes = this.form.find('tbody tr .k-js-grid-checkbox');
 
         this.form.find('tbody tr').each(function(){
             var tr = $(this),
-                checkbox = tr.find('.-koowa-grid-checkbox');
+                checkbox = tr.find('.k-js-grid-checkbox');
 
             if(tr.data('readonly') == true || !checkbox.length) {
                 return;

@@ -275,7 +275,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => false,
-            'selector' => '.-koowa-form',
+            'selector' => '.k-js-form-controller',
             'options_callback' => null,
             'options'  => array(
                 'ignoreTitle' => true,
@@ -690,7 +690,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                 {
                     $html .= "<script>
                         kQuery(function($){
-                            $('.-koowa-form').on('koowa:submit', function() {
+                            $('.k-js-form-controller').on('koowa:submit', function() {
                                 var element = kQuery('#".$config->id."'),
                                     picker  = element.data('datepicker'),
                                     offset  = $config->offset_seconds;

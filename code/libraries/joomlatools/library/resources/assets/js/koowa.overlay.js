@@ -73,7 +73,7 @@ Koowa.Overlay = Koowa.Class.extend({
                     new Koowa.Form($(event.target).data('config')).submit();
                 });
 
-                self.element.find('.-koowa-grid').each(function(i, el){
+                self.element.find('.k-js-grid-controller').each(function(i, el){
                     var grid = $(el);
 
                     new Koowa.Controller.Grid({
@@ -86,7 +86,7 @@ Koowa.Overlay = Koowa.Class.extend({
                     });
                 });
 
-                self.element.find('.-koowa-form').each(function(i, el){
+                self.element.find('.k-js-form-controller').each(function(i, el){
                     var form = $(el);
                     new Koowa.Controller.Form({
                         form: form,
