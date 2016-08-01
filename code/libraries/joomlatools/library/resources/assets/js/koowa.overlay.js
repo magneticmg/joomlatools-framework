@@ -67,7 +67,7 @@ Koowa.Overlay = Koowa.Class.extend({
                     });
                 });
 
-                self.element.find('.submittable').on('click', function(event){
+                self.element.find('.k-js-submittable').on('click', function(event){
                     event.preventDefault();
 
                     new Koowa.Form($(event.target).data('config')).submit();

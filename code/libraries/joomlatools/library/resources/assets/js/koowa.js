@@ -14,7 +14,7 @@ if(!Koowa) {
 (function($) {
 
 $(function() {
-    $('.submittable').on('click.koowa', function(event){
+    $('.k-js-submittable').on('click.koowa', function(event){
         event.preventDefault();
 
         new Koowa.Form($(event.target).data('config')).submit();
