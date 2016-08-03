@@ -712,11 +712,14 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                 $config->format
             );
 
-            $html .= '<div class="input-group date datepicker" data-date-format="'.$format.'" id="'.$config->id.'">';
-            $html .= '<input class="form-control" type="text" name="'.$config->name.'" value="'.$value.'"  '.$attribs.' />';
-            $html .= '<span class="input-group-btn">';
-            $html .= '<button type="button" class="btn btn-default">';
-            $html .= '<span class="k-icon-calendar"><span class="visually-hidden">calendar</span></span>';
+            // @TODO: Ercan: Make sure that both the `date` and `btn` class below can be removed without converting the calendar into an inline one;
+
+            $html .= '<div class="k-input-group k-js-datepicker     date     " data-date-format="'.$format.'" id="'.$config->id.'">';
+            $html .= '<input class="k-form-control" type="text" name="'.$config->name.'" value="'.$value.'"  '.$attribs.' />';
+            $html .= '<span class="k-input-group__button input-group-btn">';
+            $html .= '<button type="button" class="k-button k-button--default     btn     ">';
+            $html .= '<span class="k-icon-calendar" aria-hidden="true"></span>';
+            $html .= '<span class="k-visually-hidden">calendar</span>';
             $html .= '</button>';
             $html .= '</span>';
             $html .= '</div>';

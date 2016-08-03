@@ -275,7 +275,8 @@ class KTemplateHelperSelect extends KTemplateHelperAbstract implements KTemplate
 
         $html  = array();
 
-        $html[] = '<div class="k-booleanlist">';
+        $html[] = '<div class="k-optionlist k-optionlist--boolean">';
+        $html[] = '<div class="k-optionlist__content">';
 
         $extra = $config->selected ? 'checked="checked"' : '';
         $text  = $config->translate ? $translator->translate( $config->true ) : $config->true;
@@ -289,6 +290,8 @@ class KTemplateHelperSelect extends KTemplateHelperAbstract implements KTemplate
         $html[] = '<input type="radio" name="'.$name.'" id="'.$name.'0" value="0" '.$extra.' '.$attribs.' />';
         $html[] = '<label for="'.$name.'0"><span>'.$text.'</span></label>';
 
+        $html[] = '<div class="k-optionlist__focus"></div>';
+        $html[] = '</div>';
         $html[] = '</div>';
 
         return implode(PHP_EOL, $html);
