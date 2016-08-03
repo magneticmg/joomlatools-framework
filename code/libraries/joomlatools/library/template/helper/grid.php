@@ -43,7 +43,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
 
             $attribs = $this->buildAttributes($config->attribs);
 
-            $html = '<input type="radio" class="-koowa-grid-checkbox" name="%s[]" value="%s" %s />';
+            $html = '<input type="radio" class="k-js-grid-checkbox" name="%s[]" value="%s" %s />';
             $html = sprintf($html, $column, $value, $attribs);
         }
 
@@ -79,7 +79,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
 
             $attribs = $this->buildAttributes($config->attribs);
 
-            $html = '<input type="checkbox" class="-koowa-grid-checkbox" name="%s[]" value="%s" %s />';
+            $html = '<input type="checkbox" class="k-js-grid-checkbox" name="%s[]" value="%s" %s />';
             $html = sprintf($html, $column, $value, $attribs);
         }
 
@@ -191,7 +191,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
      */
     public function checkall($config = array())
     {
-        $html = '<input type="checkbox" class="-koowa-grid-checkall" />';
+        $html = '<input type="checkbox" class="k-js-grid-checkall" />';
         return $html;
     }
 

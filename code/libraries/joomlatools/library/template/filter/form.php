@@ -120,8 +120,8 @@ class KTemplateFilterForm extends KTemplateFilterAbstract
                 $text
             );
 
-            // GET: Add token to .-koowa-grid forms
-            $text    = preg_replace('#(<\s*form[^>]+class=(?:\'|")[^\'"]*?-koowa-grid.*?(?:\'|")[^>]*)>#si',
+            // GET: Add token to .k-js-grid-controller forms
+            $text    = preg_replace('#(<\s*form[^>]+class=(?:\'|")[^\'"]*?k-js-grid-controller.*?(?:\'|")[^>]*)>#si',
                 '\1 data-token-name="'.$this->_token_name.'" data-token-value="'.$this->_token_value.'">',
                 $text
             );

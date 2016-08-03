@@ -259,7 +259,7 @@ module.exports = function(grunt) {
                     interrupt: true,
                     atBegin: true
                 }
-            }
+            },
             //,javascript: {
             //    files: [
             //        '<%= nookuFrameworkAssetsPath %>/scripts/*.js',
@@ -272,18 +272,18 @@ module.exports = function(grunt) {
             //        atBegin: true
             //    }
             //},
-            //concat: {
-            //    files: [
-            //        '<%= nookuFrameworkAssetsPath %>/scripts/*.js',
-            //        '<%= nookuFrameworkAssetsPath %>/js/*.js',
-            //        '!<%= nookuFrameworkAssetsPath %>/js/min/*.js'
-            //    ],
-            //    tasks: ['concat'],
-            //    options: {
-            //        interrupt: true,
-            //        atBegin: true
-            //    }
-            //}
+            concat: {
+               files: [
+                   '<%= nookuFrameworkAssetsPath %>/scripts/*.js',
+                   '<%= nookuFrameworkAssetsPath %>/js/*.js',
+                   '!<%= nookuFrameworkAssetsPath %>/js/min/*.js'
+               ],
+               tasks: ['concat'],
+               options: {
+                   interrupt: true,
+                   atBegin: true
+               }
+            }
         }
 
 
