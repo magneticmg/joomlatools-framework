@@ -83,17 +83,6 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 files: {
-                    '<%= nookuFrameworkAssetsPath %>/js/build/admin.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
-                        'node_modules/footable/dist/footable.min.js',
-                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/main.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
-                    ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.js': [
                         'node_modules/jquery/dist/jquery.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
@@ -123,10 +112,7 @@ module.exports = function(grunt) {
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/koowa.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/jquery.ui.widget.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.scopebar.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.class.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ]
@@ -142,18 +128,6 @@ module.exports = function(grunt) {
             },
             build: {
                 files: {
-                    //'<%= nookuFrameworkAssetsPath %>/js/min/admin.js': [
-                    //    '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                    //    'node_modules/select2/dist/js/select2.full.min.js',
-                    //    'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
-                    //    'node_modules/footable/dist/footable.min.js',
-                    //    'node_modules/floatthead/dist/jquery.floatThead.min.js',
-                    //    '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
-                    //    '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
-                    //    '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
-                    //    '<%= nookuFrameworkAssetsPath %>/scripts/main.js',
-                    //    '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
-                    //],
                     '<%= nookuFrameworkAssetsPath %>/js/min/bootstrap.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/bootstrap.js'
                     ],
@@ -193,10 +167,7 @@ module.exports = function(grunt) {
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/jquery.ui.widget.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.scopebar.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.class.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ]

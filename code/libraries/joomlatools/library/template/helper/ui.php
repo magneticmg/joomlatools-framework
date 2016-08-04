@@ -111,15 +111,18 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $html = '';
 
         $html .= $this->getTemplate()->helper('behavior.modernizr', $config->toArray());
-        $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());
-        $html .= $this->bootstrap(array('css' => false, 'javascript' => true, 'debug' => $config->debug));
-        $html .= '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>';
 
         if ($identifier->domain === 'admin' && !isset(self::$_loaded['admin.js'])) {
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
 
             self::$_loaded['admin.js'] = true;
         }
+
+        $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());
+        $html .= $this->bootstrap(array('css' => false, 'javascript' => true, 'debug' => $config->debug));
+        $html .= '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>';
+
+
 
         return $html;
     }
