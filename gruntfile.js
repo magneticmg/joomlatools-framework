@@ -147,8 +147,7 @@ module.exports = function(grunt) {
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.datepicker.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/datepicker.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.datepicker.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/datepicker.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.select2.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',

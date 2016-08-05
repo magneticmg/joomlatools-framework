@@ -682,7 +682,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
                 $html .= "<script>
                     kQuery(function($){
-                        $('#".$config->id."').koowaDatepicker(".$options.");
+                        $('#".$config->id."').datepicker(".$options.");
                     });
                 </script>";
 
@@ -712,8 +712,6 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                 $config->format
             );
 
-            // @TODO: Ercan: Make sure that both the `date` and `btn` class below can be removed without converting the calendar into an inline one;
-
             $html .= '<div class="k-input-group k-js-datepicker     date     " data-date-format="'.$format.'" id="'.$config->id.'">';
             $html .= '<input class="k-form-control" type="text" name="'.$config->name.'" value="'.$value.'"  '.$attribs.' />';
             $html .= '<span class="k-input-group__button input-group-btn">';
@@ -740,7 +738,6 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         {
             if ($config->debug) {
                 $html .= '<ktml:script src="assets://js/datepicker.js" />';
-                $html .= '<ktml:script src="assets://js/koowa.datepicker.js" />';
             }
             else $html .= '<ktml:script src="assets://js/min/koowa.datepicker.js" />';
 
