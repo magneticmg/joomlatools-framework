@@ -13,6 +13,7 @@ module.exports = function(grunt) {
         // Grunt variables
         nookuFrameworkAssetsPath: 'code/libraries/joomlatools/library/resources/assets',
         joomlatoolsFrameworkAssetsPath: 'code/libraries/joomlatools/component/koowa/resources/assets',
+        KUIPath: '../kodekit-ui/src',
         JUIPath: '../joomlatools-ui/dist',
 
 
@@ -222,7 +223,9 @@ module.exports = function(grunt) {
                     '<%= nookuFrameworkAssetsPath %>/scss/*.scss',
                     '<%= nookuFrameworkAssetsPath %>/scss/**/*.scss',
                     '<%= joomlatoolsFrameworkAssetsPath %>/scss/*.scss',
-                    '<%= joomlatoolsFrameworkAssetsPath %>/scss/**/*.scss'
+                    '<%= joomlatoolsFrameworkAssetsPath %>/scss/**/*.scss',
+                    '<%= KUIPath %>/scss/*.scss',
+                    '<%= KUIPath %>/scss/**/*.scss'
                 ],
                 tasks: ['sass', 'autoprefixer'],
                 options: {

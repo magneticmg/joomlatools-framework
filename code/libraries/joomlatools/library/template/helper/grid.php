@@ -68,7 +68,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         if($config->entity->isLockable() && $config->entity->isLocked())
         {
             $html = $this->getTemplate()->helper('behavior.tooltip');
-            $html .= '<span class="koowa-tooltip koowa_icon--locked"
+            $html .= '<span class="koowa-tooltip k-icon-lock-locked"
                            title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
                     </span>';
         }
