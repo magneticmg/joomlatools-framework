@@ -137,7 +137,7 @@ class ComKoowaControllerToolbarActionbar extends KControllerToolbarActionbar
     protected function _commandSave2new(KControllerToolbarCommand $command)
     {
         $command->label = 'JTOOLBAR_SAVE_AND_NEW';
-        $command->icon = 'icon-save-new';
+        $command->icon = 'k-icon-plus k-icon--success';
     
         $command->append(array(
             'attribs' => array(
@@ -155,7 +155,7 @@ class ComKoowaControllerToolbarActionbar extends KControllerToolbarActionbar
     protected function _commandCancel(KControllerToolbarCommand $command)
     {
         $command->label = 'JTOOLBAR_CANCEL';
-        $command->icon = 'icon-cancel';
+        $command->icon = 'k-icon-x k-icon--error';
 
         $command->append(array(
             'attribs' => array(
@@ -174,7 +174,7 @@ class ComKoowaControllerToolbarActionbar extends KControllerToolbarActionbar
     protected function _commandOptions(KControllerToolbarCommand $command)
     {
         $option = $this->getIdentifier()->package;
-        $icon   = 'options';
+        $icon   = 'k-icon-cog';
 
         $return = urlencode(base64_encode(JUri::getInstance()));
         $link   = 'option=com_config&view=component&component=com_'.$option.'&path=&return='.$return;

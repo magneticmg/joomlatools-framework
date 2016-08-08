@@ -109,6 +109,8 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
             $identifier    = $this->getController()->getIdentifier();
             $command->href = 'component='.$identifier->package.'&view='.$identifier->name;
         }
+
+        $command->icon = 'k-icon-plus';
     }
 
     /**
@@ -126,6 +128,41 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
                 'data-prompt' => $translator->translate('Deleted items will be lost forever. Would you like to continue?')
             )
         ));
+
+        $command->icon = 'k-icon-trash';
+    }
+
+    /**
+     * Edit toolbar command
+     *
+     * @param   KControllerToolbarCommand $command  A KControllerToolbarCommand object
+     * @return  void
+     */
+    protected function _commandEdit(KControllerToolbarCommand $command)
+    {
+        $command->icon = 'k-icon-pencil';
+    }
+
+    /**
+     * Edit toolbar command
+     *
+     * @param   KControllerToolbarCommand $command  A KControllerToolbarCommand object
+     * @return  void
+     */
+    protected function _commandSave(KControllerToolbarCommand $command)
+    {
+        $command->icon = 'k-icon-check k-icon--success';
+    }
+
+    /**
+     * Edit toolbar command
+     *
+     * @param   KControllerToolbarCommand $command  A KControllerToolbarCommand object
+     * @return  void
+     */
+    protected function _commandApply(KControllerToolbarCommand $command)
+    {
+        $command->icon = 'k-icon-pencil';
     }
 
     /**
@@ -199,12 +236,12 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
         $command->append(array(
             'href'	  => ''
         ))->append(array(
-                'attribs' => array(
-                    'class' => array('koowa-modal'),
-                    'href'  => $command->href,
-                    'data-koowa-modal'   => array('type' => 'iframe')
-                )
-            ));
+            'attribs' => array(
+                'class' => array('koowa-modal'),
+                'href'  => $command->href,
+                'data-koowa-modal'   => array('type' => 'iframe')
+            )
+        ));
 
         $command->attribs['data-koowa-modal'] = json_encode($command->attribs['data-koowa-modal']);
     }
