@@ -16,13 +16,6 @@
 class KTemplateHelperUi extends KTemplateHelperAbstract
 {
     /**
-     * Array which holds a list of loaded Javascript libraries
-     *
-     * @type array
-     */
-    protected static $_loaded = array();
-
-    /**
      * Loads the common UI libraries
      *
      * @param array $config
@@ -112,10 +105,10 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
 
         $html .= $this->getTemplate()->helper('behavior.modernizr', $config->toArray());
 
-        if ($identifier->domain === 'admin' && !isset(self::$_loaded['admin.js'])) {
+        if ($identifier->domain === 'admin' && !KTemplateHelperBehavior::isLoaded('admin.js')) {
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
 
-            self::$_loaded['admin.js'] = true;
+            KTemplateHelperBehavior::setLoaded('admin.js');
         }
 
         $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());
@@ -155,19 +148,19 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
 
         $html = '';
 
-        if ($config->javascript && !isset(self::$_loaded['bootstrap-javascript']))
+        if ($config->javascript && !KTemplateHelperBehavior::isLoaded('bootstrap-javascript'))
         {
             $html .= $this->jquery($config);
             $html .= '<ktml:script src="assets://js/'.($config->debug ? '' : 'min/').'bootstrap.js" />';
 
-            self::$_loaded['bootstrap-javascript'] = true;
+            KTemplateHelperBehavior::setLoaded('bootstrap-javascript');
         }
 
-        if ($config->css && !isset(self::$_loaded['bootstrap-css']))
+        if ($config->css && !KTemplateHelperBehavior::isLoaded('bootstrap-css'))
         {
             $html .= '<ktml:style src="assets://css/bootstrap.css" />';
 
-            self::$_loaded['bootstrap-css'] = true;
+            KTemplateHelperBehavior::setLoaded('bootstrap-css');
         }
 
         return $html;

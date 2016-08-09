@@ -23,6 +23,28 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
     protected static $_loaded = array();
 
     /**
+     * Marks the resource as loaded
+     *
+     * @param      $key
+     * @param bool $value
+     */
+    public static function setLoaded($key, $value = true)
+    {
+        static::$_loaded[$key] = $value;
+    }
+
+    /**
+     * Checks if the resource is loaded
+     *
+     * @param $key
+     * @return bool
+     */
+    public static function isLoaded($key)
+    {
+        return !empty(static::$_loaded[$key]);
+    }
+
+    /**
      * Loads koowa essentials
      *
      * @param array|KObjectConfig $config
@@ -37,12 +59,12 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $html = $this->jquery();
 
-        if (!isset(self::$_loaded['koowa']))
+        if (!static::isLoaded('koowa'))
         {
             $html .= $this->jquery();
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'koowa.js" />';
 
-            self::$_loaded['koowa'] = true;
+            static::setLoaded('koowa');
         }
 
         return $html;
@@ -63,11 +85,11 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $html = '';
 
-        if (!isset(self::$_loaded['modernizr']))
+        if (!static::isLoaded('modernizr'))
         {
             $html = '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'modernizr.js" />';
 
-            self::$_loaded['modernizr'] = true;
+            static::setLoaded('modernizr');
         }
 
         return $html;
@@ -92,11 +114,11 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $html = '';
 
-        if (!isset(self::$_loaded['jquery']))
+        if (!static::isLoaded('jquery'))
         {
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'jquery.js" />';
 
-            self::$_loaded['jquery'] = true;
+            static::setLoaded('jquery');
         }
 
         return $html;
@@ -119,19 +141,19 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $html = '';
 
-        if ($config->javascript && !isset(self::$_loaded['bootstrap-javascript']))
+        if ($config->javascript && !static::isLoaded('bootstrap-javascript'))
         {
             $html .= $this->jquery($config);
             $html .= '<ktml:script src="assets://js/'.($config->debug ? '' : 'min/').'bootstrap.js" />';
 
-            self::$_loaded['bootstrap-javascript'] = true;
+            static::setLoaded('bootstrap-javascript');
         }
 
-        if ($config->css && !isset(self::$_loaded['bootstrap-css']))
+        if ($config->css && !static::isLoaded('bootstrap-css'))
         {
             $html .= '<ktml:style src="assets://css/bootstrap.css" />';
 
-            self::$_loaded['bootstrap-css'] = true;
+            static::setLoaded('bootstrap-css');
         }
 
         return $html;
@@ -156,18 +178,18 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $html = '';
 
-        if(!isset(self::$_loaded['modal']))
+        if(!static::isLoaded('modal'))
         {
             $html .= $this->jquery();
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'jquery.magnific-popup.js" />';
 
-            self::$_loaded['modal'] = true;
+            static::setLoaded('modal');
         }
 
         $options   = (string)$config->options;
         $signature = md5('modal-'.$config->selector.$config->options_callback.$options);
 
-        if(!isset(self::$_loaded[$signature]))
+        if (!static::isLoaded($signature))
         {
             if ($config->options_callback) {
                 $options = $config->options_callback.'('.$options.')';
@@ -187,7 +209,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             });
             </script>";
 
-            self::$_loaded[$signature] = true;
+            static::setLoaded($signature);
         }
 
         return $html;
@@ -213,7 +235,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $html = '';
         // Load the necessary files if they haven't yet been loaded
-        if (!isset(self::$_loaded['overlay']))
+        if (!static::isLoaded('overlay'))
         {
             $html .= $this->koowa();
             $html .= '<ktml:script src="assets://js/koowa.overlay.js" />';
@@ -228,7 +250,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             </style>
             ';
 
-            self::$_loaded['overlay'] = true;
+            static::setLoaded('overlay');
         }
 
         $url = $this->getObject('lib:http.url', array('url' => $config->url));
@@ -285,18 +307,18 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $html = '';
 
-        if(!isset(self::$_loaded['validator']))
+        if(!static::isLoaded('validator'))
         {
             $html .= $this->koowa();
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'jquery.validate.js" />';
 
-            self::$_loaded['validator'] = true;
+            static::setLoaded('validator');
         }
 
         $options   = (string) $config->options;
         $signature = md5('validator-'.$config->selector.$config->options_callback.$options);
 
-        if(!isset(self::$_loaded[$signature]))
+        if (!static::isLoaded($signature))
         {
             if ($config->options_callback) {
                 $options = $config->options_callback.'('.$options.')';
@@ -312,7 +334,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             });
             </script>";
 
-            self::$_loaded[$signature] = true;
+            static::setLoaded($signature);
         }
 
         return $html;
@@ -342,18 +364,18 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $html = '';
 
-        if (!isset(self::$_loaded['select2']))
+        if (!static::isLoaded('select2'))
         {
             $html .= $this->jquery();
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'koowa.select2.js" />';
 
-            self::$_loaded['select2'] = true;
+            static::setLoaded('select2');
         }
 
         $options   = $config->options;
         $signature = md5('select2-'.$config->element.$config->options_callback.$options);
 
-        if($config->element && !isset(self::$_loaded[$signature]))
+        if($config->element && !static::isLoaded($signature))
         {
             $options = (string) $options;
 
@@ -366,7 +388,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                 $("'.$config->element.'").select2('.$options.');
             });</script>';
 
-            self::$_loaded[$signature] = true;
+            static::setLoaded($signature);
         }
 
         return $html;
@@ -417,7 +439,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $options   = $config->options;
         $signature = md5('autocomplete-'.$config->element.$config->options_callback.$options);
 
-        if($config->element && !isset(self::$_loaded[$signature]))
+        if($config->element && !static::isLoaded($signature))
         {
             $options = (string) $options;
 
@@ -431,7 +453,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                 $("'.$config->element.'").koowaSelect2('.$options.');
             });</script>';
 
-            self::$_loaded[$signature] = true;
+            static::setLoaded($signature);
         }
 
         return $html;
@@ -468,19 +490,19 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         /**
          * Loading the assets, if not already loaded
          */
-        if (!isset(self::$_loaded['tree']))
+        if (!static::isLoaded('tree'))
         {
             $html .= $this->koowa();
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'koowa.tree.js" />';
 
-            self::$_loaded['tree'] = true;
+            static::setLoaded('tree');
         }
 
         /**
          * Parse and validate list data, if any. And load the inline js that initiates the tree on specified html element
          */
         $signature = md5('tree-'.$config->element);
-        if($config->element && !isset(self::$_loaded[$signature]))
+        if($config->element && !static::isLoaded($signature))
         {
             /**
              * If there's a list set, but no 'data' in the js options, parse it
@@ -528,7 +550,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                 new Koowa.Tree('.json_encode($config->element).', '.$options.');
             });</script>';
 
-            self::$_loaded[$signature] = true;
+            static::setLoaded($signature);
         }
 
         return $html;
@@ -553,11 +575,11 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $html = '';
 
         // Load Bootstrap with JS plugins.
-        if(!isset(self::$_loaded['tooltip']))
+        if(!static::isLoaded('tooltip'))
         {
             $html .= $this->bootstrap(array('css' => false, 'javascript' => true));
 
-            self::$_loaded['tooltip'] = true;
+            static::setLoaded('tooltip');
         }
 
         $options = (string) $config->options;
@@ -568,7 +590,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         $signature = md5('tooltip-'.$config->selector.$options);
 
-        if(!isset(self::$_loaded[$signature]))
+        if(!static::isLoaded($signature))
         {
             $html .= "<script>
                 kQuery(function($) {
@@ -584,6 +606,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                 });
             </script>";
 
+            static::setLoaded($signature);
         }
 
         return $html;
@@ -667,12 +690,8 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         {
             $html = $this->_loadCalendarScripts($config);
 
-            if (!isset(self::$_loaded['calendar-triggers'])) {
-                self::$_loaded['calendar-triggers'] = array();
-            }
-
             // Only display the triggers once for each control.
-            if (!in_array($config->id, self::$_loaded['calendar-triggers']))
+            if (!static::isLoaded('calendar-triggers'.$config->id))
             {
                 $options = (string) $config->options;
 
@@ -703,7 +722,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                     </script>";
                 }
 
-                self::$_loaded['calendar-triggers'][] = $config->id;
+                static::setLoaded('calendar-triggers'.$config->id);
             }
 
             $format = str_replace(
@@ -734,7 +753,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
     {
         $html = '';
 
-        if (!isset(self::$_loaded['calendar']))
+        if (!static::isLoaded('calendar'))
         {
             if ($config->debug) {
                 $html .= '<ktml:script src="assets://js/datepicker.js" />';
@@ -765,7 +784,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             }(kQuery));
             </script>';
 
-            self::$_loaded['calendar'] = true;
+            static::setLoaded('calendar');
         }
 
         return $html;
@@ -800,7 +819,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             $months[$i] = array('long' => $long, 'short' => $short);
         }
 
-        if (!isset(self::$_loaded['local_dates']))
+        if (!static::isLoaded('local_dates'))
         {
             $html = sprintf("
             <script>
@@ -825,7 +844,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             </script>
             ", json_encode($months));
 
-            self::$_loaded['local_dates'] = true;
+            static::setLoaded('local_dates');
         }
 
         return $html;

@@ -77,14 +77,14 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
 
         $html = '';
 
-        if (!isset(self::$_loaded['jquery']))
+        if (!static::isLoaded('jquery'))
         {
             JHtml::_('jquery.framework');
             // Can't use JHtml here as it makes a file_exists call on koowa.kquery.js?version
             $path = JURI::root(true).'/media/koowa/framework/js/koowa.kquery.js?'.substr(md5(Koowa::VERSION), 0, 8);
             JFactory::getDocument()->addScript($path);
 
-            self::$_loaded['jquery'] = true;
+            static::setLoaded('jquery');
         }
 
         return $html;
@@ -106,13 +106,13 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
 
         $html = '';
 
-        if ($config->javascript && empty(self::$_loaded['bootstrap-javascript']))
+        if ($config->javascript && !static::isLoaded('bootstrap-javascript'))
         {
             $html .= $this->jquery($config);
 
             JHtml::_('bootstrap.framework');
 
-            KTemplateHelperBehavior::$_loaded['bootstrap-javascript'] = true;
+            static::setLoaded('bootstrap-javascript');
 
             $config->javascript = false;
         }

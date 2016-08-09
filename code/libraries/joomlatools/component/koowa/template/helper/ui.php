@@ -108,13 +108,13 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
 
         $html = '';
 
-        if ($config->javascript && empty(static::$_loaded['bootstrap-javascript']))
+        if ($config->javascript && !KTemplateHelperBehavior::isLoaded('bootstrap-javascript'))
         {
             $html .= $this->getTemplate()->helper('behavior.jquery', $config->toArray());
 
             JHtml::_('bootstrap.framework');
 
-            static::$_loaded['bootstrap-javascript'] = true;
+            KTemplateHelperBehavior::setLoaded('bootstrap-javascript');
 
             $config->javascript = false;
         }
