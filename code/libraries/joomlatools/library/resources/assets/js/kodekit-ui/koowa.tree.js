@@ -226,10 +226,10 @@
             this.element.bind({
                 'tree.select': // The select event happens when a node is clicked
                     function(event) {
+                        $(this).find('.k-is-active').removeClass('k-is-active');
                         if(event.node) { // When event.node is null, it's actually a deselect event
                             //Style the clicked element
-                            $(this).find('.active').removeClass('active');
-                            $(this).find('.jqtree-selected').addClass('active');
+                            $(this).find('.jqtree-selected').addClass('k-is-active');
                         }
                     },
                 'tree.open':
@@ -260,7 +260,7 @@
                     },
                 'tree.refresh': //Refreshes reset the html, and happen on events like setState
                     function() {
-                        $(this).find('.jqtree-selected').addClass('active');
+                        $(this).find('.jqtree-selected').addClass('k-is-active');
                     }
             });
 

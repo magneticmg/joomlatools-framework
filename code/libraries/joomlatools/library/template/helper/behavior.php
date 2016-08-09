@@ -448,9 +448,61 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
             }
 
             $html .= $this->select2(array('element' => false));
+
+            if (!static::isLoaded('koowa-select2-autocomplete')) {
+                $html .= '<script>
+                if(!Koowa) {
+                    var Koowa = {};
+                }
+                
+                Koowa.getSelect2Options = function(options) {
+                    var defaults = {
+                        width: "resolve",
+                        minimumInputLength: 2,
+                        theme: "bootstrap",
+                        ajax: {
+                            url: options.url,
+                            delay: 100,
+                            data: function (params) {
+                                var page  = params.page || 1,  // page is the one-based page number tracked by Select2
+                                    query = {
+                                        limit: 10, // page size
+                                        offset: (page-1)*10
+                                    };
+                                query[options.queryVarName] = params.term;
+            
+                                return query;
+                            },
+                            processResults: function (data, page) {
+                                var results = [],
+                                    more = (page * 10) < data.meta.total; // whether or not there are more results available
+            
+                                kQuery.each(data.entities, function(i, item) {
+                                    // Change format to what select2 expects
+                                    item.id   = item[options.value];
+                                    item.text = item[options.text];
+            
+                                    results.push(item);
+                                });
+            
+                                // notice we return the value of more so Select2 knows if more results can be loaded
+                                return {results: results, more: more};
+                            }
+                        }
+                    };
+                    
+                    var settings = kQuery.extend( {}, defaults, options);
+                    
+                    return settings;
+                };
+                </script>';
+
+                static::setLoaded('koowa-select2-autocomplete');
+            }
+
             $html .= '<script>
             kQuery(function($){
-                $("'.$config->element.'").koowaSelect2('.$options.');
+                $("'.$config->element.'").select2(Koowa.getSelect2Options('.$options.'));
             });</script>';
 
             static::setLoaded($signature);
@@ -755,11 +807,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
         if (!static::isLoaded('calendar'))
         {
-            if ($config->debug) {
-                $html .= '<ktml:script src="assets://js/datepicker.js" />';
-            }
-            else $html .= '<ktml:script src="assets://js/min/koowa.datepicker.js" />';
-
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'koowa.datepicker.js" />';
 
             $locale = array(
                 'days'  =>  array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'),

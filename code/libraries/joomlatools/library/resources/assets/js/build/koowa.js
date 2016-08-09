@@ -1,4 +1,3 @@
-
 var globalCacheForjQueryReplacement = window.jQuery;
 window.jQuery = window.kQuery;
 /**
@@ -604,7 +603,5 @@ Koowa.Controller.Form = Koowa.Controller.extend({
 });
 
 })(window.kQuery);
-
-
 window.jQuery = globalCacheForjQueryReplacement;
 globalCacheForjQueryReplacement = undefined;

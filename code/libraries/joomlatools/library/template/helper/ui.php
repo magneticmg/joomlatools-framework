@@ -109,6 +109,11 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
 
             KTemplateHelperBehavior::setLoaded('admin.js');
+            KTemplateHelperBehavior::setLoaded('modal');
+            KTemplateHelperBehavior::setLoaded('select2');
+            KTemplateHelperBehavior::setLoaded('tooltip');
+            KTemplateHelperBehavior::setLoaded('tree');
+            KTemplateHelperBehavior::setLoaded('calendar');
         }
 
         $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());

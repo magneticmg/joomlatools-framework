@@ -21,16 +21,16 @@ Koowa.Grid = Koowa.Class.extend({
 
         this.element    = $(element);
         this.form       = this.element.is('form') ? this.element : this.element.closest('form');
-        this.toggles    = this.element.find('.k-js-grid-checkall');
+        this.checkall   = this.element.find('.k-js-grid-checkall');
         this.checkboxes = this.element.find('.k-js-grid-checkbox').filter(function(i, checkbox) {
             return !$(checkbox).prop('disabled');
         });
 
         if(!this.checkboxes.length) {
-            this.toggles.prop('disabled', true);
+            this.checkall.prop('disabled', true);
         }
 
-        this.toggles.on('change.koowa', function(event, ignore){
+        this.checkall.on('change.koowa', function(event, ignore){
             if(!ignore) {
                 self.checkAll($(this).prop('checked'));
             }
@@ -47,7 +47,7 @@ Koowa.Grid = Koowa.Class.extend({
         this.setTableRows();
     },
     setScopebar: function() {
-        $('.js-filter-container', this.form).scopebar();
+        $('.k-js-filter-container', this.form).scopebar();
     },
     setTableHeaders: function() {
         //Make the table headers "clickable" and make checkall work
@@ -94,26 +94,26 @@ Koowa.Grid = Koowa.Class.extend({
         });
 
         // Checkbox should add selected and selected-multiple classes to the row
-        this.form.on('change.koowa', '.k-js-grid-checkbox', function(event) {
+        $('.k-js-grid-checkbox').on('change.koowa', function(event) {
             var selected,
                 target = $(event.target),
                 tr     = target.parents('tr'),
                 parent = tr.parent();
 
             if (target.is('[type=radio]')) {
-                parent.find('.selected').removeClass('selected');
+                parent.find('.k-is-selected').removeClass('k-is-selected');
             }
 
-            $(this).prop('checked') ? tr.addClass('selected') : tr.removeClass('selected');
+            $(this).prop('checked') ? tr.addClass('k-is-selected') : tr.removeClass('k-is-selected');
 
-            selected = parent.find('.selected').length;
+            selected = parent.find('.k-is-selected').length;
 
             if(selected > 1) {
-                parent.addClass('selected-multiple').removeClass('selected-single')
+                parent.addClass('k-has-selected-multiple').removeClass('k-has-selected-single')
             } else if (selected === 1) {
-                parent.removeClass('selected-multiple').addClass('selected-single');
+                parent.removeClass('k-has-selected-multiple').addClass('k-has-selected-single');
             } else {
-                parent.removeClass('selected-multiple').removeClass('selected-single');
+                parent.removeClass('k-has-selected-multiple').removeClass('k-has-selected-single');
             }
         }).trigger('change', true);
     },
@@ -133,8 +133,8 @@ Koowa.Grid = Koowa.Class.extend({
             return $(checkbox).prop('checked') !== false;
         }).length;
 
-        this.toggles.prop('checked', this.checkboxes.length === total);
-        this.toggles.trigger('change', true);
+        this.checkall.prop('checked', this.checkboxes.length === total);
+        this.checkall.trigger('change', true);
     }
 });
 
@@ -157,5 +157,12 @@ Koowa.Grid.getAllSelected = function(context) {
 Koowa.Grid.getIdQuery = function(context) {
     return decodeURIComponent(this.getAllSelected(context).serialize());
 };
+
+$(function() {
+    $('.k-js-grid').each(function(i, el) {
+        new Koowa.Grid($(el));
+    })
+});
+
 
 })(window.kQuery);
