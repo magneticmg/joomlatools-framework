@@ -1,10 +1,8 @@
+/** Joomla Isis template specific styling / overrides ================================================= */
+/** Original files can be found in Joomlatools UI */
 /** Joomla Isis template specific styling / overrides ================================================= Since we're using flexbox we need to override a couple of styles so all divs align perfectly 1. Set everything to box-sizing: border-box !!!!!!!!!! Warning: When making changes to this file make sure you test the following scenarios: - Test all views with the different Isis settings: - Collapse Administrator Menu (yes/no) (especially on mobile) - Display header (yes/no) - Status module position (Top/Bottom) - No need to test "pinned toolbar" since we don't use it anyway - Test all views with the (just described) different settings with both JS enabled and JS disabled - Test all views with the (just described) different settings both on mobile and desktop views !!!!!!!!!! */
 /* ========================================================================== Tools ========================================================================== */
-/* Variables, functions and mixins ========================================================================== */
-/** 1. Bourbon, needed for neat 2. Extending the neat library with own mixins 3. Neat: grid system */
-/* 1 */
-/* 2 */
-/* 3 */
+/* These file do not produce any CSS code on their own */
 body { box-sizing: border-box; /** Basic setup ----------- 1. Always remove the toolbar, empty div and header since we are showing this ourselves or don't need it 2. Remove ugly border from header 3. Hide empty div after header 4. Don't hide status bar when placed at top 5. Adding bottom-margin for the fixed bottom status bar 6. Remove bottom margin when status bar is on top 7. Don't display the unstyled title when header is set to hide in Isis settings 8. Don't display the footer. It's unstyled and only holds copyright info */ /** Adding spacing to overview */ /** Component only ============== */ /** The main container ================== 1. Set negative margin for smaller screens 2. And remove on larger screens 3. Do not set with shorthand CSS since we set the bottom margin seprately for the status bar 4. always remove bottom margin when flexbox is enabled */ /** Flexbox setup ------------- Set Joomla containers to flex and adjust margins and paddings As soon as something in this chain of classnames changes we fall back to non-flexbox view */ /** Remove margin from bootstrap grid item */ /** Joomla removes default focus style, we bring it back */ /** Make room for the statusbar in Joomla */ /** Special debug styling */ }
 
 body .btn-subhead, body .subhead-collapse, body .navbar + .header { display: none !important; }
@@ -46,7 +44,7 @@ body .container-main #content .row-fluid .span12 .k-overview { margin-top: 0; }
   .k-flexbox body .container-main + #status, .k-flexboxlegacy body .container-main + #status { position: relative; top: auto; right: auto; bottom: auto; left: auto; box-shadow: none; }
   .k-flexbox body .container-main #content .row-fluid .span12 .k-overview, .k-flexboxlegacy body .container-main #content .row-fluid .span12 .k-overview { border: none; }
   .k-flexbox body #system-message-container, .k-flexboxlegacy body #system-message-container { padding: 0; }
-  .k-flexbox body #system-message-container .alert, .k-flexboxlegacy body #system-message-container .alert { margin: 0; border-radius: 0; border-bottom: 1px solid #cdcdcd; padding: 10px 35px 10px 10px; }
+  .k-flexbox body #system-message-container .alert, .k-flexboxlegacy body #system-message-container .alert { margin: 0; border-radius: 0; border-bottom: 1px solid #d2d2d2; padding: 10px 35px 10px 10px; }
   .k-flexbox body #system-message-container .alert h4:last-child, .k-flexbox body #system-message-container .alert p:last-child, .k-flexbox body #system-message-container .alert div:last-child, .k-flexboxlegacy body #system-message-container .alert h4:last-child, .k-flexboxlegacy body #system-message-container .alert p:last-child, .k-flexboxlegacy body #system-message-container .alert div:last-child { margin-bottom: 0; } }
 
 body .span10 { margin: 0; }

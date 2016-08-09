@@ -1,6 +1,2 @@
 /* Relative path to icon font */
 $icon-path: '../../framework/fonts' !default;
-
-.koowa [class*="icon-"]:not([class*="k-icon"]) {
-  outline: 2px solid red;
-}

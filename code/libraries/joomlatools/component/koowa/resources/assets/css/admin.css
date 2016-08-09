@@ -2,9 +2,7 @@
 /** Default Joomla theme ==================== Styled to fit nicely within the Joomla administrator layout */
 /** Joomla variables ---------------- Load first to win over "!default" variables defined in core/_tools.scss */
 /* Relative path to icon font */
-.koowa [class*="icon-"]:not([class*="k-icon"]) { outline: 2px solid red; }
-
-/** Joomlatools UI ------------ */
+/** Original files can be found in Joomlatools UI */
 /* Kodekit UI ========================================================================== */
 /* Testing variabel overrides */
 /* ========================================================================== Global tools ========================================================================== */
@@ -6237,6 +6235,8 @@ Styleguide 6.9
 .koowa .k-ratio-block .k-ratio-block__body { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 2; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
 
 .koowa .k-ratio-block .k-ratio-block__centered { display: block; flex: 0 0 auto; overflow: auto; max-width: 100%; max-height: 100%; backface-visibility: hidden; }
+
+.koowa .k-color-error { color: #c0392b; }
 
 .koowa .k-overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
 
