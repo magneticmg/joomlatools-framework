@@ -129,7 +129,10 @@ module.exports = function(grunt) {
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/koowa.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/jquery.ui.widget.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.scopebar.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.class.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ]
@@ -184,7 +187,10 @@ module.exports = function(grunt) {
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/jquery.ui.widget.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.scopebar.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.class.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ]
