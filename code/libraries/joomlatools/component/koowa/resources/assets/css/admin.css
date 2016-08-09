@@ -6165,7 +6165,7 @@ Styleguide 6.9
 
 .koowa .k-dynamic-content-holder.k-dynamic-content-holder.k-dynamic-content-holder { display: none; }
 
-.koowa .k-hidden.k-hidden.k-hidden { display: none; }
+.koowa .k-is-hidden.k-is-hidden.k-is-hidden { display: none; }
 
 .k-cssanimations.k-boxshadow .koowa .k-loader { display: inline-block; color: #3071a9; font-size: 5px; margin: 0 auto 2em; position: relative; text-indent: -9999em; vertical-align: middle; /* Sizes */ }
 
@@ -6210,11 +6210,27 @@ Styleguide 6.9
 
 .koowa .k-ratio-block--4-to-3:before { display: block; content: " "; padding-top: 75%; }
 
+.koowa .k-ratio-block--3-to-2 { position: relative; }
+
+.koowa .k-ratio-block--3-to-2:before { display: block; content: " "; padding-top: 66.6666666667%; }
+
+.koowa .k-ratio-block--2-to-3 { position: relative; }
+
+.koowa .k-ratio-block--2-to-3:before { display: block; content: " "; padding-top: 150%; }
+
+.koowa .k-ratio-block--2-to-1 { position: relative; }
+
+.koowa .k-ratio-block--2-to-1:before { display: block; content: " "; padding-top: 50%; }
+
+.koowa .k-ratio-block--1-to-2 { position: relative; }
+
+.koowa .k-ratio-block--1-to-2:before { display: block; content: " "; padding-top: 200%; }
+
 .koowa .k-ratio-block--1-to-1 { position: relative; }
 
 .koowa .k-ratio-block--1-to-1:before { display: block; content: " "; padding-top: 100%; }
 
-.koowa .k-ratio-block.k-is-loaded .k-loader.k-loader { display: none; }
+.koowa .k-ratio-block.k-is-loaded .k-loader.k-loader { opacity: 0; }
 
 .koowa .k-ratio-block .k-loader.k-loader { position: absolute; top: 50%; left: 50%; z-index: 1; transform: translate(-50%, -50%); }
 
