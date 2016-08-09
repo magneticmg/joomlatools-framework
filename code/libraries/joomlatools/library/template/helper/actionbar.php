@@ -90,7 +90,7 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         if ($command->allowed === false)
         {
             $command->attribs->title = $translator->translate('You are not allowed to perform this action');
-            $command->attribs->class->append(array('disabled', 'unauthorized'));
+            $command->attribs->class->append(array('k-is-disabled', 'k-is-unauthorized'));
         }
 
          //Add a toolbar class	

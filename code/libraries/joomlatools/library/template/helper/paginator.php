@@ -177,7 +177,7 @@ class KTemplateHelperPaginator extends KTemplateHelperSelect
         foreach ($pages['pages'] as $page)
         {
             if ($previous && $page->page - $previous->page > 1) {
-                $html .= '<li class="disabled"><span>&hellip;</span></li>';
+                $html .= '<li class="k-is-disabled"><span>&hellip;</span></li>';
             }
 
             $html .= '<li class="'.($page->active && !$page->current ? '' : 'k-is-active').'">';

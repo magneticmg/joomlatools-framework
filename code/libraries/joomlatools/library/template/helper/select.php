@@ -48,7 +48,7 @@ class KTemplateHelperSelect extends KTemplateHelperAbstract implements KTemplate
         }
 
         if($config->disabled) {
-            $option->attribs['class'] = array('disabled');
+            $option->attribs['class'] = array('k-is-disabled', 'disabled');
         }
 
         return $option;
