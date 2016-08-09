@@ -171,7 +171,6 @@ module.exports = function(grunt) {
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.select2.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/select2/dist/js/select2.full.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.select2.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.tree.js': [
