@@ -182,9 +182,6 @@ module.exports = function(grunt) {
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.tree.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
-                    '<%= nookuFrameworkAssetsPath %>/js/min/modernizr.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/build/modernizr.js'
-                    ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/jquery.ui.widget.js',
