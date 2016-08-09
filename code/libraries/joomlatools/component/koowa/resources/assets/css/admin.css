@@ -4402,7 +4402,7 @@ Styleguide 6.9
 
 .koowa .k-button, .koowa .k-button:hover, .koowa .k-button:focus, .koowa .k-button:active { text-decoration: none; /* 1 */ }
 
-.koowa .k-button.k-is-disabled { pointer-events: none; /* 2 */ }
+.koowa button.k-button.k-is-disabled { pointer-events: none; /* 2 */ }
 
 .koowa .k-button--default { color: #222222; background-color: white; border-color: #cdcdcd; }
 
