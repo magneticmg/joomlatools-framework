@@ -4012,12 +4012,26 @@ markup:
 Styleguide 6.8
 
 */ /*
-Image holder
+Ratio content
 
 markup:
-<div class="k-image-holder k-image-holder--16-to-9">
+<div class="k-ratio-content k-ratio-content--16-to-9">
     <div class="k-loader"></div>
-    <img src="{image source}" alt="{alternative text}">
+    <img class="k-ratio-content__body" src="{image source}" alt="{alternative text}" />
+</div>
+<div class="k-ratio-content k-ratio-content--16-to-9">
+    <div class="k-ratio-content__body">
+        <div class="k-ratio-content__centered">
+            ...
+        </div>
+    </div>
+</div>
+<div class="k-ratio-content k-ratio-content--16-to-9">
+    <div class="k-ratio-content__body">
+        <div class="k-ratio-content__centered">
+            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod semper.</p>
+        </div>
+    </div>
 </div>
 
 sg-wrapper:
@@ -4578,11 +4592,13 @@ Styleguide 6.9
 
 .koowa .k-card--rounded .k-card__image:only-child { border-radius: 3px; }
 
+.koowa .k-card--rounded .k-card__section { border-radius: 3px; overflow: hidden; }
+
 .koowa .k-card--center .k-card__body { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 
 .koowa .k-card--center .k-card__title, .koowa .k-card--center .k-card__section, .koowa .k-card--center .k-card__footer { flex: 0 0 auto; }
 
-.koowa .k-card__body { transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; position: relative; display: block; backface-visibility: visible; background: #fbfbfb; border: 1px solid gainsboro; /** 1. This is the <a> so put color here 2. This is the <a> so put cursor here */ }
+.koowa .k-card__body { transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; position: relative; display: block; backface-visibility: visible; background: white; border: 1px solid gainsboro; /** 1. This is the <a> so put color here 2. This is the <a> so put cursor here */ }
 
 .koowa .k-card__body a.koowa .k-card__body { color: #3071a9; /* 1 */ cursor: pointer; /* 2 */ }
 
@@ -4607,6 +4623,8 @@ Styleguide 6.9
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-card__preview > img, .k-flexboxlegacy .koowa .k-card__preview > img, .k-flexbox .koowa .k-card__preview > span, .k-flexboxlegacy .koowa .k-card__preview > span { flex: 0 1 auto; } }
 
 .koowa .k-card__section { display: block; position: relative; z-index: 1; padding: 10px; }
+
+.koowa .k-card__section--small-spacing { padding: 0; margin: 1px; }
 
 .koowa .k-card__title, .koowa .k-card__footer { position: relative; z-index: 1; display: block; padding: 10px; width: 100%; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; flex: 0 0 auto; }
 
@@ -4663,6 +4681,8 @@ Styleguide 6.9
 .koowa .k-card__footer:first-child { border-bottom: none; }
 
 .koowa .k-card__caption { display: block; width: 100%; padding: 1em 10px; font-weight: 400; }
+
+.koowa .k-card__caption--overflow { height: 3em; line-height: 1em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .koowa .k-card.k-is-selected .k-card__body { border-color: #3071a9; }
 
@@ -6180,19 +6200,27 @@ Styleguide 6.9
 
 .koowa .k-visually-shown.k-visually-shown.k-visually-shown { position: static; overflow: visible; clip: auto; height: auto; width: auto; margin: 0; }
 
-.koowa .k-image-holder { position: relative; width: 100%; }
+.koowa .k-ratio-content { position: relative; width: 100%; }
 
-.koowa .k-image-holder .k-loader.k-loader { position: absolute; top: 50%; left: 50%; z-index: 1; transform: translate(-50%, -50%); }
+.koowa .k-ratio-content--16-to-9 { position: relative; }
 
-.koowa .k-image-holder img { position: absolute; top: 50%; left: 50%; max-width: 100%; max-height: 100%; transform: translate(-50%, -50%); z-index: 2; }
+.koowa .k-ratio-content--16-to-9:before { display: block; content: " "; padding-top: 56.25%; }
 
-.koowa .k-image-holder--16-to-9 { position: relative; }
+.koowa .k-ratio-content--4-to-3 { position: relative; }
 
-.koowa .k-image-holder--16-to-9:before { display: block; content: " "; padding-top: 56.25%; }
+.koowa .k-ratio-content--4-to-3:before { display: block; content: " "; padding-top: 75%; }
 
-.koowa .k-image-holder--1-to-1 { position: relative; }
+.koowa .k-ratio-content--1-to-1 { position: relative; }
 
-.koowa .k-image-holder--1-to-1:before { display: block; content: " "; padding-top: 100%; }
+.koowa .k-ratio-content--1-to-1:before { display: block; content: " "; padding-top: 100%; }
+
+.koowa .k-ratio-content.k-is-loaded .k-loader.k-loader { display: none; }
+
+.koowa .k-ratio-content .k-loader.k-loader { position: absolute; top: 50%; left: 50%; z-index: 1; transform: translate(-50%, -50%); }
+
+.koowa .k-ratio-content .k-ratio-content__body { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 2; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+
+.koowa .k-ratio-content .k-ratio-content__centered { display: block; flex: 0 0 auto; overflow: auto; max-width: 100%; max-height: 100%; backface-visibility: hidden; }
 
 .koowa .k-overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
 
