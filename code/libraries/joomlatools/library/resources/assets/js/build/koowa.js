@@ -381,7 +381,7 @@ Koowa.Controller = Koowa.Class.extend({
 
                 context.trigger = button;
 
-                if (!button.hasClass('disabled')) {
+                if (!button.hasClass('k-is-disabled')) {
                     var prompt = button.data('prompt');
 
                     if (prompt && !confirm(prompt)) {
@@ -439,9 +439,9 @@ Koowa.Controller = Koowa.Class.extend({
             buttons = this.buttons.filter('[data-novalidate!="novalidate"]');
 
             if (this.trigger('validate')) {
-                buttons.removeClass('disabled');
+                buttons.removeClass('k-is-disabled');
             } else {
-                buttons.addClass('disabled');
+                buttons.addClass('k-is-disabled');
             }
 
             this.trigger('afterValidate');
