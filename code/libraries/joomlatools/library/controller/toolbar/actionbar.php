@@ -141,6 +141,11 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
     protected function _commandEdit(KControllerToolbarCommand $command)
     {
         $command->icon = 'k-icon-pencil';
+        $command->append(array(
+            'attribs' => array(
+                'data-action' => 'edit'
+            )
+        ));
     }
 
     /**
@@ -152,6 +157,11 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
     protected function _commandSave(KControllerToolbarCommand $command)
     {
         $command->icon = 'k-icon-check k-icon--success';
+        $command->append(array(
+            'attribs' => array(
+                'data-action' => 'save'
+            )
+        ));
     }
 
     /**
@@ -163,6 +173,11 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
     protected function _commandApply(KControllerToolbarCommand $command)
     {
         $command->icon = 'k-icon-pencil';
+        $command->append(array(
+            'attribs' => array(
+                'data-action' => 'apply'
+            )
+        ));
     }
 
     /**
