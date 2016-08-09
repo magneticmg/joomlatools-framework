@@ -5532,7 +5532,7 @@ Styleguide 6.9
 
 .koowa .k-scopebar__button:hover { border-color: #d4d4d4; background: white; }
 
-.koowa .k-scopebar__button.k-is-active { display: none; }
+.koowa .k-scopebar__button.k-is-active { border-color: #f3f3f3; background: white; }
 
 .koowa .k-scopebar__button [class^="k-icon"] { display: block; margin-top: 7px; /* 1 */ margin-bottom: 7px; /* 1 */ width: 16px; height: 16px; line-height: 0; font-size: 0; vertical-align: middle; }
 
