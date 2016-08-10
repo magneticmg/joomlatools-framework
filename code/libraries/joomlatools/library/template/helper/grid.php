@@ -224,24 +224,24 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $direction	= strtolower($config->direction);
         $direction 	= in_array($direction, array('asc', 'desc')) ? $direction : 'asc';
 
-        //Set the class
-        $class = '';
-        if($config->column == $config->sort)
-        {
-            $class .= ' -koowa-'.$direction;
-            $direction = $direction == 'desc' ? 'asc' : 'desc'; // toggle
-        }
-
         $url = clone $this->getTemplate()->url();
 
         $query              = $url->getQuery(1);
         $query['sort']      = $config->column;
-        $query['direction'] = $direction;
+        $query['direction'] = ($direction == 'desc' ? 'asc' : 'desc'); // toggle
         $url->setQuery($query);
 
-        $html  = '<a class="'.$class.'" href="'.$url.'" data-koowa-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
+        $html  = '<a href="'.$url.'" data-koowa-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
         $html .= $translator->translate($config->title);
+
+        if($config->column == $config->sort)
+        {
+            $direction = $direction == 'desc' ? 'descending' : 'ascending'; // toggle
+            $html .= '<span class="k-icon-sort-'.$direction.'" aria-hidden="true"></span>';
+        }
+
         $html .= '</a>';
+
 
         return $html;
     }
