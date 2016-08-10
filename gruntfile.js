@@ -26,6 +26,12 @@ module.exports = function(grunt) {
                         src: ['<%= JUIPath %>/css/*.*'],
                         dest: '<%= joomlatoolsFrameworkAssetsPath %>/css',
                         flatten: true
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= JUIPath %>/fonts',
+                        src: ['**'],
+                        dest: '<%= joomlatoolsFrameworkAssetsPath %>/fonts'
                     }
                 ]
             },
@@ -42,12 +48,6 @@ module.exports = function(grunt) {
                         cwd: '<%= JUIPath %>/fonts',
                         src: ['**'],
                         dest: '<%= nookuFrameworkAssetsPath %>/fonts'
-                    },
-                    {
-                        expand: true,
-                        cwd: '<%= JUIPath %>/fonts',
-                        src: ['**'],
-                        dest: '<%= joomlatoolsFrameworkAssetsPath %>/fonts'
                     },
                     {
                         expand: true,
