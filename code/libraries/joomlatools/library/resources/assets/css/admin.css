@@ -1422,7 +1422,7 @@ markup:
                     <span class="visually-hidden"><?= translate('Filters'); ?></span>
                 </button>
                 <!-- filter icon when there's no toggle button -->
-                <span class="k-scopebar-icon-button k-toggle-filters-icon koowa-tooltip">
+                <span class="k-scopebar-icon-button k-toggle-filters-icon" data-koowa-tooltip>
                     <span class="k-icon-k-filter"></span>
                     <span class="visually-hidden"><?= translate('Filters'); ?></span>
                 </span>

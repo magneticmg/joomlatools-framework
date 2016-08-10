@@ -32,8 +32,9 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         if($config->entity->isLockable() && $config->entity->isLocked())
         {
             $html = $this->getTemplate()->helper('behavior.tooltip');
-            $html .= '<span class="koowa-tooltip k-icon-lock-locked"
-                           title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
+            $html .= '<span class="k-icon-lock-locked"
+                            data-koowa-tooltip 
+                            title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
                     </span>';
         }
         else
@@ -68,8 +69,9 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         if($config->entity->isLockable() && $config->entity->isLocked())
         {
             $html = $this->getTemplate()->helper('behavior.tooltip');
-            $html .= '<span class="koowa-tooltip k-icon-lock-locked"
-                           title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
+            $html .= '<span class="k-icon-lock-locked"
+                            data-koowa-tooltip
+                            title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
                     </span>';
         }
         else
@@ -223,7 +225,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $direction 	= in_array($direction, array('asc', 'desc')) ? $direction : 'asc';
 
         //Set the class
-        $class = 'koowa-tooltip ';
+        $class = '';
         if($config->column == $config->sort)
         {
             $class .= ' -koowa-'.$direction;
@@ -277,7 +279,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         }
         else $attribs = 'style="color:'.$config->color.'"';
 
-        $html = '<span class="koowa-tooltip k-icon-%s" %s><span class="k-visually-hidden">%s</span></span>';
+        $html = '<span data-koowa-tooltip class="k-icon-%s" %s><span class="k-visually-hidden">%s</span></span>';
         $html = sprintf($html, $config->icon, $attribs, $config->alt);
         $html .= $this->getTemplate()->helper('behavior.tooltip');
 
