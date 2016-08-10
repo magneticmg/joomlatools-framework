@@ -9,6 +9,10 @@
 /* Outside of the koowa scope */
 .breadcrumb { white-space: normal; word-wrap: break-word; overflow-wrap: break-word; -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; }
 
+.k-toolbar { margin-bottom: 1em; background: rgba(0, 0, 0, 0.04); border-bottom: 1px solid rgba(0, 0, 0, 0.08); padding: 0.5em; }
+
+.k-toolbar .btn { margin: 0.5em; }
+
 /* Magnific Popup CSS */
 .mfp-bg { top: 0; left: 0; width: 100%; height: 100%; z-index: 1042; overflow: hidden; position: fixed; background: #0b0b0b; opacity: 0.8; filter: alpha(opacity=80); }
 

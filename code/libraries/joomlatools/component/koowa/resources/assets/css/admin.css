@@ -5983,11 +5983,11 @@ Styleguide 6.9
 
 .k-cssanimations.k-boxshadow .koowa .k-loader, .k-cssanimations.k-boxshadow .koowa .k-loader:before, .k-cssanimations.k-boxshadow .koowa .k-loader:after { border-radius: 50%; width: 1em; height: 1em; animation-fill-mode: both; animation: k-loader 1.61s infinite ease-in-out; }
 
+.k-cssanimations.k-boxshadow .koowa .k-loader { left: 1.25em; }
+
 .k-cssanimations.k-boxshadow .koowa .k-loader:before { left: -1.25em; animation-delay: -0.20125s; }
 
-.k-cssanimations.k-boxshadow .koowa .k-loader:after { left: -1.25em; animation-delay: 0.20125s; }
-
-.k-cssanimations.k-boxshadow .koowa .k-loader, .k-cssanimations.k-boxshadow .koowa .k-loader:after { left: 1.25em; }
+.k-cssanimations.k-boxshadow .koowa .k-loader:after { left: 1.25em; animation-delay: 0.20125s; }
 
 .k-cssanimations.k-boxshadow .koowa .k-loader:before, .k-cssanimations.k-boxshadow .koowa .k-loader:after { content: ''; position: absolute; top: 0; }
 
@@ -6001,6 +6001,8 @@ Styleguide 6.9
   40% { box-shadow: 0 1em 0 0; } }
 
 .koowa .k-loader-container { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 5; background: rgba(255, 255, 255, 0.8); display: flex; align-items: center; }
+
+.k-cssanimations.k-boxshadow .koowa .k-loader-container .k-loader { left: 0; }
 
 .koowa .k-no-margin.k-no-margin.k-no-margin { margin: 0; }
 
