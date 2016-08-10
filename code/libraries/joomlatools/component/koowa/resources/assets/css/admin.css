@@ -4482,6 +4482,8 @@ Styleguide 6.9
 
 .koowa .k-card--rounded .k-card__caption { border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
 
+.koowa .k-card--rounded .k-card__image img, .koowa .k-card--rounded .k-card__image--background, .koowa .k-card--rounded .k-card__image--spaced-background, .koowa .k-card--rounded .k-card__header, .koowa .k-card--rounded .k-card__section, .koowa .k-card--rounded .k-card__footer { overflow: hidden; }
+
 .koowa .k-card--rounded .k-card__image img:only-child, .koowa .k-card--rounded .k-card__image--background:only-child, .koowa .k-card--rounded .k-card__image--spaced-background:only-child, .koowa .k-card--rounded .k-card__header:only-child, .koowa .k-card--rounded .k-card__section:only-child, .koowa .k-card--rounded .k-card__footer:only-child { border-radius: 3px; }
 
 .koowa .k-card--rounded .k-card__image img:first-child, .koowa .k-card--rounded .k-card__image--background:first-child, .koowa .k-card--rounded .k-card__image--spaced-background:first-child, .koowa .k-card--rounded .k-card__header:first-child, .koowa .k-card--rounded .k-card__section:first-child, .koowa .k-card--rounded .k-card__footer:first-child { border-top-left-radius: 3px; border-top-right-radius: 3px; }
