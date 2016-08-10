@@ -105,7 +105,7 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
 
         $html .= $this->getTemplate()->helper('behavior.modernizr', $config->toArray());
 
-        if ($identifier->domain === 'admin' && !KTemplateHelperBehavior::isLoaded('admin.js')) {
+        if (($identifier->domain === 'admin' || $identifier->domain === '')  && !KTemplateHelperBehavior::isLoaded('admin.js')) {
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
 
             KTemplateHelperBehavior::setLoaded('admin.js');
