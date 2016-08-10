@@ -252,7 +252,6 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
             'href'	  => ''
         ))->append(array(
             'attribs' => array(
-                'class' => array('koowa-modal'),
                 'href'  => $command->href,
                 'data-koowa-modal'   => array('type' => 'iframe')
             )
