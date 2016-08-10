@@ -28,12 +28,33 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
 
         $html = parent::render($config);
 
-        // FIXME: take this out when we refactor UI
-        if (JFactory::getApplication()->isSite()) {
-            $html = str_replace('k-toolbar-buttons', 'k-toolbar-buttons btn-group', $html);
+        return $html;
+    }
+
+    /**
+     * Use Bootstrap 2.3.2 classes for buttons in frontend
+     * @param array $config
+     * @return string
+     */
+    public function command($config = array())
+    {
+        if (JFactory::getApplication()->isSite())
+        {
+            $config = new KObjectConfigJson($config);
+            $config->append(array(
+                'command' => NULL
+            ));
+
+            $command = $config->command;
+
+            $command->attribs->class->append(array('btn'));
+
+            if ($command->id === 'new' || $command->id === 'apply') {
+                $command->attribs->class->append(array('btn-success'));
+            }
         }
 
-        return $html;
+        return parent::command($config);
     }
 
     /**
