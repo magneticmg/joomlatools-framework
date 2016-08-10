@@ -88,109 +88,109 @@
 }
 
 // Actual icons
-.koowa_icon--default {
-  @include icon-before(k-default, true);
-}
-
-.koowa_icon--image {
-  @include icon-before(k-image, true);
-}
-
-.koowa_icon--video {
-  @include icon-before(k-video, true);
-}
-
-.koowa_icon--archive {
-  @include icon-before(k-archive, true);
-}
-
-.koowa_icon--folder {
-  @include icon-before(k-folder, true);
-}
-
-.koowa_icon--pdf {
-  @include icon-before(k-pdf, true);
-}
-
-.koowa_icon--audio {
-  @include icon-before(k-audio, true);
-}
-
-.koowa_icon--document {
-  @include icon-before(k-document, true);
-}
-
-.koowa_icon--spreadsheet {
-  @include icon-before(k-spreadsheet, true);
-}
-
-.koowa_icon--locked {
-  @include icon-before(k-locked, true);
-}
-
-.koowa_icon--unlocked {
-  @include icon-before(k-unlocked, true);
-}
-
-.koowa_icon--disabled {
-  @include icon-before(k-disabled, true);
-}
-
-.koowa_icon--enabled {
-  @include icon-before(k-enabled, true);
-}
-
-.koowa_icon--open {
-  @include icon-before(k-open, true);
-}
-
-.koowa_icon--close {
-  @include icon-before(k-close, true);
-}
-
-.koowa_icon--folder_open {
-  @include icon-before(k-folder-open, true);
-}
-
-.koowa_icon--calendar {
-  @include icon-before(k-calendar, true);
-}
-
-.koowa_icon--menu {
-  @include icon-before(k-menu, true);
-}
-
-.koowa_icon--menu_open {
-  @include icon-before(k-menu_open, true);
-}
-
-.koowa_icon--sort:before {
-  content: "\e611";
-}
-
-.koowa_icon--caret_down:before {
-  content: "\e612";
-}
-
-.koowa_icon--caret_up:before {
-  content: "\e613";
-}
-
-.koowa_icon--caret_left:before {
-  content: "\e614";
-}
-
-.koowa_icon--caret_right:before {
-  content: "\e615";
-}
-
-.koowa_icon--sort_down:before {
-  content: "\e616";
-}
-
-.koowa_icon--sort_up:before {
-  content: "\e617";
-}
+//.koowa_icon--default {
+//  @include icon-before(k-default, true);
+//}
+//
+//.koowa_icon--image {
+//  @include icon-before(k-image, true);
+//}
+//
+//.koowa_icon--video {
+//  @include icon-before(k-video, true);
+//}
+//
+//.koowa_icon--archive {
+//  @include icon-before(k-archive, true);
+//}
+//
+//.koowa_icon--folder {
+//  @include icon-before(k-folder, true);
+//}
+//
+//.koowa_icon--pdf {
+//  @include icon-before(k-pdf, true);
+//}
+//
+//.koowa_icon--audio {
+//  @include icon-before(k-audio, true);
+//}
+//
+//.koowa_icon--document {
+//  @include icon-before(k-document, true);
+//}
+//
+//.koowa_icon--spreadsheet {
+//  @include icon-before(k-spreadsheet, true);
+//}
+//
+//.koowa_icon--locked {
+//  @include icon-before(k-locked, true);
+//}
+//
+//.koowa_icon--unlocked {
+//  @include icon-before(k-unlocked, true);
+//}
+//
+//.koowa_icon--disabled {
+//  @include icon-before(k-disabled, true);
+//}
+//
+//.koowa_icon--enabled {
+//  @include icon-before(k-enabled, true);
+//}
+//
+//.koowa_icon--open {
+//  @include icon-before(k-open, true);
+//}
+//
+//.koowa_icon--close {
+//  @include icon-before(k-close, true);
+//}
+//
+//.koowa_icon--folder_open {
+//  @include icon-before(k-folder-open, true);
+//}
+//
+//.koowa_icon--calendar {
+//  @include icon-before(k-calendar, true);
+//}
+//
+//.koowa_icon--menu {
+//  @include icon-before(k-menu, true);
+//}
+//
+//.koowa_icon--menu_open {
+//  @include icon-before(k-menu_open, true);
+//}
+//
+//.koowa_icon--sort:before {
+//  content: "\e611";
+//}
+//
+//.koowa_icon--caret_down:before {
+//  content: "\e612";
+//}
+//
+//.koowa_icon--caret_up:before {
+//  content: "\e613";
+//}
+//
+//.koowa_icon--caret_left:before {
+//  content: "\e614";
+//}
+//
+//.koowa_icon--caret_right:before {
+//  content: "\e615";
+//}
+//
+//.koowa_icon--sort_down:before {
+//  content: "\e616";
+//}
+//
+//.koowa_icon--sort_up:before {
+//  content: "\e617";
+//}
 
 .jqtree-tree {
   [class^="koowa_icon--"],

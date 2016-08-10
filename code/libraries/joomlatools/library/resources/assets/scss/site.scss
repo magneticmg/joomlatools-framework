@@ -6,6 +6,9 @@
 @import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
+/* Kodekit */
+@import "../../../../../../../../kodekit-ui/src/scss/core/tools";
+
 /* Variables */
 @import "koowa/utilities/variables";
 @import "site/molecules/variables";
@@ -21,7 +24,8 @@
 @import "../../../../../../../node_modules/select2-bootstrap-theme/src/select2-bootstrap";
 
 /* Icons */
-@import "koowa/utilities/koowa-icons";
+@import "../../../../../../../../kodekit-ui/src/scss/utilities/k-icons";
+@import "../../../../../../../../kodekit-ui/src/scss/molecules/icons";
 
 /* Inside koowa scope */
 .koowa {
