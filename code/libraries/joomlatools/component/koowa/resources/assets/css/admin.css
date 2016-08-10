@@ -4538,7 +4538,7 @@ Styleguide 6.9
 
 .koowa .k-card.k-is-selected .k-card__body:only-child .k-card__header { background: #3071a9; color: white; }
 
-.koowa .k-card.k-is-selected .k-card__caption { background: #3071a9; color: white; }
+.koowa .k-card.k-is-selected .k-card__header, .koowa .k-card.k-is-selected .k-card__footer, .koowa .k-card.k-is-selected .k-card__caption { border-color: #3071a9; background: #3071a9; color: white; }
 
 .koowa .k-empty-state { margin: 0; font-size: 18px; line-height: 23px; text-align: center; background: white; color: #222222; padding: 20px; }
 
@@ -5340,7 +5340,7 @@ Styleguide 6.9
 
 .koowa .k-scopebar__button:hover { border-color: #d4d4d4; background: white; }
 
-.koowa .k-scopebar__button.k-is-active { border-color: #f3f3f3; background: white; }
+.koowa .k-scopebar__button.k-is-active { border-color: #d4d4d4; background: white; }
 
 .koowa .k-scopebar__button [class^="k-icon"] { display: block; margin-top: 7px; /* 1 */ margin-bottom: 7px; /* 1 */ width: 16px; height: 16px; line-height: 0; font-size: 0; vertical-align: middle; }
 
@@ -5539,6 +5539,10 @@ Styleguide 6.9
 .koowa .k-table-container .k-table-data--toggle [class*="k-icon"], .koowa .k-table-container .k-table-data--form [class*="k-icon"], .koowa .k-table-container .k-table-data--icon [class*="k-icon"] { font-size: 16px; }
 
 .koowa .k-table-container .k-table-data--toggle { padding: 0; font-size: 0; line-height: 0; overflow: hidden; width: 0; visibility: visible; }
+
+.koowa .k-table-container .k-table-data--toggle--hidden { padding: 0; }
+
+.koowa .k-table-container .k-table-data--toggle--hidden span, .koowa .k-table-container .k-table-data--toggle--hidden div, .koowa .k-table-container .k-table-data--toggle--hidden img, .koowa .k-table-container .k-table-data--toggle--hidden a { display: none !important; }
 
 .koowa .k-table-container .footable.breakpoint .k-table-data--toggle { width: 1%; padding-left: 7px; padding-right: 7px; }
 
