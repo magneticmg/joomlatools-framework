@@ -58,38 +58,6 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
     }
 
     /**
-     * Render the action bar title
-     *
-     * @param   array   $config An optional array with configuration options
-     * @return  string  Html
-     */
-    public function title($config = array())
-    {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'command' => NULL,
-        ));
-
-        $title = $this->getObject('translator')->translate($config->command->title);
-        $html  = '';
-
-        if (!empty($title))
-        {
-            $html = '<div class="k-title-bar__heading">' . $title . '</div>';
-
-            if (JFactory::getApplication()->isAdmin())
-            {
-                $app = JFactory::getApplication();
-                $app->JComponentTitle = $html;
-
-                JFactory::getDocument()->setTitle($app->getCfg('sitename') . ' - ' . JText::_('JADMINISTRATION') . ' - ' . $title);
-            }
-        }
-
-        return $html;
-    }
-
-    /**
      * Render an options button
      *
      * @param array|KObjectConfig $config

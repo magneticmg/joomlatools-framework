@@ -13,7 +13,7 @@
  * @author  Johan Janssens <https://github.com/johanjanssens>
  * @package Koowa\Component\Koowa\Template\Helper
  */
-class ComKoowaTemplateHelperMenubar extends KTemplateHelperAbstract
+class ComKoowaTemplateHelperMenubar extends KTemplateHelperToolbar
 {
     /**
      * Render the menu bar
