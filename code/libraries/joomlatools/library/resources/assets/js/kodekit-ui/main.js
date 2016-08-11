@@ -87,7 +87,7 @@
 
         // Footable
         $footable.on('click', '.footable-toggle', function(event){
-            event.stopPropagation();
+           // event.stopPropagation();
         }).footable({
             toggleSelector: '.footable-toggle',
             breakpoints: {
@@ -114,7 +114,7 @@
             }
         }
 
-        fixedTable();
+        //fixedTable();
 
         // Filter and search toggle buttons in the scopebar
         if ( $scopebar.length ) {
