@@ -86,9 +86,7 @@
         $overflow.addClass('k-sidebar-item--overflow').overflowing();
 
         // Footable
-        $footable.on('click', '.footable-toggle', function(event){
-           // event.stopPropagation();
-        }).footable({
+        $footable.footable({
             toggleSelector: '.footable-toggle',
             breakpoints: {
                 phone: 400,
