@@ -174,12 +174,11 @@ class ComKoowaControllerToolbarActionbar extends KControllerToolbarActionbar
     protected function _commandOptions(KControllerToolbarCommand $command)
     {
         $option = $this->getIdentifier()->package;
-        $icon   = 'k-icon-cog';
 
         $return = urlencode(base64_encode(JUri::getInstance()));
         $link   = 'option=com_config&view=component&component=com_'.$option.'&path=&return='.$return;
         
-        $command->icon = sprintf('icon-%s', $icon);
+        $command->icon = 'k-icon-cog';
         // Need to do a JRoute call here, otherwise component is turned into option in the query string by our router
         $command->attribs['href'] = JRoute::_('index.php?'.$link, false);
     }
