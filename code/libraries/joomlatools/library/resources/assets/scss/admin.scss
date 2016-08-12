@@ -1,18 +1,20 @@
-/* Global tools
-   ========================================================================== */
-
 /**
- * Containing different libraries, variables, mixins and functions
+ * Default theme
+ * ==============
  */
 
-@import "admin/core/tools";
-
-
-/* Core styling
-   ========================================================================== */
 
 /**
- * Loading all SCSS files
+ * Joomla variables
+ * ----------------
+ * Load first to win over "!default" variables defined in core/_tools.scss
  */
 
-@import "admin/core/core";
+@import "admin/variables";
+
+
+/**
+ * Original files can be found in Joomlatools UI
+ */
+
+@import "../../../../../../../../kodekit-ui/src/scss/kodekit-ui";

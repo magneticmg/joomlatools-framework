@@ -518,3 +518,49 @@
   -ms-hyphens: none;
   hyphens: none;
 }
+
+
+@mixin koowa_icon_font {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Styling the span element */
+  vertical-align: middle;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 16px;
+
+  /* Styling the before element */
+  &:before {
+    display: block;
+    overflow: visible;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    background-size: cover; // For customer image background overrides
+  }
+
+  /* Hiding the i element */
+  i {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+}
+
