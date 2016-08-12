@@ -32,16 +32,28 @@ class ComKoowaTemplateHelperMenubar extends KTemplateHelperToolbar
 
         foreach ($config->toolbar->getCommands() as $command)
         {
+            $command->append(array(
+                'attribs' => array(
+                    'href' => '#',
+                    'class' => array()
+                )
+            ));
+
             if(!empty($command->href)) {
-                $command->href = $this->getTemplate()->route($command->href);
+                $command->attribs['href'] = $this->getTemplate()->route($command->href);
             }
 
-            $url    = KHttpUrl::fromString($command->href);
-            $view   = isset($url->query['view']) ? $url->query['view'] : false;
-            $class  = $command->active ? ' class="k-is-active"' : '';
+            $url = KHttpUrl::fromString($command->attribs->href);
 
-            $html .= '<li'.$class.'>';
-            $html .= '<a class="'.($view ? 'k-navigation-'.$view : '').'" href="'.$command->href.'">';
+            if (isset($url->query['view'])) {
+                $command->attribs->class->append('k-navigation-'.$url->query['view']);
+            }
+
+            $attribs = clone $command->attribs;
+            $attribs->class = implode(" ", KObjectConfig::unbox($attribs->class));
+
+            $html .= '<li'.($command->active ? ' class="k-is-active"' : '').'>';
+            $html .= '<a '.$this->buildAttributes($attribs).'>';
             $html .= $this->getObject('translator')->translate($command->label);
             $html .= '</a>';
             $html .= '</li>';
