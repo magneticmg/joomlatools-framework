@@ -606,7 +606,7 @@ window.jQuery = window.kQuery;
                 if (tooltip) {
                     tooltip = tooltip.replace('%s', item.data('title'));
 
-                    dropdown_button.tooltip({
+                    dropdown_button.ktooltip({
                         "container":".koowa-container",
                         "delay":{"show":500,"hide":50},
                         'title': tooltip

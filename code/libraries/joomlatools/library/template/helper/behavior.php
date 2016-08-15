@@ -582,7 +582,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
                         if (data) {
                             $.extend(true, options, data);
                         }
-                        el.tooltip(options);
+                        el.ktooltip(options);
                         });
                 });
             </script>";
