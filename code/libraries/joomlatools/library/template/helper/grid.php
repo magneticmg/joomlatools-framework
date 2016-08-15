@@ -33,7 +33,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         {
             $html = $this->getTemplate()->helper('behavior.tooltip');
             $html .= '<span class="k-icon-lock-locked"
-                            data-koowa-tooltip 
+                            data-k-tooltip 
                             title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
                     </span>';
         }
@@ -70,7 +70,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         {
             $html = $this->getTemplate()->helper('behavior.tooltip');
             $html .= '<span class="k-icon-lock-locked"
-                            data-koowa-tooltip
+                            data-k-tooltip
                             title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
                     </span>';
         }
@@ -231,7 +231,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $query['direction'] = ($direction == 'desc' ? 'asc' : 'desc'); // toggle
         $url->setQuery($query);
 
-        $html  = '<a href="'.$url.'" data-koowa-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
+        $html  = '<a href="'.$url.'" data-k-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
         $html .= $translator->translate($config->title);
 
         if($config->column == $config->sort)
@@ -279,7 +279,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         }
         else $attribs = 'style="color:'.$config->color.'"';
 
-        $html = '<span data-koowa-tooltip class="k-icon-%s" %s><span class="k-visually-hidden">%s</span></span>';
+        $html = '<span data-k-tooltip class="k-icon-%s" %s><span class="k-visually-hidden">%s</span></span>';
         $html = sprintf($html, $config->icon, $attribs, $config->alt);
         $html .= $this->getTemplate()->helper('behavior.tooltip');
 

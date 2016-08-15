@@ -547,8 +547,8 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
     {
         $config = new KObjectConfigJson($config);
         $config->append(array(
-            'selector' => '[data-koowa-tooltip]',
-            'data'     => 'koowa-tooltip',
+            'selector' => '[data-k-tooltip]',
+            'data'     => 'k-tooltip',
             'options_callback' => null,
             'options'  => array()
         ));
