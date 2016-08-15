@@ -558,7 +558,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         // Load Bootstrap with JS plugins.
         if(!static::isLoaded('tooltip'))
         {
-            $html .= $this->bootstrap(array('css' => false, 'javascript' => true));
+            $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'tooltip.js" />';
 
             static::setLoaded('tooltip');
         }

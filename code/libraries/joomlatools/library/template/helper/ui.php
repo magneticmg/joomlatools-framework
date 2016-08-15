@@ -114,6 +114,7 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
             KTemplateHelperBehavior::setLoaded('tooltip');
             KTemplateHelperBehavior::setLoaded('tree');
             KTemplateHelperBehavior::setLoaded('calendar');
+            KTemplateHelperBehavior::setLoaded('tooltip');
         }
 
         $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());

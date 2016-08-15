@@ -135,6 +135,11 @@ module.exports = function(grunt) {
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
+                    ],
+                    '<%= nookuFrameworkAssetsPath %>/js/build/tooltip.js': [
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/bootstrap.tooltip.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ]
                 }
             }
@@ -189,6 +194,11 @@ module.exports = function(grunt) {
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.class.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
+                    ],
+                    '<%= nookuFrameworkAssetsPath %>/js/min/tooltip.js': [
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/bootstrap-tooltip.js',
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ]
                 }
