@@ -170,8 +170,8 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug'    => false,
-            'selector' => '[data-koowa-modal]',
-            'data'     => 'koowa-modal',
+            'selector' => '[data-k-modal]',
+            'data'     => 'k-modal',
             'options_callback' => null,
             'options'  => array('type' => 'image')
         ));
