@@ -228,13 +228,6 @@ module.exports = function(grunt) {
         },
 
 
-        // Shell commands
-        shell: {
-            updateCanIUse: {
-                command: 'npm update caniuse-db'
-            }
-        },
-
 
         // Watch files
         watch: {
@@ -242,7 +235,7 @@ module.exports = function(grunt) {
                 files: [
                     '<%= nookuFrameworkAssetsPath %>/icons/svg/*.svg'
                 ],
-                tasks: ['webfont', 'sass', 'autoprefixer'],
+                tasks: ['sass', 'autoprefixer'],
                 options: {
                     interrupt: true,
                     atBegin: false
@@ -293,7 +286,7 @@ module.exports = function(grunt) {
     });
 
     // The dev task will be used during development
-    grunt.registerTask('default', ['shell', 'copy', 'watch']);
+    grunt.registerTask('default', ['copy', 'watch']);
 
     // Javascript only
     grunt.registerTask('javascript', ['uglify', 'concat']);
