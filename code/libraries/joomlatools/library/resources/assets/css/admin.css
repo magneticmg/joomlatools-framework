@@ -424,7 +424,7 @@ Dropdown
 
 markup:
 <div class="k-dropdown">
-    <a class="k-dropdown__toggle" data-toggle="dropdown" href="javascript:void(0)">
+    <a class="k-dropdown__toggle" data-k-toggle="dropdown" href="javascript:void(0)">
         Dropdown trigger
         <span class="k-caret" aria-hidden="true"></span>
     </a>
@@ -450,7 +450,7 @@ Drop it up when dropdown item is located at the bottom of a view
 
 markup:
 <div class="k-dropdown k-dropdown--dropup">
-    <a class="k-dropdown__toggle" data-toggle="dropdown" href="javascript:void(0)">
+    <a class="k-dropdown__toggle" data-k-toggle="dropdown" href="javascript:void(0)">
         Dropup trigger
         <span class="k-caret" aria-hidden="true"></span>
     </a>
@@ -480,7 +480,7 @@ markup:
 
 sg-wrapper:
 <div class="k-dropdown k-is-open">
-    <a class="k-dropdown__toggle" data-toggle="dropdown" href="javascript:void(0)">
+    <a class="k-dropdown__toggle" data-k-toggle="dropdown" href="javascript:void(0)">
         Dropdown trigger
         <span class="k-caret" aria-hidden="true"></span>
     </a>
@@ -547,7 +547,7 @@ Display a list of icons or images in a grid
 
 markup:
 <div class="k-dropdown">
-    <a class="k-dropdown__toggle" data-toggle="dropdown" href="javascript:void(0)">
+    <a class="k-dropdown__toggle" data-k-toggle="dropdown" href="javascript:void(0)">
         Dropdown trigger
         <span class="k-caret" aria-hidden="true"></span>
     </a>
@@ -3679,13 +3679,13 @@ Tabs
 markup:
 <ul class="k-tabs">
     <li class="k-is-active">
-        <a href="#tab1" data-toggle="tab">Tab 1</a>
+        <a href="#tab1" data-k-toggle="tab">Tab 1</a>
     </li>
     <li>
-        <a href="#tab2" data-toggle="tab">Tab 2</a>
+        <a href="#tab2" data-k-toggle="tab">Tab 2</a>
     </li>
      <li class="k-is-disabled">
-        <a href="#tab3" data-toggle="tab">Tab 3 (disabled)</a>
+        <a href="#tab3" data-k-toggle="tab">Tab 3 (disabled)</a>
     </li>
 </ul>
 <div class="k-tabs-content">
