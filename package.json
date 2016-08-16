@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/joomlatools/joomlatools-framework#readme",
   "devDependencies": {
+    "bootstrap-sass": "3.3.7",
     "grunt": "1.0.0",
     "grunt-autoprefixer": "2.2.0",
     "grunt-contrib-concat": "1.0.1",
