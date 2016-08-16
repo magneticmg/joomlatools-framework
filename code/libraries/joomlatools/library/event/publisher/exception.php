@@ -65,7 +65,8 @@ class KEventPublisherException extends KEventPublisherAbstract
      */
     public function enable()
     {
-        $this->getExceptionHandler()->addHandler(array($this, 'publishException'));
+        $this->getExceptionHandler()->addExceptionCallback(array($this, 'publishException'));
+
         return parent::enable();
     }
 
@@ -76,8 +77,9 @@ class KEventPublisherException extends KEventPublisherAbstract
      */
     public function disable()
     {
-        $this->getExceptionHandler()->removeHandler(array($this, 'publishException'));
-        return parent::enable();
+        $this->getExceptionHandler()->removeExceptionCallback(array($this, 'publishException'));
+
+        return parent::disable();
     }
 
     /**

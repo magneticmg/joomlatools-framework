@@ -20,7 +20,7 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
      *
      * @var array
      */
-    private $__handlers = array();
+    private $__exception_callbacks = array();
 
     /**
      * The exception stack
@@ -60,7 +60,15 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
      * @var string
      * @see _handleFailure
      */
-    protected $_last_unhandled_error;
+    private $__last_unhandled_error;
+
+    /**
+     * Flag to determine if the shutdown handler was registered, avoids over-registering
+     *
+     * @var bool
+     * @see enable
+     */
+    private $__shutdown_registered = false;
 
     /**
      * Constructor.
@@ -72,15 +80,15 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
         parent::__construct($config);
 
         if ($error = error_get_last()) {
-            $this->_last_unhandled_error = md5(serialize($error));
+            $this->__last_unhandled_error = md5(serialize($error));
         }
 
         //Set the errors to handle
         $this->setErrorReporting($config->error_reporting);
 
         //Add handlers
-        foreach($config->exception_handlers as $handler) {
-            $this->addHandler($handler);
+        foreach($config->exception_callbacks as $callback) {
+            $this->addExceptionCallback($callback);
         }
 
         if($config->exception_type) {
@@ -104,10 +112,10 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
     protected function _initialize(KObjectConfig $config)
     {
         $config->append(array(
-            'exception_handlers' => array(),
-            'exception_type'     => self::TYPE_ALL,
-            'error_reporting'    => self::ERROR_REPORTING,
-            'error_operator'     => true
+            'exception_callbacks' => array(),
+            'exception_type'      => self::TYPE_ALL,
+            'error_reporting'     => self::ERROR_REPORTING,
+            'error_operator'      => true
         ));
 
         parent::_initialize($config);
@@ -117,13 +125,13 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
      * Enable exception handling
      *
      * @param integer $type The type of exceptions to enable
-     * @return KExceptionHandler
+     * @return $this
      */
     public function enable($type = self::TYPE_ALL)
     {
         if($type & self::TYPE_EXCEPTION && !($this->_exception_type & self::TYPE_EXCEPTION))
         {
-            set_exception_handler(array($this, 'handleException'));
+            set_exception_handler(array($this, '_handleException'));
             $this->_exception_type |= self::TYPE_EXCEPTION;
         }
 
@@ -135,7 +143,12 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
 
         if($type & self::TYPE_FAILURE && !($this->_exception_type & self::TYPE_FAILURE))
         {
-            register_shutdown_function(array($this, '_handleFailure'));
+            if (!$this->__shutdown_registered)
+            {
+                register_shutdown_function(array($this, '_handleFailure'));
+                $this->__shutdown_registered = true;
+            }
+
             $this->_exception_type |= self::TYPE_FAILURE;
         }
 
@@ -146,7 +159,7 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
      * Disable exception handling
      *
      * @param integer $type The type of exceptions to disable
-     * @return KExceptionHandler
+     * @return $this
      */
     public function disable($type = self::TYPE_ALL)
     {
@@ -172,62 +185,62 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
     }
 
     /**
-     * Add an exception handler
+     * Add an exception callback
      *
      * @param  callable $callback
-     * @param  bool $prepend If true, the handler will be prepended instead of appended.
-     * @throws InvalidArgumentException If the callback is not a callable
-     * @return KExceptionHandler
+     * @param  bool $prepend If true, the callback will be prepended instead of appended.
+     * @throws \InvalidArgumentException If the callback is not a callable
+     * @return KExceptionHandlerAbstract
      */
-    public function addHandler($callback, $prepend = false )
+    public function addExceptionCallback($callback, $prepend = false )
     {
         if (!is_callable($callback))
         {
-            throw new InvalidArgumentException(
-                'The handler must be a callable, "'.gettype($callback).'" given.'
+            throw new \InvalidArgumentException(
+                'The callback must be a callable, "'.gettype($callback).'" given.'
             );
         }
 
         if($prepend) {
-            array_unshift($this->__handlers, $callback);
+            array_unshift($this->__exception_callbacks, $callback);
         } else {
-            array_push($this->__handlers, $callback);
+            array_push($this->__exception_callbacks, $callback);
         }
 
         return $this;
     }
 
     /**
-     * Remove an exception handler
+     * Remove an exception callback
      *
      * @param  callable $callback
-     * @throws InvalidArgumentException If the callback is not a callable
-     * @return KExceptionHandler
+     * @throws \InvalidArgumentException If the callback is not a callable
+     * @return KExceptionHandlerAbstract
      */
-    public function removeHandler($callback)
+    public function removeExceptionCallback($callback)
     {
         if (!is_callable($callback))
         {
-            throw new InvalidArgumentException(
-                'The handler must be a callable, "'.gettype($callback).'" given.'
+            throw new \InvalidArgumentException(
+                'The callback must be a callable, "'.gettype($callback).'" given.'
             );
         }
 
-        if($key = array_search($callback, $this->__handlers)) {
-            unset($this->__handlers[$key]);
+        if($key = array_search($callback, $this->__exception_callbacks)) {
+            unset($this->__exception_callbacks[$key]);
         }
 
         return $this;
     }
 
     /**
-     * Get the registered handlers
+     * Get the registered exception callbacks
      *
      * @return array An array of callables
      */
-    public function getHandlers()
+    public function getExceptionCallbacks()
     {
-        return $this->__handlers;
+        return $this->__exception_callbacks;
     }
 
     /**
@@ -261,20 +274,20 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
     }
 
     /**
-     * Handle an exception by calling all handlers that have registered to receive it.
+     * Handle an exception by calling all callbacks that have registered to receive it.
      *
-     * If an exception handler returns TRUE the exception handling will be aborted, otherwise the next handler will be
-     * called, until all handlers have gotten a change to handle the exception.
+     * If an exception callback returns TRUE the exception handling will be aborted, otherwise the next callback will be
+     * called, until all callbacks have gotten a change to handle the exception.
      *
-     * @param   Exception  $exception  The exception to be handled
-     * @return  bool  If the exception was handled return TRUE, otherwise false
+     * @param  \Exception  $exception  The exception to be handled
+     * @return bool  If the exception was handled return TRUE, otherwise false
      */
-    public function handleException(Exception $exception)
+    public function handleException(\Exception $exception)
     {
         try
         {
             //Try to handle the exception
-            foreach($this->getHandlers() as $handler)
+            foreach($this->getExceptionCallbacks() as $handler)
             {
                 if(call_user_func_array($handler, array(&$exception)) === true)
                 {
@@ -288,7 +301,7 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
             $message  = "<p><strong>%s</strong>: '%s' thrown in <strong>%s</strong> on line <strong>%s</strong></p>";
             $message .= "<p>while handling exception</p>";
             $message .= "<p><strong>%s</strong>: '%s' thrown in <strong>%s</strong> on line <strong>%s</strong></p>";
-            $message .= "<h3>Stacktrace</h3>%s";
+            $message .= "<h3>Stacktrace</h3><pre>%s</pre>";
 
             $message = sprintf($message,
                 get_class($e),
@@ -339,6 +352,54 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
     }
 
     /**
+     * Exception Handler
+     *
+     * Do not call this method directly. Function visibility is public because set_exception_handler does not allow for
+     * protected method callbacks.
+     *
+     * @param  Exception $exception  The exception to be handled
+     * @return bool
+     */
+    public function _handleException($exception)
+    {
+        $result = false;
+
+        if($this->isEnabled(self::TYPE_EXCEPTION))
+        {
+            //Handle \Error Exceptions in PHP7
+            if (class_exists('Error') && $exception instanceof \Error)
+            {
+                $message = $exception->getMessage();
+                $file    = $exception->getFile();
+                $line    = $exception->getLine();
+                $type    = E_ERROR; //Set to E_ERROR by default
+
+                if($exception instanceof \DivisionByZeroError) {
+                    $type = E_WARNING;
+                }
+
+                if($exception instanceof \AssertionError) {
+                    $type = E_WARNING;
+                }
+
+                if($exception instanceof \ParseError) {
+                    $type = E_PARSE;
+                }
+
+                if($exception instanceof \TypeError) {
+                    $type =  E_RECOVERABLE_ERROR;
+                }
+
+                $result = $this->_handleError($type, $message, $file, $line, $exception);
+            }
+            else $result = $this->handleException($exception);
+        }
+
+        //Let the normal error flow continue
+        return $result;
+    }
+
+    /**
      * Error Handler
      *
      * Do not call this method directly. Function visibility is public because set_error_handler does not allow for
@@ -349,9 +410,10 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
      * @param string $file       The filename that the error was raised in
      * @param int    $line       The line number the error was raised at
      * @param array  $context    An array that points to the active symbol table at the point the error occurred
+     * @param object $previous   The previous exception used for the exception chaining
      * @return bool
      */
-    public function _handleError($level, $message, $file, $line, $context = null)
+    public function _handleError($level, $message, $file, $line, $context = null, $previous = null)
     {
         $result = false;
 
@@ -368,7 +430,7 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
                 if ($this->getErrorReporting() & $level)
                 {
                     $exception = new KExceptionError(
-                        $message, KHttpResponse::INTERNAL_SERVER_ERROR, $level, $file, $line
+                        $message, KHttpResponse::INTERNAL_SERVER_ERROR, $level, $file, $line, $previous
                     );
 
                     $result = $this->handleException($exception);
@@ -396,7 +458,7 @@ class KExceptionHandlerAbstract extends KObject implements KExceptionHandlerInte
             $error = error_get_last();
 
             // Make sure error happened after we started handling them
-            if ($error && md5(serialize($error)) !== $this->_last_unhandled_error)
+            if ($error && md5(serialize($error)) !== $this->__last_unhandled_error)
             {
                 $level = $error['type'];
 
