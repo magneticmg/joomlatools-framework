@@ -98,10 +98,13 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
      */
     public function bootstrap($config = array())
     {
+        $template = JPATH_THEMES.'/'.JFactory::getApplication()->getTemplate();
+
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => JFactory::getApplication()->getCfg('debug'),
-            'javascript' => false
+            'javascript' => false,
+            'css' => file_exists($template.'/enable-koowa-bootstrap.txt')
         ));
 
         $html = '';
@@ -117,11 +120,7 @@ class ComKoowaTemplateHelperBehavior extends KTemplateHelperBehavior
             $config->javascript = false;
         }
 
-        $template = JPATH_THEMES.'/'.JFactory::getApplication()->getTemplate();
-
-        if (file_exists($template.'/enable-koowa-bootstrap.txt')) {
-            $html .= parent::bootstrap($config);
-        }
+        $html .= parent::bootstrap($config);
 
         return $html;
     }
