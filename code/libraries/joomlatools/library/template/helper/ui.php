@@ -118,7 +118,6 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         }
 
         $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());
-        $html .= $this->bootstrap(array('css' => false, 'javascript' => true, 'debug' => $config->debug));
         $html .= '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>';
 
 
@@ -135,40 +134,5 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $this->getTemplate()->getFilter('wrapper')->setWrapper($config->wrapper);
 
         return '<ktml:template:wrapper>'; // used to make sure the template only wraps once
-    }
-
-    /**
-     * Add Bootstrap JS and CSS a modal box
-     *
-     * @param array|KObjectConfig $config
-     * @return string   The html output
-     */
-    public function bootstrap($config = array())
-    {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'debug' => false,
-            'css'   => true,
-            'javascript' => false
-        ));
-
-        $html = '';
-
-        if ($config->javascript && !KTemplateHelperBehavior::isLoaded('bootstrap-javascript'))
-        {
-            $html .= $this->jquery($config);
-            $html .= '<ktml:script src="assets://js/'.($config->debug ? '' : 'min/').'bootstrap.js" />';
-
-            KTemplateHelperBehavior::setLoaded('bootstrap-javascript');
-        }
-
-        if ($config->css && !KTemplateHelperBehavior::isLoaded('bootstrap-css'))
-        {
-            $html .= '<ktml:style src="assets://css/bootstrap.css" />';
-
-            KTemplateHelperBehavior::setLoaded('bootstrap-css');
-        }
-
-        return $html;
     }
 }

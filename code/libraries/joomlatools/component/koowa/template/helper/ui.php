@@ -59,7 +59,7 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
         {
             // Load Bootstrap file if it's explicitly asked for
             if ($tmpl !== 'koowa' && file_exists(JPATH_THEMES.'/'.$template.'/enable-koowa-bootstrap.txt')) {
-                $html .= $this->bootstrap(array('javascript' => false, 'css' => true));
+                $html .= $this->getTemplate()->helper('behavior.bootstrap', array('javascript' => false, 'css' => true));
             }
 
             // Load the admin styles in frontend forms
@@ -87,38 +87,6 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
         }
 
         $html .= parent::styles($config);
-
-        return $html;
-    }
-
-    /**
-     * Add Bootstrap JS and CSS a modal box
-     *
-     * @param array|KObjectConfig $config
-     * @return string   The html output
-     */
-    public function bootstrap($config = array())
-    {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'debug' => JFactory::getApplication()->getCfg('debug'),
-            'javascript' => false
-        ));
-
-        $html = '';
-
-        if ($config->javascript && !KTemplateHelperBehavior::isLoaded('bootstrap-javascript'))
-        {
-            $html .= $this->getTemplate()->helper('behavior.jquery', $config->toArray());
-
-            JHtml::_('bootstrap.framework');
-
-            KTemplateHelperBehavior::setLoaded('bootstrap-javascript');
-
-            $config->javascript = false;
-        }
-
-        $html .= parent::bootstrap($config);
 
         return $html;
     }
