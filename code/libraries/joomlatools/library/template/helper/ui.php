@@ -29,6 +29,7 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $config->append(array(
             'debug' => false,
             'package' => $identifier->package,
+            'domain'  => $identifier->domain,
             'styles' => array(),
             'wrapper_class' => array(
                 'koowa-container koowa',
@@ -52,6 +53,10 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
                 $config->styles->package = $config->package;
             }
 
+            if ($config->domain) {
+                $config->styles->domain = $config->domain;
+            }
+
             $config->styles->debug = $config->debug;
 
             $html .= $this->styles($config->styles);
@@ -73,10 +78,11 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => false,
-            'package' => $identifier->package
+            'package' => $identifier->package,
+            'domain'  => $identifier->domain
         ))->append(array(
             'folder' => 'com_'.$config->package,
-            'file'   => ($identifier->type === 'mod' ? 'module' : $identifier->domain) ?: 'admin'
+            'file'   => ($identifier->type === 'mod' ? 'module' : $config->domain) ?: 'admin'
         ));
 
         $html = '';
@@ -99,13 +105,14 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => false,
+            'domain'  => $identifier->domain
         ));
 
         $html = '';
 
         $html .= $this->getTemplate()->helper('behavior.modernizr', $config->toArray());
 
-        if (($identifier->domain === 'admin' || $identifier->domain === '')  && !KTemplateHelperBehavior::isLoaded('admin.js')) {
+        if (($config->domain === 'admin' || $config->domain === '')  && !KTemplateHelperBehavior::isLoaded('admin.js')) {
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
 
             KTemplateHelperBehavior::setLoaded('admin.js');

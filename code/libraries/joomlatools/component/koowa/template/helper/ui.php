@@ -41,10 +41,11 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => JFactory::getApplication()->getCfg('debug'),
-            'package' => $identifier->package
+            'package' => $identifier->package,
+            'domain'  => $identifier->domain
         ))->append(array(
             'folder' => 'com_'.$config->package,
-            'file'   => ($identifier->type === 'mod' ? 'module' : $identifier->domain) ?: 'admin',
+            'file'   => ($identifier->type === 'mod' ? 'module' : $config->domain) ?: 'admin',
             'media_path' => JPATH_ROOT.'/media'
         ));
 
