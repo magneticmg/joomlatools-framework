@@ -26,6 +26,9 @@
 /* Responsive tables */
 @import "../../../../../../../../kodekit-ui/src/scss/molecules/responsive-table";
 
+/* Pagination */
+@import "../../../../../../../../kodekit-ui/src/scss/molecules/pagination";
+
 /* Tooltips */
 @import "../../../../../../../../kodekit-ui/src/scss/molecules/tooltip";
 
@@ -43,7 +46,7 @@
   @import "site/header";
   @import "site/input-file";
   @import "site/jqtree";
-  @import "site/pagination";
+  //@import "site/pagination";
   @import "site/select2";
   @import "site/table";
   @import "site/toolbar";
