@@ -132,7 +132,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
                         kQuery(".k-search__empty").removeClass("k-is-visible");
                     }
 
-                    if (event.which === 13 || event.type === "blur") {
+                    if (event.which === 13 || (event.type === "blur" && (v || value) && v != value)) {
                         event.preventDefault();
                         submitForm(kQuery(this).parents("form"));
                     }
