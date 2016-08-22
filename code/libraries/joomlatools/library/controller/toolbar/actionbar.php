@@ -109,6 +109,8 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
             $identifier    = $this->getController()->getIdentifier();
             $command->href = 'component='.$identifier->package.'&view='.$identifier->name;
         }
+
+        $command->icon = 'k-icon-plus';
     }
 
     /**
@@ -126,6 +128,56 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
                 'data-prompt' => $translator->translate('Deleted items will be lost forever. Would you like to continue?')
             )
         ));
+
+        $command->icon = 'k-icon-trash';
+    }
+
+    /**
+     * Edit toolbar command
+     *
+     * @param   KControllerToolbarCommand $command  A KControllerToolbarCommand object
+     * @return  void
+     */
+    protected function _commandEdit(KControllerToolbarCommand $command)
+    {
+        $command->icon = 'k-icon-pencil';
+        $command->append(array(
+            'attribs' => array(
+                'data-action' => 'edit'
+            )
+        ));
+    }
+
+    /**
+     * Edit toolbar command
+     *
+     * @param   KControllerToolbarCommand $command  A KControllerToolbarCommand object
+     * @return  void
+     */
+    protected function _commandSave(KControllerToolbarCommand $command)
+    {
+        $command->icon = 'k-icon-check k-icon--success';
+        $command->append(array(
+            'attribs' => array(
+                'data-action' => 'save'
+            )
+        ));
+    }
+
+    /**
+     * Edit toolbar command
+     *
+     * @param   KControllerToolbarCommand $command  A KControllerToolbarCommand object
+     * @return  void
+     */
+    protected function _commandApply(KControllerToolbarCommand $command)
+    {
+        $command->icon = 'k-icon-pencil';
+        $command->append(array(
+            'attribs' => array(
+                'data-action' => 'apply'
+            )
+        ));
     }
 
     /**
@@ -136,7 +188,7 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
      */
     protected function _commandEnable(KControllerToolbarCommand $command)
     {
-        $command->icon = 'icon-publish';
+        $command->icon = 'k-icon-check k-icon--success';
 
         $command->append(array(
             'attribs' => array(
@@ -154,7 +206,7 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
      */
     protected function _commandDisable(KControllerToolbarCommand $command)
     {
-        $command->icon = 'icon-unpublish';
+        $command->icon = 'k-icon-x k-icon--error';
 
         $command->append(array(
             'attribs' => array(
@@ -199,13 +251,12 @@ abstract class KControllerToolbarActionbar extends KControllerToolbarAbstract
         $command->append(array(
             'href'	  => ''
         ))->append(array(
-                'attribs' => array(
-                    'class' => array('koowa-modal'),
-                    'href'  => $command->href,
-                    'data-koowa-modal'   => array('type' => 'iframe')
-                )
-            ));
+            'attribs' => array(
+                'href'  => $command->href,
+                'data-k-modal'   => array('type' => 'iframe')
+            )
+        ));
 
-        $command->attribs['data-koowa-modal'] = json_encode($command->attribs['data-koowa-modal']);
+        $command->attribs['data-k-modal'] = json_encode($command->attribs['data-k-modal']);
     }
 }

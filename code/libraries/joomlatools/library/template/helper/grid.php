@@ -32,8 +32,9 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         if($config->entity->isLockable() && $config->entity->isLocked())
         {
             $html = $this->getTemplate()->helper('behavior.tooltip');
-            $html .= '<span class="koowa-tooltip koowa_icon--locked"
-                           title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
+            $html .= '<span class="k-icon-lock-locked"
+                            data-k-tooltip 
+                            title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
                     </span>';
         }
         else
@@ -68,8 +69,9 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         if($config->entity->isLockable() && $config->entity->isLocked())
         {
             $html = $this->getTemplate()->helper('behavior.tooltip');
-            $html .= '<span class="koowa-tooltip koowa_icon--locked"
-                           title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
+            $html .= '<span class="k-icon-lock-locked"
+                            data-k-tooltip
+                            title="'.$this->getTemplate()->helper('grid.lock_message', array('entity' => $config->entity)).'">
                     </span>';
         }
         else
@@ -125,12 +127,12 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
                     var v = kQuery(this).val();
 
                     if (v) {
-                        kQuery(".k-search__button-empty").addClass("is-visible");
+                        kQuery(".k-search__empty").addClass("k-is-visible");
                     } else {
-                        kQuery(".k-search__button-empty").removeClass("is-visible");
+                        kQuery(".k-search__empty").removeClass("k-is-visible");
                     }
 
-                    if (event.which === 13 || event.type === "blur") {
+                    if (event.which === 13 || (event.type === "blur" && (v || value) && v != value)) {
                         event.preventDefault();
                         submitForm(kQuery(this).parents("form"));
                     }
@@ -138,10 +140,10 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
 
             kQuery(function($) {
                 $(".k-search__field").keypress(send).blur(send);
-                var empty_button = $(".k-search__button-empty");
+                var empty_button = $(".k-search__empty");
                 
                 if (value) {
-                    empty_button.addClass("is-visible");
+                    empty_button.addClass("k-is-visible");
                 }
                 
                 empty_button.click(function(event) {
@@ -159,13 +161,22 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
             </script>';
         }
 
-        $html .= '<div class="k-search__container k-search__container--has-both-buttons">';
-        $html .= '<input type="search" name="search" class="k-search__field" placeholder="'.$config->placeholder.'" value="'.$this->getTemplate()->escape($config->search).'" />';
-        $html .= '<button type="submit" class="k-search__button-search"><span class="k-icon-magnifying-glass"></span></button>';
-        $html .= '<button class="k-search__button-empty"><span>X</span></button>';
+        $html .= '<div class="k-search k-search--has-both-buttons">';
+        $html .= '<label for="k-search-input">' . $this->getObject('translator')->translate('Search') . '</label>';
+        $html .= '<input id="k-search-input" type="search" name="search" class="k-search__field" placeholder="'.$config->placeholder.'" value="'.$this->getTemplate()->escape($config->search).'" />';
+        $html .= '<button type="submit" class="k-search__submit">';
+        $html .= '<span class="k-icon-magnifying-glass" aria-hidden="true"></span>';
+        $html .= '<span class="k-visually-hidden">' . $this->getObject('translator')->translate('Search') . '</span>';
+        $html .= '</button>';
+        $html .= '<button type="button" class="k-search__empty">';
+        $html .= '<span class="k-search__empty-area">';
+        $html .= '<span class="k-icon-x" aria-hidden="true"></span>';
+        $html .= '<span class="k-visually-hidden">' . $this->getObject('translator')->translate('Clear search') . '</span>';
+        $html .= '</span>';
+        $html .= '</button>';
 
         if ($config->search) {
-            $html .= '<div class="k-scopebar__item__label k-scopebar__item__label--numberless"></div>';
+            $html .= '<div class="k-scopebar__item-label k-scopebar__item-label--numberless"></div>';
         }
 
         $html .= '</div>';
@@ -214,24 +225,24 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $direction	= strtolower($config->direction);
         $direction 	= in_array($direction, array('asc', 'desc')) ? $direction : 'asc';
 
-        //Set the class
-        $class = 'koowa-tooltip ';
-        if($config->column == $config->sort)
-        {
-            $class .= ' -koowa-'.$direction;
-            $direction = $direction == 'desc' ? 'asc' : 'desc'; // toggle
-        }
-
         $url = clone $this->getTemplate()->url();
 
         $query              = $url->getQuery(1);
         $query['sort']      = $config->column;
-        $query['direction'] = $direction;
+        $query['direction'] = ($direction == 'desc' ? 'asc' : 'desc'); // toggle
         $url->setQuery($query);
 
-        $html  = '<a class="'.$class.'" href="'.$url.'" data-koowa-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
+        $html  = '<a href="'.$url.'" data-k-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
         $html .= $translator->translate($config->title);
+
+        if($config->column == $config->sort)
+        {
+            $direction = $direction == 'desc' ? 'descending' : 'ascending'; // toggle
+            $html .= '<span class="k-icon-sort-'.$direction.'" aria-hidden="true"></span>';
+        }
+
         $html .= '</a>';
+
 
         return $html;
     }
@@ -269,7 +280,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         }
         else $attribs = 'style="color:'.$config->color.'"';
 
-        $html = '<span class="koowa-tooltip koowa_icon--%s" %s><i>%s</i></span>';
+        $html = '<span data-k-tooltip class="k-icon-%s" %s><span class="k-visually-hidden">%s</span></span>';
         $html = sprintf($html, $config->icon, $attribs, $config->alt);
         $html .= $this->getTemplate()->helper('behavior.tooltip');
 

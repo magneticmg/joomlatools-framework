@@ -13,7 +13,7 @@
  * @author  Johan Janssens <https://github.com/johanjanssens>
  * @package Koowa\Library\Template\Helper
  */
-class KTemplateHelperActionbar extends KTemplateHelperAbstract
+class KTemplateHelperActionbar extends KTemplateHelperToolbar
 {
     /**
      * Render the action bar commands
@@ -26,49 +26,36 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'toolbar' => null,
-            'title'   => null,
-        ))->append(array(
-            'icon' => $config->toolbar->getName()
         ));
 
-
-        //Set a custom title
-        if($config->title || $config->icon)
-        {
-            if($config->toolbar->hasCommand('title'))
-            {
-                $command = $config->toolbar->getCommand('title');
-
-                if ($config->title) {
-                    $command->set('title', $config->title);
-                }
-
-                if ($config->icon) {
-                    $command->set('icon', $config->icon);
-                }
-            }
-            else $config->toolbar->addTitle($config->title, $config->icon);
-        }
-
         //Render the buttons
-        $html = '<span class="k-toolbar-buttons">';
+        $html = '';
 
-        foreach ($config->toolbar->getCommands() as $command)
+        $commands = $config->toolbar->getCommands();
+
+        if (count($commands))
         {
-            $name = $command->getName();
+            $html .= '<div class="k-toolbar k-js-toolbar">';
 
-            if (($name === 'title' && $config->{'no-title'} === '') || ($name !== 'title' && $config->{'no-buttons'} === '')) {
-                continue;
+            foreach ($commands as $command)
+            {
+                $name = $command->getName();
+
+                if ($name === 'title') {
+                    continue;
+                }
+
+                if(method_exists($this, $name)) {
+                    $html .= $this->$name(array('command' => $command));
+                } else {
+                    $html .= $this->command(array('command' => $command));
+                }
             }
 
-            if(method_exists($this, $name)) {
-                $html .= $this->$name(array('command' => $command));
-            } else {
-                $html .= $this->command(array('command' => $command));
-            }
+            $html .= '</div>';
         }
 
-        $html .= "</span>";
+
 
         return $html;
     }
@@ -92,7 +79,7 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         if ($command->allowed === false)
         {
             $command->attribs->title = $translator->translate('You are not allowed to perform this action');
-            $command->attribs->class->append(array('disabled', 'unauthorized'));
+            $command->attribs->class->append(array('k-is-disabled', 'k-is-unauthorized'));
         }
 
          //Add a toolbar class	
@@ -107,12 +94,11 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         //Create the id
         $command->attribs->id = 'toolbar-'.$command->id;
 
-        $command->attribs->class->append(array('btn', 'btn-default', 'btn-sm', 'k-btn-'.$command->id));
+        $command->attribs->class->append(array('k-button', 'k-button--default', 'k-button-'.$command->id));
 
-        $icon = $this->_getIconClass($command->icon);
+        $icon = $this-> _getIconClass($command->icon);
         if ($command->id === 'new' || $command->id === 'apply') {
-            $command->attribs->class->append(array('btn-success'));
-            $icon .= ' icon-white';
+            $command->attribs->class->append(array('k-button--success'));
         }
 
         $attribs = clone $command->attribs;
@@ -121,44 +107,11 @@ class KTemplateHelperActionbar extends KTemplateHelperAbstract
         $html = '<a '.$this->buildAttributes($attribs).'>';
 
         if ($this->_useIcons()) {
-            $html .= '<i class="'.$icon.'"></i> ';
+            $html .= '<span class="'.$icon.'" aria-hidden="true"></span> ';
         }
 
-        $html .= '<span class="k-toolbar__text">';
         $html .= $translator->translate($command->label);
-        $html .= '</span>';
         $html .= '</a>';
-
-        return $html;
-    }
-
-    /**
-     * Render the action bar title
-     *
-     * @param   array   $config An optional array with configuration options
-     * @return  string  Html
-     */
-    public function title($config = array())
-    {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'command' => NULL,
-        ));
-
-        $title = $this->getObject('translator')->translate($config->command->title);
-        $icon  = $config->command->icon;
-        $html  = '';
-
-        if (!empty($title))
-        {
-            // Strip the extension.
-            $icons = explode(' ', $icon);
-            foreach ($icons as &$icon) {
-                $icon = 'pagetitle--' . preg_replace('#\.[^.]*$#', '', $icon);
-            }
-
-            $html = '<div class="pagetitle ' . htmlspecialchars(implode(' ', $icons)) . '"><h2>' . $title . '</h2></div>';
-        }
 
         return $html;
     }

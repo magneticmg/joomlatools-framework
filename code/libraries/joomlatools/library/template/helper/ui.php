@@ -16,13 +16,6 @@
 class KTemplateHelperUi extends KTemplateHelperAbstract
 {
     /**
-     * Array which holds a list of loaded Javascript libraries
-     *
-     * @type array
-     */
-    protected static $_loaded = array();
-
-    /**
      * Loads the common UI libraries
      *
      * @param array $config
@@ -36,6 +29,7 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $config->append(array(
             'debug' => false,
             'package' => $identifier->package,
+            'domain'  => $identifier->domain,
             'styles' => array(),
             'wrapper_class' => array(
                 'koowa-container koowa',
@@ -59,6 +53,10 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
                 $config->styles->package = $config->package;
             }
 
+            if ($config->domain) {
+                $config->styles->domain = $config->domain;
+            }
+
             $config->styles->debug = $config->debug;
 
             $html .= $this->styles($config->styles);
@@ -80,10 +78,11 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => false,
-            'package' => $identifier->package
+            'package' => $identifier->package,
+            'domain'  => $identifier->domain
         ))->append(array(
             'folder' => 'com_'.$config->package,
-            'file'   => ($identifier->type === 'mod' ? 'module' : $identifier->domain) ?: 'admin'
+            'file'   => ($identifier->type === 'mod' ? 'module' : $config->domain) ?: 'admin'
         ));
 
         $html = '';
@@ -106,20 +105,29 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => false,
+            'domain'  => $identifier->domain
         ));
 
         $html = '';
 
         $html .= $this->getTemplate()->helper('behavior.modernizr', $config->toArray());
-        $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());
-        $html .= $this->bootstrap(array('css' => false, 'javascript' => true, 'debug' => $config->debug));
-        $html .= '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>';
 
-        if ($identifier->domain === 'admin' && !isset(self::$_loaded['admin.js'])) {
+        if (($config->domain === 'admin' || $config->domain === '')  && !KTemplateHelperBehavior::isLoaded('admin.js')) {
             $html .= '<ktml:script src="assets://js/'.($config->debug ? 'build/' : 'min/').'admin.js" />';
 
-            self::$_loaded['admin.js'] = true;
+            KTemplateHelperBehavior::setLoaded('admin.js');
+            KTemplateHelperBehavior::setLoaded('modal');
+            KTemplateHelperBehavior::setLoaded('select2');
+            KTemplateHelperBehavior::setLoaded('tooltip');
+            KTemplateHelperBehavior::setLoaded('tree');
+            KTemplateHelperBehavior::setLoaded('calendar');
+            KTemplateHelperBehavior::setLoaded('tooltip');
         }
+
+        $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());
+        $html .= '<script data-inline type="text/javascript">var el = document.body; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}</script>';
+
+
 
         return $html;
     }
@@ -133,40 +141,5 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         $this->getTemplate()->getFilter('wrapper')->setWrapper($config->wrapper);
 
         return '<ktml:template:wrapper>'; // used to make sure the template only wraps once
-    }
-
-    /**
-     * Add Bootstrap JS and CSS a modal box
-     *
-     * @param array|KObjectConfig $config
-     * @return string   The html output
-     */
-    public function bootstrap($config = array())
-    {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'debug' => false,
-            'css'   => true,
-            'javascript' => false
-        ));
-
-        $html = '';
-
-        if ($config->javascript && !isset(self::$_loaded['bootstrap-javascript']))
-        {
-            $html .= $this->jquery($config);
-            $html .= '<ktml:script src="assets://js/'.($config->debug ? '' : 'min/').'bootstrap.js" />';
-
-            self::$_loaded['bootstrap-javascript'] = true;
-        }
-
-        if ($config->css && !isset(self::$_loaded['bootstrap-css']))
-        {
-            $html .= '<ktml:style src="assets://css/bootstrap.css" />';
-
-            self::$_loaded['bootstrap-css'] = true;
-        }
-
-        return $html;
     }
 }

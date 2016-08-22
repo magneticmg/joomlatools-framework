@@ -1,3 +1,5 @@
+var globalCacheForjQueryReplacement = window.jQuery;
+window.jQuery = window.kQuery;
 /* =========================================================
  * bootstrap-datepicker.js
  * http://www.eyecon.ro/bootstrap-datepicker
@@ -53,7 +55,7 @@
 		if(this.isInline) {
 			this.picker.addClass('datepicker-inline').appendTo(this.element);
 		} else {
-			this.picker.addClass('datepicker-dropdown dropdown-menu');
+			this.picker.addClass('datepicker-dropdown k-dropdown__menu');
 		}
 
 		if (this.o.rtl){
@@ -1418,41 +1420,5 @@
 
 }( window.kQuery ));
 
-/*
- ---
-
- description: Custom configuration of bootstrap-datepicker tuned for Koowa
-
- authors:
- - Stian Didriksen
-
- requires:
- - bootstrap-datepicker
-
- license: GNU GPLv3 <http://www.gnu.org/licenses/gpl.html>
-
- copyright: Copyright (C) 2007 - 2014 Johan Janssens and Timble CVBA. (http://www.timble.net)
-
- ...
- */
-
-(function ($) {
-    "use strict";
-
-    $.fn.koowaDatepicker = function (options) {
-
-        var settings = {
-                parentEl: $.fn.koowaDatepicker.container
-            };
-        if (typeof(options) === 'object') {
-            $.extend(true, settings, options);
-        }
-
-        this.each(function() {
-            $(this).datepicker(settings);
-        });
-
-        return this;
-    };
-
-})(kQuery);
+window.jQuery = globalCacheForjQueryReplacement;
+globalCacheForjQueryReplacement = undefined;

@@ -28,44 +28,33 @@ class ComKoowaTemplateHelperActionbar extends KTemplateHelperActionbar
 
         $html = parent::render($config);
 
-        // FIXME: take this out when we refactor UI
-        if (JFactory::getApplication()->isSite()) {
-            $html = str_replace('k-toolbar-buttons', 'k-toolbar-buttons btn-group', $html);
-        }
-
         return $html;
     }
 
     /**
-     * Render the action bar title
-     *
-     * @param   array   $config An optional array with configuration options
-     * @return  string  Html
+     * Use Bootstrap 2.3.2 classes for buttons in frontend
+     * @param array $config
+     * @return string
      */
-    public function title($config = array())
+    public function command($config = array())
     {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'command' => NULL,
-        ));
-
-        $title = $this->getObject('translator')->translate($config->command->title);
-        $html  = '';
-
-        if (!empty($title))
+        if (JFactory::getApplication()->isSite())
         {
-            $html = '<div class="k-heading">' . $title . '</div>';
+            $config = new KObjectConfigJson($config);
+            $config->append(array(
+                'command' => NULL
+            ));
 
-            if (JFactory::getApplication()->isAdmin())
-            {
-                $app = JFactory::getApplication();
-                $app->JComponentTitle = $html;
+            $command = $config->command;
 
-                JFactory::getDocument()->setTitle($app->getCfg('sitename') . ' - ' . JText::_('JADMINISTRATION') . ' - ' . $title);
+            $command->attribs->class->append(array('btn'));
+
+            if ($command->id === 'new' || $command->id === 'apply') {
+                $command->attribs->class->append(array('btn-success'));
             }
         }
 
-        return $html;
+        return parent::command($config);
     }
 
     /**

@@ -90,8 +90,7 @@ class ComKoowaTemplateHelperGrid extends KTemplateHelperGrid
         {
             $html .= $this->getTemplate()->helper('behavior.tooltip');
 
-            $html = '<div class="koowa-tooltip"
-                          data-koowa-tooltip="'.htmlentities(json_encode(array('placement' => 'bottom'))).'"
+            $html = '<div data-k-tooltip="'.htmlentities(json_encode(array('placement' => 'bottom'))).'"
                           title="'.$translator->translate('Please order by this column first by clicking the column title').'">'
                     .$html.
                     '</div>';

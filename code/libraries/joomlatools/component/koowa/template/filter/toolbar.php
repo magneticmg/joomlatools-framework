@@ -125,14 +125,14 @@ class ComKoowaTemplateFilterToolbar extends KTemplateFilterAbstract
                     'type'  => 'actionbar',
                 ));
 
+                $helper = $this->getTemplate()->createHelper($config->type);
+
                 $html = '';
-                if($toolbar = $this->getToolbar($config->type))
+                if($toolbar = $this->getToolbar($helper->getToolbarType()))
                 {
                     $config->toolbar = $toolbar; //set the toolbar in the config
 
-                    $html = $this->getTemplate()
-                                 ->createHelper($config->type)
-                                 ->render($config);
+                    $html = $helper->render($config);
                 }
 
                 //Remove placeholder

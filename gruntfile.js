@@ -13,21 +13,55 @@ module.exports = function(grunt) {
         // Grunt variables
         nookuFrameworkAssetsPath: 'code/libraries/joomlatools/library/resources/assets',
         joomlatoolsFrameworkAssetsPath: 'code/libraries/joomlatools/component/koowa/resources/assets',
+        KUIPath: '../kodekit-ui/src',
+        JUIPath: '../joomlatools-ui/dist',
 
-        // Iconfont
-        webfont: {
-            icons: {
-                src: '<%= nookuFrameworkAssetsPath %>/icons/svg/*.svg',
-                dest: '<%= nookuFrameworkAssetsPath %>/fonts/koowa-icons',
-                destCss: '<%= nookuFrameworkAssetsPath %>/scss/koowa/utilities',
-                options: {
-                    font: 'koowa-icons',
-                    hashes: false,
-                    stylesheet: 'scss',
-                    relativeFontPath: '../fonts/icons/',
-                    template: '<%= nookuFrameworkAssetsPath %>/icons/template.css',
-                    htmlDemo: false
-                }
+
+        // Copy Joomlatools UI files
+        copy: {
+            JUItoJUIFramework: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['<%= JUIPath %>/css/*.*'],
+                        dest: '<%= joomlatoolsFrameworkAssetsPath %>/css',
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= JUIPath %>/fonts',
+                        src: ['**'],
+                        dest: '<%= joomlatoolsFrameworkAssetsPath %>/fonts'
+                    }
+                ]
+            },
+            JUItoKUIFramework: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['<%= JUIPath %>/css/admin.*'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/css',
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= JUIPath %>/fonts',
+                        src: ['**'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/fonts'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= JUIPath %>/js',
+                        src: ['**'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/js'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= KUIPath %>/js',
+                        src: ['**'],
+                        dest: '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui'
+                    }
+                ]
             }
         },
 
@@ -57,84 +91,55 @@ module.exports = function(grunt) {
         },
 
 
-        // Modernizr
-        modernizr: {
-            dist: {
-                "cache": true,
-
-                "dest": "<%= nookuFrameworkAssetsPath %>/js/build/modernizr.js",
-                "options": [
-                    "html5shiv",
-                    "prefixedCSS",
-                    "setClasses"
-                ],
-                "uglify": false,
-                "tests": [
-                    "appearance",
-                    "checked",
-                    "flexbox",
-                    "flexboxlegacy",
-                    "flexboxtweener",
-                    "flexwrap"
-                ],
-                "crawl" : false,
-                "customTests" : [],
-                "classPrefix": "k-"
-            }
-        },
-
-
         // Concatenate files
 
         concat: {
             js: {
                 files: {
-                    '<%= nookuFrameworkAssetsPath %>/js/build/admin.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
-                        'node_modules/footable/dist/footable.min.js',
-                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/main.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
-                    ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.js': [
                         'node_modules/jquery/dist/jquery.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.noconflict.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.magnific-popup.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/jquery.validate.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/jquery-validation/dist/jquery.validate.js',
                         '<%= nookuFrameworkAssetsPath %>/js/jquery.validate.patch.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
+                    ],
+                    '<%= nookuFrameworkAssetsPath %>/js/build/koowa.datepicker.js': [
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/datepicker.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/koowa.select2.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/select2/dist/js/select2.full.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.select2.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/koowa.tree.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/jqtree/tree.jquery.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.tree.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.tree.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/build/koowa.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/jquery.ui.widget.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.scopebar.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.class.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.grid.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/jquery.ui.widget.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.scopebar.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.class.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
+                    ],
+                    '<%= nookuFrameworkAssetsPath %>/js/build/tooltip.js': [
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/bootstrap.tooltip.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ]
                 }
             }
@@ -144,22 +149,10 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 sourceMap: true,
-                preserveComments: 'some' // preserve @license tags
+                preserveComments: /(?:^!|@(?:license|preserve|cc_on))/ // preserve @license tags
             },
             build: {
                 files: {
-                    '<%= nookuFrameworkAssetsPath %>/js/min/admin.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        'node_modules/select2/dist/js/select2.full.min.js',
-                        'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
-                        'node_modules/footable/dist/footable.min.js',
-                        'node_modules/floatthead/dist/jquery.floatThead.min.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/overflowing.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/tabbable.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/off-canvas-menu.js',
-                        '<%= nookuFrameworkAssetsPath %>/scripts/main.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
-                    ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/bootstrap.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/bootstrap.js'
                     ],
@@ -168,43 +161,45 @@ module.exports = function(grunt) {
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.magnific-popup.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.validate.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/jquery-validation/dist/jquery.validate.js',
                         '<%= nookuFrameworkAssetsPath %>/js/jquery.validate.patch.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.datepicker.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/datepicker.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.datepicker.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/datepicker.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.select2.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/select2/dist/js/select2.full.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.select2.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.tree.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
                         'node_modules/jqtree/tree.jquery.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.tree.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
-                    ],
-                    '<%= nookuFrameworkAssetsPath %>/js/min/modernizr.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/build/modernizr.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.tree.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/koowa.js': [
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.set.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/jquery.ui.widget.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.scopebar.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.class.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.grid.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/jquery.ui.widget.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.scopebar.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.class.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.grid.js',
                         '<%= nookuFrameworkAssetsPath %>/js/koowa.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/kquery.unset.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
+                    ],
+                    '<%= nookuFrameworkAssetsPath %>/js/min/tooltip.js': [
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/bootstrap-tooltip.js',
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.unset.js'
                     ]
                 }
             }
@@ -233,13 +228,6 @@ module.exports = function(grunt) {
         },
 
 
-        // Shell commands
-        shell: {
-            updateCanIUse: {
-                command: 'npm update caniuse-db'
-            }
-        },
-
 
         // Watch files
         watch: {
@@ -247,7 +235,7 @@ module.exports = function(grunt) {
                 files: [
                     '<%= nookuFrameworkAssetsPath %>/icons/svg/*.svg'
                 ],
-                tasks: ['webfont', 'sass', 'autoprefixer'],
+                tasks: ['sass', 'autoprefixer'],
                 options: {
                     interrupt: true,
                     atBegin: false
@@ -258,7 +246,9 @@ module.exports = function(grunt) {
                     '<%= nookuFrameworkAssetsPath %>/scss/*.scss',
                     '<%= nookuFrameworkAssetsPath %>/scss/**/*.scss',
                     '<%= joomlatoolsFrameworkAssetsPath %>/scss/*.scss',
-                    '<%= joomlatoolsFrameworkAssetsPath %>/scss/**/*.scss'
+                    '<%= joomlatoolsFrameworkAssetsPath %>/scss/**/*.scss',
+                    '<%= KUIPath %>/scss/*.scss',
+                    '<%= KUIPath %>/scss/**/*.scss'
                 ],
                 tasks: ['sass', 'autoprefixer'],
                 options: {
@@ -296,9 +286,9 @@ module.exports = function(grunt) {
     });
 
     // The dev task will be used during development
-    grunt.registerTask('default', ['shell', 'watch']);
+    grunt.registerTask('default', ['copy', 'watch']);
 
     // Javascript only
-    grunt.registerTask('javascript', ['modernizr', 'uglify', 'concat']);
+    grunt.registerTask('javascript', ['uglify', 'concat']);
 
 };

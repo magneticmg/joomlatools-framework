@@ -1,10 +1,8 @@
+/** Joomla hathor template specific styling / overrides =================================================== */
+/** Original files can be found in Joomlatools UI */
 /** Joomla Hathor template specific styling / overrides =================================================== */
 /* ========================================================================== Tools ========================================================================== */
-/* Variables, functions and mixins ========================================================================== */
-/** 1. Bourbon, needed for neat 2. Extending the neat library with own mixins 3. Neat: grid system */
-/* 1 */
-/* 2 */
-/* 3 */
+/* These file do not produce any CSS code on their own */
 body.tmpl-hathor .subheader, body.tmpl-hathor .toolbar-box { display: none !important; }
 
 body.tmpl-hathor #content { margin: 15px; }

@@ -15,31 +15,8 @@
 
 
 /**
- * Global tools
- * ------------
- * Containing different libraries, variables, mixins and functions
+ * Original files can be found in Joomlatools UI
  */
 
-@import "../../../../../library/resources/assets/scss/admin/core/tools";
-
-
-
-/**
- * Core styling
- * ------------
- * Finally loading the default styling
- */
-
-@import "../../../../../library/resources/assets/scss/admin/core/core";
-
-
-
-/**
- * Extra styling
- * -------------
- * Extra styling that can't be done by merely using variables
- */
-
-@import "styles";
-@import "modals";
+@import "../../../../../../../../../joomlatools-ui/src/scss/joomlatools-ui";
 

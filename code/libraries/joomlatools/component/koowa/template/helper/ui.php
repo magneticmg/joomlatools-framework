@@ -41,14 +41,34 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => JFactory::getApplication()->getCfg('debug'),
-            'package' => $identifier->package
+            'package' => $identifier->package,
+            'domain'  => $identifier->domain
         ))->append(array(
             'folder' => 'com_'.$config->package,
-            'file'   => ($identifier->type === 'mod' ? 'module' : $identifier->domain) ?: 'admin',
+            'file'   => ($identifier->type === 'mod' ? 'module' : $config->domain) ?: 'admin',
             'media_path' => JPATH_ROOT.'/media'
         ));
 
         $html = '';
+
+        $app      = JFactory::getApplication();
+        $template = $app->getTemplate();
+        $tmpl     = $this->getObject('request')->getQuery()->tmpl;
+        $layout   = $this->getObject('request')->getQuery()->layout;
+
+        if ($app->isSite())
+        {
+            // Load Bootstrap file if it's explicitly asked for
+            if ($tmpl !== 'koowa' && file_exists(JPATH_THEMES.'/'.$template.'/enable-koowa-bootstrap.txt')) {
+                $html .= $this->getTemplate()->helper('behavior.bootstrap', array('javascript' => false, 'css' => true));
+            }
+
+            // Load the admin styles in frontend forms
+            if ($tmpl === 'koowa' && $layout === 'form') {
+                $config->file = 'admin';
+            }
+        }
+
         $path = sprintf('%s/%s/css/%s.css', $config->media_path, $config->folder, $config->file);
 
         if (!file_exists($path))
@@ -60,26 +80,6 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
             }
         }
 
-        $app      = JFactory::getApplication();
-        $template = $app->getTemplate();
-        $tmpl     = $this->getObject('request')->getQuery()->tmpl;
-        $layout   = $this->getObject('request')->getQuery()->layout;
-
-
-
-        if ($app->isSite())
-        {
-            // Load Bootstrap file if it's explicitly asked for
-            if ($tmpl !== 'koowa' && file_exists(JPATH_THEMES.'/'.$template.'/enable-koowa-bootstrap.txt')) {
-                $html .= $this->bootstrap(array('javascript' => false, 'css' => true));
-            }
-
-            // Load the admin styles in frontend forms
-            if ($tmpl === 'koowa' && $layout === 'form') {
-                $config->file = 'admin';
-            }
-        }
-
         if ($app->isAdmin() && $config->file === 'admin' && (empty($tmpl) || $tmpl === 'index'))
         {
             if (file_exists(JPATH_ROOT.'/media/koowa/com_koowa/css/'.$template.'.css')) {
@@ -88,38 +88,6 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
         }
 
         $html .= parent::styles($config);
-
-        return $html;
-    }
-
-    /**
-     * Add Bootstrap JS and CSS a modal box
-     *
-     * @param array|KObjectConfig $config
-     * @return string   The html output
-     */
-    public function bootstrap($config = array())
-    {
-        $config = new KObjectConfigJson($config);
-        $config->append(array(
-            'debug' => JFactory::getApplication()->getCfg('debug'),
-            'javascript' => false
-        ));
-
-        $html = '';
-
-        if ($config->javascript && empty(static::$_loaded['bootstrap-javascript']))
-        {
-            $html .= $this->getTemplate()->helper('behavior.jquery', $config->toArray());
-
-            JHtml::_('bootstrap.framework');
-
-            static::$_loaded['bootstrap-javascript'] = true;
-
-            $config->javascript = false;
-        }
-
-        $html .= parent::bootstrap($config);
 
         return $html;
     }

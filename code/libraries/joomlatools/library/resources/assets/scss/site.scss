@@ -6,22 +6,31 @@
 @import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-/* Variables */
-@import "koowa/utilities/variables";
-@import "site/molecules/variables";
+/* Kodekit tools */
+@import "../../../../../../../../kodekit-ui/src/scss/core/tools";
 
-/* Mixins */
-@import "koowa/utilities/mixins";
+/* Site variables and mixins */
+@import "site/utilities/variables";
+@import "site/utilities/mixins";
 
 /* Outside of the koowa scope */
-@import "site/molecules/general";
-@import "site/molecules/modal";
+@import "site/modal";
 
 @import "../../../../../../../node_modules/select2/src/scss/core";
 @import "../../../../../../../node_modules/select2-bootstrap-theme/src/select2-bootstrap";
 
 /* Icons */
-@import "koowa/utilities/koowa-icons";
+@import "../../../../../../../../kodekit-ui/src/scss/utilities/k-icons";
+@import "../../../../../../../../kodekit-ui/src/scss/molecules/icons";
+
+/* Responsive tables */
+@import "../../../../../../../../kodekit-ui/src/scss/molecules/responsive-table";
+
+/* Pagination */
+@import "../../../../../../../../kodekit-ui/src/scss/molecules/pagination";
+
+/* Tooltips */
+@import "../../../../../../../../kodekit-ui/src/scss/molecules/tooltip";
 
 /* Inside koowa scope */
 .koowa {
@@ -33,20 +42,24 @@
   }
 
 
-  /* Koowa */
+  @import "site/anchor";
+  @import "site/header";
+  @import "site/input-file";
+  @import "site/jqtree";
+  //@import "site/pagination";
+  @import "site/select2";
+  @import "site/table";
+  @import "site/toolbar";
+  @import "site/wrapped-content";
 
-  @import "koowa/molecules/jqtree";
-  @import "koowa/molecules/select2";
+  /**
+   * Utilities
+   *
+   * Loading last so we have the biggest chance of 'winning' specificity wars without using !important
+   */
 
-
-  /* Molecules */
-
-  @import "site/molecules/anchor";
-  @import "site/molecules/header";
-  @import "site/molecules/icons";
-  @import "site/molecules/input-file";
-  @import "site/molecules/pagination";
-  @import "site/molecules/table";
-  @import "site/molecules/wrapped-content";
-
+  @import "../../../../../../../../kodekit-ui/src/scss/utilities/utilities";
+  @import "../../../../../../../../kodekit-ui/src/scss/utilities/component-animations";
+  @import "../../../../../../../../kodekit-ui/src/scss/utilities/hamburger";
 }
+

@@ -1,4 +1,3 @@
-
 var globalCacheForjQueryReplacement = window.jQuery;
 window.jQuery = window.kQuery;
 /*!
@@ -1495,7 +1494,5 @@ if ( $.ajaxPrefilter ) {
     });
 
 })(kQuery);
-
-
 window.jQuery = globalCacheForjQueryReplacement;
 globalCacheForjQueryReplacement = undefined;

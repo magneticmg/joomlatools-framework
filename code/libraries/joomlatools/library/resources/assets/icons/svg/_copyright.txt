@@ -1,3 +1,0 @@
-Icons are from: https://useiconic.com/open
-
-All icons starting with k- are not from iconic but are coming from the previeous Nooku Framework

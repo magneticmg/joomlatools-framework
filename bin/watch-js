@@ -1,2 +1,0 @@
-
-chokidar "**/*.js"  -i "**/(min|build)/*.js" -c 'npm run build:js -- {path}'
