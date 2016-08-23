@@ -1616,7 +1616,30 @@ Styleguide 2.25
 .k-tooltip.bottom-right .k-tooltip__arrow { top: 0; left: 5px; margin-top: -5px; border-width: 0 5px 5px; border-bottom-color: #000; }
 
 /* Inside koowa scope */
-.koowa { /* Border-box size everything */ /* Tree ========================================================================== */ /* ========================================================================== Select2 ========================================================================== */ /* 100% wide by default instead of just 220px making it responsive */ /** Utilities Loading last so we have the biggest chance of 'winning' specificity wars without using !important */ /** Adding class three times so we win over most other classes without using !important. Most selectors are max three long e.g.: `.some.longer[css=selector]` will still lose from `.selector.selector.selector` since we load this file last */ /*
+.koowa { /* Border-box size everything */ /* Tree ========================================================================== */ /*
+Tree
+
+markup:
+<div class="k-tree" id="k-jqtree"></div>
+<script type="text/javascript" defer>
+(function($) {
+    $(document).ready(function () {
+        new Koowa.Tree('#k-jqtree', {
+            "data": [
+                {"label":"Main category","id":4},
+                {"label":"Sub category 1","id":5,"parent":4},
+                {"label":"Sub category 2","id":6,"parent":4},
+                {"label":"Deeper category","id":7,"parent":6},
+                {"label":"Sub category 3","id":8,"parent":4}
+            ]
+        });
+    });
+});
+</script>
+
+Styleguide 2.26
+
+*/ /* ========================================================================== Select2 ========================================================================== */ /* 100% wide by default instead of just 220px making it responsive */ /** Utilities Loading last so we have the biggest chance of 'winning' specificity wars without using !important */ /** Adding class three times so we win over most other classes without using !important. Most selectors are max three long e.g.: `.some.longer[css=selector]` will still lose from `.selector.selector.selector` since we load this file last */ /*
 Dynamic content holder
 
 Add `<script>` and other hidden content (like modals) inside this div so the elements won't be in the way for flexbox
@@ -1790,13 +1813,15 @@ Styleguide 6.9
 
 .koowa input.input-file, .koowa input[type=file] { margin: 0; padding: 0; border: none; font-size: 16px; line-height: 16px; width: auto; height: auto; }
 
+.koowa .k-tree { margin: 7px 0; }
+
 .koowa .k-tree:before, .koowa .k-tree:after { display: table; content: " "; }
 
 .koowa .k-tree:after { clear: both; }
 
-.koowa .k-tree .jqtree-element { padding: 0 7px 0 26px; }
+.koowa .k-tree .jqtree-element { padding: 0 7px 0 20px; }
 
-.koowa--rtl.koowa .k-tree .jqtree-element { padding: 0 26px 0 7px; }
+.koowa--rtl.koowa .k-tree .jqtree-element { padding: 0 20px 0 7px; }
 
 .koowa .k-tree .jqtree-element:hover, .koowa .k-tree .jqtree-element:focus { background: white; }
 
@@ -1806,7 +1831,13 @@ Styleguide 6.9
 
 .koowa--rtl.koowa .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 7px; padding-right: 0; }
 
-.koowa .k-tree .jqtree-selected { font-weight: bold; }
+.koowa .k-tree .jqtree-selected > .jqtree-element { background: #3071a9; color: white; }
+
+.koowa .k-tree .jqtree-selected:hover > .jqtree-element { background: #2d699d; }
+
+.koowa .k-sidebar-item .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 15px; }
+
+.koowa--rtl.koowa .k-sidebar-item .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 7px; padding-right: 15px; }
 
 .koowa .jqtree-tree { /* Reset default ul li styling */ }
 
@@ -1851,6 +1882,12 @@ Styleguide 6.9
 .koowa .jqtree-toggler.jqtree-closed:before { transform: rotate(-90deg); }
 
 .koowa--rtl.koowa .jqtree-toggler.jqtree-closed:before { transform: rotate(90deg); }
+
+.koowa .jqtree-selected > .jqtree-element { font-weight: 700; }
+
+.koowa .jqtree-selected > .jqtree_common > .jqtree-toggler:hover { color: white; }
+
+.koowa .jqtree-selected > .jqtree_common > .jqtree-toggler:hover:before { border-top-color: white; }
 
 .koowa .jqtree-closed ul { display: none; }
 
