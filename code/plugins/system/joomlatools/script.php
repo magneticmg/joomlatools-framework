@@ -279,11 +279,11 @@ class PlgSystemJoomlatoolsInstallerScript
             Please upgrade Joomla to the latest version first.'), JVERSION);
         }
 
-        if(version_compare(phpversion(), '5.3.9', '<'))
+        if(version_compare(phpversion(), '5.4', '<'))
         {
             $errors[] = sprintf(JText::_('Your server is running PHP %s which is an old and insecure version.
             It also contains a bug affecting the operation of our extensions.
-            Please contact your host and ask them to upgrade PHP to a newer version on your server.'), phpversion());
+            Please contact your host and ask them to upgrade PHP to at least 5.4 version on your server.'), phpversion());
         }
 
         if (!function_exists('token_get_all')) {
