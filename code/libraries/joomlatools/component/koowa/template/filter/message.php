@@ -28,11 +28,13 @@ class ComKoowaTemplateFilterMessage extends KTemplateFilterAbstract
             {
                 if ($type === 'notice') {
                     $type = 'info';
+                } elseif ($type === 'error') {
+                    $type = 'danger';
                 }
 
-                $output .= '<div class="alert alert-'.strtolower($type).'">';
+                $output .= '<div class="k-alert k-alert--'.strtolower($type).'">';
                 foreach ($message as $line) {
-                    $output .= '<div class="alert__text">'.$line.'</div>';
+                    $output .= $line;
                 }
                 $output .= '</div>';
             }
