@@ -1636,7 +1636,7 @@ markup:
 
 Styleguide 3.7
 
-*/ /* Container */ /* -------------------------------------------------------------------------- Grid children -------------------------------------------------------------------------- */ /* Main container */ /* When a sidebar is active next to it */ /* Sub container */ /* When a sidebar is active next to it */ /* Full container */ /* Flex wrapper ========================================================================== */ /*
+*/ /* Container */ /* Flex container */ /* -------------------------------------------------------------------------- Grid children -------------------------------------------------------------------------- */ /* Main container */ /* When a sidebar is active next to it */ /* Sub container */ /* When a sidebar is active next to it */ /* Full container */ /* Flex wrapper ========================================================================== */ /*
 Flex wrapper
 
 A flex wrapper that can be used on elements that need flexbox
@@ -4136,6 +4136,10 @@ Styleguide 6.9
 
 .k-is-resizing .koowa .k-container { overflow: hidden; }
 
+.koowa .k-container--flex { margin: 0 auto; padding: 20px; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-container--flex, .k-flexboxlegacy .koowa .k-container--flex { display: flex; flex-direction: column; flex: 1 1 auto; } }
+
 .koowa .k-container__main { margin-bottom: 20px; }
 
 @media screen and (min-width: 768px) { .koowa .k-container__main { float: left; margin: 0 10px 20px; width: calc(100% * 8/12 - 20px); }
@@ -6126,6 +6130,10 @@ Styleguide 6.9
 .koowa .k-content-block:last-child { margin-bottom: 0; }
 
 .koowa .k-position-relative { position: relative; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-dont-flex.k-dont-flex.k-dont-flex, .k-flexboxlegacy .koowa .k-dont-flex.k-dont-flex.k-dont-flex { flex: 0 0 auto; } }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-do-flex.k-do-flex.k-do-flex, .k-flexboxlegacy .koowa .k-do-flex.k-do-flex.k-do-flex { flex: 1 1 auto; } }
 
 .koowa .k-overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
 

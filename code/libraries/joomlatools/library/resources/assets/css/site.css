@@ -2022,6 +2022,10 @@ Styleguide 6.9
 
 .koowa .k-position-relative { position: relative; }
 
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-dont-flex.k-dont-flex.k-dont-flex, .k-flexboxlegacy .koowa .k-dont-flex.k-dont-flex.k-dont-flex { flex: 0 0 auto; } }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-do-flex.k-do-flex.k-do-flex, .k-flexboxlegacy .koowa .k-do-flex.k-do-flex.k-do-flex { flex: 1 1 auto; } }
+
 .koowa .fade { opacity: 0; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .fade.in { opacity: 1; }
