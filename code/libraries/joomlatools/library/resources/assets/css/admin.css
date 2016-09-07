@@ -1824,7 +1824,7 @@ markup:
 
 Styleguide 2.1
 
-*/ /* Alternate styles */ /* Breadcrumbs ========================================================================== */ /*
+*/ /* Overflowing alert with 33% max-height */ /* Alternate styles */ /* Breadcrumbs ========================================================================== */ /*
 Breadcrumbs
 
 markup:
@@ -4270,15 +4270,21 @@ Styleguide 6.9
 
 .koowa p:last-child { margin-bottom: 0; }
 
-.koowa ul, .koowa ol { margin-bottom: 1.5em; margin-left: 1.5em; }
+.koowa ul, .koowa ol { margin-bottom: 1.5em; padding-left: 1.5em; }
 
 .koowa ul:last-child, .koowa ol:last-child { margin-bottom: 0; }
 
-[dir="rtl"] .koowa ul, .koowa ol { margin-left: 0; margin-right: 1.5em; }
+[dir="rtl"] .koowa ul, [dir="rtl"] .koowa ol { padding-left: 0; padding-right: 1.5em; }
 
 .koowa .k-alert { padding: 13px; margin-bottom: 1.5em; }
 
 .koowa .k-alert:last-child { margin-bottom: 0; }
+
+.koowa .k-alert a { color: inherit; }
+
+.koowa .k-alert--overflow { max-height: 33%; overflow: auto; }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-alert--overflow, .k-flexboxlegacy .koowa .k-alert--overflow { flex: 0 1 auto; } }
 
 .koowa .k-alert--success { background-color: #27ae60; color: white; }
 
@@ -5593,7 +5599,7 @@ Styleguide 6.9
 
 .koowa .k-table-container .k-table-data--toggle, .koowa .k-table-container .k-table-data--form, .koowa .k-table-container .k-table-data--icon { white-space: nowrap; line-height: 1; vertical-align: middle; }
 
-.koowa .k-table-container .k-table-data--toggle a, .koowa .k-table-container .k-table-data--toggle span, .koowa .k-table-container .k-table-data--toggle input, .koowa .k-table-container .k-table-data--toggle svg, .koowa .k-table-container .k-table-data--toggle div, .koowa .k-table-container .k-table-data--toggle small, .koowa .k-table-container .k-table-data--form a, .koowa .k-table-container .k-table-data--form span, .koowa .k-table-container .k-table-data--form input, .koowa .k-table-container .k-table-data--form svg, .koowa .k-table-container .k-table-data--form div, .koowa .k-table-container .k-table-data--form small, .koowa .k-table-container .k-table-data--icon a, .koowa .k-table-container .k-table-data--icon span, .koowa .k-table-container .k-table-data--icon input, .koowa .k-table-container .k-table-data--icon svg, .koowa .k-table-container .k-table-data--icon div, .koowa .k-table-container .k-table-data--icon small { vertical-align: middle; line-height: 1; }
+.koowa .k-table-container .k-table-data--toggle a, .koowa .k-table-container .k-table-data--toggle span, .koowa .k-table-container .k-table-data--toggle input, .koowa .k-table-container .k-table-data--toggle svg, .koowa .k-table-container .k-table-data--toggle div, .koowa .k-table-container .k-table-data--toggle small, .koowa .k-table-container .k-table-data--toggle img, .koowa .k-table-container .k-table-data--form a, .koowa .k-table-container .k-table-data--form span, .koowa .k-table-container .k-table-data--form input, .koowa .k-table-container .k-table-data--form svg, .koowa .k-table-container .k-table-data--form div, .koowa .k-table-container .k-table-data--form small, .koowa .k-table-container .k-table-data--form img, .koowa .k-table-container .k-table-data--icon a, .koowa .k-table-container .k-table-data--icon span, .koowa .k-table-container .k-table-data--icon input, .koowa .k-table-container .k-table-data--icon svg, .koowa .k-table-container .k-table-data--icon div, .koowa .k-table-container .k-table-data--icon small, .koowa .k-table-container .k-table-data--icon img { vertical-align: middle; line-height: 1; }
 
 .koowa .k-table-container .k-table-data--toggle [class*="k-icon"], .koowa .k-table-container .k-table-data--form [class*="k-icon"], .koowa .k-table-container .k-table-data--icon [class*="k-icon"] { font-size: 16px; }
 
@@ -5606,6 +5612,8 @@ Styleguide 6.9
 .koowa .k-table-container .footable.breakpoint .k-table-data--toggle { width: 1%; padding-left: 7px; padding-right: 7px; }
 
 .koowa .k-table-container .k-table-data--form input { margin: 0 !important; }
+
+.koowa .k-table-container .k-table-data--icon img { min-width: 16px; }
 
 .koowa .k-table-container th.k-table-data--icon a { line-height: 25px; }
 
