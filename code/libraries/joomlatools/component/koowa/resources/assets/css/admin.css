@@ -4719,6 +4719,8 @@ Styleguide 6.9
 
 .koowa .k-input-group .k-form-control:focus { z-index: 3; /* 5 */ }
 
+.koowa .k-input-group .k-input-group__button .k-button, .koowa .k-input-group .k-input-group__button .btn { height: 32px; }
+
 .koowa .k-input-group--large > .k-form-control, .koowa .k-input-group--large > .select2-container--bootstrap .select2-selection--single, .koowa .k-input-group--large > .k-input-group__addon, .koowa .k-input-group--large > .k-input-group__button > .k-button, .koowa .k-input-group--large > .k-input-group__button > .btn { height: 39px; padding: 7px 14px; font-size: 18px; line-height: 23px; border-radius: 6px; }
 
 [dir="rtl"] .koowa .k-input-group--large > .k-form-control, .koowa .k-input-group--large > .select2-container--bootstrap .select2-selection--single, .koowa .k-input-group--large > .k-input-group__addon, .koowa .k-input-group--large > .k-input-group__button > .k-button, .koowa .k-input-group--large > .k-input-group__button > .btn { border-radius: 6px; }
@@ -6162,10 +6164,6 @@ Styleguide 6.9
 .koowa .k-ellipsis { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-.koowa .align-vertically { position: relative; }
-
-.koowa .align-vertically:after { position: absolute !important; top: 0 !important; left: 0 !important; content: "Get some glasses Ercan" !important; background: red !important; padding: 0.5em !important; z-index: 99 !important; width: auto !important; height: auto !important; }
 
 .koowa .k-overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
 

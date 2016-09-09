@@ -2037,10 +2037,6 @@ Styleguide 6.9
 
 .koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.koowa .align-vertically { position: relative; }
-
-.koowa .align-vertically:after { position: absolute !important; top: 0 !important; left: 0 !important; content: "Get some glasses Ercan" !important; background: red !important; padding: 0.5em !important; z-index: 99 !important; width: auto !important; height: auto !important; }
-
 .koowa .fade { opacity: 0; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .fade.in { opacity: 1; }
