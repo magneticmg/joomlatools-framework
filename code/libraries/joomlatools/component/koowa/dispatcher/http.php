@@ -24,8 +24,37 @@ class ComKoowaDispatcherHttp extends KDispatcherHttp
     {
         parent::__construct($config);
 
+        $this->addCommandCallback('before.dispatch', '_enableExceptionHandler');
+
         //Render an exception before sending the response
         $this->addCommandCallback('before.fail', '_renderError');
+    }
+
+    /**
+     * Enables our own exception handler at all times before dispatching
+     *
+     * @param KDispatcherContextInterface $context
+     */
+    protected function _enableExceptionHandler(KDispatcherContextInterface $context)
+    {
+        $handler = $this->getObject('exception.handler');
+
+        if (!$handler->isEnabled(KExceptionHandlerInterface::TYPE_EXCEPTION))
+        {
+            $handler->enable(KExceptionHandlerInterface::TYPE_EXCEPTION);
+
+            $this->addCommandCallback('after.send', '_revertExceptionHandler');
+        }
+    }
+
+    /**
+     * Reverts exception handler to its previous status if it was enabled in {@link _enableExceptionHandler()}
+     *
+     * @param KDispatcherContextInterface $context
+     */
+    protected function _revertExceptionHandler(KDispatcherContextInterface $context)
+    {
+        $this->getObject('exception.handler')->disable(KExceptionHandlerInterface::TYPE_EXCEPTION);
     }
 
     /**
