@@ -238,7 +238,8 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         if($config->column == $config->sort)
         {
             $direction = $direction == 'desc' ? 'descending' : 'ascending'; // toggle
-            $html .= '<span class="k-icon-sort-'.$direction.'" aria-hidden="true"></span>';
+            $html .= '<span class="k-sort-'.$direction.'" aria-hidden="true"></span>';
+            $html .= '<span class="k-visually-hidden">'.$direction.'</span>';
         }
 
         $html .= '</a>';
