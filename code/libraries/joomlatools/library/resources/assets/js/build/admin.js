@@ -18218,6 +18218,17 @@ var Konami = function (callback) {
                     addOffCanvasButton($(this), 'right');
                 });
             }
+            
+            // Open right sidebar on selecting items in table
+            if (sidebar_right.length) {
+                // Only aply to actual <a>` elements
+                $('.k-table-container table').on('click', 'a', function() {
+                    // Only apply if parent is a `<td>` (so not a `<th>`)
+                    if ($(this).parents('td').length > 0) {
+                        $('.k-off-canvas-menu-toggle--right').trigger('click');
+                    }
+                });
+            }
         }
 
         // Overflowing items
