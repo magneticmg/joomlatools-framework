@@ -1788,7 +1788,7 @@ sg-wrapper:
 
 Styleguide 6.9
 
-*/ /** Component animations Mainly used for tooltips right now We don't use the `.opacity()` mixin here since it causes a bug with text fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552. */ /* Hamburger ========================================================================== */ /** Animated hamburger button 1. Hide when JS is disabled, we don't need a toggle when there's no JS 2. Show when JS is enabled 3. Hide when the sidebar is visible */ /* Transform hamburger into a cross when the sidebar is opened */ }
+*/ /** Component animations Mainly used for tooltips right now We don't use the `.opacity()` mixin here since it causes a bug with text fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552. */ /* Hamburger ========================================================================== */ /** Animated hamburger button 1. Hide when JS is disabled, we don't need a toggle when there's no JS 2. Show when JS is enabled 3. Hide when the sidebar is visible */ /* Button styling */ /* Left button */ /* Transform hamburger into a cross when the sidebar is opened */ /* Right button */ /* Transform "i" into a cross when the sidebar is opened */ }
 
 .koowa, .koowa *, .koowa *:before, .koowa *:after { box-sizing: border-box; }
 
@@ -2051,23 +2051,15 @@ Styleguide 6.9
 
 .koowa .collapsing { position: relative; height: 0; overflow: hidden; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
-.koowa .k-off-canvas-menu-toggle { position: relative; z-index: 10; float: left; display: none; /* 1 */ width: 33px; height: 33px; padding: 0; border: none; border-radius: 3px; margin: 10px; background: #3071a9; color: white; /** Styling the hamburger bars */ /* Set proper margins */ }
+.koowa .k-off-canvas-menu-toggle { position: relative; z-index: 10; float: left; display: none; /* 1 */ width: 33px; height: 33px; padding: 0; border: none; border-radius: 3px; margin: 10px; background: #3071a9; color: white; /* Set proper margins */ }
 
 .koowa--rtl.koowa .k-off-canvas-menu-toggle { left: auto; float: right; }
 
 .k-js-enabled .koowa .k-off-canvas-menu-toggle { display: block; /* 2 */ }
 
-@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-off-canvas-menu-toggle { display: none; /* 3 */ } }
+@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-off-canvas-menu-toggle--left { display: none; /* 3 */ } }
 
-.koowa .k-off-canvas-menu-toggle .k-hamburger-bar1, .koowa .k-off-canvas-menu-toggle .k-hamburger-bar2, .koowa .k-off-canvas-menu-toggle .k-hamburger-bar3 { position: absolute; left: 9px; display: block; width: 15px; height: 3px; border-radius: 1px; background: white; vertical-align: middle; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
-
-.koowa--rtl.koowa .k-off-canvas-menu-toggle .k-hamburger-bar1, .koowa--rtl.koowa .k-off-canvas-menu-toggle .k-hamburger-bar2, .koowa--rtl.koowa .k-off-canvas-menu-toggle .k-hamburger-bar3 { left: auto; right: 9px; }
-
-.koowa .k-off-canvas-menu-toggle .k-hamburger-bar1 { top: 9px; }
-
-.koowa .k-off-canvas-menu-toggle .k-hamburger-bar2 { top: 15px; }
-
-.koowa .k-off-canvas-menu-toggle .k-hamburger-bar3 { top: 21px; }
+@media screen and (min-width: 600px) { .k-js-enabled .koowa .k-off-canvas-menu-toggle--right { display: none; /* 3 */ } }
 
 .koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--left { margin-right: 0; }
 
@@ -2077,18 +2069,34 @@ Styleguide 6.9
 
 .koowa--rtl.koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--right { margin-left: 10px; margin-right: 0; }
 
-.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-hamburger-bar1 { top: 15px; transform: rotate(135deg); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { position: absolute; display: block; background: white; vertical-align: middle; border-radius: 3px; transition: 0.3s 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
-.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-hamburger-bar2 { opacity: 0; transform: translate(-100%, 0); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { left: 9px; width: 15px; height: 3px; }
 
-.koowa--rtl.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-hamburger-bar2 { transform: translate(100%, 0); }
+.koowa--rtl.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa--rtl.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa--rtl.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { left: auto; right: 9px; }
 
-.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-hamburger-bar3 { top: 15px; transform: rotate(-135deg); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1 { top: 9px; }
 
-.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-hamburger-bar1 { top: 15px; transform: rotate(135deg); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2 { top: 15px; }
 
-.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-hamburger-bar2 { opacity: 0; transform: translate(-100%, 0); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { top: 21px; }
 
-.koowa--rtl.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-hamburger-bar2 { transform: translate(100%, 0); }
+.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-toggle-button-bar1 { top: 15px; transform: rotate(135deg); }
 
-.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-hamburger-bar3 { top: 15px; transform: rotate(-135deg); }
+.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-toggle-button-bar2 { opacity: 0; transform: scale(0); }
+
+.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { top: 15px; transform: rotate(-135deg); }
+
+.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { left: 14px; }
+
+.koowa--rtl.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa--rtl.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa--rtl.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { left: auto; right: 8px; }
+
+.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1 { width: 5px; height: 5px; top: 8px; }
+
+.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { width: 5px; height: 10px; top: 15px; }
+
+.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar1 { opacity: 0; transform: scale(0); }
+
+.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar2 { top: 9px; left: 15px; height: 15px; transform: rotate(135deg); opacity: 1; width: 3px; }
+
+.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { top: 9px; left: 15px; transform: rotate(-135deg); height: 15px; width: 3px; }

@@ -3997,7 +3997,7 @@ sg-wrapper:
 
 Styleguide 6.9
 
-*/ /* Overflowing ========================================================================== */ /** Add overflowing shadow boxes to either top, right, bottom or left side of an element. This shows the user that there's more content to see when no scrollbars are visible. To properly use this you need to wrap the overflowing container inside another container named `overflowing`. JS will take care of this if you don't. 1. This wrapping container needs to have overflow: hidden set 2. It also needs have a relative position for positioning the shadows 3. And adding overflow-scrolling: touch for smooth scroll on iOs 4. Add display: flex so child (actual overflowing container) can flex */ /** Component animations Mainly used for tooltips right now We don't use the `.opacity()` mixin here since it causes a bug with text fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552. */ /* Hamburger ========================================================================== */ /** Animated hamburger button 1. Hide when JS is disabled, we don't need a toggle when there's no JS 2. Show when JS is enabled 3. Hide when the sidebar is visible */ /* Transform hamburger into a cross when the sidebar is opened */ }
+*/ /* Overflowing ========================================================================== */ /** Add overflowing shadow boxes to either top, right, bottom or left side of an element. This shows the user that there's more content to see when no scrollbars are visible. To properly use this you need to wrap the overflowing container inside another container named `overflowing`. JS will take care of this if you don't. 1. This wrapping container needs to have overflow: hidden set 2. It also needs have a relative position for positioning the shadows 3. And adding overflow-scrolling: touch for smooth scroll on iOs 4. Add display: flex so child (actual overflowing container) can flex */ /** Component animations Mainly used for tooltips right now We don't use the `.opacity()` mixin here since it causes a bug with text fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552. */ /* Hamburger ========================================================================== */ /** Animated hamburger button 1. Hide when JS is disabled, we don't need a toggle when there's no JS 2. Show when JS is enabled 3. Hide when the sidebar is visible */ /* Button styling */ /* Left button */ /* Transform hamburger into a cross when the sidebar is opened */ /* Right button */ /* Transform "i" into a cross when the sidebar is opened */ }
 
 .koowa, .koowa *, .koowa *:before, .koowa *:after { box-sizing: border-box; }
 
@@ -4087,9 +4087,7 @@ Styleguide 6.9
 
 .k-is-resizing .koowa .k-component { overflow: hidden; }
 
-.koowa .k-content { position: relative; /* 1 */ z-index: 2; /* 1 */ background: white; /* 2 */ transition: transform 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* 3 */ /* Faking flexbox on older browsers by using table styling */ /** When flexbox is in use 1. Reset width needed for table 2. Set overflow for breadcrumbs to properly work */ }
-
-@media screen and (min-width: 768px) { .koowa .k-content { display: table-cell; width: 100%; } }
+.koowa .k-content { position: relative; /* 1 */ z-index: 2; /* 1 */ background: white; /* 2 */ transition: transform 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; /* 3 */ /* Faking flexbox on older browsers by using table styling */ display: table-cell; width: 100%; /** When flexbox is in use 1. Reset width needed for table 2. Set overflow for breadcrumbs to properly work */ }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-content, .k-flexboxlegacy .koowa .k-content { display: flex; flex: 1 1 auto; flex-direction: column; width: auto; /* 1 */ overflow: hidden; /* 2 */ } }
 
@@ -4103,29 +4101,27 @@ Styleguide 6.9
 
 .koowa .k-show-right-menu .k-content { transform: translate(-270px, 0); /* 2 */ }
 
-@media screen and (min-width: 768px) { .koowa .k-show-right-menu .k-content { transform: translate(0, 0); /* 3 */ } }
+@media screen and (min-width: 600px) { .koowa .k-show-right-menu .k-content { transform: translate(0, 0); /* 3 */ } }
 
 [dir="rtl"] .koowa .k-show-right-menu .k-content { transform: translate(270px, 0); }
 
-@media screen and (min-width: 768px) { [dir="rtl"] .koowa .k-show-right-menu .k-content { transform: translate(0, 0); } }
+@media screen and (min-width: 600px) { [dir="rtl"] .koowa .k-show-right-menu .k-content { transform: translate(0, 0); } }
 
 .koowa .k-is-opened-left .k-content, .koowa .k-is-opened-right .k-content { overflow: hidden; }
 
 @media screen and (min-width: 768px) { .koowa .k-is-opened-left .k-content, .koowa .k-is-opened-right .k-content { overflow: auto; /* 3 */ } }
 
+@media screen and (min-width: 600px) { .koowa .k-is-opened-left .k-content, .koowa .k-is-opened-right .k-content { overflow: auto; /* 3 */ } }
+
 .k-is-resizing .koowa .k-is-opened-left .k-content, .k-is-resizing .koowa .k-is-opened-right .k-content { overflow: hidden; }
 
 .koowa .k-off-canvas-overlay { position: absolute; top: 0; right: 0; bottom: 0; left: 0; /* 1 */ z-index: -1; /* 2 */ display: block; opacity: 0; /* 3 */ content: " "; background: black; transition: opacity 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
-
-@media screen and (min-width: 768px) { .koowa .k-off-canvas-overlay { display: none; /* 4 */ } }
 
 .koowa .k-show-left-menu .k-off-canvas-overlay, .koowa .k-show-right-menu .k-off-canvas-overlay { opacity: 0.75; /* 1 */ }
 
 .koowa .k-is-opened-left .k-off-canvas-overlay, .koowa .k-is-opened-right .k-off-canvas-overlay { z-index: 9; /* 2 */ }
 
-.koowa .k-content-wrapper { clear: both; /* 1 */ margin: 0; overflow: hidden; border-bottom: 1px solid #e0e0e0; /* Faking flexbox on older browsers by using table styling */ /* When flexbox is in use */ }
-
-@media screen and (min-width: 768px) { .koowa .k-content-wrapper { display: table; width: 100%; } }
+.koowa .k-content-wrapper { clear: both; /* 1 */ margin: 0; overflow: hidden; border-bottom: 1px solid #e0e0e0; /* Faking flexbox on older browsers by using table styling */ display: table; width: 100%; /* When flexbox is in use */ }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-content-wrapper, .k-flexboxlegacy .koowa .k-content-wrapper { display: flex; flex-direction: row; flex: 1 1 auto; border-bottom: none; } }
 
@@ -4177,21 +4173,35 @@ Styleguide 6.9
 
 [dir="rtl"] .koowa.koowa-container { direction: rtl; }
 
-.koowa .k-sidebar-left, .koowa .k-sidebar-right { position: relative; overflow: auto; -webkit-overflow-scrolling: touch; /* When resizing */ /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ /* When flexbox is in use */ }
+.koowa .k-sidebar-left, .koowa .k-sidebar-right { position: relative; overflow: auto; -webkit-overflow-scrolling: touch; /* When resizing */ /* Faking flexbox on older browsers by using table styling */ display: table-cell; vertical-align: top; /* When JavaScript is enabled */ /* When flexbox is in use */ display: flex; flex-direction: column; flex: 0 0 auto; }
 
 .k-is-resizing .koowa .k-sidebar-left, .k-is-resizing .koowa .k-sidebar-right { overflow: hidden; }
 
-@media screen and (min-width: 768px) { .koowa .k-sidebar-left, .koowa .k-sidebar-right { min-width: 210px; width: 210px; max-width: 210px; display: table-cell; vertical-align: top; } }
+.k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { position: absolute; z-index: 1; top: 0; height: 100%; display: none; }
 
-@media screen and (min-width: 1024px) { .koowa .k-sidebar-left, .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
+.koowa .k-sidebar-left { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ }
 
-.k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; position: absolute; z-index: 1; top: 0; height: 100%; display: none; /* On 'desktop' we 'open' the sidebar by default */ /* And we make it even larger when there's enough space */ }
+@media screen and (min-width: 768px) { .koowa .k-sidebar-left { min-width: 210px; width: 210px; max-width: 210px; } }
 
-@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { min-width: 210px; width: 210px; max-width: 210px; position: relative; height: auto; display: table-cell; } }
+@media screen and (min-width: 1024px) { .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; } }
 
-@media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
+.k-js-enabled .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; /* On 'desktop' we 'open' the sidebar by default */ /* And we make it even larger when there's enough space */ }
 
-@media (min-width: 768px) and (min-height: 391px) { .k-flexbox .koowa .k-sidebar-left, .k-flexboxlegacy .koowa .k-sidebar-left, .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: flex; flex-direction: column; flex: 0 0 auto; } }
+@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-sidebar-left { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; } }
+
+@media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; } }
+
+.koowa .k-sidebar-right { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ }
+
+@media screen and (min-width: 600px) { .koowa .k-sidebar-right { min-width: 210px; width: 210px; max-width: 210px; } }
+
+@media screen and (min-width: 600px) { .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
+
+.k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; /* On 'desktop' we 'open' the sidebar by default */ /* And we make it even larger when there's enough space */ }
+
+@media screen and (min-width: 600px) { .k-js-enabled .koowa .k-sidebar-right { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; } }
+
+@media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
 
 .koowa .k-sidebar-left { border-right: 1px solid #cfcfcf; background: #eeeeee; color: #222222; }
 
@@ -4220,6 +4230,8 @@ Styleguide 6.9
 .koowa .k-is-opened-left, .koowa .k-is-opened-right { overflow: hidden; /* 1 */ }
 
 @media screen and (min-width: 768px) { .koowa .k-is-opened-left, .koowa .k-is-opened-right { overflow: auto; /* 2 */ } }
+
+@media screen and (min-width: 600px) { .koowa .k-is-opened-left, .koowa .k-is-opened-right { overflow: auto; /* 2 */ } }
 
 .k-is-resizing .koowa .k-is-opened-left, .k-is-resizing .koowa .k-is-opened-right { overflow: hidden; /* 3 */ }
 
@@ -5897,7 +5909,7 @@ Styleguide 6.9
 
 [dir="rtl"] .koowa .k-show-right-menu > .k-title-bar { transform: translate(270px, 0); /* 2 */ }
 
-@media screen and (min-width: 768px) { .koowa .k-show-right-menu > .k-title-bar { transform: translate(0, 0); /* 3 */ }
+@media screen and (min-width: 600px) { .koowa .k-show-right-menu > .k-title-bar { transform: translate(0, 0); /* 3 */ }
   [dir="rtl"] .koowa .k-show-right-menu > .k-title-bar { transform: translate(0, 0); } }
 
 .koowa .k-show-left-menu .k-title-bar:before, .koowa .k-show-right-menu .k-title-bar:before { opacity: 0.75; /* 1 */ }
@@ -6206,23 +6218,15 @@ Styleguide 6.9
 
 .koowa .collapsing { position: relative; height: 0; overflow: hidden; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
-.koowa .k-off-canvas-menu-toggle { position: relative; z-index: 10; float: left; display: none; /* 1 */ width: 33px; height: 33px; padding: 0; border: none; border-radius: 3px; margin: 10px; background: #3071a9; color: white; /** Styling the hamburger bars */ /* Set proper margins */ }
+.koowa .k-off-canvas-menu-toggle { position: relative; z-index: 10; float: left; display: none; /* 1 */ width: 33px; height: 33px; padding: 0; border: none; border-radius: 3px; margin: 10px; background: #3071a9; color: white; /* Set proper margins */ }
 
 [dir="rtl"] .koowa .k-off-canvas-menu-toggle { left: auto; float: right; }
 
 .k-js-enabled .koowa .k-off-canvas-menu-toggle { display: block; /* 2 */ }
 
-@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-off-canvas-menu-toggle { display: none; /* 3 */ } }
+@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-off-canvas-menu-toggle--left { display: none; /* 3 */ } }
 
-.koowa .k-off-canvas-menu-toggle .k-hamburger-bar1, .koowa .k-off-canvas-menu-toggle .k-hamburger-bar2, .koowa .k-off-canvas-menu-toggle .k-hamburger-bar3 { position: absolute; left: 9px; display: block; width: 15px; height: 3px; border-radius: 1px; background: white; vertical-align: middle; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
-
-[dir="rtl"] .koowa .k-off-canvas-menu-toggle .k-hamburger-bar1, [dir="rtl"] .koowa .k-off-canvas-menu-toggle .k-hamburger-bar2, [dir="rtl"] .koowa .k-off-canvas-menu-toggle .k-hamburger-bar3 { left: auto; right: 9px; }
-
-.koowa .k-off-canvas-menu-toggle .k-hamburger-bar1 { top: 9px; }
-
-.koowa .k-off-canvas-menu-toggle .k-hamburger-bar2 { top: 15px; }
-
-.koowa .k-off-canvas-menu-toggle .k-hamburger-bar3 { top: 21px; }
+@media screen and (min-width: 600px) { .k-js-enabled .koowa .k-off-canvas-menu-toggle--right { display: none; /* 3 */ } }
 
 .koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--left { margin-right: 0; }
 
@@ -6232,18 +6236,34 @@ Styleguide 6.9
 
 [dir="rtl"] .koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--right { margin-left: 10px; margin-right: 0; }
 
-.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-hamburger-bar1 { top: 15px; transform: rotate(135deg); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { position: absolute; display: block; background: white; vertical-align: middle; border-radius: 3px; transition: 0.3s 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
-.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-hamburger-bar2 { opacity: 0; transform: translate(-100%, 0); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { left: 9px; width: 15px; height: 3px; }
 
-[dir="rtl"] .koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-hamburger-bar2 { transform: translate(100%, 0); }
+[dir="rtl"] .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, [dir="rtl"] .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, [dir="rtl"] .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { left: auto; right: 9px; }
 
-.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-hamburger-bar3 { top: 15px; transform: rotate(-135deg); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1 { top: 9px; }
 
-.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-hamburger-bar1 { top: 15px; transform: rotate(135deg); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2 { top: 15px; }
 
-.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-hamburger-bar2 { opacity: 0; transform: translate(-100%, 0); }
+.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { top: 21px; }
 
-[dir="rtl"] .koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-hamburger-bar2 { transform: translate(100%, 0); }
+.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-toggle-button-bar1 { top: 15px; transform: rotate(135deg); }
 
-.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-hamburger-bar3 { top: 15px; transform: rotate(-135deg); }
+.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-toggle-button-bar2 { opacity: 0; transform: scale(0); }
+
+.koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { top: 15px; transform: rotate(-135deg); }
+
+.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { left: 14px; }
+
+[dir="rtl"] .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, [dir="rtl"] .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, [dir="rtl"] .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { left: auto; right: 8px; }
+
+.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1 { width: 5px; height: 5px; top: 8px; }
+
+.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { width: 5px; height: 10px; top: 15px; }
+
+.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar1 { opacity: 0; transform: scale(0); }
+
+.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar2 { top: 9px; left: 15px; height: 15px; transform: rotate(135deg); opacity: 1; width: 3px; }
+
+.koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { top: 9px; left: 15px; transform: rotate(-135deg); height: 15px; width: 3px; }

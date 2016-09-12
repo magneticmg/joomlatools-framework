@@ -13,9 +13,9 @@
         if ($('.k-js-title-bar, .k-js-toolbar').length && $('.k-js-wrapper').length && $('.k-js-content').length)
         {
             var toggle_button = '<div class="k-off-canvas-menu-toggle-holder"><button class="k-off-canvas-menu-toggle" type="button">' +
-                    '<span class="k-hamburger-bar1"></span>' +
-                    '<span class="k-hamburger-bar2"></span>' +
-                    '<span class="k-hamburger-bar3"></span>' +
+                    '<span class="k-toggle-button-bar1"></span>' +
+                    '<span class="k-toggle-button-bar2"></span>' +
+                    '<span class="k-toggle-button-bar3"></span>' +
                     '</button></div>',
                 sidebar_left  = $('.k-js-sidebar-left'),
                 sidebar_right = $('.k-js-sidebar-right');
