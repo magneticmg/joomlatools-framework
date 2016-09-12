@@ -330,11 +330,7 @@ class PlgSystemJoomlatoolsInstallerScript
             $errors[] = sprintf(JText::_("Your site has an older version of our library already installed. Installation
 			 is aborting to prevent creating conflicts with other extensions."));
         }
-
-        if (class_exists('Koowa') && method_exists('Koowa', 'getInstance') && version_compare(Koowa::getInstance()->getVersion(), '2.2', '<')) {
-            $errors[] = JText::_("You cannot upgrade an existing installation during the beta program. Please use a test site instead.");
-        }
-
+        
         //Some hosts that specialize on Joomla are known to lock permissions to the libraries folder
         if(!is_writable(JPATH_LIBRARIES))
         {
