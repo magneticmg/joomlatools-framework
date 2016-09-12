@@ -70,20 +70,20 @@
             }
 
             if (sidebar_left.length) {
+                // Add button for left sidebar
                 $.each(sidebar_left, function() {
                     addOffCanvasButton($(this), 'left');
                 });
             }
 
             if (sidebar_right.length) {
+                // Add button for right sidebar
                 $.each(sidebar_right, function() {
                     addOffCanvasButton($(this), 'right');
                 });
-            }
-            
-            // Open right sidebar on selecting items in table
-            if (sidebar_right.length) {
-                // Only aply to actual <a>` elements
+
+                // Open right sidebar on selecting items in table
+                // Only apply to actual `<a>` elements
                 $('.k-table-container table').on('click', 'a', function() {
                     // Only apply if parent is a `<td>` (so not a `<th>`)
                     if ($(this).parents('td').length > 0) {
@@ -91,6 +91,7 @@
                     }
                 });
             }
+
         }
 
         // Overflowing items
