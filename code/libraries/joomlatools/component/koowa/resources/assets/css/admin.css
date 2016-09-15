@@ -4174,13 +4174,15 @@ Styleguide 6.9
 
 [dir="rtl"] .koowa.koowa-container { direction: rtl; }
 
-.koowa .k-sidebar-left, .koowa .k-sidebar-right { position: relative; overflow: auto; -webkit-overflow-scrolling: touch; /* When resizing */ /* Faking flexbox on older browsers by using table styling */ display: table-cell; vertical-align: top; /* When JavaScript is enabled */ /* When flexbox is in use */ display: flex; flex-direction: column; flex: 0 0 auto; }
+.koowa .k-sidebar-left, .koowa .k-sidebar-right { position: relative; overflow: auto; -webkit-overflow-scrolling: touch; /* When resizing */ /* Faking flexbox on older browsers by using table styling */ display: table-cell; vertical-align: top; /* When JavaScript is enabled */ /* When flexbox is in use */ }
 
 .k-is-resizing .koowa .k-sidebar-left, .k-is-resizing .koowa .k-sidebar-right { overflow: hidden; }
 
 .k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { position: absolute; z-index: 1; top: 0; height: 100%; display: none; }
 
-.koowa .k-sidebar-left { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ }
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-sidebar-left, .k-flexboxlegacy .koowa .k-sidebar-left, .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: flex; flex-direction: column; flex: 0 0 auto; } }
+
+.koowa .k-sidebar-left { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ /* Override js-enabled beta styling with flexbox */ }
 
 @media screen and (min-width: 768px) { .koowa .k-sidebar-left { min-width: 210px; width: 210px; max-width: 210px; } }
 
@@ -4192,7 +4194,9 @@ Styleguide 6.9
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; } }
 
-.koowa .k-sidebar-right { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ }
+@media screen and (min-width: 300px) and (min-height: 391px) and (min-width: 768px) { .k-flexbox .koowa .k-sidebar-left, .k-flexboxlegacy .koowa .k-sidebar-left { display: flex; } }
+
+.koowa .k-sidebar-right { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ /* Override js-enabled beta styling with flexbox */ }
 
 @media screen and (min-width: 600px) { .koowa .k-sidebar-right { min-width: 210px; width: 210px; max-width: 210px; } }
 
@@ -4203,6 +4207,8 @@ Styleguide 6.9
 @media screen and (min-width: 600px) { .k-js-enabled .koowa .k-sidebar-right { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; } }
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
+
+@media screen and (min-width: 300px) and (min-height: 391px) and (min-width: 768px) { .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: flex; } }
 
 .koowa .k-sidebar-left { border-right: 1px solid #cfcfcf; background: #eeeeee; color: #222222; }
 
@@ -4250,7 +4256,7 @@ Styleguide 6.9
 
 .koowa dt { margin: 0; padding: 0; list-style: none; border: none; background: transparent; font-weight: 700; float: left; clear: left; margin-right: 7px; }
 
-.koowa dd { margin: 0; padding: 0; list-style: none; border: none; background: transparent; display: block; margin-bottom: 7px; }
+.koowa dd { margin: 0; padding: 0; list-style: none; border: none; background: transparent; display: block; margin-bottom: 7px; max-width: 100%; }
 
 .koowa dd:last-child { margin-bottom: 0; }
 
@@ -6175,7 +6181,7 @@ Styleguide 6.9
 
 .koowa .k-ellipsis { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-.koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { display: inline-block; vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .koowa .k-link-coverall:after { display: block; position: absolute; content: " "; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
 
