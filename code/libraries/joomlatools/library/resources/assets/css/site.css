@@ -2037,6 +2037,10 @@ Styleguide 6.9
 
 .koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
+.koowa .k-link-coverall:after { display: block; position: absolute; content: " "; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.koowa .k-link-ontop { position: relative; z-index: 1; }
+
 .koowa .fade { opacity: 0; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .fade.in { opacity: 1; }

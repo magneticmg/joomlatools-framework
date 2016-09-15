@@ -6176,6 +6176,10 @@ Styleguide 6.9
 
 .koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
+.koowa .k-link-coverall:after { display: block; position: absolute; content: " "; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.koowa .k-link-ontop { position: relative; z-index: 1; }
+
 .koowa .k-overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-overflowing--flex, .k-flexboxlegacy .koowa .k-overflowing--flex { display: flex; /* 1 */ flex: 0 1 auto; } }
