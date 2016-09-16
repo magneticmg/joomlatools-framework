@@ -4896,7 +4896,7 @@ Styleguide 6.9
 
 .koowa .k-file-input .k-file-input__files:empty { display: none; }
 
-.koowa .k-form-info { margin-top: 0.75em; margin-bottom: 1.5em; color: #444444; }
+.koowa .k-form-info { margin-top: 0.75em; margin-bottom: 1em; color: #444444; }
 
 .koowa .k-form-info:last-child { margin-bottom: 0; }
 
@@ -6188,6 +6188,8 @@ Styleguide 6.9
 .koowa .k-link-coverall:after { display: block; position: absolute; content: " "; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
 
 .koowa .k-link-ontop { position: relative; z-index: 1; }
+
+.koowa .k-this-or-that { display: inline-block; margin-right: 7px; vertical-align: middle; }
 
 .koowa .k-overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
 

@@ -2043,6 +2043,8 @@ Styleguide 6.9
 
 .koowa .k-link-ontop { position: relative; z-index: 1; }
 
+.koowa .k-this-or-that { display: inline-block; margin-right: 7px; vertical-align: middle; }
+
 .koowa .fade { opacity: 0; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .fade.in { opacity: 1; }
