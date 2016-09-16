@@ -5581,35 +5581,37 @@ Styleguide 6.9
 
 .koowa .k-table-container [class*="k-icon"] { display: inline-block; }
 
-.koowa .k-table-pagination { padding: 7px; background: #fbfbfb; border-top: 1px solid gainsboro; box-shadow: 0 1px 0 gainsboro; /* 1 */ /* Flexbox */ /** Pagination contents 1. Align vertically */ /** Pagination 1. Remove list-style and block-level defaults 2. Collapse white-space */ /* Limit */ }
+.koowa .k-table-pagination { padding: 7px; background: #fbfbfb; border-top: 1px solid gainsboro; box-shadow: 0 1px 0 gainsboro; /* 1 */ /* Flexbox */ }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-table-pagination, .k-flexboxlegacy .koowa .k-table-pagination { flex: 0 0 auto; } }
 
-.koowa .k-table-pagination .k-pagination__limit, .koowa .k-table-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
+.koowa .k-pagination { /** Pagination contents 1. Align vertically */ /** Pagination 1. Remove list-style and block-level defaults 2. Collapse white-space */ /* Limit */ }
 
-.koowa .k-table-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
+.koowa .k-pagination .k-pagination__limit, .koowa .k-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
 
-.koowa .k-table-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
+.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
 
-.koowa .k-table-pagination .k-pagination__pages > li > a, .koowa .k-table-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #3071a9; background-color: white; border: 1px solid gainsboro; margin-left: -1px; }
+.koowa .k-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
 
-[dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li > a, [dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
+.koowa .k-pagination .k-pagination__pages > li > a, .koowa .k-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #3071a9; background-color: white; border: 1px solid gainsboro; margin-left: -1px; }
 
-.koowa .k-table-pagination .k-pagination__pages > li:first-child > a, .koowa .k-table-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li > a, [dir="rtl"] .koowa .k-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
 
-[dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li:first-child > a, [dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
-.koowa .k-table-pagination .k-pagination__pages > li:last-child > a, .koowa .k-table-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:first-child > a, [dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
 
-[dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li:last-child > a, .koowa .k-table-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
 
-.koowa .k-table-pagination .k-pagination__pages > li > a:hover, .koowa .k-table-pagination .k-pagination__pages > li > a:focus, .koowa .k-table-pagination .k-pagination__pages > li > span:hover, .koowa .k-table-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #285e8d; background-color: #eeeeee; border-color: gainsboro; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
-.koowa .k-table-pagination .k-pagination__pages > .k-is-active > a, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > a:hover, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > a:focus, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > span, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > span:hover, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > span:focus { z-index: 3; color: white; background-color: #3071a9; border-color: #285e8d; cursor: default; }
+.koowa .k-pagination .k-pagination__pages > li > a:hover, .koowa .k-pagination .k-pagination__pages > li > a:focus, .koowa .k-pagination .k-pagination__pages > li > span:hover, .koowa .k-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #285e8d; background-color: #eeeeee; border-color: gainsboro; }
 
-.koowa .k-table-pagination select { height: 32px; width: auto; margin-right: 7px; }
+.koowa .k-pagination .k-pagination__pages > .k-is-active > a, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:focus, .koowa .k-pagination .k-pagination__pages > .k-is-active > span, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:focus { z-index: 3; color: white; background-color: #3071a9; border-color: #285e8d; cursor: default; }
 
-[dir="rtl"] .koowa .k-table-pagination select { margin-right: auto; margin-left: 7px; }
+.koowa .k-pagination select { height: 32px; width: auto; margin: 0; margin-right: 7px; }
+
+[dir="rtl"] .koowa .k-pagination select { margin-right: auto; margin-left: 7px; }
 
 .koowa .k-table-container a { display: inline-block; vertical-align: middle; text-decoration: none; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
