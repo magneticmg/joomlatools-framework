@@ -585,7 +585,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 /** Use SVG Always use SVG on touch / mobile */
 @media screen and (-webkit-min-device-pixel-ratio: 0) { @font-face { font-family: "k-icons"; src: url("../fonts/k-icons/k-icons.svg#k-icons") format("svg"); } }
 
-.k-icon-account-login, .k-icon-account-logout, .k-icon-action-redo, .k-icon-action-undo, .k-icon-align-center, .k-icon-align-left, .k-icon-align-right, .k-icon-aperture, .k-icon-arrow-bottom, .k-icon-arrow-circle-bottom, .k-icon-arrow-circle-left, .k-icon-arrow-circle-right, .k-icon-arrow-circle-top, .k-icon-arrow-left, .k-icon-arrow-right, .k-icon-arrow-thick-bottom, .k-icon-arrow-thick-left, .k-icon-arrow-thick-right, .k-icon-arrow-thick-top, .k-icon-arrow-top, .k-icon-audio-spectrum, .k-icon-audio, .k-icon-badge, .k-icon-ban, .k-icon-bar-chart, .k-icon-basket, .k-icon-battery-empty, .k-icon-battery-full, .k-icon-beaker, .k-icon-bell, .k-icon-bluetooth, .k-icon-bold, .k-icon-bolt, .k-icon-book, .k-icon-bookmark, .k-icon-box, .k-icon-briefcase, .k-icon-british-pound, .k-icon-browser, .k-icon-brush, .k-icon-bug, .k-icon-bullhorn, .k-icon-calculator, .k-icon-calendar, .k-icon-camera-slr, .k-icon-caret-bottom, .k-icon-caret-left, .k-icon-caret-right, .k-icon-caret-top, .k-icon-cart, .k-icon-chat, .k-icon-check, .k-icon-chevron-bottom, .k-icon-chevron-left, .k-icon-chevron-right, .k-icon-chevron-top, .k-icon-circle-check, .k-icon-circle-x, .k-icon-clipboard, .k-icon-clock, .k-icon-cloud-download, .k-icon-cloud-upload, .k-icon-cloud, .k-icon-cloudy, .k-icon-code, .k-icon-cog, .k-icon-collapse-down, .k-icon-collapse-left, .k-icon-collapse-right, .k-icon-collapse-up, .k-icon-command, .k-icon-comment-square, .k-icon-compass, .k-icon-contrast, .k-icon-copywriting, .k-icon-credit-card, .k-icon-crop, .k-icon-dashboard, .k-icon-data-transfer-download, .k-icon-data-transfer-upload, .k-icon-delete, .k-icon-dial, .k-icon-document, .k-icon-dollar, .k-icon-double-quote-sans-left, .k-icon-double-quote-sans-right, .k-icon-double-quote-serif-left, .k-icon-double-quote-serif-right, .k-icon-droplet, .k-icon-eject, .k-icon-elevator, .k-icon-ellipses, .k-icon-envelope-closed, .k-icon-envelope-open, .k-icon-euro, .k-icon-excerpt, .k-icon-expand-down, .k-icon-expand-left, .k-icon-expand-right, .k-icon-expand-up, .k-icon-external-link, .k-icon-eye, .k-icon-eyedropper, .k-icon-file, .k-icon-fire, .k-icon-flag, .k-icon-flash, .k-icon-folder, .k-icon-fork, .k-icon-fullscreen-enter, .k-icon-fullscreen-exit, .k-icon-globe, .k-icon-graph, .k-icon-grid-four-up, .k-icon-grid-three-up, .k-icon-grid-two-up, .k-icon-hard-drive, .k-icon-header, .k-icon-headphones, .k-icon-heart, .k-icon-home, .k-icon-image, .k-icon-inbox, .k-icon-infinity, .k-icon-info, .k-icon-italic, .k-icon-justify-center, .k-icon-justify-left, .k-icon-justify-right, .k-icon-key, .k-icon-laptop, .k-icon-layers, .k-icon-lightbulb, .k-icon-link-broken, .k-icon-link-intact, .k-icon-list-rich, .k-icon-list, .k-icon-location, .k-icon-lock-locked, .k-icon-lock-unlocked, .k-icon-loop-circular, .k-icon-loop-square, .k-icon-loop, .k-icon-magnifying-glass, .k-icon-map-marker, .k-icon-map, .k-icon-media-pause, .k-icon-media-play, .k-icon-media-record, .k-icon-media-skip-backward, .k-icon-media-skip-forward, .k-icon-media-step-backward, .k-icon-media-step-forward, .k-icon-media-stop, .k-icon-medical-cross, .k-icon-menu, .k-icon-microphone, .k-icon-minus, .k-icon-monitor, .k-icon-moon, .k-icon-move, .k-icon-musical-note, .k-icon-paperclip, .k-icon-pencil, .k-icon-people, .k-icon-person, .k-icon-phone, .k-icon-pie-chart, .k-icon-pin, .k-icon-play-circle, .k-icon-plus, .k-icon-power-standby, .k-icon-print, .k-icon-project, .k-icon-pulse, .k-icon-puzzle-piece, .k-icon-question-mark, .k-icon-rain, .k-icon-random, .k-icon-reload, .k-icon-resize-both, .k-icon-resize-height, .k-icon-resize-width, .k-icon-rss-alt, .k-icon-rss, .k-icon-script, .k-icon-share-boxed, .k-icon-share, .k-icon-shield, .k-icon-signal, .k-icon-signpost, .k-icon-sort-ascending, .k-icon-sort-descending, .k-icon-spreadsheet, .k-icon-star, .k-icon-sun, .k-icon-tablet, .k-icon-tag, .k-icon-tags, .k-icon-target, .k-icon-task, .k-icon-terminal, .k-icon-text, .k-icon-thumb-down, .k-icon-thumb-up, .k-icon-timer, .k-icon-transfer, .k-icon-trash, .k-icon-underline, .k-icon-vertical-align-bottom, .k-icon-vertical-align-center, .k-icon-vertical-align-top, .k-icon-video, .k-icon-volume-high, .k-icon-volume-low, .k-icon-volume-off, .k-icon-warning, .k-icon-wifi, .k-icon-wrench, .k-icon-x, .k-icon-yen, .k-icon-zoom-in, .k-icon-zoom-out, .k-icon-close, .k-icon-disabled, .k-icon-document-archive, .k-icon-document-audio, .k-icon-document-default, .k-icon-document-document, .k-icon-document-folder, .k-icon-document-image, .k-icon-document-pdf, .k-icon-document-spreadsheet, .k-icon-document-video, .k-icon-documents, .k-icon-enabled, .k-icon-filter, .k-icon-folder-closed, .k-icon-folder-opened, .k-icon-menu-closed, .k-icon-menu-opened, .k-icon-open, .footable.breakpoint .footable-toggle:after { speak: none; text-rendering: optimizeLegibility; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; text-transform: none; line-height: 1; font-style: normal; font-variant: normal; font-weight: normal; font-family: 'k-icons'; }
+.k-icon-account-login, .k-icon-account-logout, .k-icon-action-redo, .k-icon-action-undo, .k-icon-align-center, .k-icon-align-left, .k-icon-align-right, .k-icon-aperture, .k-icon-arrow-bottom, .k-icon-arrow-circle-bottom, .k-icon-arrow-circle-left, .k-icon-arrow-circle-right, .k-icon-arrow-circle-top, .k-icon-arrow-left, .k-icon-arrow-right, .k-icon-arrow-thick-bottom, .k-icon-arrow-thick-left, .k-icon-arrow-thick-right, .k-icon-arrow-thick-top, .k-icon-arrow-top, .k-icon-audio-spectrum, .k-icon-audio, .k-icon-badge, .k-icon-ban, .k-icon-bar-chart, .k-icon-basket, .k-icon-battery-empty, .k-icon-battery-full, .k-icon-beaker, .k-icon-bell, .k-icon-bluetooth, .k-icon-bold, .k-icon-bolt, .k-icon-book, .k-icon-bookmark, .k-icon-box, .k-icon-briefcase, .k-icon-british-pound, .k-icon-browser, .k-icon-brush, .k-icon-bug, .k-icon-bullhorn, .k-icon-calculator, .k-icon-calendar, .k-icon-camera-slr, .k-icon-caret-bottom, .k-icon-caret-left, .k-icon-caret-right, .k-icon-caret-top, .k-icon-cart, .k-icon-chat, .k-icon-check, .k-icon-chevron-bottom, .k-icon-chevron-left, .k-icon-chevron-right, .k-icon-chevron-top, .k-icon-circle-check, .k-icon-circle-x, .k-icon-clipboard, .k-icon-clock, .k-icon-cloud-download, .k-icon-cloud-upload, .k-icon-cloud, .k-icon-cloudy, .k-icon-code, .k-icon-cog, .k-icon-collapse-down, .k-icon-collapse-left, .k-icon-collapse-right, .k-icon-collapse-up, .k-icon-command, .k-icon-comment-square, .k-icon-compass, .k-icon-contrast, .k-icon-copywriting, .k-icon-credit-card, .k-icon-crop, .k-icon-dashboard, .k-icon-data-transfer-download, .k-icon-data-transfer-upload, .k-icon-delete, .k-icon-dial, .k-icon-document, .k-icon-dollar, .k-icon-double-quote-sans-left, .k-icon-double-quote-sans-right, .k-icon-double-quote-serif-left, .k-icon-double-quote-serif-right, .k-icon-droplet, .k-icon-eject, .k-icon-elevator, .k-icon-ellipses, .k-icon-envelope-closed, .k-icon-envelope-open, .k-icon-euro, .k-icon-excerpt, .k-icon-expand-down, .k-icon-expand-left, .k-icon-expand-right, .k-icon-expand-up, .k-icon-external-link, .k-icon-eye, .k-icon-eyedropper, .k-icon-file, .k-icon-fire, .k-icon-flag, .k-icon-flash, .k-icon-folder, .k-icon-fork, .k-icon-fullscreen-enter, .k-icon-fullscreen-exit, .k-icon-globe, .k-icon-graph, .k-icon-grid-four-up, .k-icon-grid-three-up, .k-icon-grid-two-up, .k-icon-hard-drive, .k-icon-header, .k-icon-headphones, .k-icon-heart, .k-icon-home, .k-icon-image, .k-icon-inbox, .k-icon-infinity, .k-icon-info, .k-icon-italic, .k-icon-justify-center, .k-icon-justify-left, .k-icon-justify-right, .k-icon-key, .k-icon-laptop, .k-icon-layers, .k-icon-lightbulb, .k-icon-link-broken, .k-icon-link-intact, .k-icon-list-rich, .k-icon-list, .k-icon-location, .k-icon-lock-locked, .k-icon-lock-unlocked, .k-icon-loop-circular, .k-icon-loop-square, .k-icon-loop, .k-icon-magnifying-glass, .k-icon-map-marker, .k-icon-map, .k-icon-media-pause, .k-icon-media-play, .k-icon-media-record, .k-icon-media-skip-backward, .k-icon-media-skip-forward, .k-icon-media-step-backward, .k-icon-media-step-forward, .k-icon-media-stop, .k-icon-medical-cross, .k-icon-menu, .k-icon-microphone, .k-icon-minus, .k-icon-monitor, .k-icon-moon, .k-icon-move, .k-icon-musical-note, .k-icon-paperclip, .k-icon-pencil, .k-icon-people, .k-icon-person, .k-icon-phone, .k-icon-pie-chart, .k-icon-pin, .k-icon-play-circle, .k-icon-plus, .k-icon-power-standby, .k-icon-print, .k-icon-project, .k-icon-pulse, .k-icon-puzzle-piece, .k-icon-question-mark, .k-icon-rain, .k-icon-random, .k-icon-reload, .k-icon-resize-both, .k-icon-resize-height, .k-icon-resize-width, .k-icon-rss-alt, .k-icon-rss, .k-icon-script, .k-icon-share-boxed, .k-icon-share, .k-icon-shield, .k-icon-signal, .k-icon-signpost, .k-icon-sort-ascending, .k-icon-sort-descending, .k-icon-spreadsheet, .k-icon-star, .k-icon-sun, .k-icon-tablet, .k-icon-tag, .k-icon-tags, .k-icon-target, .k-icon-task, .k-icon-terminal, .k-icon-text, .k-icon-thumb-down, .k-icon-thumb-up, .k-icon-timer, .k-icon-transfer, .k-icon-trash, .k-icon-underline, .k-icon-vertical-align-bottom, .k-icon-vertical-align-center, .k-icon-vertical-align-top, .k-icon-video, .k-icon-volume-high, .k-icon-volume-low, .k-icon-volume-off, .k-icon-warning, .k-icon-wifi, .k-icon-wrench, .k-icon-x, .k-icon-yen, .k-icon-zoom-in, .k-icon-zoom-out, .k-icon-close, .k-icon-disabled, .k-icon-document-archive, .k-icon-document-audio, .k-icon-document-default, .k-icon-document-document, .k-icon-document-folder, .k-icon-document-image, .k-icon-document-pdf, .k-icon-document-spreadsheet, .k-icon-document-video, .k-icon-documents, .k-icon-enabled, .k-icon-filter, .k-icon-folder-closed, .k-icon-folder-opened, .k-icon-menu-closed, .k-icon-menu-opened, .k-icon-open, .koowa .footable.breakpoint .footable-toggle:after { speak: none; text-rendering: optimizeLegibility; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; text-transform: none; line-height: 1; font-style: normal; font-variant: normal; font-weight: normal; font-family: 'k-icons'; }
 
 .k-icon-account-login:before, .k-icon-account-logout:before, .k-icon-action-redo:before, .k-icon-action-undo:before, .k-icon-align-center:before, .k-icon-align-left:before, .k-icon-align-right:before, .k-icon-aperture:before, .k-icon-arrow-bottom:before, .k-icon-arrow-circle-bottom:before, .k-icon-arrow-circle-left:before, .k-icon-arrow-circle-right:before, .k-icon-arrow-circle-top:before, .k-icon-arrow-left:before, .k-icon-arrow-right:before, .k-icon-arrow-thick-bottom:before, .k-icon-arrow-thick-left:before, .k-icon-arrow-thick-right:before, .k-icon-arrow-thick-top:before, .k-icon-arrow-top:before, .k-icon-audio-spectrum:before, .k-icon-audio:before, .k-icon-badge:before, .k-icon-ban:before, .k-icon-bar-chart:before, .k-icon-basket:before, .k-icon-battery-empty:before, .k-icon-battery-full:before, .k-icon-beaker:before, .k-icon-bell:before, .k-icon-bluetooth:before, .k-icon-bold:before, .k-icon-bolt:before, .k-icon-book:before, .k-icon-bookmark:before, .k-icon-box:before, .k-icon-briefcase:before, .k-icon-british-pound:before, .k-icon-browser:before, .k-icon-brush:before, .k-icon-bug:before, .k-icon-bullhorn:before, .k-icon-calculator:before, .k-icon-calendar:before, .k-icon-camera-slr:before, .k-icon-caret-bottom:before, .k-icon-caret-left:before, .k-icon-caret-right:before, .k-icon-caret-top:before, .k-icon-cart:before, .k-icon-chat:before, .k-icon-check:before, .k-icon-chevron-bottom:before, .k-icon-chevron-left:before, .k-icon-chevron-right:before, .k-icon-chevron-top:before, .k-icon-circle-check:before, .k-icon-circle-x:before, .k-icon-clipboard:before, .k-icon-clock:before, .k-icon-cloud-download:before, .k-icon-cloud-upload:before, .k-icon-cloud:before, .k-icon-cloudy:before, .k-icon-code:before, .k-icon-cog:before, .k-icon-collapse-down:before, .k-icon-collapse-left:before, .k-icon-collapse-right:before, .k-icon-collapse-up:before, .k-icon-command:before, .k-icon-comment-square:before, .k-icon-compass:before, .k-icon-contrast:before, .k-icon-copywriting:before, .k-icon-credit-card:before, .k-icon-crop:before, .k-icon-dashboard:before, .k-icon-data-transfer-download:before, .k-icon-data-transfer-upload:before, .k-icon-delete:before, .k-icon-dial:before, .k-icon-document:before, .k-icon-dollar:before, .k-icon-double-quote-sans-left:before, .k-icon-double-quote-sans-right:before, .k-icon-double-quote-serif-left:before, .k-icon-double-quote-serif-right:before, .k-icon-droplet:before, .k-icon-eject:before, .k-icon-elevator:before, .k-icon-ellipses:before, .k-icon-envelope-closed:before, .k-icon-envelope-open:before, .k-icon-euro:before, .k-icon-excerpt:before, .k-icon-expand-down:before, .k-icon-expand-left:before, .k-icon-expand-right:before, .k-icon-expand-up:before, .k-icon-external-link:before, .k-icon-eye:before, .k-icon-eyedropper:before, .k-icon-file:before, .k-icon-fire:before, .k-icon-flag:before, .k-icon-flash:before, .k-icon-folder:before, .k-icon-fork:before, .k-icon-fullscreen-enter:before, .k-icon-fullscreen-exit:before, .k-icon-globe:before, .k-icon-graph:before, .k-icon-grid-four-up:before, .k-icon-grid-three-up:before, .k-icon-grid-two-up:before, .k-icon-hard-drive:before, .k-icon-header:before, .k-icon-headphones:before, .k-icon-heart:before, .k-icon-home:before, .k-icon-image:before, .k-icon-inbox:before, .k-icon-infinity:before, .k-icon-info:before, .k-icon-italic:before, .k-icon-justify-center:before, .k-icon-justify-left:before, .k-icon-justify-right:before, .k-icon-key:before, .k-icon-laptop:before, .k-icon-layers:before, .k-icon-lightbulb:before, .k-icon-link-broken:before, .k-icon-link-intact:before, .k-icon-list-rich:before, .k-icon-list:before, .k-icon-location:before, .k-icon-lock-locked:before, .k-icon-lock-unlocked:before, .k-icon-loop-circular:before, .k-icon-loop-square:before, .k-icon-loop:before, .k-icon-magnifying-glass:before, .k-icon-map-marker:before, .k-icon-map:before, .k-icon-media-pause:before, .k-icon-media-play:before, .k-icon-media-record:before, .k-icon-media-skip-backward:before, .k-icon-media-skip-forward:before, .k-icon-media-step-backward:before, .k-icon-media-step-forward:before, .k-icon-media-stop:before, .k-icon-medical-cross:before, .k-icon-menu:before, .k-icon-microphone:before, .k-icon-minus:before, .k-icon-monitor:before, .k-icon-moon:before, .k-icon-move:before, .k-icon-musical-note:before, .k-icon-paperclip:before, .k-icon-pencil:before, .k-icon-people:before, .k-icon-person:before, .k-icon-phone:before, .k-icon-pie-chart:before, .k-icon-pin:before, .k-icon-play-circle:before, .k-icon-plus:before, .k-icon-power-standby:before, .k-icon-print:before, .k-icon-project:before, .k-icon-pulse:before, .k-icon-puzzle-piece:before, .k-icon-question-mark:before, .k-icon-rain:before, .k-icon-random:before, .k-icon-reload:before, .k-icon-resize-both:before, .k-icon-resize-height:before, .k-icon-resize-width:before, .k-icon-rss-alt:before, .k-icon-rss:before, .k-icon-script:before, .k-icon-share-boxed:before, .k-icon-share:before, .k-icon-shield:before, .k-icon-signal:before, .k-icon-signpost:before, .k-icon-sort-ascending:before, .k-icon-sort-descending:before, .k-icon-spreadsheet:before, .k-icon-star:before, .k-icon-sun:before, .k-icon-tablet:before, .k-icon-tag:before, .k-icon-tags:before, .k-icon-target:before, .k-icon-task:before, .k-icon-terminal:before, .k-icon-text:before, .k-icon-thumb-down:before, .k-icon-thumb-up:before, .k-icon-timer:before, .k-icon-transfer:before, .k-icon-trash:before, .k-icon-underline:before, .k-icon-vertical-align-bottom:before, .k-icon-vertical-align-center:before, .k-icon-vertical-align-top:before, .k-icon-video:before, .k-icon-volume-high:before, .k-icon-volume-low:before, .k-icon-volume-off:before, .k-icon-warning:before, .k-icon-wifi:before, .k-icon-wrench:before, .k-icon-x:before, .k-icon-yen:before, .k-icon-zoom-in:before, .k-icon-zoom-out:before, .k-icon-close:before, .k-icon-disabled:before, .k-icon-document-archive:before, .k-icon-document-audio:before, .k-icon-document-default:before, .k-icon-document-document:before, .k-icon-document-folder:before, .k-icon-document-image:before, .k-icon-document-pdf:before, .k-icon-document-spreadsheet:before, .k-icon-document-video:before, .k-icon-documents:before, .k-icon-enabled:before, .k-icon-filter:before, .k-icon-folder-closed:before, .k-icon-folder-opened:before, .k-icon-menu-closed:before, .k-icon-menu-opened:before, .k-icon-open:before { display: inline-block; margin: auto; width: 1em; height: 1em; line-height: 1; }
 
@@ -1408,8 +1408,59 @@ Styleguide 2.12.3
 
 .k-icon-text-item { display: inline-block; line-height: 20px; vertical-align: middle; font-size: inherit !important; margin-right: 5px; }
 
-/* Responsive tables */
+/* Tooltips */
+/* Tooltip ========================================================================== */
 /*
+Tooltips
+
+markup:
+<a href="javascript:void(0)" class="k-js-tooltip" data-toggle="tooltip" data-original-title="Tooltip">Tooltip on top</a>
+
+sg-wrapper:
+<p style="margin: 30px 0;">
+    <sg-wrapper-content/>
+</p>
+
+Styleguide 2.25
+
+*/
+/** 1. Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element. So reset our font and text properties to avoid inheriting weird values. */
+.k-tooltip { position: absolute; z-index: 1070; display: block; font-size: 12px; /* 1 */ opacity: 0; }
+
+.k-tooltip.in { opacity: 0.9; }
+
+.k-tooltip.top { margin-top: -3px; padding: 5px 0; }
+
+.k-tooltip.right { margin-left: 3px; padding: 0 5px; }
+
+.k-tooltip.bottom { margin-top: 3px; padding: 5px 0; }
+
+.k-tooltip.left { margin-left: -3px; padding: 0 5px; }
+
+/** Wrapper for the tooltip content */
+.k-tooltip__inner { max-width: 200px; padding: 3px 8px; color: #fff; text-align: center; background-color: black; border-radius: 4px; }
+
+/* Arrows */
+.k-tooltip__arrow { position: absolute; width: 0; height: 0; border-color: transparent; border-style: solid; }
+
+.k-tooltip.top .k-tooltip__arrow { bottom: 0; left: 50%; margin-left: -5px; border-width: 5px 5px 0; border-top-color: #000; }
+
+.k-tooltip.top-left .k-tooltip__arrow { bottom: 0; right: 5px; margin-bottom: -5px; border-width: 5px 5px 0; border-top-color: #000; }
+
+.k-tooltip.top-right .k-tooltip__arrow { bottom: 0; left: 5px; margin-bottom: -5px; border-width: 5px 5px 0; border-top-color: #000; }
+
+.k-tooltip.right .k-tooltip__arrow { top: 50%; left: 0; margin-top: -5px; border-width: 5px 5px 5px 0; border-right-color: #000; }
+
+.k-tooltip.left .k-tooltip__arrow { top: 50%; right: 0; margin-top: -5px; border-width: 5px 0 5px 5px; border-left-color: #000; }
+
+.k-tooltip.bottom .k-tooltip__arrow { top: 0; left: 50%; margin-left: -5px; border-width: 0 5px 5px; border-bottom-color: #000; }
+
+.k-tooltip.bottom-left .k-tooltip__arrow { top: 0; right: 5px; margin-top: -5px; border-width: 0 5px 5px; border-bottom-color: #000; }
+
+.k-tooltip.bottom-right .k-tooltip__arrow { top: 0; left: 5px; margin-top: -5px; border-width: 0 5px 5px; border-bottom-color: #000; }
+
+/* Inside koowa scope */
+.koowa { /* Border-box size everything */ /* Responsive tables */ /*
 Responsive table
 
 - Add the `.k-js-responsive-table` class to the `<table>`
@@ -1467,37 +1518,7 @@ markup:
 
 Styleguide 2.21.11
 
-*/
-.footable.breakpoint { /** Reset padding, and re-set them on individual divs */ /** 1. Just like table cells 2. Almost as tall as the main table rows 3. Same spacing as on table cells */ /* Hide toggle button for sub headings */ }
-
-.footable.breakpoint .footable-toggle { content: " "; display: inline-block; width: 20px; height: 20px; line-height: 18px; border: 1px solid #a2a2a2; border-radius: 50%; text-align: center; vertical-align: middle; }
-
-.footable.breakpoint .footable-toggle:after { content: ""; display: inline-block; width: 10px; height: 10px; margin: 4px; color: #a2a2a2; font-size: 10px; line-height: 1.3em; transform: rotate(-90deg); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
-
-.footable.breakpoint tr.k-is-selected .footable-toggle { border-color: white; }
-
-.footable.breakpoint tr.k-is-selected .footable-toggle:after { color: white; }
-
-.footable.breakpoint .footable-row-detail-cell { padding: 0; }
-
-.footable.breakpoint tr.footable-detail-show .footable-toggle:after { transform: rotate(0deg); }
-
-.footable.breakpoint .footable-row-detail-row { margin-bottom: 7px; }
-
-.footable.breakpoint .footable-row-detail-row:before, .footable.breakpoint .footable-row-detail-row:after { display: table; content: " "; }
-
-.footable.breakpoint .footable-row-detail-row:after { clear: both; }
-
-.footable.breakpoint .footable-row-detail-row:last-child { margin-bottom: 0; }
-
-.footable.breakpoint .footable-row-detail-name { font-weight: 700; }
-
-.footable.breakpoint .footable-row-detail-name, .footable.breakpoint .footable-row-detail-value { position: relative; /* 1 */ min-height: 29px; /* 2 */ padding: 7px 7px; /* 3 */ }
-
-.footable.breakpoint th .footable-toggle { display: none; }
-
-/* Pagination */
-/*
+*/ /* Pagination */ /*
 Table pagination
 
 - Put right below `.k-table` container and inside `.k-table-container` container
@@ -1537,91 +1558,47 @@ markup:
 
 Styleguide 2.21.1
 
-*/
-/** 1. Faking a bottom border, this shadow will disappear when pagination is positioned to bottom */
-.k-table-pagination { padding: 7px; background: #fbfbfb; border-top: 1px solid gainsboro; box-shadow: 0 1px 0 gainsboro; /* 1 */ /* Flexbox */ /** Pagination contents 1. Align vertically */ /** Pagination 1. Remove list-style and block-level defaults 2. Collapse white-space */ /* Limit */ }
+*/ /** 1. Faking a bottom border, this shadow will disappear when pagination is positioned to bottom */ /* File select input */ /*
+Table pagination
 
-@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .k-table-pagination, .k-flexboxlegacy .k-table-pagination { flex: 0 0 auto; } }
-
-.k-table-pagination .k-pagination__limit, .k-table-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
-
-.k-table-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
-
-.k-table-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
-
-.k-table-pagination .k-pagination__pages > li > a, .k-table-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #337ab7; background-color: white; border: 1px solid #ddd; margin-left: -1px; }
-
-.koowa--rtl.k-table-pagination .k-pagination__pages > li > a, .koowa--rtl.k-table-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
-
-.k-table-pagination .k-pagination__pages > li:first-child > a, .k-table-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
-
-.koowa--rtl.k-table-pagination .k-pagination__pages > li:first-child > a, .koowa--rtl.k-table-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
-
-.k-table-pagination .k-pagination__pages > li:last-child > a, .k-table-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
-
-.koowa--rtl.k-table-pagination .k-pagination__pages > li:last-child > a, .k-table-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
-
-.k-table-pagination .k-pagination__pages > li > a:hover, .k-table-pagination .k-pagination__pages > li > a:focus, .k-table-pagination .k-pagination__pages > li > span:hover, .k-table-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #23527c; background-color: #eeeeee; border-color: #ddd; }
-
-.k-table-pagination .k-pagination__pages > .k-is-active > a, .k-table-pagination .k-pagination__pages > .k-is-active > a:hover, .k-table-pagination .k-pagination__pages > .k-is-active > a:focus, .k-table-pagination .k-pagination__pages > .k-is-active > span, .k-table-pagination .k-pagination__pages > .k-is-active > span:hover, .k-table-pagination .k-pagination__pages > .k-is-active > span:focus { z-index: 3; color: #fff; background-color: #3071a9; border-color: #337ab7; cursor: default; }
-
-.k-table-pagination select { height: 32px; width: auto; margin-right: 7px; }
-
-.koowa--rtl.k-table-pagination select { margin-right: auto; margin-left: 7px; }
-
-/* Tooltips */
-/* Tooltip ========================================================================== */
-/*
-Tooltips
+- Put right below `.k-table` container and inside `.k-table-container` container
 
 markup:
-<a href="javascript:void(0)" class="k-js-tooltip" data-toggle="tooltip" data-original-title="Tooltip">Tooltip on top</a>
+<div class="k-table-pagination">
+    <div class="k-pagination">
+        <div class="k-pagination__limit">
+            <select class="k-form-control">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+        <ul class="k-pagination__pages">
+            <li class="k-is-active">
+                <span>1</span>
+            </li>
+            <li>
+                <a href="javascript:void(0)">2</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">3</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">4</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">5</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">»</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
-sg-wrapper:
-<p style="margin: 30px 0;">
-    <sg-wrapper-content/>
-</p>
+Styleguide 2.21.1
 
-Styleguide 2.25
-
-*/
-/** 1. Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element. So reset our font and text properties to avoid inheriting weird values. */
-.k-tooltip { position: absolute; z-index: 1070; display: block; font-size: 12px; /* 1 */ opacity: 0; }
-
-.k-tooltip.in { opacity: 0.9; }
-
-.k-tooltip.top { margin-top: -3px; padding: 5px 0; }
-
-.k-tooltip.right { margin-left: 3px; padding: 0 5px; }
-
-.k-tooltip.bottom { margin-top: 3px; padding: 5px 0; }
-
-.k-tooltip.left { margin-left: -3px; padding: 0 5px; }
-
-/** Wrapper for the tooltip content */
-.k-tooltip__inner { max-width: 200px; padding: 3px 8px; color: #fff; text-align: center; background-color: black; border-radius: 4px; }
-
-/* Arrows */
-.k-tooltip__arrow { position: absolute; width: 0; height: 0; border-color: transparent; border-style: solid; }
-
-.k-tooltip.top .k-tooltip__arrow { bottom: 0; left: 50%; margin-left: -5px; border-width: 5px 5px 0; border-top-color: #000; }
-
-.k-tooltip.top-left .k-tooltip__arrow { bottom: 0; right: 5px; margin-bottom: -5px; border-width: 5px 5px 0; border-top-color: #000; }
-
-.k-tooltip.top-right .k-tooltip__arrow { bottom: 0; left: 5px; margin-bottom: -5px; border-width: 5px 5px 0; border-top-color: #000; }
-
-.k-tooltip.right .k-tooltip__arrow { top: 50%; left: 0; margin-top: -5px; border-width: 5px 5px 5px 0; border-right-color: #000; }
-
-.k-tooltip.left .k-tooltip__arrow { top: 50%; right: 0; margin-top: -5px; border-width: 5px 0 5px 5px; border-left-color: #000; }
-
-.k-tooltip.bottom .k-tooltip__arrow { top: 0; left: 50%; margin-left: -5px; border-width: 0 5px 5px; border-bottom-color: #000; }
-
-.k-tooltip.bottom-left .k-tooltip__arrow { top: 0; right: 5px; margin-top: -5px; border-width: 0 5px 5px; border-bottom-color: #000; }
-
-.k-tooltip.bottom-right .k-tooltip__arrow { top: 0; left: 5px; margin-top: -5px; border-width: 0 5px 5px; border-bottom-color: #000; }
-
-/* Inside koowa scope */
-.koowa { /* Border-box size everything */ /* Tree ========================================================================== */ /*
+*/ /** 1. Faking a bottom border, this shadow will disappear when pagination is positioned to bottom */ /* Tree ========================================================================== */ /*
 Tree
 
 markup:
@@ -1792,6 +1769,98 @@ Styleguide 6.9
 
 .koowa, .koowa *, .koowa *:before, .koowa *:after { box-sizing: border-box; }
 
+.koowa .footable.breakpoint { /** Reset padding, and re-set them on individual divs */ /** 1. Just like table cells 2. Almost as tall as the main table rows 3. Same spacing as on table cells */ /* Hide toggle button for sub headings */ }
+
+.koowa .footable.breakpoint .footable-toggle { content: " "; display: inline-block; width: 20px; height: 20px; line-height: 18px; border: 1px solid #a2a2a2; border-radius: 50%; text-align: center; vertical-align: middle; }
+
+.koowa .footable.breakpoint .footable-toggle:after { content: ""; display: inline-block; width: 10px; height: 10px; margin: 4px; color: #a2a2a2; font-size: 10px; line-height: 1.3em; transform: rotate(-90deg); transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+
+.koowa .footable.breakpoint tr.k-is-selected .footable-toggle { border-color: white; }
+
+.koowa .footable.breakpoint tr.k-is-selected .footable-toggle:after { color: white; }
+
+.koowa .footable.breakpoint .footable-row-detail-cell { padding: 0; }
+
+.koowa .footable.breakpoint tr.footable-detail-show .footable-toggle:after { transform: rotate(0deg); }
+
+.koowa .footable.breakpoint .footable-row-detail-row { margin-bottom: 7px; }
+
+.koowa .footable.breakpoint .footable-row-detail-row:before, .koowa .footable.breakpoint .footable-row-detail-row:after { display: table; content: " "; }
+
+.koowa .footable.breakpoint .footable-row-detail-row:after { clear: both; }
+
+.koowa .footable.breakpoint .footable-row-detail-row:last-child { margin-bottom: 0; }
+
+.koowa .footable.breakpoint .footable-row-detail-name { font-weight: 700; }
+
+.koowa .footable.breakpoint .footable-row-detail-name, .koowa .footable.breakpoint .footable-row-detail-value { position: relative; /* 1 */ min-height: 29px; /* 2 */ padding: 7px 7px; /* 3 */ }
+
+.koowa .footable.breakpoint th .footable-toggle { display: none; }
+
+.koowa .k-table-pagination { padding: 7px; background: #fbfbfb; border-top: 1px solid gainsboro; box-shadow: 0 1px 0 gainsboro; /* 1 */ /* Flexbox */ }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-table-pagination, .k-flexboxlegacy .koowa .k-table-pagination { flex: 0 0 auto; } }
+
+.koowa .k-pagination { /** Pagination contents 1. Align vertically */ /** Pagination 1. Remove list-style and block-level defaults 2. Collapse white-space */ /* Limit */ }
+
+.koowa .k-pagination .k-pagination__limit, .koowa .k-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
+
+.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
+
+.koowa .k-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
+
+.koowa .k-pagination .k-pagination__pages > li > a, .koowa .k-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #337ab7; background-color: white; border: 1px solid #ddd; margin-left: -1px; }
+
+.koowa--rtl.koowa .k-pagination .k-pagination__pages > li > a, .koowa--rtl.koowa .k-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
+
+.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+
+.koowa--rtl.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa--rtl.koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+
+.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+
+.koowa--rtl.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+
+.koowa .k-pagination .k-pagination__pages > li > a:hover, .koowa .k-pagination .k-pagination__pages > li > a:focus, .koowa .k-pagination .k-pagination__pages > li > span:hover, .koowa .k-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #23527c; background-color: #eeeeee; border-color: #ddd; }
+
+.koowa .k-pagination .k-pagination__pages > .k-is-active > a, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:focus, .koowa .k-pagination .k-pagination__pages > .k-is-active > span, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:focus { z-index: 3; color: #fff; background-color: #3071a9; border-color: #337ab7; cursor: default; }
+
+.koowa .k-pagination select { height: 32px; width: auto; margin: 0; margin-right: 7px; }
+
+.koowa--rtl.koowa .k-pagination select { margin-right: auto; margin-left: 7px; }
+
+.koowa .k-table-pagination { padding: 7px; background: #fbfbfb; border-top: 1px solid gainsboro; box-shadow: 0 1px 0 gainsboro; /* 1 */ /* Flexbox */ }
+
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-table-pagination, .k-flexboxlegacy .koowa .k-table-pagination { flex: 0 0 auto; } }
+
+.koowa .k-pagination { /** Pagination contents 1. Align vertically */ /** Pagination 1. Remove list-style and block-level defaults 2. Collapse white-space */ /* Limit */ }
+
+.koowa .k-pagination .k-pagination__limit, .koowa .k-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
+
+.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
+
+.koowa .k-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
+
+.koowa .k-pagination .k-pagination__pages > li > a, .koowa .k-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #337ab7; background-color: white; border: 1px solid #ddd; margin-left: -1px; }
+
+.koowa--rtl.koowa .k-pagination .k-pagination__pages > li > a, .koowa--rtl.koowa .k-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
+
+.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+
+.koowa--rtl.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa--rtl.koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+
+.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+
+.koowa--rtl.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+
+.koowa .k-pagination .k-pagination__pages > li > a:hover, .koowa .k-pagination .k-pagination__pages > li > a:focus, .koowa .k-pagination .k-pagination__pages > li > span:hover, .koowa .k-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #23527c; background-color: #eeeeee; border-color: #ddd; }
+
+.koowa .k-pagination .k-pagination__pages > .k-is-active > a, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:focus, .koowa .k-pagination .k-pagination__pages > .k-is-active > span, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:focus { z-index: 3; color: #fff; background-color: #3071a9; border-color: #337ab7; cursor: default; }
+
+.koowa .k-pagination select { height: 32px; width: auto; margin: 0; margin-right: 7px; }
+
+.koowa--rtl.koowa .k-pagination select { margin-right: auto; margin-left: 7px; }
+
 .koowa .koowa_anchor { visibility: hidden; display: block; position: absolute; left: 0; top: 0; width: auto; height: 100%; padding: 1px 5px; background: #fff; margin: -1px 0; border-right: 2px solid #bbb; -webkit-border-radius: 0 5px 5px 0; -moz-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; }
 
 .koowa .koowa_anchor a { position: relative; top: 50%; display: block; width: auto; height: 1em; line-height: 1em; margin: 0; padding: .25em; white-space: nowrap; border-radius: 0; border: none; font-family: sans-serif; font-size: 15px; font-weight: 400; font-style: normal; text-transform: none; text-decoration: none; text-shadow: none; letter-spacing: 0; background: transparent; color: #888; margin-top: -.75em; }
@@ -1871,6 +1940,8 @@ Styleguide 6.9
 .koowa .jqtree-whitespace, .koowa .jqtree-toggler, .koowa .jqtree-icon, .koowa .jqtree-title { display: inline-block; font-size: 13px; line-height: 26px; height: 26px; vertical-align: middle; }
 
 .koowa .jqtree-whitespace, .koowa .jqtree-toggler, .koowa .jqtree-icon { width: 26px; text-align: center; }
+
+.koowa .jqtree-icon:before { line-height: 26px; }
 
 .koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler) { position: relative; }
 
@@ -2035,7 +2106,13 @@ Styleguide 6.9
 
 .koowa .k-ellipsis { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-.koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { display: inline-block; vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.koowa .k-link-coverall:after { display: block; position: absolute; content: " "; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.koowa .k-link-ontop { position: relative; z-index: 1; }
+
+.koowa .k-this-or-that { display: inline-block; margin-right: 7px; vertical-align: middle; }
 
 .koowa .fade { opacity: 0; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
@@ -2100,3 +2177,50 @@ Styleguide 6.9
 .koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar2 { top: 9px; left: 15px; height: 15px; transform: rotate(135deg); opacity: 1; width: 3px; }
 
 .koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { top: 9px; left: 15px; transform: rotate(-135deg); height: 15px; width: 3px; }
+
+/* TODO: Robin: This is in KUI but it's inside molecules/forms.scss. It has to be it's own molecule in order to import it in here in a correct way */
+/*
+Styled file input
+
+markup:
+<div class="k-file-input-container">
+    <div class="k-file-input">
+        <input class="k-js-file-input" type="file" id="input-[5.1]-2" data-multiple-caption="{count} files selected" multiple />
+        <label for="input-[5.1]-2">
+            <span class="k-file-input__button">
+                <sg-insert>2.12-62</sg-insert>
+                Choose a file&hellip;
+            </span>
+            <span class="k-file-input__files"></span>
+        </label>
+    </div>
+</div>
+
+Styleguide 2.9.9
+
+*/
+.k-file-input { position: relative; display: inline-block; /* The original file input select */ /* The button */ /* Selected files container */ }
+
+.k-file-input input { /** 1. Style only when JS is enabled / addEventlistener is available We want to show it regularly when we don't have addEventListener for usability sake 2. Hide the label by default and only show it when addEventListener is available (e.g. when file input is hidden) 3. Display label when file input is hidden */ /* Styling the label, holding both the button and the selected files container */ /* Focus state */ /* Hover / focus state */ }
+
+.k-eventlistener .k-file-input input { position: absolute; top: 0; right: 0; bottom: 0; margin: 0; padding: 0; cursor: pointer; font-size: 99px; opacity: 0; filter: alpha(opacity=0); }
+
+.k-file-input input + label { display: none; /* 2 */ }
+
+.k-eventlistener .k-file-input input + label { display: inline-block; /* 3 */ }
+
+.k-file-input input + label { max-width: 100%; font-size: 13px; line-height: 20px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; overflow: hidden; vertical-align: middle; color: #3071a9; padding: 0; text-align: center; }
+
+.k-file-input input:focus, .k-file-input input.has-focus { outline: none; }
+
+.k-file-input input:focus + label, .k-file-input input.has-focus + label { outline: 1px dotted #000; outline: -webkit-focus-ring-color auto 5px; }
+
+.k-file-input input:focus, .k-file-input input.has-focus, .k-file-input input.has-drop-focus, .k-file-input input:hover { cursor: pointer; }
+
+.k-file-input input:focus + label .k-file-input__button, .k-file-input input:focus + label .k-file-input__button:hover, .k-file-input input:focus + label .k-file-input__button:focus, .k-file-input input.has-focus + label .k-file-input__button, .k-file-input input.has-focus + label .k-file-input__button:hover, .k-file-input input.has-focus + label .k-file-input__button:focus, .k-file-input input.has-drop-focus + label .k-file-input__button, .k-file-input input.has-drop-focus + label .k-file-input__button:hover, .k-file-input input.has-drop-focus + label .k-file-input__button:focus, .k-file-input input:hover + label .k-file-input__button, .k-file-input input:hover + label .k-file-input__button:hover, .k-file-input input:hover + label .k-file-input__button:focus { background-color: #255681; }
+
+.k-file-input .k-file-input__button { display: block; background-color: #3071a9; color: white; pointer-events: none; vertical-align: middle; font-weight: 400; text-align: center; touch-action: manipulation; cursor: pointer; background-image: none; /* 2 */ border: 1px solid transparent; white-space: nowrap; box-shadow: none; text-shadow: none; user-select: none; margin-bottom: 0; border-radius: 6px; font-size: 18px; line-height: 1.3333333; padding: 7px 14px; }
+
+.k-file-input .k-file-input__files { width: 100%; height: 20px; line-height: 20px; display: inline-block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; vertical-align: top; text-align: center; }
+
+.k-file-input .k-file-input__files:empty { display: none; }

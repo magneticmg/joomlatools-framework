@@ -3354,6 +3354,7 @@ Different available table cell settings
 .k-table-data--form - Cells that only contain a form element like a radio input or checkbox
 .k-table-data--toggle - Empty cell that will hold the responsive toggle button
 .k-table-data--ellipsis - Break content at the end of the cell and add text ellipsis
+.k-table-data--multiline - All items inside this cell are `display: inline` with `vertical-align: baseline`
 
 markup:
 <td class="{$modifiers}">Content</td>
@@ -4173,13 +4174,15 @@ Styleguide 6.9
 
 [dir="rtl"] .koowa.koowa-container { direction: rtl; }
 
-.koowa .k-sidebar-left, .koowa .k-sidebar-right { position: relative; overflow: auto; -webkit-overflow-scrolling: touch; /* When resizing */ /* Faking flexbox on older browsers by using table styling */ display: table-cell; vertical-align: top; /* When JavaScript is enabled */ /* When flexbox is in use */ display: flex; flex-direction: column; flex: 0 0 auto; }
+.koowa .k-sidebar-left, .koowa .k-sidebar-right { position: relative; overflow: auto; -webkit-overflow-scrolling: touch; /* When resizing */ /* Faking flexbox on older browsers by using table styling */ display: table-cell; vertical-align: top; /* When JavaScript is enabled */ /* When flexbox is in use */ }
 
 .k-is-resizing .koowa .k-sidebar-left, .k-is-resizing .koowa .k-sidebar-right { overflow: hidden; }
 
 .k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { position: absolute; z-index: 1; top: 0; height: 100%; display: none; }
 
-.koowa .k-sidebar-left { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ }
+@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-sidebar-left, .k-flexboxlegacy .koowa .k-sidebar-left, .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: flex; flex-direction: column; flex: 0 0 auto; } }
+
+.koowa .k-sidebar-left { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ /* Override js-enabled beta styling with flexbox */ }
 
 @media screen and (min-width: 768px) { .koowa .k-sidebar-left { min-width: 210px; width: 210px; max-width: 210px; } }
 
@@ -4191,7 +4194,9 @@ Styleguide 6.9
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; } }
 
-.koowa .k-sidebar-right { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ }
+@media screen and (min-width: 300px) and (min-height: 391px) and (min-width: 768px) { .k-flexbox .koowa .k-sidebar-left, .k-flexboxlegacy .koowa .k-sidebar-left { display: flex; } }
+
+.koowa .k-sidebar-right { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ /* Override js-enabled beta styling with flexbox */ }
 
 @media screen and (min-width: 600px) { .koowa .k-sidebar-right { min-width: 210px; width: 210px; max-width: 210px; } }
 
@@ -4202,6 +4207,8 @@ Styleguide 6.9
 @media screen and (min-width: 600px) { .k-js-enabled .koowa .k-sidebar-right { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; } }
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
+
+@media screen and (min-width: 300px) and (min-height: 391px) and (min-width: 768px) { .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: flex; } }
 
 .koowa .k-sidebar-left { border-right: 1px solid #cfcfcf; background: #eeeeee; color: #222222; }
 
@@ -4249,7 +4256,7 @@ Styleguide 6.9
 
 .koowa dt { margin: 0; padding: 0; list-style: none; border: none; background: transparent; font-weight: 700; float: left; clear: left; margin-right: 7px; }
 
-.koowa dd { margin: 0; padding: 0; list-style: none; border: none; background: transparent; display: block; margin-bottom: 7px; }
+.koowa dd { margin: 0; padding: 0; list-style: none; border: none; background: transparent; display: block; margin-bottom: 7px; max-width: 100%; }
 
 .koowa dd:last-child { margin-bottom: 0; }
 
@@ -4889,7 +4896,7 @@ Styleguide 6.9
 
 .koowa .k-file-input .k-file-input__files:empty { display: none; }
 
-.koowa .k-form-info { margin-top: 0.75em; margin-bottom: 1.5em; color: #444444; }
+.koowa .k-form-info { margin-top: 0.75em; margin-bottom: 1em; color: #444444; }
 
 .koowa .k-form-info:last-child { margin-bottom: 0; }
 
@@ -5574,35 +5581,37 @@ Styleguide 6.9
 
 .koowa .k-table-container [class*="k-icon"] { display: inline-block; }
 
-.koowa .k-table-pagination { padding: 7px; background: #fbfbfb; border-top: 1px solid gainsboro; box-shadow: 0 1px 0 gainsboro; /* 1 */ /* Flexbox */ /** Pagination contents 1. Align vertically */ /** Pagination 1. Remove list-style and block-level defaults 2. Collapse white-space */ /* Limit */ }
+.koowa .k-table-pagination { padding: 7px; background: #fbfbfb; border-top: 1px solid gainsboro; box-shadow: 0 1px 0 gainsboro; /* 1 */ /* Flexbox */ }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-table-pagination, .k-flexboxlegacy .koowa .k-table-pagination { flex: 0 0 auto; } }
 
-.koowa .k-table-pagination .k-pagination__limit, .koowa .k-table-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
+.koowa .k-pagination { /** Pagination contents 1. Align vertically */ /** Pagination 1. Remove list-style and block-level defaults 2. Collapse white-space */ /* Limit */ }
 
-.koowa .k-table-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
+.koowa .k-pagination .k-pagination__limit, .koowa .k-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
 
-.koowa .k-table-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
+.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
 
-.koowa .k-table-pagination .k-pagination__pages > li > a, .koowa .k-table-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #3071a9; background-color: white; border: 1px solid gainsboro; margin-left: -1px; }
+.koowa .k-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
 
-[dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li > a, [dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
+.koowa .k-pagination .k-pagination__pages > li > a, .koowa .k-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #3071a9; background-color: white; border: 1px solid gainsboro; margin-left: -1px; }
 
-.koowa .k-table-pagination .k-pagination__pages > li:first-child > a, .koowa .k-table-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li > a, [dir="rtl"] .koowa .k-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
 
-[dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li:first-child > a, [dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
-.koowa .k-table-pagination .k-pagination__pages > li:last-child > a, .koowa .k-table-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:first-child > a, [dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
 
-[dir="rtl"] .koowa .k-table-pagination .k-pagination__pages > li:last-child > a, .koowa .k-table-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
 
-.koowa .k-table-pagination .k-pagination__pages > li > a:hover, .koowa .k-table-pagination .k-pagination__pages > li > a:focus, .koowa .k-table-pagination .k-pagination__pages > li > span:hover, .koowa .k-table-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #285e8d; background-color: #eeeeee; border-color: gainsboro; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
-.koowa .k-table-pagination .k-pagination__pages > .k-is-active > a, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > a:hover, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > a:focus, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > span, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > span:hover, .koowa .k-table-pagination .k-pagination__pages > .k-is-active > span:focus { z-index: 3; color: white; background-color: #3071a9; border-color: #285e8d; cursor: default; }
+.koowa .k-pagination .k-pagination__pages > li > a:hover, .koowa .k-pagination .k-pagination__pages > li > a:focus, .koowa .k-pagination .k-pagination__pages > li > span:hover, .koowa .k-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #285e8d; background-color: #eeeeee; border-color: gainsboro; }
 
-.koowa .k-table-pagination select { height: 32px; width: auto; margin-right: 7px; }
+.koowa .k-pagination .k-pagination__pages > .k-is-active > a, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:focus, .koowa .k-pagination .k-pagination__pages > .k-is-active > span, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:focus { z-index: 3; color: white; background-color: #3071a9; border-color: #285e8d; cursor: default; }
 
-[dir="rtl"] .koowa .k-table-pagination select { margin-right: auto; margin-left: 7px; }
+.koowa .k-pagination select { height: 32px; width: auto; margin: 0; margin-right: 7px; }
+
+[dir="rtl"] .koowa .k-pagination select { margin-right: auto; margin-left: 7px; }
 
 .koowa .k-table-container a { display: inline-block; vertical-align: middle; text-decoration: none; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
@@ -5626,6 +5635,8 @@ Styleguide 6.9
 
 .koowa .k-table-container .k-table-data--toggle [class*="k-icon"], .koowa .k-table-container .k-table-data--form [class*="k-icon"], .koowa .k-table-container .k-table-data--icon [class*="k-icon"] { font-size: 16px; }
 
+.koowa .k-table-container .k-table-data--multiline a, .koowa .k-table-container .k-table-data--multiline span, .koowa .k-table-container .k-table-data--multiline input, .koowa .k-table-container .k-table-data--multiline svg, .koowa .k-table-container .k-table-data--multiline small, .koowa .k-table-container .k-table-data--multiline img { display: inline; vertical-align: baseline; }
+
 .koowa .k-table-container .k-table-data--toggle { padding: 0; font-size: 0; line-height: 0; overflow: hidden; width: 0; visibility: visible; }
 
 .koowa .k-table-container .k-table-data--toggle--hidden { padding: 0; }
@@ -5636,7 +5647,7 @@ Styleguide 6.9
 
 .koowa .k-table-container .k-table-data--form input { margin: 0 !important; }
 
-.koowa .k-table-container .k-table-data--icon img { min-width: 16px; }
+.koowa .k-table-container .k-table-data--icon img { min-width: 16px; width: 16px; max-width: 16px; }
 
 .koowa .k-table-container th.k-table-data--icon a { line-height: 25px; }
 
@@ -6043,6 +6054,8 @@ Styleguide 6.9
 
 .koowa .jqtree-whitespace, .koowa .jqtree-toggler, .koowa .jqtree-icon { width: 26px; text-align: center; }
 
+.koowa .jqtree-icon:before { line-height: 26px; }
+
 .koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler) { position: relative; }
 
 .koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { display: block; position: absolute; content: " "; width: 6px; height: 6px; border-left: 1px solid #aaa; border-bottom: 1px solid #aaa; top: 50%; margin-top: -3px; left: -16px; }
@@ -6174,7 +6187,13 @@ Styleguide 6.9
 
 .koowa .k-ellipsis { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-.koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.koowa .k-ellipsis a, .koowa .k-ellipsis span, .koowa .k-ellipsis input, .koowa .k-ellipsis svg, .koowa .k-ellipsis div, .koowa .k-ellipsis small { display: inline-block; vertical-align: middle; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.koowa .k-link-coverall:after { display: block; position: absolute; content: " "; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+.koowa .k-link-ontop { position: relative; z-index: 1; }
+
+.koowa .k-this-or-that { display: inline-block; margin-right: 7px; vertical-align: middle; }
 
 .koowa .k-overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
 
