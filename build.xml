@@ -8,6 +8,13 @@
 
     <property name="file.compress" value="true" />
 
+    <property name="files.branch" value="master" />
+    <property name="activities.branch" value="master" />
+    <property name="scheduler.branch" value="master" />
+    <property name="migrator.branch" value="master" />
+    <property name="tags.branch" value="master" />
+
+
 	<!-- Load the build configuration -->
 	<property file="build.properties" override="true" />
 
@@ -49,7 +56,7 @@
             </elseif>
 			<else>
 				<echo message="Cloning Joomlatools framework" />
-                <property name="framework.branch" value="develop" />
+                <property name="framework.branch" value="master" />
                 <exec command="git clone --depth 1 --branch ${framework.branch} git@github.com:joomlatools/joomlatools-framework.git ${project.basedir}/tmp/clone" />
 			</else>
 		</if>
@@ -64,11 +71,11 @@
         <delete file="${component.folder}/migrator" includeemptydirs="true" />
         <delete file="${component.folder}/tags" includeemptydirs="true" />
 
-        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-files.git ${component.folder}/files" />
-        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-activities.git ${component.folder}/activities" />
-        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-scheduler.git ${component.folder}/scheduler" />
-        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-migrator.git ${component.folder}/migrator" />
-        <exec command="git clone --depth 1 --branch master git@github.com:joomlatools/joomlatools-framework-tags.git ${component.folder}/tags" />
+        <exec command="git clone --depth 1 --branch ${files.branch} git@github.com:joomlatools/joomlatools-framework-files.git ${component.folder}/files" />
+        <exec command="git clone --depth 1 --branch ${activities.branch} git@github.com:joomlatools/joomlatools-framework-activities.git ${component.folder}/activities" />
+        <exec command="git clone --depth 1 --branch ${scheduler.branch} git@github.com:joomlatools/joomlatools-framework-scheduler.git ${component.folder}/scheduler" />
+        <exec command="git clone --depth 1 --branch ${migrator.branch} git@github.com:joomlatools/joomlatools-framework-migrator.git ${component.folder}/migrator" />
+        <exec command="git clone --depth 1 --branch ${tags.branch} git@github.com:joomlatools/joomlatools-framework-tags.git ${component.folder}/tags" />
 
         <delete dir="${component.folder}/files/.git" includeemptydirs="true" />
         <delete dir="${component.folder}/activities/.git" includeemptydirs="true" />
