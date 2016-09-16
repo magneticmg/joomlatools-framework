@@ -1872,6 +1872,8 @@ Styleguide 6.9
 
 .koowa .jqtree-whitespace, .koowa .jqtree-toggler, .koowa .jqtree-icon { width: 26px; text-align: center; }
 
+.koowa .jqtree-icon:before { line-height: 26px; }
+
 .koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler) { position: relative; }
 
 .koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { display: block; position: absolute; content: " "; width: 6px; height: 6px; border-left: 1px solid #aaa; border-bottom: 1px solid #aaa; top: 50%; margin-top: -3px; left: -16px; }
