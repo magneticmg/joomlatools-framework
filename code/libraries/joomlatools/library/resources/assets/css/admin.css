@@ -5642,7 +5642,7 @@ Styleguide 6.9
 
 .koowa .k-table-container .k-table-data--form input { margin: 0 !important; }
 
-.koowa .k-table-container .k-table-data--icon img { min-width: 16px; }
+.koowa .k-table-container .k-table-data--icon img { min-width: 16px; width: 16px; max-width: 16px; }
 
 .koowa .k-table-container th.k-table-data--icon a { line-height: 25px; }
 
