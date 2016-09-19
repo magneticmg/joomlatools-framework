@@ -4179,7 +4179,7 @@ Styleguide 6.9
 
 .k-is-resizing .koowa .k-sidebar-left, .k-is-resizing .koowa .k-sidebar-right { overflow: hidden; }
 
-.k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { position: absolute; z-index: 1; top: 0; height: 100%; display: none; }
+.k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { position: absolute; z-index: -1; top: 0; height: 100%; display: none; }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-sidebar-left, .k-flexboxlegacy .koowa .k-sidebar-left, .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: flex; flex-direction: column; flex: 0 0 auto; } }
 
@@ -4219,7 +4219,7 @@ Styleguide 6.9
 
 .k-js-enabled [dir="rtl"] .koowa .k-sidebar-left { left: auto; right: 0; }
 
-.koowa .k-is-opened-left .k-sidebar-left { display: block; }
+.koowa .k-is-opened-left .k-sidebar-left { display: block; z-index: 1; }
 
 .koowa .k-sidebar-right { border-left: 1px solid #cfcfcf; background: #eeeeee; color: #222222; }
 
@@ -4229,7 +4229,7 @@ Styleguide 6.9
 
 .k-js-enabled [dir="rtl"] .koowa .k-sidebar-right { right: auto; left: 0; }
 
-.koowa .k-is-opened-right .k-sidebar-right { display: block; }
+.koowa .k-is-opened-right .k-sidebar-right { display: block; z-index: 1; }
 
 .koowa .k-wrapper { position: relative; /* When flexbox is in use */ }
 
