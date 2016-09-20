@@ -4191,7 +4191,7 @@ Styleguide 6.9
 
 .k-js-enabled .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; /* On 'desktop' we 'open' the sidebar by default */ /* And we make it even larger when there's enough space */ }
 
-@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-sidebar-left { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; } }
+@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-sidebar-left { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; z-index: 1; } }
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; } }
 
@@ -4205,7 +4205,7 @@ Styleguide 6.9
 
 .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; /* On 'desktop' we 'open' the sidebar by default */ /* And we make it even larger when there's enough space */ }
 
-@media screen and (min-width: 600px) { .k-js-enabled .koowa .k-sidebar-right { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; } }
+@media screen and (min-width: 600px) { .k-js-enabled .koowa .k-sidebar-right { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; z-index: 1; } }
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
 
@@ -4260,6 +4260,10 @@ Styleguide 6.9
 .koowa dd { margin: 0; padding: 0; list-style: none; border: none; background: transparent; display: block; margin-bottom: 7px; max-width: 100%; }
 
 .koowa dd:last-child { margin-bottom: 0; }
+
+.koowa dd.k-ellipsis { vertical-align: bottom; }
+
+.koowa dd.k-ellipsis .k-ellipsis__item { vertical-align: inherit; }
 
 .koowa fieldset { margin: 0; padding: 0; list-style: none; border: none; background: transparent; margin-bottom: 1.5em; min-width: 0; /* 1 */ }
 
