@@ -2096,6 +2096,10 @@ Styleguide 6.9
 
 .koowa .k-content-block:last-child { margin-bottom: 0; }
 
+.koowa .k-content-block--small { margin-bottom: 1em; }
+
+.koowa .k-content-block--small:last-child { margin-bottom: 0; }
+
 .koowa .k-position-relative { position: relative; }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-dont-flex.k-dont-flex.k-dont-flex, .k-flexboxlegacy .koowa .k-dont-flex.k-dont-flex.k-dont-flex { flex: 0 0 auto; } }
