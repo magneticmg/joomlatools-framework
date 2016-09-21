@@ -4752,6 +4752,8 @@ Styleguide 6.9
 
 .koowa .k-input-group--large select.k-form-control { height: 39px; line-height: 39px; }
 
+[dir="rtl"] .koowa .k-input-group--large select.k-form-control { direction: rtl; }
+
 .koowa .k-input-group--large textarea.k-form-control, .koowa .k-input-group--large select[multiple].k-form-control { height: auto; }
 
 .koowa .k-input-group--small > .k-form-control, .koowa .k-input-group--small > .select2-container--bootstrap .select2-selection--single, .koowa .k-input-group--small > .k-input-group__addon, .koowa .k-input-group--small > .k-input-group__button > .k-button, .koowa .k-input-group--small > .k-input-group__button > .btn { height: 27px; padding: 4px 9px; font-size: 11px; line-height: 17px; border-radius: 3px; }
@@ -4993,7 +4995,7 @@ Styleguide 6.9
 
 .koowa .k-list { padding: 0; list-style: none; border: none; background: transparent; /* 1 */ margin: 7px 0; /* Items */ /** Links 1. Make item fully clickable 2. removing underlines */ /* Active link */ /* Icons */ }
 
-[dir="rtl"] .koowa .k-list { margin: 7px 0; }
+[dir="rtl"] .koowa .k-list { margin: 7px 0; /* Override for rtl ul-ol-li styling */ padding: 0; }
 
 .koowa .k-list li { display: block; line-height: 20px; }
 
@@ -5193,9 +5195,9 @@ Styleguide 6.9
 
 .koowa .k-inline-modal__title { margin: 0 0 20px 0; font-weight: 400; font-size: 18px; line-height: 23px; }
 
-.koowa .k-navigation { margin: 0; list-style: none; border: none; /* 1 */ border-bottom: 1px solid #c8c8c8; padding: 14px 0; background: #e6e6e6; /* Items */ /** Links 1. Make item fully clickable 2. removing underlines */ /* Active link */ }
+.koowa .k-navigation { margin: 0; list-style: none; border: none; /* 1 */ border-bottom: 1px solid #c8c8c8; padding: 14px 0; background: #e6e6e6; /* Override for rtl ul-ol-li styling */ /* Items */ /** Links 1. Make item fully clickable 2. removing underlines */ /* Active link */ }
 
-[dir="rtl"] .koowa .k-navigation { margin: 0; }
+[dir="rtl"] .koowa .k-navigation { padding: 14px 0; }
 
 .koowa .k-navigation li { display: block; line-height: 20px; }
 
@@ -5594,7 +5596,9 @@ Styleguide 6.9
 
 .koowa .k-pagination .k-pagination__limit, .koowa .k-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
 
-.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
+.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; /* Override for rtl ul-ol-li styling */ /* Contents */ }
+
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages { padding: 0; }
 
 .koowa .k-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
 
@@ -5967,6 +5971,8 @@ Styleguide 6.9
 
 @media screen and (min-width: 0) and (max-width: 768px) { .koowa .k-toolbar [class^="k-icon"] { display: block; margin: 0 0 10px; width: 18px; height: 18px; font-size: 18px; line-height: 18px; } }
 
+[dir="rtl"] .koowa .k-toolbar [class^="k-icon"] { margin: 0 0.1em 0 0.25em; }
+
 .koowa .k-toolbar .k-off-canvas-menu-toggle-holder { display: inline-block; vertical-align: middle; }
 
 .koowa .k-toolbar .k-off-canvas-menu-toggle-holder .k-off-canvas-menu-toggle { margin-bottom: 0; }
@@ -6017,7 +6023,7 @@ Styleguide 6.9
 
 .koowa .k-tree .jqtree-element:hover, .koowa .k-tree .jqtree-element:focus { background: white; }
 
-.koowa .k-tree > .jqtree-tree { margin: 0; }
+.koowa .k-tree > .jqtree-tree { margin: 0; padding: 0; }
 
 .koowa .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 0; }
 
