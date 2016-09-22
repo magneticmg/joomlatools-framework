@@ -592,17 +592,29 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 /** Icon classes Creating a class name for each individual icon to be used in markup like: <span class="k-icon-circle"></span> */
 .k-icon-account-login:before { content: ""; }
 
+.koowa--rtl.k-icon-account-login:before { transform: scaleX(-1); }
+
 .k-icon-account-logout:before { content: ""; }
+
+.koowa--rtl.k-icon-account-logout:before { transform: scaleX(-1); }
 
 .k-icon-action-redo:before { content: ""; }
 
+.koowa--rtl.k-icon-action-redo:before { transform: scaleX(-1); }
+
 .k-icon-action-undo:before { content: ""; }
+
+.koowa--rtl.k-icon-action-undo:before { transform: scaleX(-1); }
 
 .k-icon-align-center:before { content: ""; }
 
 .k-icon-align-left:before { content: ""; }
 
+.koowa--rtl.k-icon-align-left:before { transform: scaleX(-1); }
+
 .k-icon-align-right:before { content: ""; }
+
+.koowa--rtl.k-icon-align-right:before { transform: scaleX(-1); }
 
 .k-icon-aperture:before { content: ""; }
 
@@ -612,19 +624,31 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-arrow-circle-left:before { content: ""; }
 
+.koowa--rtl.k-icon-arrow-circle-left:before { transform: scaleX(-1); }
+
 .k-icon-arrow-circle-right:before { content: ""; }
+
+.koowa--rtl.k-icon-arrow-circle-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-circle-top:before { content: ""; }
 
 .k-icon-arrow-left:before { content: ""; }
 
+.koowa--rtl.k-icon-arrow-left:before { transform: scaleX(-1); }
+
 .k-icon-arrow-right:before { content: ""; }
+
+.koowa--rtl.k-icon-arrow-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-thick-bottom:before { content: ""; }
 
 .k-icon-arrow-thick-left:before { content: ""; }
 
+.koowa--rtl.k-icon-arrow-thick-left:before { transform: scaleX(-1); }
+
 .k-icon-arrow-thick-right:before { content: ""; }
+
+.koowa--rtl.k-icon-arrow-thick-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-thick-top:before { content: ""; }
 
@@ -639,6 +663,8 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 .k-icon-ban:before { content: ""; }
 
 .k-icon-bar-chart:before { content: ""; }
+
+.koowa--rtl.k-icon-bar-chart:before { transform: scaleX(-1); }
 
 .k-icon-basket:before { content: ""; }
 
@@ -658,6 +684,8 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-book:before { content: ""; }
 
+.koowa--rtl.k-icon-book:before { transform: scaleX(-1); }
+
 .k-icon-bookmark:before { content: ""; }
 
 .k-icon-box:before { content: ""; }
@@ -668,15 +696,25 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-browser:before { content: ""; }
 
+.koowa--rtl.k-icon-browser:before { transform: scaleX(-1); }
+
 .k-icon-brush:before { content: ""; }
+
+.koowa--rtl.k-icon-brush:before { transform: scaleX(-1); }
 
 .k-icon-bug:before { content: ""; }
 
 .k-icon-bullhorn:before { content: ""; }
 
+.koowa--rtl.k-icon-bullhorn:before { transform: scaleX(-1); }
+
 .k-icon-calculator:before { content: ""; }
 
+.koowa--rtl.k-icon-calculator:before { transform: scaleX(-1); }
+
 .k-icon-calendar:before { content: ""; }
+
+.koowa--rtl.k-icon-calendar:before { transform: scaleX(-1); }
 
 .k-icon-camera-slr:before { content: ""; }
 
@@ -684,7 +722,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-caret-left:before { content: ""; }
 
+.koowa--rtl.k-icon-caret-left:before { transform: scaleX(-1); }
+
 .k-icon-caret-right:before { content: ""; }
+
+.koowa--rtl.k-icon-caret-right:before { transform: scaleX(-1); }
 
 .k-icon-caret-top:before { content: ""; }
 
@@ -698,7 +740,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-chevron-left:before { content: ""; }
 
+.koowa--rtl.k-icon-chevron-left:before { transform: scaleX(-1); }
+
 .k-icon-chevron-right:before { content: ""; }
+
+.koowa--rtl.k-icon-chevron-right:before { transform: scaleX(-1); }
 
 .k-icon-chevron-top:before { content: ""; }
 
@@ -726,7 +772,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-collapse-left:before { content: ""; }
 
+.koowa--rtl.k-icon-collapse-left:before { transform: scaleX(-1); }
+
 .k-icon-collapse-right:before { content: ""; }
+
+.koowa--rtl.k-icon-collapse-right:before { transform: scaleX(-1); }
 
 .k-icon-collapse-up:before { content: ""; }
 
@@ -734,11 +784,15 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-comment-square:before { content: ""; }
 
+.koowa--rtl.k-icon-comment-square:before { transform: scaleX(-1); }
+
 .k-icon-compass:before { content: ""; }
 
 .k-icon-contrast:before { content: ""; }
 
 .k-icon-copywriting:before { content: ""; }
+
+.koowa--rtl.k-icon-copywriting:before { transform: scaleX(-1); }
 
 .k-icon-credit-card:before { content: ""; }
 
@@ -752,19 +806,31 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-delete:before { content: ""; }
 
+.koowa--rtl.k-icon-delete:before { transform: scaleX(-1); }
+
 .k-icon-dial:before { content: ""; }
 
 .k-icon-document:before { content: ""; }
+
+.koowa--rtl.k-icon-document:before { transform: scaleX(-1); }
 
 .k-icon-dollar:before { content: ""; }
 
 .k-icon-double-quote-sans-left:before { content: ""; }
 
+.koowa--rtl.k-icon-double-quote-sans-left:before { transform: scaleX(-1); }
+
 .k-icon-double-quote-sans-right:before { content: ""; }
+
+.koowa--rtl.k-icon-double-quote-sans-right:before { transform: scaleX(-1); }
 
 .k-icon-double-quote-serif-left:before { content: ""; }
 
+.koowa--rtl.k-icon-double-quote-serif-left:before { transform: scaleX(-1); }
+
 .k-icon-double-quote-serif-right:before { content: ""; }
+
+.koowa--rtl.k-icon-double-quote-serif-right:before { transform: scaleX(-1); }
 
 .k-icon-droplet:before { content: ""; }
 
@@ -786,25 +852,41 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-expand-left:before { content: ""; }
 
+.koowa--rtl.k-icon-expand-left:before { transform: scaleX(-1); }
+
 .k-icon-expand-right:before { content: ""; }
+
+.koowa--rtl.k-icon-expand-right:before { transform: scaleX(-1); }
 
 .k-icon-expand-up:before { content: ""; }
 
 .k-icon-external-link:before { content: ""; }
 
+.koowa--rtl.k-icon-external-link:before { transform: scaleX(-1); }
+
 .k-icon-eye:before { content: ""; }
 
 .k-icon-eyedropper:before { content: ""; }
 
+.koowa--rtl.k-icon-eyedropper:before { transform: scaleX(-1); }
+
 .k-icon-file:before { content: ""; }
+
+.koowa--rtl.k-icon-file:before { transform: scaleX(-1); }
 
 .k-icon-fire:before { content: ""; }
 
+.koowa--rtl.k-icon-fire:before { transform: scaleX(-1); }
+
 .k-icon-flag:before { content: ""; }
+
+.koowa--rtl.k-icon-flag:before { transform: scaleX(-1); }
 
 .k-icon-flash:before { content: ""; }
 
 .k-icon-folder:before { content: ""; }
+
+.koowa--rtl.k-icon-folder:before { transform: scaleX(-1); }
 
 .k-icon-fork:before { content: ""; }
 
@@ -815,6 +897,8 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 .k-icon-globe:before { content: ""; }
 
 .k-icon-graph:before { content: ""; }
+
+.koowa--rtl.k-icon-graph:before { transform: scaleX(-1); }
 
 .k-icon-grid-four-up:before { content: ""; }
 
@@ -840,29 +924,49 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-info:before { content: ""; }
 
+.koowa--rtl.k-icon-info:before { transform: scaleX(-1); }
+
 .k-icon-italic:before { content: ""; }
+
+.koowa--rtl.k-icon-italic:before { transform: scaleX(-1); }
 
 .k-icon-justify-center:before { content: ""; }
 
 .k-icon-justify-left:before { content: ""; }
 
+.koowa--rtl.k-icon-justify-left:before { transform: scaleX(-1); }
+
 .k-icon-justify-right:before { content: ""; }
 
+.koowa--rtl.k-icon-justify-right:before { transform: scaleX(-1); }
+
 .k-icon-key:before { content: ""; }
+
+.koowa--rtl.k-icon-key:before { transform: scaleX(-1); }
 
 .k-icon-laptop:before { content: ""; }
 
 .k-icon-layers:before { content: ""; }
 
+.koowa--rtl.k-icon-layers:before { transform: scaleX(-1); }
+
 .k-icon-lightbulb:before { content: ""; }
 
 .k-icon-link-broken:before { content: ""; }
 
+.koowa--rtl.k-icon-link-broken:before { transform: scaleX(-1); }
+
 .k-icon-link-intact:before { content: ""; }
+
+.koowa--rtl.k-icon-link-intact:before { transform: scaleX(-1); }
 
 .k-icon-list-rich:before { content: ""; }
 
+.koowa--rtl.k-icon-list-rich:before { transform: scaleX(-1); }
+
 .k-icon-list:before { content: ""; }
+
+.koowa--rtl.k-icon-list:before { transform: scaleX(-1); }
 
 .k-icon-location:before { content: ""; }
 
@@ -878,6 +982,8 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-magnifying-glass:before { content: ""; }
 
+.koowa--rtl.k-icon-magnifying-glass:before { transform: scaleX(-1); }
+
 .k-icon-map-marker:before { content: ""; }
 
 .k-icon-map:before { content: ""; }
@@ -886,15 +992,25 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-media-play:before { content: ""; }
 
+.koowa--rtl.k-icon-media-play:before { transform: scaleX(-1); }
+
 .k-icon-media-record:before { content: ""; }
 
 .k-icon-media-skip-backward:before { content: ""; }
 
+.koowa--rtl.k-icon-media-skip-backward:before { transform: scaleX(-1); }
+
 .k-icon-media-skip-forward:before { content: ""; }
+
+.koowa--rtl.k-icon-media-skip-forward:before { transform: scaleX(-1); }
 
 .k-icon-media-step-backward:before { content: ""; }
 
+.koowa--rtl.k-icon-media-step-backward:before { transform: scaleX(-1); }
+
 .k-icon-media-step-forward:before { content: ""; }
+
+.koowa--rtl.k-icon-media-step-forward:before { transform: scaleX(-1); }
 
 .k-icon-media-stop:before { content: ""; }
 
@@ -916,9 +1032,15 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-paperclip:before { content: ""; }
 
+.koowa--rtl.k-icon-paperclip:before { transform: scaleX(-1); }
+
 .k-icon-pencil:before { content: ""; }
 
+.koowa--rtl.k-icon-pencil:before { transform: scaleX(-1); }
+
 .k-icon-people:before { content: ""; }
+
+.koowa--rtl.k-icon-people:before { transform: scaleX(-1); }
 
 .k-icon-person:before { content: ""; }
 
@@ -926,9 +1048,13 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-pie-chart:before { content: ""; }
 
+.koowa--rtl.k-icon-pie-chart:before { transform: scaleX(-1); }
+
 .k-icon-pin:before { content: ""; }
 
 .k-icon-play-circle:before { content: ""; }
+
+.koowa--rtl.k-icon-play-circle:before { transform: scaleX(-1); }
 
 .k-icon-plus:before { content: ""; }
 
@@ -938,17 +1064,23 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-project:before { content: ""; }
 
+.koowa--rtl.k-icon-project:before { transform: scaleX(-1); }
+
 .k-icon-pulse:before { content: ""; }
 
 .k-icon-puzzle-piece:before { content: ""; }
 
 .k-icon-question-mark:before { content: ""; }
 
+.koowa--rtl.k-icon-question-mark:before { transform: scaleX(-1); }
+
 .k-icon-rain:before { content: ""; }
 
 .k-icon-random:before { content: ""; }
 
 .k-icon-reload:before { content: ""; }
+
+.koowa--rtl.k-icon-reload:before { transform: scaleX(-1); }
 
 .k-icon-resize-both:before { content: ""; }
 
@@ -964,19 +1096,31 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-share-boxed:before { content: ""; }
 
+.koowa--rtl.k-icon-share-boxed:before { transform: scaleX(-1); }
+
 .k-icon-share:before { content: ""; }
+
+.koowa--rtl.k-icon-share:before { transform: scaleX(-1); }
 
 .k-icon-shield:before { content: ""; }
 
 .k-icon-signal:before { content: ""; }
 
+.koowa--rtl.k-icon-signal:before { transform: scaleX(-1); }
+
 .k-icon-signpost:before { content: ""; }
 
 .k-icon-sort-ascending:before { content: ""; }
 
+.koowa--rtl.k-icon-sort-ascending:before { transform: scaleX(-1); }
+
 .k-icon-sort-descending:before { content: ""; }
 
+.koowa--rtl.k-icon-sort-descending:before { transform: scaleX(-1); }
+
 .k-icon-spreadsheet:before { content: ""; }
+
+.koowa--rtl.k-icon-spreadsheet:before { transform: scaleX(-1); }
 
 .k-icon-star:before { content: ""; }
 
@@ -986,7 +1130,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-tag:before { content: ""; }
 
+.koowa--rtl.k-icon-tag:before { transform: scaleX(-1); }
+
 .k-icon-tags:before { content: ""; }
+
+.koowa--rtl.k-icon-tags:before { transform: scaleX(-1); }
 
 .k-icon-target:before { content: ""; }
 
@@ -1016,11 +1164,19 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-video:before { content: ""; }
 
+.koowa--rtl.k-icon-video:before { transform: scaleX(-1); }
+
 .k-icon-volume-high:before { content: ""; }
+
+.koowa--rtl.k-icon-volume-high:before { transform: scaleX(-1); }
 
 .k-icon-volume-low:before { content: ""; }
 
+.koowa--rtl.k-icon-volume-low:before { transform: scaleX(-1); }
+
 .k-icon-volume-off:before { content: ""; }
+
+.koowa--rtl.k-icon-volume-off:before { transform: scaleX(-1); }
 
 .k-icon-warning:before { content: ""; }
 
@@ -1028,13 +1184,19 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-wrench:before { content: ""; }
 
+.koowa--rtl.k-icon-wrench:before { transform: scaleX(-1); }
+
 .k-icon-x:before { content: ""; }
 
 .k-icon-yen:before { content: ""; }
 
 .k-icon-zoom-in:before { content: ""; }
 
+.koowa--rtl.k-icon-zoom-in:before { transform: scaleX(-1); }
+
 .k-icon-zoom-out:before { content: ""; }
+
+.koowa--rtl.k-icon-zoom-out:before { transform: scaleX(-1); }
 
 .k-icon-close:before { content: ""; }
 
@@ -1044,11 +1206,15 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-document-audio:before { content: ""; }
 
+.koowa--rtl.k-icon-document-audio:before { transform: scaleX(-1); }
+
 .k-icon-document-default:before { content: ""; }
 
 .k-icon-document-document:before { content: ""; }
 
 .k-icon-document-folder:before { content: ""; }
+
+.koowa--rtl.k-icon-document-folder:before { transform: scaleX(-1); }
 
 .k-icon-document-image:before { content: ""; }
 
@@ -1058,19 +1224,31 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-document-video:before { content: ""; }
 
+.koowa--rtl.k-icon-document-video:before { transform: scaleX(-1); }
+
 .k-icon-documents:before { content: ""; }
 
 .k-icon-enabled:before { content: ""; }
 
 .k-icon-filter:before { content: ""; }
 
+.koowa--rtl.k-icon-filter:before { transform: scaleX(-1); }
+
 .k-icon-folder-closed:before { content: ""; }
+
+.koowa--rtl.k-icon-folder-closed:before { transform: scaleX(-1); }
 
 .k-icon-folder-opened:before { content: ""; }
 
+.koowa--rtl.k-icon-folder-opened:before { transform: scaleX(-1); }
+
 .k-icon-menu-closed:before { content: ""; }
 
+.koowa--rtl.k-icon-menu-closed:before { transform: scaleX(-1); }
+
 .k-icon-menu-opened:before { content: ""; }
+
+.koowa--rtl.k-icon-menu-opened:before { transform: scaleX(-1); }
 
 .k-icon-open:before { content: ""; }
 
@@ -1559,46 +1737,25 @@ markup:
 Styleguide 2.21.1
 
 */ /** 1. Faking a bottom border, this shadow will disappear when pagination is positioned to bottom */ /* File select input */ /*
-Table pagination
-
-- Put right below `.k-table` container and inside `.k-table-container` container
+Styled file input
 
 markup:
-<div class="k-table-pagination">
-    <div class="k-pagination">
-        <div class="k-pagination__limit">
-            <select class="k-form-control">
-                <option value="5">5</option>
-                <option value="10" selected>10</option>
-                <option value="15">15</option>
-            </select>
-        </div>
-        <ul class="k-pagination__pages">
-            <li class="k-is-active">
-                <span>1</span>
-            </li>
-            <li>
-                <a href="javascript:void(0)">2</a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">3</a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">4</a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">5</a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">»</a>
-            </li>
-        </ul>
+<div class="k-file-input-container">
+    <div class="k-file-input">
+        <input class="k-js-file-input" type="file" id="input-[5.1]-2" data-multiple-caption="{count} files selected" multiple />
+        <label for="input-[5.1]-2">
+            <span class="k-file-input__button">
+                <sg-insert>2.12-62</sg-insert>
+                Choose a file&hellip;
+            </span>
+            <span class="k-file-input__files"></span>
+        </label>
     </div>
 </div>
 
-Styleguide 2.21.1
+Styleguide 2.9.9
 
-*/ /** 1. Faking a bottom border, this shadow will disappear when pagination is positioned to bottom */ /* Tree ========================================================================== */ /*
+*/ /* Tree ========================================================================== */ /*
 Tree
 
 markup:
@@ -1765,7 +1922,7 @@ sg-wrapper:
 
 Styleguide 6.9
 
-*/ /** Component animations Mainly used for tooltips right now We don't use the `.opacity()` mixin here since it causes a bug with text fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552. */ /* Hamburger ========================================================================== */ /** Animated hamburger button 1. Hide when JS is disabled, we don't need a toggle when there's no JS 2. Show when JS is enabled 3. Hide when the sidebar is visible */ /* Button styling */ /* Left button */ /* Transform hamburger into a cross when the sidebar is opened */ /* Right button */ /* Transform "i" into a cross when the sidebar is opened */ }
+*/ /** Component animations Mainly used for tooltips right now We don't use the `.opacity()` mixin here since it causes a bug with text fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552. */ /* Hamburger ========================================================================== */ /** Animated hamburger button 1. Hide when JS is disabled, we don't need a toggle when there's no JS 2. Show when JS is enabled 3. Hide when the sidebar is visible */ /* Button styling */ /** Left button We don't need RTLstyling here since we're calculating the icons to be in the middle */ /* Transform hamburger into a cross when the sidebar is opened */ /** Right button We don't need RTLstyling here since we're calculating the icons to be in the middle */ /* Transform "i" into a cross when the sidebar is opened */ }
 
 .koowa, .koowa *, .koowa *:before, .koowa *:after { box-sizing: border-box; }
 
@@ -1831,39 +1988,31 @@ Styleguide 6.9
 
 .koowa--rtl.koowa .k-pagination select { margin-right: auto; margin-left: 7px; }
 
-.koowa .k-table-pagination { padding: 7px; background: #fbfbfb; border-top: 1px solid gainsboro; box-shadow: 0 1px 0 gainsboro; /* 1 */ /* Flexbox */ }
+.koowa .k-file-input { position: relative; display: inline-block; /* The original file input select */ /* The button */ /* Selected files container */ }
 
-@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-table-pagination, .k-flexboxlegacy .koowa .k-table-pagination { flex: 0 0 auto; } }
+.koowa .k-file-input input { /** 1. Style only when JS is enabled / addEventlistener is available We want to show it regularly when we don't have addEventListener for usability sake 2. Hide the label by default and only show it when addEventListener is available (e.g. when file input is hidden) 3. Display label when file input is hidden */ /* Styling the label, holding both the button and the selected files container */ /* Focus state */ /* Hover / focus state */ }
 
-.koowa .k-pagination { /** Pagination contents 1. Align vertically */ /** Pagination 1. Remove list-style and block-level defaults 2. Collapse white-space */ /* Limit */ }
+.k-eventlistener .koowa .k-file-input input { position: absolute; top: 0; right: 0; bottom: 0; margin: 0; padding: 0; cursor: pointer; font-size: 99px; opacity: 0; filter: alpha(opacity=0); }
 
-.koowa .k-pagination .k-pagination__limit, .koowa .k-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
+.koowa .k-file-input input + label { display: none; /* 2 */ }
 
-.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; /* Override for rtl ul-ol-li styling */ /* Contents */ }
+.k-eventlistener .koowa .k-file-input input + label { display: inline-block; /* 3 */ }
 
-.koowa--rtl.koowa .k-pagination .k-pagination__pages { padding: 0; }
+.koowa .k-file-input input + label { max-width: 100%; font-size: 13px; line-height: 20px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; overflow: hidden; vertical-align: middle; color: #3071a9; padding: 0; text-align: center; }
 
-.koowa .k-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
+.koowa .k-file-input input:focus, .koowa .k-file-input input.has-focus { outline: none; }
 
-.koowa .k-pagination .k-pagination__pages > li > a, .koowa .k-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #337ab7; background-color: white; border: 1px solid #ddd; margin-left: -1px; }
+.koowa .k-file-input input:focus + label, .koowa .k-file-input input.has-focus + label { outline: 1px dotted #000; outline: -webkit-focus-ring-color auto 5px; }
 
-.koowa--rtl.koowa .k-pagination .k-pagination__pages > li > a, .koowa--rtl.koowa .k-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
+.koowa .k-file-input input:focus, .koowa .k-file-input input.has-focus, .koowa .k-file-input input.has-drop-focus, .koowa .k-file-input input:hover { cursor: pointer; }
 
-.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+.koowa .k-file-input input:focus + label .k-file-input__button, .koowa .k-file-input input:focus + label .k-file-input__button:hover, .koowa .k-file-input input:focus + label .k-file-input__button:focus, .koowa .k-file-input input.has-focus + label .k-file-input__button, .koowa .k-file-input input.has-focus + label .k-file-input__button:hover, .koowa .k-file-input input.has-focus + label .k-file-input__button:focus, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button:hover, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button:focus, .koowa .k-file-input input:hover + label .k-file-input__button, .koowa .k-file-input input:hover + label .k-file-input__button:hover, .koowa .k-file-input input:hover + label .k-file-input__button:focus { background-color: #255681; }
 
-.koowa--rtl.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa--rtl.koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+.koowa .k-file-input .k-file-input__button { display: block; background-color: #3071a9; color: white; height: 46px; pointer-events: none; vertical-align: middle; font-weight: 400; text-align: center; touch-action: manipulation; cursor: pointer; background-image: none; /* 2 */ border: 1px solid transparent; white-space: nowrap; box-shadow: none; text-shadow: none; user-select: none; margin-bottom: 0; border-radius: 6px; font-size: 18px; line-height: 1.3333333; padding: 7px 14px; }
 
-.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+.koowa .k-file-input .k-file-input__files { width: 100%; height: 20px; line-height: 20px; display: inline-block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; vertical-align: top; text-align: center; }
 
-.koowa--rtl.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
-
-.koowa .k-pagination .k-pagination__pages > li > a:hover, .koowa .k-pagination .k-pagination__pages > li > a:focus, .koowa .k-pagination .k-pagination__pages > li > span:hover, .koowa .k-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #23527c; background-color: #eeeeee; border-color: #ddd; }
-
-.koowa .k-pagination .k-pagination__pages > .k-is-active > a, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > a:focus, .koowa .k-pagination .k-pagination__pages > .k-is-active > span, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:hover, .koowa .k-pagination .k-pagination__pages > .k-is-active > span:focus { z-index: 3; color: #fff; background-color: #3071a9; border-color: #337ab7; cursor: default; }
-
-.koowa .k-pagination select { height: 32px; width: auto; margin: 0; margin-right: 7px; }
-
-.koowa--rtl.koowa .k-pagination select { margin-right: auto; margin-left: 7px; }
+.koowa .k-file-input .k-file-input__files:empty { display: none; }
 
 .koowa .koowa_anchor { visibility: hidden; display: block; position: absolute; left: 0; top: 0; width: auto; height: 100%; padding: 1px 5px; background: #fff; margin: -1px 0; border-right: 2px solid #bbb; -webkit-border-radius: 0 5px 5px 0; -moz-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; }
 
@@ -2040,6 +2189,8 @@ Styleguide 6.9
 @keyframes k-loader { 0%, 80%, 100% { box-shadow: 0 1em 0 -0.5em; }
   40% { box-shadow: 0 1em 0 0; } }
 
+.koowa--rtl.koowa .k-loader { transform: scaleX(-1); }
+
 .koowa .k-loader-container { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 5; background: rgba(255, 255, 255, 0.8); display: flex; align-items: center; }
 
 .k-cssanimations.k-boxshadow .koowa .k-loader-container .k-loader { left: 0; }
@@ -2122,6 +2273,8 @@ Styleguide 6.9
 
 .koowa .k-this-or-that { display: inline-block; margin-right: 7px; vertical-align: middle; }
 
+.koowa--rtl.koowa .k-this-or-that { margin-right: 0; margin-left: 7px; }
+
 .koowa .fade { opacity: 0; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .fade.in { opacity: 1; }
@@ -2158,8 +2311,6 @@ Styleguide 6.9
 
 .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { left: 9px; width: 15px; height: 3px; }
 
-.koowa--rtl.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa--rtl.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa--rtl.koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { left: auto; right: 9px; }
-
 .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1 { top: 9px; }
 
 .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2 { top: 15px; }
@@ -2174,8 +2325,6 @@ Styleguide 6.9
 
 .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { left: 14px; }
 
-.koowa--rtl.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa--rtl.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa--rtl.koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { left: auto; right: 8px; }
-
 .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1 { width: 5px; height: 5px; top: 8px; }
 
 .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { width: 5px; height: 10px; top: 15px; }
@@ -2185,50 +2334,3 @@ Styleguide 6.9
 .koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar2 { top: 9px; left: 15px; height: 15px; transform: rotate(135deg); opacity: 1; width: 3px; }
 
 .koowa .k-show-right-menu .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { top: 9px; left: 15px; transform: rotate(-135deg); height: 15px; width: 3px; }
-
-/* TODO: Robin: This is in KUI but it's inside molecules/forms.scss. It has to be it's own molecule in order to import it in here in a correct way */
-/*
-Styled file input
-
-markup:
-<div class="k-file-input-container">
-    <div class="k-file-input">
-        <input class="k-js-file-input" type="file" id="input-[5.1]-2" data-multiple-caption="{count} files selected" multiple />
-        <label for="input-[5.1]-2">
-            <span class="k-file-input__button">
-                <sg-insert>2.12-62</sg-insert>
-                Choose a file&hellip;
-            </span>
-            <span class="k-file-input__files"></span>
-        </label>
-    </div>
-</div>
-
-Styleguide 2.9.9
-
-*/
-.k-file-input { position: relative; display: inline-block; /* The original file input select */ /* The button */ /* Selected files container */ }
-
-.k-file-input input { /** 1. Style only when JS is enabled / addEventlistener is available We want to show it regularly when we don't have addEventListener for usability sake 2. Hide the label by default and only show it when addEventListener is available (e.g. when file input is hidden) 3. Display label when file input is hidden */ /* Styling the label, holding both the button and the selected files container */ /* Focus state */ /* Hover / focus state */ }
-
-.k-eventlistener .k-file-input input { position: absolute; top: 0; right: 0; bottom: 0; margin: 0; padding: 0; cursor: pointer; font-size: 99px; opacity: 0; filter: alpha(opacity=0); }
-
-.k-file-input input + label { display: none; /* 2 */ }
-
-.k-eventlistener .k-file-input input + label { display: inline-block; /* 3 */ }
-
-.k-file-input input + label { max-width: 100%; font-size: 13px; line-height: 20px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; overflow: hidden; vertical-align: middle; color: #3071a9; padding: 0; text-align: center; }
-
-.k-file-input input:focus, .k-file-input input.has-focus { outline: none; }
-
-.k-file-input input:focus + label, .k-file-input input.has-focus + label { outline: 1px dotted #000; outline: -webkit-focus-ring-color auto 5px; }
-
-.k-file-input input:focus, .k-file-input input.has-focus, .k-file-input input.has-drop-focus, .k-file-input input:hover { cursor: pointer; }
-
-.k-file-input input:focus + label .k-file-input__button, .k-file-input input:focus + label .k-file-input__button:hover, .k-file-input input:focus + label .k-file-input__button:focus, .k-file-input input.has-focus + label .k-file-input__button, .k-file-input input.has-focus + label .k-file-input__button:hover, .k-file-input input.has-focus + label .k-file-input__button:focus, .k-file-input input.has-drop-focus + label .k-file-input__button, .k-file-input input.has-drop-focus + label .k-file-input__button:hover, .k-file-input input.has-drop-focus + label .k-file-input__button:focus, .k-file-input input:hover + label .k-file-input__button, .k-file-input input:hover + label .k-file-input__button:hover, .k-file-input input:hover + label .k-file-input__button:focus { background-color: #255681; }
-
-.k-file-input .k-file-input__button { display: block; background-color: #3071a9; color: white; pointer-events: none; vertical-align: middle; font-weight: 400; text-align: center; touch-action: manipulation; cursor: pointer; background-image: none; /* 2 */ border: 1px solid transparent; white-space: nowrap; box-shadow: none; text-shadow: none; user-select: none; margin-bottom: 0; border-radius: 6px; font-size: 18px; line-height: 1.3333333; padding: 7px 14px; }
-
-.k-file-input .k-file-input__files { width: 100%; height: 20px; line-height: 20px; display: inline-block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; vertical-align: top; text-align: center; }
-
-.k-file-input .k-file-input__files:empty { display: none; }
