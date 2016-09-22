@@ -9,6 +9,11 @@
     padding: 0;
     border: none;
 
+    @include rtl {
+      margin-right: 0;
+      margin-left: 1em;
+    }
+
     select {
       width: auto;
       margin: 0;

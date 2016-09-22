@@ -6,12 +6,12 @@
 @import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-/* Kodekit tools */
-@import "../../../../../../../../kodekit-ui/src/scss/core/tools";
-
 /* Site variables and mixins */
 @import "site/utilities/variables";
 @import "site/utilities/mixins";
+
+/* Kodekit tools */
+@import "../../../../../../../../kodekit-ui/src/scss/core/tools";
 
 /* Outside of the koowa scope */
 @import "site/modal";
@@ -46,9 +46,7 @@
 
   @import "site/anchor";
   @import "site/header";
-  @import "site/input-file";
   @import "../../../../../../../../kodekit-ui/src/scss/molecules/tree";
-  //@import "site/pagination";
   @import "site/select2";
   @import "site/table";
   @import "site/toolbar";

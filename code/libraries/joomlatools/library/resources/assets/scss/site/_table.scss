@@ -30,6 +30,11 @@ table td {
 
   .koowa_table_list .icon {
     margin-right: 0.1em;
+
+    @include rtl {
+      margin-right: 0;
+      margin-left: 0.1em;
+    }
   }
 
   .koowa_table_list .btn-toolbar {
@@ -52,6 +57,10 @@ table td {
   .koowa_table__dates {
     text-align: right;
     white-space: nowrap;
+
+    @include rtl {
+      text-align: left;
+    }
   }
 
   .koowa_table__manage {
