@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /* Bootstrap 2.3.2 variables and mixins used in files (Joomla uses old Bootstrap) */
 /* Bootstrap 3.x variables and mixins (select2 bootstrap styling uses BS 3) */
+/* Site variables and mixins */
 /* Kodekit tools */
 /* ========================================================================== Tools ========================================================================== */
 /* These file do not produce any CSS code on their own */
-/* Site variables and mixins */
 /* Outside of the koowa scope */
 /* Magnific Popup CSS */
 .mfp-bg { top: 0; left: 0; width: 100%; height: 100%; z-index: 1042; overflow: hidden; position: fixed; background: #0b0b0b; opacity: 0.8; filter: alpha(opacity=80); }
@@ -580,10 +580,10 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 /* Icons */
 /* Custom icon font ========================================================================== */
-@font-face { font-family: "k-icons"; src: url("../fonts/k-icons/k-icons.eot"); src: url("../fonts/k-icons/k-icons.eot?#iefix") format("embedded-opentype"), url("../fonts/k-icons/k-icons.woff") format("woff"), url("../fonts/k-icons/k-icons.ttf") format("truetype"), url("../fonts/k-icons/k-icons.svg#k-icons") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: "k-icons"; src: url("..//k-icons/k-icons.eot"); src: url("..//k-icons/k-icons.eot?#iefix") format("embedded-opentype"), url("..//k-icons/k-icons.woff") format("woff"), url("..//k-icons/k-icons.ttf") format("truetype"), url("..//k-icons/k-icons.svg#k-icons") format("svg"); font-weight: normal; font-style: normal; }
 
 /** Use SVG Always use SVG on touch / mobile */
-@media screen and (-webkit-min-device-pixel-ratio: 0) { @font-face { font-family: "k-icons"; src: url("../fonts/k-icons/k-icons.svg#k-icons") format("svg"); } }
+@media screen and (-webkit-min-device-pixel-ratio: 0) { @font-face { font-family: "k-icons"; src: url("..//k-icons/k-icons.svg#k-icons") format("svg"); } }
 
 .k-icon-account-login, .k-icon-account-logout, .k-icon-action-redo, .k-icon-action-undo, .k-icon-align-center, .k-icon-align-left, .k-icon-align-right, .k-icon-aperture, .k-icon-arrow-bottom, .k-icon-arrow-circle-bottom, .k-icon-arrow-circle-left, .k-icon-arrow-circle-right, .k-icon-arrow-circle-top, .k-icon-arrow-left, .k-icon-arrow-right, .k-icon-arrow-thick-bottom, .k-icon-arrow-thick-left, .k-icon-arrow-thick-right, .k-icon-arrow-thick-top, .k-icon-arrow-top, .k-icon-audio-spectrum, .k-icon-audio, .k-icon-badge, .k-icon-ban, .k-icon-bar-chart, .k-icon-basket, .k-icon-battery-empty, .k-icon-battery-full, .k-icon-beaker, .k-icon-bell, .k-icon-bluetooth, .k-icon-bold, .k-icon-bolt, .k-icon-book, .k-icon-bookmark, .k-icon-box, .k-icon-briefcase, .k-icon-british-pound, .k-icon-browser, .k-icon-brush, .k-icon-bug, .k-icon-bullhorn, .k-icon-calculator, .k-icon-calendar, .k-icon-camera-slr, .k-icon-caret-bottom, .k-icon-caret-left, .k-icon-caret-right, .k-icon-caret-top, .k-icon-cart, .k-icon-chat, .k-icon-check, .k-icon-chevron-bottom, .k-icon-chevron-left, .k-icon-chevron-right, .k-icon-chevron-top, .k-icon-circle-check, .k-icon-circle-x, .k-icon-clipboard, .k-icon-clock, .k-icon-cloud-download, .k-icon-cloud-upload, .k-icon-cloud, .k-icon-cloudy, .k-icon-code, .k-icon-cog, .k-icon-collapse-down, .k-icon-collapse-left, .k-icon-collapse-right, .k-icon-collapse-up, .k-icon-command, .k-icon-comment-square, .k-icon-compass, .k-icon-contrast, .k-icon-copywriting, .k-icon-credit-card, .k-icon-crop, .k-icon-dashboard, .k-icon-data-transfer-download, .k-icon-data-transfer-upload, .k-icon-delete, .k-icon-dial, .k-icon-document, .k-icon-dollar, .k-icon-double-quote-sans-left, .k-icon-double-quote-sans-right, .k-icon-double-quote-serif-left, .k-icon-double-quote-serif-right, .k-icon-droplet, .k-icon-eject, .k-icon-elevator, .k-icon-ellipses, .k-icon-envelope-closed, .k-icon-envelope-open, .k-icon-euro, .k-icon-excerpt, .k-icon-expand-down, .k-icon-expand-left, .k-icon-expand-right, .k-icon-expand-up, .k-icon-external-link, .k-icon-eye, .k-icon-eyedropper, .k-icon-file, .k-icon-fire, .k-icon-flag, .k-icon-flash, .k-icon-folder, .k-icon-fork, .k-icon-fullscreen-enter, .k-icon-fullscreen-exit, .k-icon-globe, .k-icon-graph, .k-icon-grid-four-up, .k-icon-grid-three-up, .k-icon-grid-two-up, .k-icon-hard-drive, .k-icon-header, .k-icon-headphones, .k-icon-heart, .k-icon-home, .k-icon-image, .k-icon-inbox, .k-icon-infinity, .k-icon-info, .k-icon-italic, .k-icon-justify-center, .k-icon-justify-left, .k-icon-justify-right, .k-icon-key, .k-icon-laptop, .k-icon-layers, .k-icon-lightbulb, .k-icon-link-broken, .k-icon-link-intact, .k-icon-list-rich, .k-icon-list, .k-icon-location, .k-icon-lock-locked, .k-icon-lock-unlocked, .k-icon-loop-circular, .k-icon-loop-square, .k-icon-loop, .k-icon-magnifying-glass, .k-icon-map-marker, .k-icon-map, .k-icon-media-pause, .k-icon-media-play, .k-icon-media-record, .k-icon-media-skip-backward, .k-icon-media-skip-forward, .k-icon-media-step-backward, .k-icon-media-step-forward, .k-icon-media-stop, .k-icon-medical-cross, .k-icon-menu, .k-icon-microphone, .k-icon-minus, .k-icon-monitor, .k-icon-moon, .k-icon-move, .k-icon-musical-note, .k-icon-paperclip, .k-icon-pencil, .k-icon-people, .k-icon-person, .k-icon-phone, .k-icon-pie-chart, .k-icon-pin, .k-icon-play-circle, .k-icon-plus, .k-icon-power-standby, .k-icon-print, .k-icon-project, .k-icon-pulse, .k-icon-puzzle-piece, .k-icon-question-mark, .k-icon-rain, .k-icon-random, .k-icon-reload, .k-icon-resize-both, .k-icon-resize-height, .k-icon-resize-width, .k-icon-rss-alt, .k-icon-rss, .k-icon-script, .k-icon-share-boxed, .k-icon-share, .k-icon-shield, .k-icon-signal, .k-icon-signpost, .k-icon-sort-ascending, .k-icon-sort-descending, .k-icon-spreadsheet, .k-icon-star, .k-icon-sun, .k-icon-tablet, .k-icon-tag, .k-icon-tags, .k-icon-target, .k-icon-task, .k-icon-terminal, .k-icon-text, .k-icon-thumb-down, .k-icon-thumb-up, .k-icon-timer, .k-icon-transfer, .k-icon-trash, .k-icon-underline, .k-icon-vertical-align-bottom, .k-icon-vertical-align-center, .k-icon-vertical-align-top, .k-icon-video, .k-icon-volume-high, .k-icon-volume-low, .k-icon-volume-off, .k-icon-warning, .k-icon-wifi, .k-icon-wrench, .k-icon-x, .k-icon-yen, .k-icon-zoom-in, .k-icon-zoom-out, .k-icon-close, .k-icon-disabled, .k-icon-document-archive, .k-icon-document-audio, .k-icon-document-default, .k-icon-document-document, .k-icon-document-folder, .k-icon-document-image, .k-icon-document-pdf, .k-icon-document-spreadsheet, .k-icon-document-video, .k-icon-documents, .k-icon-enabled, .k-icon-filter, .k-icon-folder-closed, .k-icon-folder-opened, .k-icon-menu-closed, .k-icon-menu-opened, .k-icon-open, .koowa .footable.breakpoint .footable-toggle:after { speak: none; text-rendering: optimizeLegibility; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; text-transform: none; line-height: 1; font-style: normal; font-variant: normal; font-weight: normal; font-family: 'k-icons'; }
 
@@ -592,29 +592,29 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 /** Icon classes Creating a class name for each individual icon to be used in markup like: <span class="k-icon-circle"></span> */
 .k-icon-account-login:before { content: ""; }
 
-.koowa--rtl.k-icon-account-login:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-account-login:before { transform: scaleX(-1); }
 
 .k-icon-account-logout:before { content: ""; }
 
-.koowa--rtl.k-icon-account-logout:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-account-logout:before { transform: scaleX(-1); }
 
 .k-icon-action-redo:before { content: ""; }
 
-.koowa--rtl.k-icon-action-redo:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-action-redo:before { transform: scaleX(-1); }
 
 .k-icon-action-undo:before { content: ""; }
 
-.koowa--rtl.k-icon-action-undo:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-action-undo:before { transform: scaleX(-1); }
 
 .k-icon-align-center:before { content: ""; }
 
 .k-icon-align-left:before { content: ""; }
 
-.koowa--rtl.k-icon-align-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-align-left:before { transform: scaleX(-1); }
 
 .k-icon-align-right:before { content: ""; }
 
-.koowa--rtl.k-icon-align-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-align-right:before { transform: scaleX(-1); }
 
 .k-icon-aperture:before { content: ""; }
 
@@ -624,31 +624,31 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-arrow-circle-left:before { content: ""; }
 
-.koowa--rtl.k-icon-arrow-circle-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-arrow-circle-left:before { transform: scaleX(-1); }
 
 .k-icon-arrow-circle-right:before { content: ""; }
 
-.koowa--rtl.k-icon-arrow-circle-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-arrow-circle-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-circle-top:before { content: ""; }
 
 .k-icon-arrow-left:before { content: ""; }
 
-.koowa--rtl.k-icon-arrow-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-arrow-left:before { transform: scaleX(-1); }
 
 .k-icon-arrow-right:before { content: ""; }
 
-.koowa--rtl.k-icon-arrow-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-arrow-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-thick-bottom:before { content: ""; }
 
 .k-icon-arrow-thick-left:before { content: ""; }
 
-.koowa--rtl.k-icon-arrow-thick-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-arrow-thick-left:before { transform: scaleX(-1); }
 
 .k-icon-arrow-thick-right:before { content: ""; }
 
-.koowa--rtl.k-icon-arrow-thick-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-arrow-thick-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-thick-top:before { content: ""; }
 
@@ -664,7 +664,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-bar-chart:before { content: ""; }
 
-.koowa--rtl.k-icon-bar-chart:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-bar-chart:before { transform: scaleX(-1); }
 
 .k-icon-basket:before { content: ""; }
 
@@ -684,7 +684,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-book:before { content: ""; }
 
-.koowa--rtl.k-icon-book:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-book:before { transform: scaleX(-1); }
 
 .k-icon-bookmark:before { content: ""; }
 
@@ -696,25 +696,25 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-browser:before { content: ""; }
 
-.koowa--rtl.k-icon-browser:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-browser:before { transform: scaleX(-1); }
 
 .k-icon-brush:before { content: ""; }
 
-.koowa--rtl.k-icon-brush:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-brush:before { transform: scaleX(-1); }
 
 .k-icon-bug:before { content: ""; }
 
 .k-icon-bullhorn:before { content: ""; }
 
-.koowa--rtl.k-icon-bullhorn:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-bullhorn:before { transform: scaleX(-1); }
 
 .k-icon-calculator:before { content: ""; }
 
-.koowa--rtl.k-icon-calculator:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-calculator:before { transform: scaleX(-1); }
 
 .k-icon-calendar:before { content: ""; }
 
-.koowa--rtl.k-icon-calendar:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-calendar:before { transform: scaleX(-1); }
 
 .k-icon-camera-slr:before { content: ""; }
 
@@ -722,11 +722,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-caret-left:before { content: ""; }
 
-.koowa--rtl.k-icon-caret-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-caret-left:before { transform: scaleX(-1); }
 
 .k-icon-caret-right:before { content: ""; }
 
-.koowa--rtl.k-icon-caret-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-caret-right:before { transform: scaleX(-1); }
 
 .k-icon-caret-top:before { content: ""; }
 
@@ -740,11 +740,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-chevron-left:before { content: ""; }
 
-.koowa--rtl.k-icon-chevron-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-chevron-left:before { transform: scaleX(-1); }
 
 .k-icon-chevron-right:before { content: ""; }
 
-.koowa--rtl.k-icon-chevron-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-chevron-right:before { transform: scaleX(-1); }
 
 .k-icon-chevron-top:before { content: ""; }
 
@@ -772,11 +772,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-collapse-left:before { content: ""; }
 
-.koowa--rtl.k-icon-collapse-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-collapse-left:before { transform: scaleX(-1); }
 
 .k-icon-collapse-right:before { content: ""; }
 
-.koowa--rtl.k-icon-collapse-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-collapse-right:before { transform: scaleX(-1); }
 
 .k-icon-collapse-up:before { content: ""; }
 
@@ -784,7 +784,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-comment-square:before { content: ""; }
 
-.koowa--rtl.k-icon-comment-square:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-comment-square:before { transform: scaleX(-1); }
 
 .k-icon-compass:before { content: ""; }
 
@@ -792,7 +792,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-copywriting:before { content: ""; }
 
-.koowa--rtl.k-icon-copywriting:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-copywriting:before { transform: scaleX(-1); }
 
 .k-icon-credit-card:before { content: ""; }
 
@@ -806,31 +806,31 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-delete:before { content: ""; }
 
-.koowa--rtl.k-icon-delete:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-delete:before { transform: scaleX(-1); }
 
 .k-icon-dial:before { content: ""; }
 
 .k-icon-document:before { content: ""; }
 
-.koowa--rtl.k-icon-document:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-document:before { transform: scaleX(-1); }
 
 .k-icon-dollar:before { content: ""; }
 
 .k-icon-double-quote-sans-left:before { content: ""; }
 
-.koowa--rtl.k-icon-double-quote-sans-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-double-quote-sans-left:before { transform: scaleX(-1); }
 
 .k-icon-double-quote-sans-right:before { content: ""; }
 
-.koowa--rtl.k-icon-double-quote-sans-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-double-quote-sans-right:before { transform: scaleX(-1); }
 
 .k-icon-double-quote-serif-left:before { content: ""; }
 
-.koowa--rtl.k-icon-double-quote-serif-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-double-quote-serif-left:before { transform: scaleX(-1); }
 
 .k-icon-double-quote-serif-right:before { content: ""; }
 
-.koowa--rtl.k-icon-double-quote-serif-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-double-quote-serif-right:before { transform: scaleX(-1); }
 
 .k-icon-droplet:before { content: ""; }
 
@@ -852,41 +852,41 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-expand-left:before { content: ""; }
 
-.koowa--rtl.k-icon-expand-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-expand-left:before { transform: scaleX(-1); }
 
 .k-icon-expand-right:before { content: ""; }
 
-.koowa--rtl.k-icon-expand-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-expand-right:before { transform: scaleX(-1); }
 
 .k-icon-expand-up:before { content: ""; }
 
 .k-icon-external-link:before { content: ""; }
 
-.koowa--rtl.k-icon-external-link:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-external-link:before { transform: scaleX(-1); }
 
 .k-icon-eye:before { content: ""; }
 
 .k-icon-eyedropper:before { content: ""; }
 
-.koowa--rtl.k-icon-eyedropper:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-eyedropper:before { transform: scaleX(-1); }
 
 .k-icon-file:before { content: ""; }
 
-.koowa--rtl.k-icon-file:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-file:before { transform: scaleX(-1); }
 
 .k-icon-fire:before { content: ""; }
 
-.koowa--rtl.k-icon-fire:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-fire:before { transform: scaleX(-1); }
 
 .k-icon-flag:before { content: ""; }
 
-.koowa--rtl.k-icon-flag:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-flag:before { transform: scaleX(-1); }
 
 .k-icon-flash:before { content: ""; }
 
 .k-icon-folder:before { content: ""; }
 
-.koowa--rtl.k-icon-folder:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-folder:before { transform: scaleX(-1); }
 
 .k-icon-fork:before { content: ""; }
 
@@ -898,7 +898,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-graph:before { content: ""; }
 
-.koowa--rtl.k-icon-graph:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-graph:before { transform: scaleX(-1); }
 
 .k-icon-grid-four-up:before { content: ""; }
 
@@ -924,49 +924,49 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-info:before { content: ""; }
 
-.koowa--rtl.k-icon-info:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-info:before { transform: scaleX(-1); }
 
 .k-icon-italic:before { content: ""; }
 
-.koowa--rtl.k-icon-italic:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-italic:before { transform: scaleX(-1); }
 
 .k-icon-justify-center:before { content: ""; }
 
 .k-icon-justify-left:before { content: ""; }
 
-.koowa--rtl.k-icon-justify-left:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-justify-left:before { transform: scaleX(-1); }
 
 .k-icon-justify-right:before { content: ""; }
 
-.koowa--rtl.k-icon-justify-right:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-justify-right:before { transform: scaleX(-1); }
 
 .k-icon-key:before { content: ""; }
 
-.koowa--rtl.k-icon-key:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-key:before { transform: scaleX(-1); }
 
 .k-icon-laptop:before { content: ""; }
 
 .k-icon-layers:before { content: ""; }
 
-.koowa--rtl.k-icon-layers:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-layers:before { transform: scaleX(-1); }
 
 .k-icon-lightbulb:before { content: ""; }
 
 .k-icon-link-broken:before { content: ""; }
 
-.koowa--rtl.k-icon-link-broken:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-link-broken:before { transform: scaleX(-1); }
 
 .k-icon-link-intact:before { content: ""; }
 
-.koowa--rtl.k-icon-link-intact:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-link-intact:before { transform: scaleX(-1); }
 
 .k-icon-list-rich:before { content: ""; }
 
-.koowa--rtl.k-icon-list-rich:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-list-rich:before { transform: scaleX(-1); }
 
 .k-icon-list:before { content: ""; }
 
-.koowa--rtl.k-icon-list:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-list:before { transform: scaleX(-1); }
 
 .k-icon-location:before { content: ""; }
 
@@ -982,7 +982,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-magnifying-glass:before { content: ""; }
 
-.koowa--rtl.k-icon-magnifying-glass:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-magnifying-glass:before { transform: scaleX(-1); }
 
 .k-icon-map-marker:before { content: ""; }
 
@@ -992,25 +992,25 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-media-play:before { content: ""; }
 
-.koowa--rtl.k-icon-media-play:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-media-play:before { transform: scaleX(-1); }
 
 .k-icon-media-record:before { content: ""; }
 
 .k-icon-media-skip-backward:before { content: ""; }
 
-.koowa--rtl.k-icon-media-skip-backward:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-media-skip-backward:before { transform: scaleX(-1); }
 
 .k-icon-media-skip-forward:before { content: ""; }
 
-.koowa--rtl.k-icon-media-skip-forward:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-media-skip-forward:before { transform: scaleX(-1); }
 
 .k-icon-media-step-backward:before { content: ""; }
 
-.koowa--rtl.k-icon-media-step-backward:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-media-step-backward:before { transform: scaleX(-1); }
 
 .k-icon-media-step-forward:before { content: ""; }
 
-.koowa--rtl.k-icon-media-step-forward:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-media-step-forward:before { transform: scaleX(-1); }
 
 .k-icon-media-stop:before { content: ""; }
 
@@ -1032,15 +1032,15 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-paperclip:before { content: ""; }
 
-.koowa--rtl.k-icon-paperclip:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-paperclip:before { transform: scaleX(-1); }
 
 .k-icon-pencil:before { content: ""; }
 
-.koowa--rtl.k-icon-pencil:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-pencil:before { transform: scaleX(-1); }
 
 .k-icon-people:before { content: ""; }
 
-.koowa--rtl.k-icon-people:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-people:before { transform: scaleX(-1); }
 
 .k-icon-person:before { content: ""; }
 
@@ -1048,13 +1048,13 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-pie-chart:before { content: ""; }
 
-.koowa--rtl.k-icon-pie-chart:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-pie-chart:before { transform: scaleX(-1); }
 
 .k-icon-pin:before { content: ""; }
 
 .k-icon-play-circle:before { content: ""; }
 
-.koowa--rtl.k-icon-play-circle:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-play-circle:before { transform: scaleX(-1); }
 
 .k-icon-plus:before { content: ""; }
 
@@ -1064,7 +1064,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-project:before { content: ""; }
 
-.koowa--rtl.k-icon-project:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-project:before { transform: scaleX(-1); }
 
 .k-icon-pulse:before { content: ""; }
 
@@ -1072,7 +1072,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-question-mark:before { content: ""; }
 
-.koowa--rtl.k-icon-question-mark:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-question-mark:before { transform: scaleX(-1); }
 
 .k-icon-rain:before { content: ""; }
 
@@ -1080,7 +1080,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-reload:before { content: ""; }
 
-.koowa--rtl.k-icon-reload:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-reload:before { transform: scaleX(-1); }
 
 .k-icon-resize-both:before { content: ""; }
 
@@ -1096,31 +1096,31 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-share-boxed:before { content: ""; }
 
-.koowa--rtl.k-icon-share-boxed:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-share-boxed:before { transform: scaleX(-1); }
 
 .k-icon-share:before { content: ""; }
 
-.koowa--rtl.k-icon-share:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-share:before { transform: scaleX(-1); }
 
 .k-icon-shield:before { content: ""; }
 
 .k-icon-signal:before { content: ""; }
 
-.koowa--rtl.k-icon-signal:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-signal:before { transform: scaleX(-1); }
 
 .k-icon-signpost:before { content: ""; }
 
 .k-icon-sort-ascending:before { content: ""; }
 
-.koowa--rtl.k-icon-sort-ascending:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-sort-ascending:before { transform: scaleX(-1); }
 
 .k-icon-sort-descending:before { content: ""; }
 
-.koowa--rtl.k-icon-sort-descending:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-sort-descending:before { transform: scaleX(-1); }
 
 .k-icon-spreadsheet:before { content: ""; }
 
-.koowa--rtl.k-icon-spreadsheet:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-spreadsheet:before { transform: scaleX(-1); }
 
 .k-icon-star:before { content: ""; }
 
@@ -1130,11 +1130,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-tag:before { content: ""; }
 
-.koowa--rtl.k-icon-tag:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-tag:before { transform: scaleX(-1); }
 
 .k-icon-tags:before { content: ""; }
 
-.koowa--rtl.k-icon-tags:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-tags:before { transform: scaleX(-1); }
 
 .k-icon-target:before { content: ""; }
 
@@ -1164,19 +1164,19 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-video:before { content: ""; }
 
-.koowa--rtl.k-icon-video:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-video:before { transform: scaleX(-1); }
 
 .k-icon-volume-high:before { content: ""; }
 
-.koowa--rtl.k-icon-volume-high:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-volume-high:before { transform: scaleX(-1); }
 
 .k-icon-volume-low:before { content: ""; }
 
-.koowa--rtl.k-icon-volume-low:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-volume-low:before { transform: scaleX(-1); }
 
 .k-icon-volume-off:before { content: ""; }
 
-.koowa--rtl.k-icon-volume-off:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-volume-off:before { transform: scaleX(-1); }
 
 .k-icon-warning:before { content: ""; }
 
@@ -1184,7 +1184,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-wrench:before { content: ""; }
 
-.koowa--rtl.k-icon-wrench:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-wrench:before { transform: scaleX(-1); }
 
 .k-icon-x:before { content: ""; }
 
@@ -1192,11 +1192,11 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-zoom-in:before { content: ""; }
 
-.koowa--rtl.k-icon-zoom-in:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-zoom-in:before { transform: scaleX(-1); }
 
 .k-icon-zoom-out:before { content: ""; }
 
-.koowa--rtl.k-icon-zoom-out:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-zoom-out:before { transform: scaleX(-1); }
 
 .k-icon-close:before { content: ""; }
 
@@ -1206,7 +1206,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-document-audio:before { content: ""; }
 
-.koowa--rtl.k-icon-document-audio:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-document-audio:before { transform: scaleX(-1); }
 
 .k-icon-document-default:before { content: ""; }
 
@@ -1214,7 +1214,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-document-folder:before { content: ""; }
 
-.koowa--rtl.k-icon-document-folder:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-document-folder:before { transform: scaleX(-1); }
 
 .k-icon-document-image:before { content: ""; }
 
@@ -1224,7 +1224,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-document-video:before { content: ""; }
 
-.koowa--rtl.k-icon-document-video:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-document-video:before { transform: scaleX(-1); }
 
 .k-icon-documents:before { content: ""; }
 
@@ -1232,23 +1232,23 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-filter:before { content: ""; }
 
-.koowa--rtl.k-icon-filter:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-filter:before { transform: scaleX(-1); }
 
 .k-icon-folder-closed:before { content: ""; }
 
-.koowa--rtl.k-icon-folder-closed:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-folder-closed:before { transform: scaleX(-1); }
 
 .k-icon-folder-opened:before { content: ""; }
 
-.koowa--rtl.k-icon-folder-opened:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-folder-opened:before { transform: scaleX(-1); }
 
 .k-icon-menu-closed:before { content: ""; }
 
-.koowa--rtl.k-icon-menu-closed:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-menu-closed:before { transform: scaleX(-1); }
 
 .k-icon-menu-opened:before { content: ""; }
 
-.koowa--rtl.k-icon-menu-opened:before { transform: scaleX(-1); }
+[dir="rtl"] .k-icon-menu-opened:before { transform: scaleX(-1); }
 
 .k-icon-open:before { content: ""; }
 
@@ -1964,21 +1964,21 @@ Styleguide 6.9
 
 .koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; /* Override for rtl ul-ol-li styling */ /* Contents */ }
 
-.koowa--rtl.koowa .k-pagination .k-pagination__pages { padding: 0; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages { padding: 0; }
 
 .koowa .k-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
 
 .koowa .k-pagination .k-pagination__pages > li > a, .koowa .k-pagination .k-pagination__pages > li > span { display: block; position: relative; float: left; /* 2 */ padding: 5px 10px; line-height: 20px; text-decoration: none; color: #337ab7; background-color: white; border: 1px solid #ddd; margin-left: -1px; }
 
-.koowa--rtl.koowa .k-pagination .k-pagination__pages > li > a, .koowa--rtl.koowa .k-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li > a, [dir="rtl"] .koowa .k-pagination .k-pagination__pages > li > span { float: right; margin-left: 0; margin-right: -1px; }
 
 .koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-left: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
-.koowa--rtl.koowa .k-pagination .k-pagination__pages > li:first-child > a, .koowa--rtl.koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:first-child > a, [dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:first-child > span { margin-right: 0; border-bottom-left-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
 
 .koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
 
-.koowa--rtl.koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages > li:last-child > a, .koowa .k-pagination .k-pagination__pages > li:last-child > span { border-bottom-right-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
 
 .koowa .k-pagination .k-pagination__pages > li > a:hover, .koowa .k-pagination .k-pagination__pages > li > a:focus, .koowa .k-pagination .k-pagination__pages > li > span:hover, .koowa .k-pagination .k-pagination__pages > li > span:focus { z-index: 2; color: #23527c; background-color: #eeeeee; border-color: #ddd; }
 
@@ -1986,7 +1986,7 @@ Styleguide 6.9
 
 .koowa .k-pagination select { height: 32px; width: auto; margin: 0; margin-right: 7px; }
 
-.koowa--rtl.koowa .k-pagination select { margin-right: auto; margin-left: 7px; }
+[dir="rtl"] .koowa .k-pagination select { margin-right: auto; margin-left: 7px; }
 
 .koowa .k-file-input { position: relative; display: inline-block; /* The original file input select */ /* The button */ /* Selected files container */ }
 
@@ -2008,13 +2008,15 @@ Styleguide 6.9
 
 .koowa .k-file-input input:focus + label .k-file-input__button, .koowa .k-file-input input:focus + label .k-file-input__button:hover, .koowa .k-file-input input:focus + label .k-file-input__button:focus, .koowa .k-file-input input.has-focus + label .k-file-input__button, .koowa .k-file-input input.has-focus + label .k-file-input__button:hover, .koowa .k-file-input input.has-focus + label .k-file-input__button:focus, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button:hover, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button:focus, .koowa .k-file-input input:hover + label .k-file-input__button, .koowa .k-file-input input:hover + label .k-file-input__button:hover, .koowa .k-file-input input:hover + label .k-file-input__button:focus { background-color: #255681; }
 
-.koowa .k-file-input .k-file-input__button { display: block; background-color: #3071a9; color: white; height: 46px; pointer-events: none; vertical-align: middle; font-weight: 400; text-align: center; touch-action: manipulation; cursor: pointer; background-image: none; /* 2 */ border: 1px solid transparent; white-space: nowrap; box-shadow: none; text-shadow: none; user-select: none; margin-bottom: 0; border-radius: 6px; font-size: 18px; line-height: 1.3333333; padding: 7px 14px; }
+.koowa .k-file-input .k-file-input__button { display: block; background-color: #3071a9; color: white; pointer-events: none; vertical-align: middle; font-weight: 400; text-align: center; touch-action: manipulation; cursor: pointer; background-image: none; /* 2 */ border: 1px solid transparent; white-space: nowrap; box-shadow: none; text-shadow: none; user-select: none; margin-bottom: 0; border-radius: 6px; font-size: 18px; line-height: 1.3333333; padding: 7px 14px; }
 
 .koowa .k-file-input .k-file-input__files { width: 100%; height: 20px; line-height: 20px; display: inline-block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; vertical-align: top; text-align: center; }
 
 .koowa .k-file-input .k-file-input__files:empty { display: none; }
 
-.koowa .koowa_anchor { visibility: hidden; display: block; position: absolute; left: 0; top: 0; width: auto; height: 100%; padding: 1px 5px; background: #fff; margin: -1px 0; border-right: 2px solid #bbb; -webkit-border-radius: 0 5px 5px 0; -moz-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; }
+.koowa .koowa_anchor { visibility: hidden; display: block; position: absolute; left: 0; top: 0; width: auto; height: 100%; padding: 1px 5px; background: #fff; margin: -1px 0; border-right: 2px solid #bbb; border-radius: 0 5px 5px 0; }
+
+[dir="rtl"] .koowa .koowa_anchor { left: auto; right: 0; border-right: 0; border-left: 2px solid #bbb; border-radius: 5px 0 0 5px; }
 
 .koowa .koowa_anchor a { position: relative; top: 50%; display: block; width: auto; height: 1em; line-height: 1em; margin: 0; padding: .25em; white-space: nowrap; border-radius: 0; border: none; font-family: sans-serif; font-size: 15px; font-weight: 400; font-style: normal; text-transform: none; text-decoration: none; text-shadow: none; letter-spacing: 0; background: transparent; color: #888; margin-top: -.75em; }
 
@@ -2034,11 +2036,11 @@ Styleguide 6.9
 
 .koowa .koowa_header__item { display: table-cell; vertical-align: middle; min-width: 24px; width: 99%; }
 
-.koowa .koowa_header__item--image_container { text-align: center; width: 1%; padding-right: 6px; /*font-size: 0; line-height: 0;*/ }
+.koowa .koowa_header__item--image_container { text-align: center; width: 1%; padding-right: 6px; }
+
+[dir="rtl"] .koowa .koowa_header__item--image_container { padding-right: 0; padding-left: 6px; }
 
 .koowa .koowa_header--bottom_margin { margin-bottom: 10px; }
-
-.koowa input.input-file, .koowa input[type=file] { margin: 0; padding: 0; border: none; font-size: 16px; line-height: 16px; width: auto; height: auto; }
 
 .koowa .k-tree { margin: 7px 0; }
 
@@ -2048,7 +2050,7 @@ Styleguide 6.9
 
 .koowa .k-tree .jqtree-element { padding: 0 7px 0 20px; }
 
-.koowa--rtl.koowa .k-tree .jqtree-element { padding: 0 20px 0 7px; }
+[dir="rtl"] .koowa .k-tree .jqtree-element { padding: 0 20px 0 7px; }
 
 .koowa .k-tree .jqtree-element:hover, .koowa .k-tree .jqtree-element:focus { background: white; }
 
@@ -2056,7 +2058,7 @@ Styleguide 6.9
 
 .koowa .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 0; }
 
-.koowa--rtl.koowa .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 7px; padding-right: 0; }
+[dir="rtl"] .koowa .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 7px; padding-right: 0; }
 
 .koowa .k-tree .jqtree-selected > .jqtree-element { background: #3071a9; color: white; }
 
@@ -2064,7 +2066,7 @@ Styleguide 6.9
 
 .koowa .k-sidebar-item .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 15px; }
 
-.koowa--rtl.koowa .k-sidebar-item .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 7px; padding-right: 15px; }
+[dir="rtl"] .koowa .k-sidebar-item .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 7px; padding-right: 15px; }
 
 .koowa .jqtree-tree { /* Reset default ul li styling */ }
 
@@ -2078,7 +2080,7 @@ Styleguide 6.9
 
 .koowa .jqtree-tree:after, .koowa .jqtree-tree ul:after { clear: both; }
 
-.koowa--rtl.koowa .jqtree-tree, .koowa .jqtree-tree ul { float: right; }
+[dir="rtl"] .koowa .jqtree-tree, .koowa .jqtree-tree ul { float: right; }
 
 .koowa .jqtree-folder:before, .koowa .jqtree-folder:after { display: table; content: " "; }
 
@@ -2100,7 +2102,7 @@ Styleguide 6.9
 
 .koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { display: block; position: absolute; content: " "; width: 6px; height: 6px; border-left: 1px solid #aaa; border-bottom: 1px solid #aaa; top: 50%; margin-top: -3px; left: -16px; }
 
-.koowa--rtl.koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { border-left: none; border-right: 1px solid #aaa; left: auto; right: -16px; }
+[dir="rtl"] .koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { border-left: none; border-right: 1px solid #aaa; left: auto; right: -16px; }
 
 .koowa .jqtree-toggler { position: relative; }
 
@@ -2110,7 +2112,7 @@ Styleguide 6.9
 
 .koowa .jqtree-toggler.jqtree-closed:before { transform: rotate(-90deg); }
 
-.koowa--rtl.koowa .jqtree-toggler.jqtree-closed:before { transform: rotate(90deg); }
+[dir="rtl"] .koowa .jqtree-toggler.jqtree-closed:before { transform: rotate(90deg); }
 
 .koowa .jqtree-selected > .jqtree-element { font-weight: 700; }
 
@@ -2138,11 +2140,13 @@ Styleguide 6.9
 
 .koowa table td a.iconImage { display: inline-block; text-decoration: none; }
 
-.koowa .koowa_table { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 10px; margin-bottom: 10px; width: 100%; }
+.koowa .koowa_table { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 10px; margin-bottom: 10px; width: 100%; overflow: auto; }
 
-.koowa .koowa_table .koowa_header { margin: 0; min-width: 200px; }
+.koowa .koowa_table .koowa_header { margin: 0; }
 
 .koowa .koowa_table .koowa_table_list .icon { margin-right: 0.1em; }
+
+[dir="rtl"] .koowa .koowa_table .koowa_table_list .icon { margin-right: 0; margin-left: 0.1em; }
 
 .koowa .koowa_table .koowa_table_list .btn-toolbar { margin: 0; }
 
@@ -2154,13 +2158,21 @@ Styleguide 6.9
 
 .koowa .koowa_table .koowa_table__dates { text-align: right; white-space: nowrap; }
 
+[dir="rtl"] .koowa .koowa_table .koowa_table__dates { text-align: left; }
+
 .koowa .koowa_table .koowa_table__manage .koowa_toolbar { margin: 0; }
 
 .koowa .koowa_table .detail-label { font-size: .9em; }
 
+.koowa .k-table-data--toggle { padding: 0; font-size: 0; line-height: 0; overflow: hidden; width: 0; visibility: visible; }
+
+.koowa .footable.breakpoint .k-table-data--toggle { width: 1%; padding-left: 4px; padding-right: 4px; }
+
 .koowa .k-toolbar { margin-bottom: 1em; background: rgba(0, 0, 0, 0.04); border-bottom: 1px solid rgba(0, 0, 0, 0.08); padding: 0.5em; }
 
 .koowa .k-toolbar .btn { margin: 0.5em; }
+
+.koowa .btn-toolbar.koowa_toolbar { margin-top: 10px; margin-bottom: 10px; }
 
 .koowa .koowa_wrapped_content { display: table; table-layout: fixed; width: 100%; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; }
 
@@ -2189,7 +2201,7 @@ Styleguide 6.9
 @keyframes k-loader { 0%, 80%, 100% { box-shadow: 0 1em 0 -0.5em; }
   40% { box-shadow: 0 1em 0 0; } }
 
-.koowa--rtl.koowa .k-loader { transform: scaleX(-1); }
+[dir="rtl"] .koowa .k-loader { transform: scaleX(-1); }
 
 .koowa .k-loader-container { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 5; background: rgba(255, 255, 255, 0.8); display: flex; align-items: center; }
 
@@ -2273,7 +2285,7 @@ Styleguide 6.9
 
 .koowa .k-this-or-that { display: inline-block; margin-right: 7px; vertical-align: middle; }
 
-.koowa--rtl.koowa .k-this-or-that { margin-right: 0; margin-left: 7px; }
+[dir="rtl"] .koowa .k-this-or-that { margin-right: 0; margin-left: 7px; }
 
 .koowa .fade { opacity: 0; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
@@ -2291,7 +2303,7 @@ Styleguide 6.9
 
 .koowa .k-off-canvas-menu-toggle { position: relative; z-index: 10; float: left; display: none; /* 1 */ width: 33px; height: 33px; padding: 0; border: none; border-radius: 3px; margin: 10px; background: #3071a9; color: white; /* Set proper margins */ }
 
-.koowa--rtl.koowa .k-off-canvas-menu-toggle { left: auto; float: right; }
+[dir="rtl"] .koowa .k-off-canvas-menu-toggle { left: auto; float: right; }
 
 .k-js-enabled .koowa .k-off-canvas-menu-toggle { display: block; /* 2 */ }
 
@@ -2301,11 +2313,11 @@ Styleguide 6.9
 
 .koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--left { margin-right: 0; }
 
-.koowa--rtl.koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--left { margin-right: 10px; margin-left: 0; }
+[dir="rtl"] .koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--left { margin-right: 10px; margin-left: 0; }
 
 .koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--right { margin-left: 0; }
 
-.koowa--rtl.koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--right { margin-left: 10px; margin-right: 0; }
+[dir="rtl"] .koowa .k-off-canvas-menu-toggle.k-off-canvas-menu-toggle--right { margin-left: 10px; margin-right: 0; }
 
 .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { position: absolute; display: block; background: white; vertical-align: middle; border-radius: 3px; transition: 0.3s 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
