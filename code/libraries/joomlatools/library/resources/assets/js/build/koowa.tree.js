@@ -3834,7 +3834,7 @@ module.exports = '1.3.4';
                 'tree.open':
                     function(event) {
                         // toggle classes and html on the triangle, and folder icon
-                        var node = event.node, state = states[1], old = states[0], triangle = $(node.element).children('span').find('. jqtree-icon');
+                        var node = event.node, state = states[1], old = states[0], triangle = $(node.element).children('.jqtree-element').find('.jqtree-icon');
                         triangle.removeClass(old.folder).addClass(state.folder);
 
                         triangle.closest('span').find('.'+old.folder).removeClass(old.folder).addClass(state.folder);
@@ -3842,7 +3842,7 @@ module.exports = '1.3.4';
                 'tree.close':
                     function(event) {
                         // toggle classes and html on the triangle, and folder icon
-                        var node = event.node, state = states[0], old = states[1], triangle = $(node.element).children('span').find('. jqtree-icon');
+                        var node = event.node, state = states[0], old = states[1], triangle = $(node.element).children('.jqtree-element').find('.jqtree-icon');
                         triangle.removeClass(old.folder).addClass(state.folder);
 
                         triangle.closest('span').find('.'+old.folder).removeClass(old.folder).addClass(state.folder);

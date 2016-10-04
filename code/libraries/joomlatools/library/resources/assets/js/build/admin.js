@@ -15145,9 +15145,9 @@ module.exports = '1.3.4';
                 }
 
                 if (label) {
-                    label_el.html(label);
+                    label_el.attr('data-has-label', '').html(label);
                 } else {
-                    label_el.hide();
+                    label_el.removeAttr('data-has-label').hide();
                 }
 
                 item.show();
@@ -15155,7 +15155,14 @@ module.exports = '1.3.4';
 
                 container.append(template);
 
-                $('.k-js-filter-count').text(container.find('.k-js-dropdown-label:visible').length);
+                var length   = container.find('.k-js-dropdown-label[data-has-label]').length,
+                    count_el = $('.k-js-filter-count');
+
+                if (length) {
+                    count_el.show();
+                } else {
+                    count_el.hide();
+                }
             });
         },
 
@@ -15924,7 +15931,7 @@ $(function() {
                 'tree.open':
                     function(event) {
                         // toggle classes and html on the triangle, and folder icon
-                        var node = event.node, state = states[1], old = states[0], triangle = $(node.element).children('span').find('. jqtree-icon');
+                        var node = event.node, state = states[1], old = states[0], triangle = $(node.element).children('.jqtree-element').find('.jqtree-icon');
                         triangle.removeClass(old.folder).addClass(state.folder);
 
                         triangle.closest('span').find('.'+old.folder).removeClass(old.folder).addClass(state.folder);
@@ -15932,7 +15939,7 @@ $(function() {
                 'tree.close':
                     function(event) {
                         // toggle classes and html on the triangle, and folder icon
-                        var node = event.node, state = states[0], old = states[1], triangle = $(node.element).children('span').find('. jqtree-icon');
+                        var node = event.node, state = states[0], old = states[1], triangle = $(node.element).children('.jqtree-element').find('.jqtree-icon');
                         triangle.removeClass(old.folder).addClass(state.folder);
 
                         triangle.closest('span').find('.'+old.folder).removeClass(old.folder).addClass(state.folder);
@@ -17432,110 +17439,6 @@ $(function() {
 
 }( window.kQuery ));
 
-(function($) {
-    // Overflowing checker
-    $.overflowing = function (element, options) {
-
-        var defaults = {
-                wrapInner: true,
-                offset: 10
-            },
-            plugin = this;
-
-        plugin.settings = {};
-
-        var $element = $(element);
-
-        plugin.init = function () {
-
-            plugin.settings = $.extend({}, defaults, options);
-
-            // Wrap content in a div
-            if ($element.parent('.k-overflowing')[0] == undefined) {
-                $element.wrap('<div class="k-overflowing">');
-                if ($element.css('flex')) {
-                    $('.k-overflowing').addClass('k-overflowing--flex');
-                }
-
-                // Add overflowing shadow divs
-                $element.after('<div class="k-overflowing--top k-is-hidden">');
-                $element.after('<div class="k-overflowing--right k-is-hidden">');
-                $element.after('<div class="k-overflowing--bottom k-is-hidden">');
-                $element.after('<div class="k-overflowing--left k-is-hidden">');
-            }
-
-            // Overflowing?
-            function overflowing() {
-
-                if (element.clientWidth != element.scrollWidth || element.clientHeight != element.scrollHeight) {
-
-                    // Show top overflowing div
-                    if (element.scrollTop >= plugin.settings.offset && element.scrollTop >= plugin.settings.offset) {
-                        $('.k-overflowing--top').removeClass('k-is-hidden');
-                    } else {
-                        $('.k-overflowing--top').addClass('k-is-hidden');
-                    }
-
-                    // Show right overflowing div
-                    if (element.scrollLeft <= (element.scrollWidth - element.clientWidth) - plugin.settings.offset) {
-                        $('.k-overflowing--right').removeClass('k-is-hidden');
-                    } else {
-                        $('.k-overflowing--right').addClass('k-is-hidden');
-                    }
-
-                    // Show bottom overflowing div
-                    if (element.scrollTop < ((element.scrollHeight - element.clientHeight) - plugin.settings.offset)) {
-                        $('.k-overflowing--bottom').removeClass('k-is-hidden');
-                    } else {
-                        $('.k-overflowing--bottom').addClass('k-is-hidden');
-                    }
-
-                    // Show left overflowing div
-                    if (element.scrollLeft >= plugin.settings.offset) {
-                        $('.k-overflowing--left').removeClass('k-is-hidden');
-                    } else {
-                        $('.k-overflowing--left').addClass('k-is-hidden');
-                    }
-                }
-
-                if (element.clientWidth == element.scrollWidth) {
-                    $('.k-overflowing--left').addClass('k-is-hidden');
-                    $('.k-overflowing--right').addClass('k-is-hidden');
-                }
-
-                if (element.clientHeight == element.scrollHeight) {
-                    $('.k-overflowing--top').addClass('k-is-hidden');
-                    $('.k-overflowing--bottom').addClass('k-is-hidden');
-                }
-            }
-
-            $(window).on('load resize', overflowing);
-
-            // Detect on scrolling
-            $element.scroll(function () {
-                overflowing();
-            });
-
-        };
-
-        plugin.init();
-    };
-
-    // add the plugin to the jQuery.fn object
-    $.fn.overflowing = function (options) {
-        // iterate through the DOM elements we are attaching the plugin to
-        return this.each(function () {
-            // if plugin has not already been attached to the element
-            if (undefined == $(this).data('overflowing')) {
-                // create a new instance of the plugin
-                var plugin = new $.overflowing(this, options);
-                // in the jQuery version of the element
-                // store a reference to the plugin object
-                $(this).data('overflowing', plugin);
-            }
-        });
-    };
-})(kQuery);
 /*!
  * jQuery.tabbable 1.0 - Simple utility for selecting the next / previous ':tabbable' element.
  * https://github.com/marklagendijk/jQuery.tabbable
@@ -18251,9 +18154,6 @@ var Konami = function (callback) {
             }
         }
 
-        // Overflowing items
-        //$overflow.addClass('k-sidebar-item--overflow').overflowing();
-
         // Footable
         $footable.footable({
             toggleSelector: '.footable-toggle',
@@ -18303,20 +18203,21 @@ var Konami = function (callback) {
                     toggleButtons.prepend('<button type="button" class="k-scopebar__button k-toggle-scopebar-filters k-js-toggle-filters">' +
                         '<span class="k-icon-filter" aria-hidden="true">' +
                         '<span class="k-visually-hidden">Filters toggle</span>' +
-                        // @TODO: Ercan: START This should only be visible when there's an active filter
-                        '<div class="js-filter-count k-scopebar__item-label"></div>' +
-                        // @TODO: Ercan: END
+                        '<div class="k-js-filter-count k-scopebar__item-label"></div>' +
                         '</button>');
                 }
 
                 if ( $scopebarSearch.length && !$this.find('.k-toggle-scopebar-search').length ) {
+
                     toggleButtons.prepend('<button type="button" class="k-scopebar__button k-toggle-scopebar-search k-js-toggle-search">' +
                         '<span class="k-icon-magnifying-glass" aria-hidden="true">' +
                         '<span class="k-visually-hidden">Search toggle</span>' +
-                        // @TODO: Ercan: START This should only be visible when search is being used by the user
-                        '<div class="js-search-count k-scopebar__item-label"></div>' +
-                        // @TODO: Ercan: END
+                        '<div class="k-js-search-count k-scopebar__item-label" style="display: none"></div>' +
                         '</button>');
+
+                    if (toggleButtons.siblings('.k-scopebar__item--search').find('.k-search__field').val()) {
+                        $('.k-js-search-count').show();
+                    }
                 }
             });
 
