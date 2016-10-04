@@ -115,7 +115,7 @@
         }
 
         // Overflowing items
-        $overflow.addClass('k-sidebar-item--overflow').overflowing();
+        //$overflow.addClass('k-sidebar-item--overflow').overflowing();
 
         // Footable
         $footable.footable({

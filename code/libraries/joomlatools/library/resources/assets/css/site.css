@@ -2042,7 +2042,7 @@ Styleguide 6.9
 
 .koowa .koowa_header--bottom_margin { margin-bottom: 10px; }
 
-.koowa .k-tree { margin: 7px 0; }
+.koowa .k-tree { margin: 7px 0; overflow: auto; }
 
 .koowa .k-tree:before, .koowa .k-tree:after { display: table; content: " "; }
 
