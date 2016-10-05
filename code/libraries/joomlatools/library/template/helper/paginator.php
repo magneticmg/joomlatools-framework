@@ -76,7 +76,7 @@ class KTemplateHelperPaginator extends KTemplateHelperSelect
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'limit'	  => 0,
-            'attribs' => array(),
+            'attribs' => array('class' => 'k-form-control'),
             'values'  => array(5, 10, 15, 20, 25, 30, 50, 100)
         ));
 

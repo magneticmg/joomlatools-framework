@@ -4494,7 +4494,7 @@ Styleguide 6.9
 
 .koowa .k-alert a { color: inherit; }
 
-.koowa .k-alert--overflow { max-height: 33%; overflow: auto; }
+.koowa .k-alert--overflow { min-height: 75px; max-height: 33%; overflow: auto; }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-alert--overflow, .k-flexboxlegacy .koowa .k-alert--overflow { flex: 0 1 auto; } }
 
@@ -4915,13 +4915,17 @@ Styleguide 6.9
 
 .koowa .k-static-form-label:last-child { margin-bottom: 0; }
 
-.koowa .k-input-group { position: relative; /* 1 */ display: table; width: 100%; border-collapse: separate; /* 2 */ }
+.koowa .k-input-group { position: relative; /* 1 */ display: table; width: 100%; border-collapse: separate; /* 2 */ /* Flexbox input groups for better overflow styling */ /* The form control */ /* The button */ }
 
-.koowa .k-input-group .k-form-control { /* 3 */ position: relative; z-index: 2; /* 4 */ float: left; width: 100%; margin-bottom: 0; }
+@media (min-width: 0) and (min-height: 0) { .k-flexbox .koowa .k-input-group, .k-flexboxlegacy .koowa .k-input-group { display: flex; } }
+
+.koowa .k-input-group .k-form-control { /* 3 */ position: relative; z-index: 2; /* 4 */ float: left; width: 100%; margin-bottom: 0; /* Flexbox input groups for better overflow styling */ }
 
 [dir="rtl"] .koowa .k-input-group .k-form-control { float: right; }
 
 .koowa .k-input-group .k-form-control:focus { z-index: 3; /* 5 */ }
+
+@media (min-width: 0) and (min-height: 0) { .k-flexbox .koowa .k-input-group .k-form-control, .k-flexboxlegacy .koowa .k-input-group .k-form-control { width: auto; min-width: 15%; } }
 
 .koowa .k-input-group .k-input-group__button .k-button { height: 32px; }
 
@@ -4947,17 +4951,21 @@ Styleguide 6.9
 
 .koowa .k-input-group--small textarea.k-form-control, .koowa .k-input-group--small select[multiple].k-form-control { height: auto; }
 
-.koowa .k-input-group__addon, .koowa .k-input-group__button, .koowa .k-input-group .k-form-control { display: table-cell; }
+.koowa .k-input-group__addon, .koowa .k-input-group__button, .koowa .k-input-group .k-form-control { display: table-cell; /* Flexbox input groups for better overflow styling */ }
 
 .koowa .k-input-group__addon:not(:first-child):not(:last-child), .koowa .k-input-group__button:not(:first-child):not(:last-child), .koowa .k-input-group .k-form-control:not(:first-child):not(:last-child) { border-radius: 0; }
+
+@media (min-width: 0) and (min-height: 0) { .k-flexbox .koowa .k-input-group__addon, .k-flexboxlegacy .koowa .k-input-group__addon, .k-flexbox .koowa .k-input-group__button, .k-flexboxlegacy .koowa .k-input-group__button, .k-flexbox .koowa .k-input-group .k-form-control, .k-flexboxlegacy .koowa .k-input-group .k-form-control { display: block; flex: 1 1 auto; } }
 
 .koowa .k-input-group .select2-container:not(:first-child):not(:last-child) .select2-selection--single { border-radius: 0; }
 
 .koowa .k-input-group .select2-container.select2-container--open, .koowa .k-input-group .select2-container.select2-container--focus { z-index: 3; }
 
-.koowa .k-input-group__addon, .koowa .k-input-group__button { width: 1%; white-space: nowrap; vertical-align: middle; /* 1 */ }
+.koowa .k-input-group__addon, .koowa .k-input-group__button { width: 1%; white-space: nowrap; vertical-align: middle; /* 1 */ /* Flexbox input groups for better overflow styling */ }
 
-.koowa .k-input-group__addon { font-size: 13px; line-height: 20px; height: 32px; padding: 5px 10px; font-weight: normal; color: #222222; text-align: center; background-color: #eeeeee; border: 1px solid #cdcdcd; border-radius: 4px; /* Nuke default margins from checkboxes and radios to vertically center within. */ }
+@media (min-width: 0) and (min-height: 0) { .k-flexbox .koowa .k-input-group__addon, .k-flexboxlegacy .koowa .k-input-group__addon, .k-flexbox .koowa .k-input-group__button, .k-flexboxlegacy .koowa .k-input-group__button { width: auto; display: block; flex: 0 0 auto; } }
+
+.koowa .k-input-group__addon { font-size: 13px; line-height: 20px; height: 32px; padding: 5px 10px; font-weight: normal; color: #222222; text-align: center; background-color: #eeeeee; border: 1px solid #cdcdcd; border-radius: 4px; overflow: hidden; text-overflow: ellipsis; /* Nuke default margins from checkboxes and radios to vertically center within. */ }
 
 .koowa .k-input-group__addon input[type="radio"], .koowa .k-input-group__addon input[type="checkbox"] { margin-top: 0; }
 
@@ -6134,13 +6142,17 @@ Styleguide 6.9
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-toolbar, .k-flexboxlegacy .koowa .k-toolbar { flex: 0 0 auto; } }
 
-.koowa .k-toolbar { /** Position the icons Only position them if media queries are supported By default we just want them aligned normally */ }
+.koowa .k-toolbar { /* Autosave indicator */ /** Position the icons Only position them if media queries are supported By default we just want them aligned normally */ }
 
 .koowa .k-toolbar .k-button { margin: 10px 0 0 10px; /** Make buttons square Only make them square if media queries are supported By default we just want them as buttons */ }
 
 @media screen and (min-width: 0) and (max-width: 768px) { .koowa .k-toolbar .k-button { overflow: hidden; width: 32px; height: 32px; padding: 7px 6px; text-align: center; } }
 
 [dir="rtl"] .koowa .k-toolbar .k-button { margin: 10px 10px 0 0; }
+
+.koowa .k-toolbar .k-autosave-indicator { margin: 10px 0 0 10px; display: inline-block; vertical-align: middle; padding: 5px; }
+
+[dir="rtl"] .koowa .k-toolbar .k-autosave-indicator { margin: 10px 10px 0 0; }
 
 .koowa .k-toolbar [class^="k-icon"] { display: inline-block; margin: 0 0.25em 0 0.1em; }
 
