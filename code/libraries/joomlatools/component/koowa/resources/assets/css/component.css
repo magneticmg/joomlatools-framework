@@ -489,6 +489,8 @@ Styleguide 2.6.2
 /* Dropdown arrow/caret */
 .k-caret { display: inline-block; width: 0; height: 0; margin-left: 2px; vertical-align: middle; border-top: 4px dashed; border-right: 4px solid transparent; border-left: 4px solid transparent; }
 
+[dir="rtl"] .k-caret { margin-left: 0; margin-right: 2px; }
+
 /* The dropdown wrapper (div) */
 .k-dropdown { position: relative; }
 

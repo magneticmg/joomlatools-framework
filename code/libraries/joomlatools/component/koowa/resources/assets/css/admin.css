@@ -498,6 +498,8 @@ Styleguide 2.6.2
 /* Dropdown arrow/caret */
 .k-caret { display: inline-block; width: 0; height: 0; margin-left: 2px; vertical-align: middle; border-top: 4px dashed; border-right: 4px solid transparent; border-left: 4px solid transparent; }
 
+[dir="rtl"] .k-caret { margin-left: 0; margin-right: 2px; }
+
 /* The dropdown wrapper (div) */
 .k-dropdown { position: relative; }
 
@@ -974,7 +976,7 @@ Styleguide 2.5
 
 .datepicker.datepicker-rtl table tr td span { float: right; }
 
-.datepicker.datepicker-dropdown { top: 0; left: 0; }
+.datepicker.datepicker-dropdown { position: absolute; top: 0; left: 0; z-index: 1000; padding: 5px 0; margin: 2px 0 0; list-style: none; background-color: white; border: 1px solid #e0e0e0; border-radius: 4px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); background-clip: padding-box; }
 
 .datepicker.datepicker-dropdown:before { content: ''; display: inline-block; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #ccc; border-top: 0; border-bottom-color: rgba(0, 0, 0, 0.2); position: absolute; }
 
@@ -1091,17 +1093,29 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 /** Icon classes Creating a class name for each individual icon to be used in markup like: <span class="k-icon-circle"></span> */
 .k-icon-account-login:before { content: ""; }
 
+[dir="rtl"] .k-icon-account-login:before { transform: scaleX(-1); }
+
 .k-icon-account-logout:before { content: ""; }
+
+[dir="rtl"] .k-icon-account-logout:before { transform: scaleX(-1); }
 
 .k-icon-action-redo:before { content: ""; }
 
+[dir="rtl"] .k-icon-action-redo:before { transform: scaleX(-1); }
+
 .k-icon-action-undo:before { content: ""; }
+
+[dir="rtl"] .k-icon-action-undo:before { transform: scaleX(-1); }
 
 .k-icon-align-center:before { content: ""; }
 
 .k-icon-align-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-align-left:before { transform: scaleX(-1); }
+
 .k-icon-align-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-align-right:before { transform: scaleX(-1); }
 
 .k-icon-aperture:before { content: ""; }
 
@@ -1111,19 +1125,31 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-arrow-circle-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-arrow-circle-left:before { transform: scaleX(-1); }
+
 .k-icon-arrow-circle-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-arrow-circle-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-circle-top:before { content: ""; }
 
 .k-icon-arrow-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-arrow-left:before { transform: scaleX(-1); }
+
 .k-icon-arrow-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-arrow-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-thick-bottom:before { content: ""; }
 
 .k-icon-arrow-thick-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-arrow-thick-left:before { transform: scaleX(-1); }
+
 .k-icon-arrow-thick-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-arrow-thick-right:before { transform: scaleX(-1); }
 
 .k-icon-arrow-thick-top:before { content: ""; }
 
@@ -1138,6 +1164,8 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 .k-icon-ban:before { content: ""; }
 
 .k-icon-bar-chart:before { content: ""; }
+
+[dir="rtl"] .k-icon-bar-chart:before { transform: scaleX(-1); }
 
 .k-icon-basket:before { content: ""; }
 
@@ -1157,6 +1185,8 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-book:before { content: ""; }
 
+[dir="rtl"] .k-icon-book:before { transform: scaleX(-1); }
+
 .k-icon-bookmark:before { content: ""; }
 
 .k-icon-box:before { content: ""; }
@@ -1167,15 +1197,25 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-browser:before { content: ""; }
 
+[dir="rtl"] .k-icon-browser:before { transform: scaleX(-1); }
+
 .k-icon-brush:before { content: ""; }
+
+[dir="rtl"] .k-icon-brush:before { transform: scaleX(-1); }
 
 .k-icon-bug:before { content: ""; }
 
 .k-icon-bullhorn:before { content: ""; }
 
+[dir="rtl"] .k-icon-bullhorn:before { transform: scaleX(-1); }
+
 .k-icon-calculator:before { content: ""; }
 
+[dir="rtl"] .k-icon-calculator:before { transform: scaleX(-1); }
+
 .k-icon-calendar:before { content: ""; }
+
+[dir="rtl"] .k-icon-calendar:before { transform: scaleX(-1); }
 
 .k-icon-camera-slr:before { content: ""; }
 
@@ -1183,7 +1223,11 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-caret-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-caret-left:before { transform: scaleX(-1); }
+
 .k-icon-caret-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-caret-right:before { transform: scaleX(-1); }
 
 .k-icon-caret-top:before { content: ""; }
 
@@ -1197,7 +1241,11 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-chevron-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-chevron-left:before { transform: scaleX(-1); }
+
 .k-icon-chevron-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-chevron-right:before { transform: scaleX(-1); }
 
 .k-icon-chevron-top:before { content: ""; }
 
@@ -1225,7 +1273,11 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-collapse-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-collapse-left:before { transform: scaleX(-1); }
+
 .k-icon-collapse-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-collapse-right:before { transform: scaleX(-1); }
 
 .k-icon-collapse-up:before { content: ""; }
 
@@ -1233,11 +1285,15 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-comment-square:before { content: ""; }
 
+[dir="rtl"] .k-icon-comment-square:before { transform: scaleX(-1); }
+
 .k-icon-compass:before { content: ""; }
 
 .k-icon-contrast:before { content: ""; }
 
 .k-icon-copywriting:before { content: ""; }
+
+[dir="rtl"] .k-icon-copywriting:before { transform: scaleX(-1); }
 
 .k-icon-credit-card:before { content: ""; }
 
@@ -1251,19 +1307,31 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-delete:before { content: ""; }
 
+[dir="rtl"] .k-icon-delete:before { transform: scaleX(-1); }
+
 .k-icon-dial:before { content: ""; }
 
 .k-icon-document:before { content: ""; }
+
+[dir="rtl"] .k-icon-document:before { transform: scaleX(-1); }
 
 .k-icon-dollar:before { content: ""; }
 
 .k-icon-double-quote-sans-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-double-quote-sans-left:before { transform: scaleX(-1); }
+
 .k-icon-double-quote-sans-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-double-quote-sans-right:before { transform: scaleX(-1); }
 
 .k-icon-double-quote-serif-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-double-quote-serif-left:before { transform: scaleX(-1); }
+
 .k-icon-double-quote-serif-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-double-quote-serif-right:before { transform: scaleX(-1); }
 
 .k-icon-droplet:before { content: ""; }
 
@@ -1285,25 +1353,41 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-expand-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-expand-left:before { transform: scaleX(-1); }
+
 .k-icon-expand-right:before { content: ""; }
+
+[dir="rtl"] .k-icon-expand-right:before { transform: scaleX(-1); }
 
 .k-icon-expand-up:before { content: ""; }
 
 .k-icon-external-link:before { content: ""; }
 
+[dir="rtl"] .k-icon-external-link:before { transform: scaleX(-1); }
+
 .k-icon-eye:before { content: ""; }
 
 .k-icon-eyedropper:before { content: ""; }
 
+[dir="rtl"] .k-icon-eyedropper:before { transform: scaleX(-1); }
+
 .k-icon-file:before { content: ""; }
+
+[dir="rtl"] .k-icon-file:before { transform: scaleX(-1); }
 
 .k-icon-fire:before { content: ""; }
 
+[dir="rtl"] .k-icon-fire:before { transform: scaleX(-1); }
+
 .k-icon-flag:before { content: ""; }
+
+[dir="rtl"] .k-icon-flag:before { transform: scaleX(-1); }
 
 .k-icon-flash:before { content: ""; }
 
 .k-icon-folder:before { content: ""; }
+
+[dir="rtl"] .k-icon-folder:before { transform: scaleX(-1); }
 
 .k-icon-fork:before { content: ""; }
 
@@ -1314,6 +1398,8 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 .k-icon-globe:before { content: ""; }
 
 .k-icon-graph:before { content: ""; }
+
+[dir="rtl"] .k-icon-graph:before { transform: scaleX(-1); }
 
 .k-icon-grid-four-up:before { content: ""; }
 
@@ -1339,29 +1425,49 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-info:before { content: ""; }
 
+[dir="rtl"] .k-icon-info:before { transform: scaleX(-1); }
+
 .k-icon-italic:before { content: ""; }
+
+[dir="rtl"] .k-icon-italic:before { transform: scaleX(-1); }
 
 .k-icon-justify-center:before { content: ""; }
 
 .k-icon-justify-left:before { content: ""; }
 
+[dir="rtl"] .k-icon-justify-left:before { transform: scaleX(-1); }
+
 .k-icon-justify-right:before { content: ""; }
 
+[dir="rtl"] .k-icon-justify-right:before { transform: scaleX(-1); }
+
 .k-icon-key:before { content: ""; }
+
+[dir="rtl"] .k-icon-key:before { transform: scaleX(-1); }
 
 .k-icon-laptop:before { content: ""; }
 
 .k-icon-layers:before { content: ""; }
 
+[dir="rtl"] .k-icon-layers:before { transform: scaleX(-1); }
+
 .k-icon-lightbulb:before { content: ""; }
 
 .k-icon-link-broken:before { content: ""; }
 
+[dir="rtl"] .k-icon-link-broken:before { transform: scaleX(-1); }
+
 .k-icon-link-intact:before { content: ""; }
+
+[dir="rtl"] .k-icon-link-intact:before { transform: scaleX(-1); }
 
 .k-icon-list-rich:before { content: ""; }
 
+[dir="rtl"] .k-icon-list-rich:before { transform: scaleX(-1); }
+
 .k-icon-list:before { content: ""; }
+
+[dir="rtl"] .k-icon-list:before { transform: scaleX(-1); }
 
 .k-icon-location:before { content: ""; }
 
@@ -1377,6 +1483,8 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-magnifying-glass:before { content: ""; }
 
+[dir="rtl"] .k-icon-magnifying-glass:before { transform: scaleX(-1); }
+
 .k-icon-map-marker:before { content: ""; }
 
 .k-icon-map:before { content: ""; }
@@ -1385,15 +1493,25 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-media-play:before { content: ""; }
 
+[dir="rtl"] .k-icon-media-play:before { transform: scaleX(-1); }
+
 .k-icon-media-record:before { content: ""; }
 
 .k-icon-media-skip-backward:before { content: ""; }
 
+[dir="rtl"] .k-icon-media-skip-backward:before { transform: scaleX(-1); }
+
 .k-icon-media-skip-forward:before { content: ""; }
+
+[dir="rtl"] .k-icon-media-skip-forward:before { transform: scaleX(-1); }
 
 .k-icon-media-step-backward:before { content: ""; }
 
+[dir="rtl"] .k-icon-media-step-backward:before { transform: scaleX(-1); }
+
 .k-icon-media-step-forward:before { content: ""; }
+
+[dir="rtl"] .k-icon-media-step-forward:before { transform: scaleX(-1); }
 
 .k-icon-media-stop:before { content: ""; }
 
@@ -1415,9 +1533,15 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-paperclip:before { content: ""; }
 
+[dir="rtl"] .k-icon-paperclip:before { transform: scaleX(-1); }
+
 .k-icon-pencil:before { content: ""; }
 
+[dir="rtl"] .k-icon-pencil:before { transform: scaleX(-1); }
+
 .k-icon-people:before { content: ""; }
+
+[dir="rtl"] .k-icon-people:before { transform: scaleX(-1); }
 
 .k-icon-person:before { content: ""; }
 
@@ -1425,9 +1549,13 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-pie-chart:before { content: ""; }
 
+[dir="rtl"] .k-icon-pie-chart:before { transform: scaleX(-1); }
+
 .k-icon-pin:before { content: ""; }
 
 .k-icon-play-circle:before { content: ""; }
+
+[dir="rtl"] .k-icon-play-circle:before { transform: scaleX(-1); }
 
 .k-icon-plus:before { content: ""; }
 
@@ -1437,17 +1565,23 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-project:before { content: ""; }
 
+[dir="rtl"] .k-icon-project:before { transform: scaleX(-1); }
+
 .k-icon-pulse:before { content: ""; }
 
 .k-icon-puzzle-piece:before { content: ""; }
 
 .k-icon-question-mark:before { content: ""; }
 
+[dir="rtl"] .k-icon-question-mark:before { transform: scaleX(-1); }
+
 .k-icon-rain:before { content: ""; }
 
 .k-icon-random:before { content: ""; }
 
 .k-icon-reload:before { content: ""; }
+
+[dir="rtl"] .k-icon-reload:before { transform: scaleX(-1); }
 
 .k-icon-resize-both:before { content: ""; }
 
@@ -1463,19 +1597,31 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-share-boxed:before { content: ""; }
 
+[dir="rtl"] .k-icon-share-boxed:before { transform: scaleX(-1); }
+
 .k-icon-share:before { content: ""; }
+
+[dir="rtl"] .k-icon-share:before { transform: scaleX(-1); }
 
 .k-icon-shield:before { content: ""; }
 
 .k-icon-signal:before { content: ""; }
 
+[dir="rtl"] .k-icon-signal:before { transform: scaleX(-1); }
+
 .k-icon-signpost:before { content: ""; }
 
 .k-icon-sort-ascending:before { content: ""; }
 
+[dir="rtl"] .k-icon-sort-ascending:before { transform: scaleX(-1); }
+
 .k-icon-sort-descending:before { content: ""; }
 
+[dir="rtl"] .k-icon-sort-descending:before { transform: scaleX(-1); }
+
 .k-icon-spreadsheet:before { content: ""; }
+
+[dir="rtl"] .k-icon-spreadsheet:before { transform: scaleX(-1); }
 
 .k-icon-star:before { content: ""; }
 
@@ -1485,7 +1631,11 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-tag:before { content: ""; }
 
+[dir="rtl"] .k-icon-tag:before { transform: scaleX(-1); }
+
 .k-icon-tags:before { content: ""; }
+
+[dir="rtl"] .k-icon-tags:before { transform: scaleX(-1); }
 
 .k-icon-target:before { content: ""; }
 
@@ -1515,11 +1665,19 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-video:before { content: ""; }
 
+[dir="rtl"] .k-icon-video:before { transform: scaleX(-1); }
+
 .k-icon-volume-high:before { content: ""; }
+
+[dir="rtl"] .k-icon-volume-high:before { transform: scaleX(-1); }
 
 .k-icon-volume-low:before { content: ""; }
 
+[dir="rtl"] .k-icon-volume-low:before { transform: scaleX(-1); }
+
 .k-icon-volume-off:before { content: ""; }
+
+[dir="rtl"] .k-icon-volume-off:before { transform: scaleX(-1); }
 
 .k-icon-warning:before { content: ""; }
 
@@ -1527,13 +1685,19 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-wrench:before { content: ""; }
 
+[dir="rtl"] .k-icon-wrench:before { transform: scaleX(-1); }
+
 .k-icon-x:before { content: ""; }
 
 .k-icon-yen:before { content: ""; }
 
 .k-icon-zoom-in:before { content: ""; }
 
+[dir="rtl"] .k-icon-zoom-in:before { transform: scaleX(-1); }
+
 .k-icon-zoom-out:before { content: ""; }
+
+[dir="rtl"] .k-icon-zoom-out:before { transform: scaleX(-1); }
 
 .k-icon-close:before { content: ""; }
 
@@ -1543,11 +1707,15 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-document-audio:before { content: ""; }
 
+[dir="rtl"] .k-icon-document-audio:before { transform: scaleX(-1); }
+
 .k-icon-document-default:before { content: ""; }
 
 .k-icon-document-document:before { content: ""; }
 
 .k-icon-document-folder:before { content: ""; }
+
+[dir="rtl"] .k-icon-document-folder:before { transform: scaleX(-1); }
 
 .k-icon-document-image:before { content: ""; }
 
@@ -1557,19 +1725,31 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-document-video:before { content: ""; }
 
+[dir="rtl"] .k-icon-document-video:before { transform: scaleX(-1); }
+
 .k-icon-documents:before { content: ""; }
 
 .k-icon-enabled:before { content: ""; }
 
 .k-icon-filter:before { content: ""; }
 
+[dir="rtl"] .k-icon-filter:before { transform: scaleX(-1); }
+
 .k-icon-folder-closed:before { content: ""; }
+
+[dir="rtl"] .k-icon-folder-closed:before { transform: scaleX(-1); }
 
 .k-icon-folder-opened:before { content: ""; }
 
+[dir="rtl"] .k-icon-folder-opened:before { transform: scaleX(-1); }
+
 .k-icon-menu-closed:before { content: ""; }
 
+[dir="rtl"] .k-icon-menu-closed:before { transform: scaleX(-1); }
+
 .k-icon-menu-opened:before { content: ""; }
+
+[dir="rtl"] .k-icon-menu-opened:before { transform: scaleX(-1); }
 
 .k-icon-open:before { content: ""; }
 
@@ -2336,7 +2516,7 @@ markup:
 
 Styleguide 2.9.8
 
-*/ /*
+*/ /* Using import so we can include the file input on it's own in site.scss */ /*
 Styled file input
 
 markup:
@@ -3090,13 +3270,11 @@ Sidebar item
 - Adds flexbox styling
 - Hidden on small screens
 - Add `.k-sidebar-item--flex` to the sidebar items that need to <b>grow</b> with the layout
-- Add `.k-js-sidebar-overflow-item` to the sidebar items that need to <b>shrink</b> and <b>overflow</b> it's contents
 - Use <b>only</b> inside a `.k-sidebar`
 - {unsureText}
 
 default - Default
 .k-sidebar-item--flex - Flexing container that will grow (and not shrink)
-.k-js-sidebar-overflow-item - Flexing container that will shrink (and not grow) and overflow it's content
 .k-sidebar-item--toggle.k-js-sidebar-toggle-item - Adds a toggle button on certain screen sizes
 
 markup:
@@ -3106,7 +3284,7 @@ markup:
 
 Styleguide 2.20
 
-*/ /* Toggle item */ /*
+*/ /** Toggle item 1. Same as width but minus 2px border width */ /*
 Sidebar item header
 
 - Use <b>only</b> inside a `.k-sidebar-item`
@@ -3999,7 +4177,7 @@ sg-wrapper:
 
 Styleguide 6.9
 
-*/ /* Overflowing ========================================================================== */ /** Add overflowing shadow boxes to either top, right, bottom or left side of an element. This shows the user that there's more content to see when no scrollbars are visible. To properly use this you need to wrap the overflowing container inside another container named `overflowing`. JS will take care of this if you don't. 1. This wrapping container needs to have overflow: hidden set 2. It also needs have a relative position for positioning the shadows 3. And adding overflow-scrolling: touch for smooth scroll on iOs 4. Add display: flex so child (actual overflowing container) can flex */ /** Component animations Mainly used for tooltips right now We don't use the `.opacity()` mixin here since it causes a bug with text fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552. */ /* Hamburger ========================================================================== */ /** Animated hamburger button 1. Hide when JS is disabled, we don't need a toggle when there's no JS 2. Show when JS is enabled 3. Hide when the sidebar is visible */ /* Button styling */ /* Left button */ /* Transform hamburger into a cross when the sidebar is opened */ /* Right button */ /* Transform "i" into a cross when the sidebar is opened */ }
+*/ /** Component animations Mainly used for tooltips right now We don't use the `.opacity()` mixin here since it causes a bug with text fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552. */ /* Hamburger ========================================================================== */ /** Animated hamburger button 1. Hide when JS is disabled, we don't need a toggle when there's no JS 2. Show when JS is enabled 3. Hide when the sidebar is visible */ /* Button styling */ /** Left button We don't need RTLstyling here since we're calculating the icons to be in the middle */ /* Transform hamburger into a cross when the sidebar is opened */ /** Right button We don't need RTLstyling here since we're calculating the icons to be in the middle */ /* Transform "i" into a cross when the sidebar is opened */ }
 
 .koowa, .koowa *, .koowa *:before, .koowa *:after { box-sizing: border-box; }
 
@@ -4175,13 +4353,17 @@ Styleguide 6.9
 
 [dir="rtl"] .koowa.koowa-container { direction: rtl; }
 
-.koowa .k-sidebar-left, .koowa .k-sidebar-right { position: relative; overflow: auto; -webkit-overflow-scrolling: touch; /* When resizing */ /* Faking flexbox on older browsers by using table styling */ display: table-cell; vertical-align: top; /* When JavaScript is enabled */ /* When flexbox is in use */ }
+.koowa .k-sidebar-left, .koowa .k-sidebar-right { position: relative; overflow: auto; -webkit-overflow-scrolling: touch; /* When resizing */ /* Faking flexbox on older browsers by using table styling */ display: table-cell; vertical-align: top; /* When JavaScript is enabled */ /* When flexbox is in use */ /** No flex, but rather overflowing sidebar Made for screens between 391px and 550px in height Make sure that categories in the sidebar are always accessible no matter how many menu items you've got 1. Should be the same as in `.k-sidebar-item--flex` */ }
 
 .k-is-resizing .koowa .k-sidebar-left, .k-is-resizing .koowa .k-sidebar-right { overflow: hidden; }
 
-.k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { position: absolute; z-index: 1; top: 0; height: 100%; display: none; }
+.k-js-enabled .koowa .k-sidebar-left, .k-js-enabled .koowa .k-sidebar-right { position: absolute; z-index: -1; top: 0; height: 100%; display: none; }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-sidebar-left, .k-flexboxlegacy .koowa .k-sidebar-left, .k-flexbox .koowa .k-sidebar-right, .k-flexboxlegacy .koowa .k-sidebar-right { display: flex; flex-direction: column; flex: 0 0 auto; } }
+
+@media (min-width: 768px) and (min-height: 391px) { .koowa .k-sidebar-left, .koowa .k-sidebar-right { overflow: auto; } }
+
+@media (min-width: 768px) and (min-height: 599px) { .koowa .k-sidebar-left, .koowa .k-sidebar-right { /* 1 */ overflow: hidden; } }
 
 .koowa .k-sidebar-left { /* Faking flexbox on older browsers by using table styling */ /* Larger sidebar when space is available */ /* When JavaScript is enabled */ /* Override js-enabled beta styling with flexbox */ }
 
@@ -4191,7 +4373,7 @@ Styleguide 6.9
 
 .k-js-enabled .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; /* On 'desktop' we 'open' the sidebar by default */ /* And we make it even larger when there's enough space */ }
 
-@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-sidebar-left { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; } }
+@media screen and (min-width: 768px) { .k-js-enabled .koowa .k-sidebar-left { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; z-index: 1; } }
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-left { min-width: 270px; width: 270px; max-width: 270px; } }
 
@@ -4205,7 +4387,7 @@ Styleguide 6.9
 
 .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; /* On 'desktop' we 'open' the sidebar by default */ /* And we make it even larger when there's enough space */ }
 
-@media screen and (min-width: 600px) { .k-js-enabled .koowa .k-sidebar-right { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; } }
+@media screen and (min-width: 600px) { .k-js-enabled .koowa .k-sidebar-right { position: relative; display: table-cell; height: auto; min-width: 210px; width: 210px; max-width: 210px; z-index: 1; } }
 
 @media screen and (min-width: 1024px) { .k-js-enabled .koowa .k-sidebar-right { min-width: 270px; width: 270px; max-width: 270px; } }
 
@@ -4217,9 +4399,9 @@ Styleguide 6.9
 
 .k-js-enabled .koowa .k-sidebar-left { left: 0; }
 
-.k-js-enabled [dir="rtl"] .koowa .k-sidebar-left { left: auto; right: 0; }
+[dir="rtl"] .k-js-enabled .koowa .k-sidebar-left { left: auto; right: 0; }
 
-.koowa .k-is-opened-left .k-sidebar-left { display: block; }
+.koowa .k-is-opened-left .k-sidebar-left { display: block; z-index: 1; }
 
 .koowa .k-sidebar-right { border-left: 1px solid #cfcfcf; background: #eeeeee; color: #222222; }
 
@@ -4227,9 +4409,9 @@ Styleguide 6.9
 
 .k-js-enabled .koowa .k-sidebar-right { right: 0; }
 
-.k-js-enabled [dir="rtl"] .koowa .k-sidebar-right { right: auto; left: 0; }
+[dir="rtl"] .k-js-enabled .koowa .k-sidebar-right { right: auto; left: 0; }
 
-.koowa .k-is-opened-right .k-sidebar-right { display: block; }
+.koowa .k-is-opened-right .k-sidebar-right { display: block; z-index: 1; }
 
 .koowa .k-wrapper { position: relative; /* When flexbox is in use */ }
 
@@ -4260,6 +4442,10 @@ Styleguide 6.9
 .koowa dd { margin: 0; padding: 0; list-style: none; border: none; background: transparent; display: block; margin-bottom: 7px; max-width: 100%; }
 
 .koowa dd:last-child { margin-bottom: 0; }
+
+.koowa dd.k-ellipsis { vertical-align: bottom; }
+
+.koowa dd.k-ellipsis .k-ellipsis__item { vertical-align: inherit; }
 
 .koowa fieldset { margin: 0; padding: 0; list-style: none; border: none; background: transparent; margin-bottom: 1.5em; min-width: 0; /* 1 */ }
 
@@ -4297,7 +4483,7 @@ Styleguide 6.9
 
 .koowa p:last-child { margin-bottom: 0; }
 
-.koowa ul, .koowa ol { margin-bottom: 1.5em; padding-left: 1.5em; }
+.koowa ul, .koowa ol { margin-bottom: 1.5em; margin-left: 0; margin-right: 0; padding-left: 1.5em; }
 
 .koowa ul:last-child, .koowa ol:last-child { margin-bottom: 0; }
 
@@ -4309,7 +4495,7 @@ Styleguide 6.9
 
 .koowa .k-alert a { color: inherit; }
 
-.koowa .k-alert--overflow { max-height: 33%; overflow: auto; }
+.koowa .k-alert--overflow { min-height: 75px; max-height: 33%; overflow: auto; }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-alert--overflow, .k-flexboxlegacy .koowa .k-alert--overflow { flex: 0 1 auto; } }
 
@@ -4538,23 +4724,23 @@ Styleguide 6.9
 
 .koowa .k-button-group > .k-button:first-child:not(:last-child), .koowa .k-button-group > .btn:first-child:not(:last-child) { border-bottom-right-radius: 0; border-top-right-radius: 0; }
 
-[dir="rtl"] .koowa .k-button-group > .k-button:first-child:not(:last-child), [dir="rtl"] .koowa .k-button-group > .btn:first-child:not(:last-child) { border-bottom-left-radius: 0; border-top-left-radius: 0; }
+[dir="rtl"] .koowa .k-button-group > .k-button:first-child:not(:last-child), [dir="rtl"] .koowa .k-button-group > .btn:first-child:not(:last-child) { border-bottom-right-radius: 4px; border-top-right-radius: 4px; border-bottom-left-radius: 0; border-top-left-radius: 0; }
 
-[dir="rtl"] .koowa .k-button-group > .k-button:first-child:not(:last-child).k-button--tiny .k-button--tiny, [dir="rtl"] .koowa .k-button-group > .btn:first-child:not(:last-child).k-button--tiny .k-button--tiny { border-bottom-right-radius: 3px; border-top-right-radius: 3px; }
+[dir="rtl"] .koowa .k-button-group > .k-button:first-child:not(:last-child).k-button--tiny, [dir="rtl"] .koowa .k-button-group > .btn:first-child:not(:last-child).k-button--tiny { border-bottom-right-radius: 3px; border-top-right-radius: 3px; }
 
-[dir="rtl"] .koowa .k-button-group > .k-button:first-child:not(:last-child).k-button--tiny .k-button--small, [dir="rtl"] .koowa .k-button-group > .btn:first-child:not(:last-child).k-button--tiny .k-button--small { border-bottom-right-radius: 3px; border-top-right-radius: 3px; }
+[dir="rtl"] .koowa .k-button-group > .k-button:first-child:not(:last-child).k-button--small, [dir="rtl"] .koowa .k-button-group > .btn:first-child:not(:last-child).k-button--small { border-bottom-right-radius: 3px; border-top-right-radius: 3px; }
 
-[dir="rtl"] .koowa .k-button-group > .k-button:first-child:not(:last-child).k-button--tiny .k-button--large, [dir="rtl"] .koowa .k-button-group > .btn:first-child:not(:last-child).k-button--tiny .k-button--large { border-bottom-right-radius: 6px; border-top-right-radius: 6px; }
+[dir="rtl"] .koowa .k-button-group > .k-button:first-child:not(:last-child).k-button--large, [dir="rtl"] .koowa .k-button-group > .btn:first-child:not(:last-child).k-button--large { border-bottom-right-radius: 6px; border-top-right-radius: 6px; }
 
 .koowa .k-button-group > .k-button:last-child:not(:first-child), .koowa .k-button-group > .btn:last-child:not(:first-child) { border-bottom-left-radius: 0; border-top-left-radius: 0; }
 
-[dir="rtl"] .koowa .k-button-group > .k-button:last-child:not(:first-child), [dir="rtl"] .koowa .k-button-group > .btn:last-child:not(:first-child) { border-bottom-right-radius: 0; border-top-right-radius: 0; }
+[dir="rtl"] .koowa .k-button-group > .k-button:last-child:not(:first-child), [dir="rtl"] .koowa .k-button-group > .btn:last-child:not(:first-child) { border-bottom-left-radius: 4px; border-top-left-radius: 4px; border-bottom-right-radius: 0; border-top-right-radius: 0; }
 
-[dir="rtl"] .koowa .k-button-group > .k-button:last-child:not(:first-child) .k-button--tiny, [dir="rtl"] .koowa .k-button-group > .btn:last-child:not(:first-child) .k-button--tiny { border-bottom-left-radius: 3px; border-top-left-radius: 3px; }
+[dir="rtl"] .koowa .k-button-group > .k-button:last-child:not(:first-child).k-button--tiny, [dir="rtl"] .koowa .k-button-group > .btn:last-child:not(:first-child).k-button--tiny { border-bottom-left-radius: 3px; border-top-left-radius: 3px; }
 
-[dir="rtl"] .koowa .k-button-group > .k-button:last-child:not(:first-child) .k-button--small, [dir="rtl"] .koowa .k-button-group > .btn:last-child:not(:first-child) .k-button--small { border-bottom-left-radius: 3px; border-top-left-radius: 3px; }
+[dir="rtl"] .koowa .k-button-group > .k-button:last-child:not(:first-child).k-button--small, [dir="rtl"] .koowa .k-button-group > .btn:last-child:not(:first-child).k-button--small { border-bottom-left-radius: 3px; border-top-left-radius: 3px; }
 
-[dir="rtl"] .koowa .k-button-group > .k-button:last-child:not(:first-child) .k-button--large, [dir="rtl"] .koowa .k-button-group > .btn:last-child:not(:first-child) .k-button--large { border-bottom-left-radius: 6px; border-top-left-radius: 6px; }
+[dir="rtl"] .koowa .k-button-group > .k-button:last-child:not(:first-child).k-button--large, [dir="rtl"] .koowa .k-button-group > .btn:last-child:not(:first-child).k-button--large { border-bottom-left-radius: 6px; border-top-left-radius: 6px; }
 
 .koowa .k-card { position: relative; display: block; width: 100%; margin-bottom: 1.5em; }
 
@@ -4730,13 +4916,17 @@ Styleguide 6.9
 
 .koowa .k-static-form-label:last-child { margin-bottom: 0; }
 
-.koowa .k-input-group { position: relative; /* 1 */ display: table; width: 100%; border-collapse: separate; /* 2 */ }
+.koowa .k-input-group { position: relative; /* 1 */ display: table; width: 100%; border-collapse: separate; /* 2 */ /* Flexbox input groups for better overflow styling */ /* The form control */ /* The button */ }
 
-.koowa .k-input-group .k-form-control { /* 3 */ position: relative; z-index: 2; /* 4 */ float: left; width: 100%; margin-bottom: 0; }
+@media (min-width: 0) and (min-height: 0) { .k-flexbox .koowa .k-input-group, .k-flexboxlegacy .koowa .k-input-group { display: flex; } }
+
+.koowa .k-input-group .k-form-control { /* 3 */ position: relative; z-index: 2; /* 4 */ float: left; width: 100%; margin-bottom: 0; /* Flexbox input groups for better overflow styling */ }
 
 [dir="rtl"] .koowa .k-input-group .k-form-control { float: right; }
 
 .koowa .k-input-group .k-form-control:focus { z-index: 3; /* 5 */ }
+
+@media (min-width: 0) and (min-height: 0) { .k-flexbox .koowa .k-input-group .k-form-control, .k-flexboxlegacy .koowa .k-input-group .k-form-control { width: auto; min-width: 15%; } }
 
 .koowa .k-input-group .k-input-group__button .k-button, .koowa .k-input-group .k-input-group__button .btn { height: 32px; }
 
@@ -4747,6 +4937,8 @@ Styleguide 6.9
 .koowa .k-input-group--large > .select2-container--bootstrap .select2-selection--single .select2-selection--rendered { line-height: 23px; }
 
 .koowa .k-input-group--large select.k-form-control { height: 39px; line-height: 39px; }
+
+[dir="rtl"] .koowa .k-input-group--large select.k-form-control { direction: rtl; }
 
 .koowa .k-input-group--large textarea.k-form-control, .koowa .k-input-group--large select[multiple].k-form-control { height: auto; }
 
@@ -4760,17 +4952,21 @@ Styleguide 6.9
 
 .koowa .k-input-group--small textarea.k-form-control, .koowa .k-input-group--small select[multiple].k-form-control { height: auto; }
 
-.koowa .k-input-group__addon, .koowa .k-input-group__button, .koowa .k-input-group .k-form-control { display: table-cell; }
+.koowa .k-input-group__addon, .koowa .k-input-group__button, .koowa .k-input-group .k-form-control { display: table-cell; /* Flexbox input groups for better overflow styling */ }
 
 .koowa .k-input-group__addon:not(:first-child):not(:last-child), .koowa .k-input-group__button:not(:first-child):not(:last-child), .koowa .k-input-group .k-form-control:not(:first-child):not(:last-child) { border-radius: 0; }
+
+@media (min-width: 0) and (min-height: 0) { .k-flexbox .koowa .k-input-group__addon, .k-flexboxlegacy .koowa .k-input-group__addon, .k-flexbox .koowa .k-input-group__button, .k-flexboxlegacy .koowa .k-input-group__button, .k-flexbox .koowa .k-input-group .k-form-control, .k-flexboxlegacy .koowa .k-input-group .k-form-control { display: block; flex: 1 1 auto; } }
 
 .koowa .k-input-group .select2-container:not(:first-child):not(:last-child) .select2-selection--single { border-radius: 0; }
 
 .koowa .k-input-group .select2-container.select2-container--open, .koowa .k-input-group .select2-container.select2-container--focus { z-index: 3; }
 
-.koowa .k-input-group__addon, .koowa .k-input-group__button { width: 1%; white-space: nowrap; vertical-align: middle; /* 1 */ }
+.koowa .k-input-group__addon, .koowa .k-input-group__button { width: 1%; white-space: nowrap; vertical-align: middle; /* 1 */ /* Flexbox input groups for better overflow styling */ }
 
-.koowa .k-input-group__addon { font-size: 13px; line-height: 20px; height: 32px; padding: 5px 10px; font-weight: normal; color: #222222; text-align: center; background-color: #eeeeee; border: 1px solid #cdcdcd; border-radius: 4px; /* Nuke default margins from checkboxes and radios to vertically center within. */ }
+@media (min-width: 0) and (min-height: 0) { .k-flexbox .koowa .k-input-group__addon, .k-flexboxlegacy .koowa .k-input-group__addon, .k-flexbox .koowa .k-input-group__button, .k-flexboxlegacy .koowa .k-input-group__button { width: auto; display: block; flex: 0 0 auto; } }
+
+.koowa .k-input-group__addon { font-size: 13px; line-height: 20px; height: 32px; padding: 5px 10px; font-weight: normal; color: #222222; text-align: center; background-color: #eeeeee; border: 1px solid #cdcdcd; border-radius: 4px; overflow: hidden; text-overflow: ellipsis; /* Nuke default margins from checkboxes and radios to vertically center within. */ }
 
 .koowa .k-input-group__addon input[type="radio"], .koowa .k-input-group__addon input[type="checkbox"] { margin-top: 0; }
 
@@ -4891,7 +5087,7 @@ Styleguide 6.9
 
 .koowa .k-file-input input:focus + label .k-file-input__button, .koowa .k-file-input input:focus + label .k-file-input__button:hover, .koowa .k-file-input input:focus + label .k-file-input__button:focus, .koowa .k-file-input input.has-focus + label .k-file-input__button, .koowa .k-file-input input.has-focus + label .k-file-input__button:hover, .koowa .k-file-input input.has-focus + label .k-file-input__button:focus, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button:hover, .koowa .k-file-input input.has-drop-focus + label .k-file-input__button:focus, .koowa .k-file-input input:hover + label .k-file-input__button, .koowa .k-file-input input:hover + label .k-file-input__button:hover, .koowa .k-file-input input:hover + label .k-file-input__button:focus { background-color: #255681; }
 
-.koowa .k-file-input .k-file-input__button { display: block; background-color: #3071a9; color: white; height: 39px; pointer-events: none; vertical-align: middle; font-weight: 400; text-align: center; touch-action: manipulation; cursor: pointer; background-image: none; /* 2 */ border: 1px solid transparent; white-space: nowrap; box-shadow: none; text-shadow: none; user-select: none; margin-bottom: 0; border-radius: 6px; font-size: 18px; line-height: 23px; padding: 7px 14px; }
+.koowa .k-file-input .k-file-input__button { display: block; background-color: #3071a9; color: white; pointer-events: none; vertical-align: middle; font-weight: 400; text-align: center; touch-action: manipulation; cursor: pointer; background-image: none; /* 2 */ border: 1px solid transparent; white-space: nowrap; box-shadow: none; text-shadow: none; user-select: none; margin-bottom: 0; border-radius: 6px; font-size: 18px; line-height: 23px; padding: 7px 14px; }
 
 .koowa .k-file-input .k-file-input__files { width: 100%; height: 20px; line-height: 20px; display: inline-block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; vertical-align: top; text-align: center; }
 
@@ -4961,6 +5157,8 @@ Styleguide 6.9
 
 .koowa .k-gallery__item--folder + .k-gallery__item--file { clear: left; }
 
+[dir="rtl"] .koowa .k-gallery__item--folder + .k-gallery__item--file { clear: right; }
+
 .koowa .k-heading { font-size: 21px; line-height: 25px; margin-bottom: 20px; }
 
 .koowa .k-heading:last-child { margin-bottom: 0; }
@@ -4989,7 +5187,7 @@ Styleguide 6.9
 
 .koowa .k-list { padding: 0; list-style: none; border: none; background: transparent; /* 1 */ margin: 7px 0; /* Items */ /** Links 1. Make item fully clickable 2. removing underlines */ /* Active link */ /* Icons */ }
 
-[dir="rtl"] .koowa .k-list { margin: 7px 0; }
+[dir="rtl"] .koowa .k-list { margin: 7px 0; /* Override for rtl ul-ol-li styling */ padding: 0; }
 
 .koowa .k-list li { display: block; line-height: 20px; }
 
@@ -5189,9 +5387,9 @@ Styleguide 6.9
 
 .koowa .k-inline-modal__title { margin: 0 0 20px 0; font-weight: 400; font-size: 18px; line-height: 23px; }
 
-.koowa .k-navigation { margin: 0; list-style: none; border: none; /* 1 */ border-bottom: 1px solid #c8c8c8; padding: 14px 0; background: #e6e6e6; /* Items */ /** Links 1. Make item fully clickable 2. removing underlines */ /* Active link */ }
+.koowa .k-navigation { margin: 0; list-style: none; border: none; /* 1 */ border-bottom: 1px solid #c8c8c8; padding: 14px 0; background: #e6e6e6; /* Override for rtl ul-ol-li styling */ /* Items */ /** Links 1. Make item fully clickable 2. removing underlines */ /* Active link */ }
 
-[dir="rtl"] .koowa .k-navigation { margin: 0; }
+[dir="rtl"] .koowa .k-navigation { padding: 14px 0; }
 
 .koowa .k-navigation li { display: block; line-height: 20px; }
 
@@ -5430,7 +5628,7 @@ Styleguide 6.9
 
 .koowa .k-scopebar__button { margin: 0; padding: 0; list-style: none; border: none; background: transparent; position: relative; display: block; float: left; height: 31px; margin: 4px; margin-left: 0; padding-left: 7px; padding-right: 7px; border-radius: 2px; text-align: center; line-height: 31px; cursor: pointer; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; border: 1px solid transparent; /** 1. Absolute center */ }
 
-[dir="rtl"] .koowa .k-scopebar__button { float: right; margin-left: auto; margin-right: 0; }
+[dir="rtl"] .koowa .k-scopebar__button { float: right; margin-left: 4px; margin-right: 0; }
 
 .koowa .k-scopebar__button:hover { border-color: #d4d4d4; background: white; }
 
@@ -5497,38 +5695,30 @@ Styleguide 6.9
 
 [dir="rtl"] .koowa .k-scopebar__item--search .k-scopebar__item-label--numberless { left: auto; right: 13px; }
 
-.koowa .k-sidebar-item { /** Overflowing items 1. Set container to overflow it's items */ }
+.koowa .k-sidebar-item { /** 1. Should be the same as in `.k-sidebar-[left/right]` */ /** Overflowing items 1. Set container to overflow it's items */ }
 
 .koowa .k-sidebar-item + .koowa .k-sidebar-item { margin-top: 20px; }
 
-@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-sidebar-item, .k-flexboxlegacy .koowa .k-sidebar-item { flex: 0 0 auto; }
-  .k-flexbox .koowa .k-sidebar-item--flex, .k-flexboxlegacy .koowa .k-sidebar-item--flex { flex: 1 0 auto; } }
+@media (min-width: 768px) and (min-height: 599px) { .k-flexbox .koowa .k-sidebar-item, .k-flexboxlegacy .koowa .k-sidebar-item { /* 1 */ flex: 0 0 37px; }
+  .k-flexbox .koowa .k-sidebar-item--flex, .k-flexboxlegacy .koowa .k-sidebar-item--flex { display: flex; flex-direction: column; flex: 0 1 auto; overflow: hidden; }
+  .k-flexbox .koowa .k-sidebar-item--flex div, .k-flexboxlegacy .koowa .k-sidebar-item--flex div { flex: 1 1 auto; overflow: auto; }
+  .k-flexbox .koowa .k-sidebar-item--flex .k-sidebar-item__header, .k-flexboxlegacy .koowa .k-sidebar-item--flex .k-sidebar-item__header { flex: 0 0 auto; } }
 
-.koowa .k-sidebar-item--overflow { overflow: auto; /* 1 */ width: 100%; /** Box shadow for overflowing containers 1. Set as same color as background to make it look like text is fading */ }
+.koowa .k-sidebar-item--overflow { overflow: auto; /* 1 */ width: 100%; }
 
-@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-sidebar-item--overflow, .k-flexboxlegacy .koowa .k-sidebar-item--overflow { flex: 0 1 auto; } }
+@media (min-width: 300px) and (min-height: 550px) { .k-flexbox .koowa .k-sidebar-item--overflow, .k-flexboxlegacy .koowa .k-sidebar-item--overflow { flex: 0 1 auto; } }
 
 .k-is-resizing .koowa .k-sidebar-item--overflow { overflow: hidden; }
 
-.koowa .k-sidebar-item--overflow ~ [class^="k-overflowing"] { color: #eeeeee; }
-
 .koowa .k-sidebar-item--toggle { padding-bottom: 13px; }
-
-@media (min-height: 391px) { .k-js-enabled .koowa .k-sidebar-item--toggle .k-list { display: none; } }
-
-@media (min-height: 550px) { .koowa .k-sidebar-item--toggle .k-list { display: block !important; } }
 
 .koowa .k-sidebar-item--toggle .k-sidebar-item__header { position: relative; }
 
-.koowa .k-sidebar-item--toggle .k-sidebar-item__toggle { position: absolute; top: 20px; right: 20px; display: none; }
+.koowa .k-sidebar-item--toggle .k-sidebar-item__toggle { position: absolute; top: 20px; right: 20px; }
 
-.koowa .k-sidebar-item--toggle .k-sidebar-item__toggle:after { content: ""; display: block; background: white; border: 1px solid #ddd; border-radius: 10px; width: 20px; height: 20px; text-align: center; vertical-align: middle; font-size: 8px; line-height: 12px; cursor: pointer; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
+.koowa .k-sidebar-item--toggle .k-sidebar-item__toggle:after { content: ""; display: block; background: white; border: 1px solid #ddd; border-radius: 10px; width: 20px; line-height: 18px; /* 1 */ text-align: center; vertical-align: middle; font-size: 8px; cursor: pointer; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
 .koowa .k-sidebar-item--toggle .k-sidebar-item__toggle.k-is-active:after { transform: rotate(180deg); }
-
-@media (min-height: 391px) { .koowa .k-sidebar-item--toggle .k-sidebar-item__toggle { display: block; } }
-
-@media (min-height: 550px) { .koowa .k-sidebar-item--toggle .k-sidebar-item__toggle { display: none; } }
 
 [dir="rtl"] .koowa .k-sidebar-item--toggle .k-sidebar-item__toggle { right: auto; left: 20px; }
 
@@ -5590,7 +5780,9 @@ Styleguide 6.9
 
 .koowa .k-pagination .k-pagination__limit, .koowa .k-pagination .k-pagination__pages { display: inline-block; /* 1 */ vertical-align: middle; /* 1 */ }
 
-.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; }
+.koowa .k-pagination .k-pagination__pages { padding-left: 0; margin: 0; border-radius: 4px; /* Override for rtl ul-ol-li styling */ /* Contents */ }
+
+[dir="rtl"] .koowa .k-pagination .k-pagination__pages { padding: 0; }
 
 .koowa .k-pagination .k-pagination__pages > li { display: inline; /* 1 */ }
 
@@ -5951,7 +6143,7 @@ Styleguide 6.9
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-toolbar, .k-flexboxlegacy .koowa .k-toolbar { flex: 0 0 auto; } }
 
-.koowa .k-toolbar { /** Position the icons Only position them if media queries are supported By default we just want them aligned normally */ }
+.koowa .k-toolbar { /* Autosave indicator */ /** Position the icons Only position them if media queries are supported By default we just want them aligned normally */ }
 
 .koowa .k-toolbar .k-button, .koowa .k-toolbar .btn { margin: 10px 0 0 10px; /** Make buttons square Only make them square if media queries are supported By default we just want them as buttons */ }
 
@@ -5959,9 +6151,15 @@ Styleguide 6.9
 
 [dir="rtl"] .koowa .k-toolbar .k-button, [dir="rtl"] .koowa .k-toolbar .btn { margin: 10px 10px 0 0; }
 
+.koowa .k-toolbar .k-autosave-indicator { margin: 10px 0 0 10px; display: inline-block; vertical-align: middle; padding: 5px; }
+
+[dir="rtl"] .koowa .k-toolbar .k-autosave-indicator { margin: 10px 10px 0 0; }
+
 .koowa .k-toolbar [class^="k-icon"] { display: inline-block; margin: 0 0.25em 0 0.1em; }
 
 @media screen and (min-width: 0) and (max-width: 768px) { .koowa .k-toolbar [class^="k-icon"] { display: block; margin: 0 0 10px; width: 18px; height: 18px; font-size: 18px; line-height: 18px; } }
+
+[dir="rtl"] .koowa .k-toolbar [class^="k-icon"] { margin: 0 0.1em 0 0.25em; }
 
 .koowa .k-toolbar .k-off-canvas-menu-toggle-holder { display: inline-block; vertical-align: middle; }
 
@@ -6001,7 +6199,7 @@ Styleguide 6.9
 
 .koowa .k-tooltip.bottom-right .k-tooltip__arrow { top: 0; left: 5px; margin-top: -5px; border-width: 0 5px 5px; border-bottom-color: black; }
 
-.koowa .k-tree { margin: 7px 0; }
+.koowa .k-tree { margin: 7px 0; overflow: auto; }
 
 .koowa .k-tree:before, .koowa .k-tree:after { display: table; content: " "; }
 
@@ -6013,7 +6211,7 @@ Styleguide 6.9
 
 .koowa .k-tree .jqtree-element:hover, .koowa .k-tree .jqtree-element:focus { background: white; }
 
-.koowa .k-tree > .jqtree-tree { margin: 0; }
+.koowa .k-tree > .jqtree-tree { margin: 0; padding: 0; }
 
 .koowa .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 0; }
 
@@ -6118,6 +6316,8 @@ Styleguide 6.9
 @keyframes k-loader { 0%, 80%, 100% { box-shadow: 0 1em 0 -0.5em; }
   40% { box-shadow: 0 1em 0 0; } }
 
+[dir="rtl"] .koowa .k-loader { transform: scaleX(-1); }
+
 .koowa .k-loader-container { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 5; background: rgba(255, 255, 255, 0.8); display: flex; align-items: center; }
 
 .k-cssanimations.k-boxshadow .koowa .k-loader-container .k-loader { left: 0; }
@@ -6178,6 +6378,10 @@ Styleguide 6.9
 
 .koowa .k-content-block:last-child { margin-bottom: 0; }
 
+.koowa .k-content-block--small { margin-bottom: 1em; }
+
+.koowa .k-content-block--small:last-child { margin-bottom: 0; }
+
 .koowa .k-position-relative { position: relative; }
 
 @media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-dont-flex.k-dont-flex.k-dont-flex, .k-flexboxlegacy .koowa .k-dont-flex.k-dont-flex.k-dont-flex { flex: 0 0 auto; } }
@@ -6196,33 +6400,7 @@ Styleguide 6.9
 
 .koowa .k-this-or-that { display: inline-block; margin-right: 7px; vertical-align: middle; }
 
-.koowa .k-overflowing { overflow: hidden; /* 1 */ position: relative; /* 2 */ -webkit-overflow-scrolling: touch; /* 3 */ width: 100%; display: flex; /* 4 */ /** When flexbox is in use 1. When the child has flexbox, the parent needs it as well 2. Don't grow item by default, only shrink if it doesn't fit */ /* Set default settings for all shadow boxes */ }
-
-@media (min-width: 300px) and (min-height: 391px) { .k-flexbox .koowa .k-overflowing--flex, .k-flexboxlegacy .koowa .k-overflowing--flex { display: flex; /* 1 */ flex: 0 1 auto; } }
-
-.koowa .k-overflowing--top, .koowa .k-overflowing--right, .koowa .k-overflowing--bottom, .koowa .k-overflowing--left { position: absolute; /* 2 */ z-index: 99; background: transparent; margin: 0; transition: all 180ms cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
-
-.koowa .k-overflowing--top.k-is-hidden, .koowa .k-overflowing--right.k-is-hidden, .koowa .k-overflowing--bottom.k-is-hidden, .koowa .k-overflowing--left.k-is-hidden { opacity: 0; }
-
-.koowa .k-overflowing--top, .koowa .k-overflowing--bottom { height: 0; left: 0; right: 0; }
-
-.koowa .k-overflowing--right, .koowa .k-overflowing--left { width: 0; top: 0; bottom: 0; }
-
-.koowa .k-overflowing--top { top: 0; box-shadow: 0 -10px 20px 20px; }
-
-.koowa .k-overflowing--top.k-is-hidden { margin-top: -20px; }
-
-.koowa .k-overflowing--right { right: 0; box-shadow: 10px 0 20px 20px; }
-
-.koowa .k-overflowing--right.k-is-hidden { margin-right: -20px; }
-
-.koowa .k-overflowing--bottom { bottom: 0; box-shadow: 0 10px 20px 20px; }
-
-.koowa .k-overflowing--bottom.k-is-hidden { margin-bottom: -20px; }
-
-.koowa .k-overflowing--left { left: 0; box-shadow: -10px 0 20px 20px; }
-
-.koowa .k-overflowing--left.k-is-hidden { margin-left: -20px; }
+[dir="rtl"] .koowa .k-this-or-that { margin-right: 0; margin-left: 7px; }
 
 .koowa .fade { opacity: 0; transition: opacity 0.5s cubic-bezier(0.2, 0.57, 0.44, 0.83); -webkit-backface-visibility: hidden; }
 
@@ -6260,8 +6438,6 @@ Styleguide 6.9
 
 .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { left: 9px; width: 15px; height: 3px; }
 
-[dir="rtl"] .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1, [dir="rtl"] .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2, [dir="rtl"] .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { left: auto; right: 9px; }
-
 .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar1 { top: 9px; }
 
 .koowa .k-off-canvas-menu-toggle--left .k-toggle-button-bar2 { top: 15px; }
@@ -6275,8 +6451,6 @@ Styleguide 6.9
 .koowa .k-show-left-menu .k-off-canvas-menu-toggle--left .k-toggle-button-bar3 { top: 15px; transform: rotate(-135deg); }
 
 .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { left: 14px; }
-
-[dir="rtl"] .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1, [dir="rtl"] .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar2, [dir="rtl"] .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar3 { left: auto; right: 8px; }
 
 .koowa .k-off-canvas-menu-toggle--right .k-toggle-button-bar1 { width: 5px; height: 5px; top: 8px; }
 
@@ -6756,6 +6930,8 @@ Styleguide 6.9
 
 .mce-reset .mce-title { padding: 13px !important; font-weight: 400 !important; background: #f0f0f0 !important; color: #222222 !important; font-size: 21px !important; border-bottom: 1px solid #d2d2d2 !important; }
 
+[dir="rtl"] .mce-reset .mce-title { text-align: right; }
+
 .mce-reset .mce-window-body.mce-window-body { display: table-row; padding-top: 0; padding-left: 0; }
 
 .mce-reset .mce-foot.mce-foot { display: none; }
@@ -6763,3 +6939,5 @@ Styleguide 6.9
 .mce-dragh { display: none !important; }
 
 .mce-reset .mce-window-head.mce-window-head .mce-close { top: -39px !important; right: -1px !important; }
+
+[dir="rtl"] .mce-reset .mce-window-head.mce-window-head .mce-close { right: auto; left: -1px; }

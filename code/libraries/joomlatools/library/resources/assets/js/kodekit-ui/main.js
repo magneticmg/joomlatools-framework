@@ -5,7 +5,6 @@
         // Variables
         var $fixedtable = $('.k-js-fixed-table-header'),
             $footable = $('.k-js-responsive-table'),
-            $overflow = $('.k-js-sidebar-overflow-item'),
             $sidebarToggle = $('.k-js-sidebar-toggle-item'),
             $scopebar = $('.k-js-scopebar');
 
@@ -74,6 +73,22 @@
                 $.each(sidebar_left, function() {
                     addOffCanvasButton($(this), 'left');
                 });
+
+                var sidebarLeftTree = $('.k-tree'),
+                    sidebarLeftList = $('.k-list');
+
+                if ( ( sidebarLeftTree.length || sidebarLeftList.length ) ) {
+                    sidebarLeftTree.on('click', '.jqtree-title', function() {
+                        if ( $('.k-js-wrapper').hasClass('k-is-opened-left') ) {
+                            $('.k-off-canvas-menu-toggle--left').trigger('click');
+                        }
+                    });
+                    sidebarLeftList.on('click', 'a', function() {
+                        if ( $('.k-js-wrapper').hasClass('k-is-opened-left') ) {
+                            $('.k-off-canvas-menu-toggle--left').trigger('click');
+                        }
+                    });
+                }
             }
 
             if (sidebar_right.length) {
@@ -82,20 +97,21 @@
                     addOffCanvasButton($(this), 'right');
                 });
 
+
                 // Open right sidebar on selecting items in table
                 // Only apply to actual `<a>` elements
-                $('.k-table-container table').on('click', 'a', function() {
+                $('.k-table-container table').on('click', 'a', function(event) {
+                    // stopPropagation for all links except for those with `.navigate` class
+                    if ( !$(this).hasClass('navigate') ) {
+                        event.stopPropagation();
+                    }
                     // Only apply if parent is a `<td>` (so not a `<th>`)
                     if ($(this).parents('td').length > 0) {
                         $('.k-off-canvas-menu-toggle--right').trigger('click');
                     }
                 });
             }
-
         }
-
-        // Overflowing items
-        $overflow.addClass('k-sidebar-item--overflow').overflowing();
 
         // Footable
         $footable.footable({
@@ -119,12 +135,12 @@
                     scrollContainer: function($table){
                         return $table.closest('.k-table');
                     },
-                    enableAria: true
+                    position: 'absolute'
                 });
             }
         }
 
-        //fixedTable();
+        fixedTable();
 
         // Filter and search toggle buttons in the scopebar
         if ( $scopebar.length ) {
@@ -146,20 +162,21 @@
                     toggleButtons.prepend('<button type="button" class="k-scopebar__button k-toggle-scopebar-filters k-js-toggle-filters">' +
                         '<span class="k-icon-filter" aria-hidden="true">' +
                         '<span class="k-visually-hidden">Filters toggle</span>' +
-                        // @TODO: Ercan: START This should only be visible when there's an active filter
-                        '<div class="js-filter-count k-scopebar__item-label"></div>' +
-                        // @TODO: Ercan: END
+                        '<div class="k-js-filter-count k-scopebar__item-label k-scopebar__item-label--numberless"></div>' +
                         '</button>');
                 }
 
                 if ( $scopebarSearch.length && !$this.find('.k-toggle-scopebar-search').length ) {
+
                     toggleButtons.prepend('<button type="button" class="k-scopebar__button k-toggle-scopebar-search k-js-toggle-search">' +
                         '<span class="k-icon-magnifying-glass" aria-hidden="true">' +
                         '<span class="k-visually-hidden">Search toggle</span>' +
-                        // @TODO: Ercan: START This should only be visible when search is being used by the user
-                        '<div class="js-search-count k-scopebar__item-label"></div>' +
-                        // @TODO: Ercan: END
+                        '<div class="k-js-search-count k-scopebar__item-label k-scopebar__item-label--numberless" style="display: none"></div>' +
                         '</button>');
+
+                    if (toggleButtons.siblings('.k-scopebar__item--search').find('.k-search__field').val()) {
+                        $('.k-js-search-count').show();
+                    }
                 }
             });
 

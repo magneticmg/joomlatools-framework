@@ -55,7 +55,7 @@ window.jQuery = window.kQuery;
 		if(this.isInline) {
 			this.picker.addClass('datepicker-inline').appendTo(this.element);
 		} else {
-			this.picker.addClass('datepicker-dropdown k-dropdown__menu');
+			this.picker.addClass('datepicker-dropdown');
 		}
 
 		if (this.o.rtl){

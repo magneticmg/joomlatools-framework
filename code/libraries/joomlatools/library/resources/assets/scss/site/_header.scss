@@ -28,8 +28,11 @@ table .koowa_header {
   text-align: center;
   width: 1%;
   padding-right: 6px;
-  /*font-size: 0;
-  line-height: 0;*/
+
+  @include rtl {
+    padding-right: 0;
+    padding-left: 6px;
+  }
 }
 
 .koowa_header--bottom_margin {

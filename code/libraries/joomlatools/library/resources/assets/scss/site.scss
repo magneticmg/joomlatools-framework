@@ -6,12 +6,12 @@
 @import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "../../../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-/* Kodekit tools */
-@import "../../../../../../../../kodekit-ui/src/scss/core/tools";
-
 /* Site variables and mixins */
 @import "site/utilities/variables";
 @import "site/utilities/mixins";
+
+/* Kodekit tools */
+@import "../../../../../../../../kodekit-ui/src/scss/core/tools";
 
 /* Outside of the koowa scope */
 @import "site/modal";
@@ -42,13 +42,11 @@
   @import "../../../../../../../../kodekit-ui/src/scss/molecules/pagination";
 
   /* File select input */
-  @import "../../../../../../../../kodekit-ui/src/scss/molecules/pagination";
+  @import "../../../../../../../../kodekit-ui/src/scss/molecules/styled-file-input";
 
   @import "site/anchor";
   @import "site/header";
-  @import "site/input-file";
   @import "../../../../../../../../kodekit-ui/src/scss/molecules/tree";
-  //@import "site/pagination";
   @import "site/select2";
   @import "site/table";
   @import "site/toolbar";
@@ -63,159 +61,4 @@
   @import "../../../../../../../../kodekit-ui/src/scss/utilities/utilities";
   @import "../../../../../../../../kodekit-ui/src/scss/utilities/component-animations";
   @import "../../../../../../../../kodekit-ui/src/scss/utilities/hamburger";
-}
-
-
-
-/* TODO: Robin: This is in KUI but it's inside molecules/forms.scss. It has to be it's own molecule in order to import it in here in a correct way */
-
-/*
-Styled file input
-
-markup:
-<div class="k-file-input-container">
-    <div class="k-file-input">
-        <input class="k-js-file-input" type="file" id="input-[5.1]-2" data-multiple-caption="{count} files selected" multiple />
-        <label for="input-[5.1]-2">
-            <span class="k-file-input__button">
-                <sg-insert>2.12-62</sg-insert>
-                Choose a file&hellip;
-            </span>
-            <span class="k-file-input__files"></span>
-        </label>
-    </div>
-</div>
-
-Styleguide 2.9.9
-
-*/
-
-.k-file-input {
-  position: relative;
-  display: inline-block;
-
-
-  /* The original file input select */
-
-  input {
-
-    /**
-     * 1. Style only when JS is enabled / addEventlistener is available
-     *    We want to show it regularly when we don't have addEventListener for usability sake
-     * 2. Hide the label by default and only show it when addEventListener is available (e.g. when file input is hidden)
-     * 3. Display label when file input is hidden
-     */
-
-    @include modernizr('.k-eventlistener') {
-      @include coverall($left: false);
-      margin: 0;
-      padding: 0;
-      cursor: pointer;
-      font-size: 99px;
-      opacity: 0;
-      filter: alpha(opacity=0);
-    }
-
-    + label {
-      display: none; /* 2 */
-
-      @include modernizr('.k-eventlistener') {
-        display: inline-block; /* 3 */
-      }
-    }
-
-
-    /* Styling the label, holding both the button and the selected files container */
-
-    + label {
-      max-width: 100%;
-      font-size: $font-size;
-      line-height: $line-height;
-      font-weight: $regular;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      cursor: pointer;
-      overflow: hidden;
-      vertical-align: middle;
-      color: $color-accent;
-      padding: 0;
-      text-align: center;
-    }
-
-
-    /* Focus state */
-
-    &:focus,
-    &.has-focus {
-      outline: none;
-
-      & + label {
-        outline: 1px dotted #000;
-        outline: -webkit-focus-ring-color auto 5px;
-      }
-    }
-
-
-    /* Hover / focus state */
-
-    &:focus,
-    &.has-focus,
-    &.has-drop-focus,
-    &:hover{
-      cursor: pointer;
-
-      & + label {
-        .k-file-input__button {
-          &, &:hover, &:focus {
-            background-color: darken($color-accent, 10%);
-          }
-        }
-      }
-    }
-  }
-
-
-  /* The button */
-
-  .k-file-input__button {
-    display: block;
-    background-color: $color-accent;
-    color: $color-accent-type;
-    pointer-events: none;
-    vertical-align: middle;
-    font-weight: $regular;
-    text-align: center;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none; /* 2 */
-    border: 1px solid transparent;
-    white-space: nowrap;
-    box-shadow: none;
-    text-shadow: none;
-    user-select: none;
-    margin-bottom: 0;
-    border-radius: $border-radius-large;
-    font-size: $font-size-large;
-    line-height: $line-height-large;
-    padding: $spacing-large-vertical $spacing-large-horizontal;
-  }
-
-
-  /* Selected files container */
-
-  .k-file-input__files {
-    width: 100%;
-    height: $line-height;
-    line-height: $line-height;
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    vertical-align: top;
-    text-align: center;
-
-    &:empty {
-      display: none;
-    }
-  }
 }
