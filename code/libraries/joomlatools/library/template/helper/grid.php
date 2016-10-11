@@ -273,17 +273,21 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
             'icon'      => $config->enabled ? 'enabled' : 'disabled',
         ));
 
+        $class  = $config->enabled ? 'k-table__item--state-published' : 'k-table__item--state-unpublished';
+
+        $tooltip = '';
+
         if ($config->clickable)
         {
-            $data    = htmlentities(json_encode($config->data->toArray()));
-            $attribs = 'style="cursor: pointer;color:'.$config->color.'" data-action="edit" data-data="'.$data.'"
-                title="'.$config->tooltip.'"';
+            $data = htmlentities(json_encode($config->data->toArray()));
+            $tooltip = 'data-k-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\'
+            style="cursor: pointer"
+            data-action="edit" 
+            data-data="'.$data.'" 
+            data-original-title="'.$config->tooltip.'"';
         }
-        else $attribs = 'style="color:'.$config->color.'"';
 
-        $html = '<span data-k-tooltip class="k-icon-%s" %s><span class="k-visually-hidden">%s</span></span>';
-        $html = sprintf($html, $config->icon, $attribs, $config->alt);
-        $html .= $this->getTemplate()->helper('behavior.tooltip');
+        $html = '<spaan class="k-table__item--state '.$class.'" '.$tooltip.'>'.$config->alt.'</span>';
 
         return $html;
     }
