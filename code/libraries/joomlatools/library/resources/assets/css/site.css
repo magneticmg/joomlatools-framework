@@ -1224,8 +1224,6 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .k-icon-document-video:before { content: ""; }
 
-[dir="rtl"] .k-icon-document-video:before { transform: scaleX(-1); }
-
 .k-icon-documents:before { content: ""; }
 
 .k-icon-enabled:before { content: ""; }

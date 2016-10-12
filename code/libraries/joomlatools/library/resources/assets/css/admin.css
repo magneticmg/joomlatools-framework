@@ -671,8 +671,6 @@ body.k-is-resizing { overflow: hidden; /* 3 */ }
 
 .k-icon-document-video:before { content: ""; }
 
-[dir="rtl"] .k-icon-document-video:before { transform: scaleX(-1); }
-
 .k-icon-documents:before { content: ""; }
 
 .k-icon-enabled:before { content: ""; }
