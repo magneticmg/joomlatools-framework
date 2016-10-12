@@ -2055,9 +2055,9 @@ Styleguide 6.9
 
 .koowa .k-tree > .jqtree-tree { margin: 0; padding: 0; }
 
-.koowa .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 0; }
+.koowa .k-tree > .jqtree-tree > .jqtree_common .jqtree-element { padding-left: 0; }
 
-[dir="rtl"] .koowa .k-tree > .jqtree-tree > .jqtree-folder .jqtree-element { padding-left: 7px; padding-right: 0; }
+[dir="rtl"] .koowa .k-tree > .jqtree-tree > .jqtree_common .jqtree-element { padding-left: 7px; padding-right: 0; }
 
 .koowa .k-tree .jqtree-selected > .jqtree-element { background: #3071a9; color: white; }
 
@@ -2097,11 +2097,11 @@ Styleguide 6.9
 
 .koowa .jqtree-icon:before { line-height: 26px; }
 
-.koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler) { position: relative; }
+.koowa .k-tree li li .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler) { position: relative; }
 
-.koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { display: block; position: absolute; content: " "; width: 6px; height: 6px; border-left: 1px solid #aaa; border-bottom: 1px solid #aaa; top: 50%; margin-top: -3px; left: -16px; }
+.koowa .k-tree li li .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { display: block; position: absolute; content: " "; width: 6px; height: 6px; border-left: 1px solid #aaa; border-bottom: 1px solid #aaa; top: 50%; margin-top: -3px; left: -16px; }
 
-[dir="rtl"] .koowa .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { border-left: none; border-right: 1px solid #aaa; left: auto; right: -16px; }
+[dir="rtl"] .koowa .k-tree li li .jqtree-whitespace + .jqtree_common:not(.jqtree-toggler):after { border-left: none; border-right: 1px solid #aaa; left: auto; right: -16px; }
 
 .koowa .jqtree-toggler { position: relative; }
 
