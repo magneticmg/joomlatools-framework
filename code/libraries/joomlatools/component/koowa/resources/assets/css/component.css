@@ -494,15 +494,20 @@ Styleguide 2.6.2
 /* The dropdown wrapper (div) */
 .k-dropdown { position: relative; }
 
-/** The dropdown menu (ul) 1. Hide by default, but block on "open" of the menu 2. Ensures proper alignment if parent has it changed (e.g., modal footer) */
-.k-dropdown__menu { position: absolute; top: 100%; left: 0; z-index: 1000; display: none; /* 1 */ float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; list-style: none; text-align: left; /* 2 */ background-color: white; border: 1px solid #e0e0e0; border-radius: 4px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); background-clip: padding-box; /** Links within the dropdown menu 1. prevent links from randomly breaking onto new lines */ /* RTL */ }
+/* The dropdown toggle */
+.k-dropdown__toggle img { max-width: 16px; }
 
-.k-dropdown__menu a { display: block; padding: 3px 20px; clear: both; font-weight: normal; line-height: 20px; color: #222222; white-space: nowrap; /* 1 */ }
+/** The dropdown menu (ul) 1. Hide by default, but block on "open" of the menu 2. Ensures proper alignment if parent has it changed (e.g., modal footer) */
+.k-dropdown__menu { position: absolute; top: 100%; left: 0; z-index: 1000; display: none; /* 1 */ float: left; min-width: 160px; text-align: left; /* 2 */ background-color: white; border: 1px solid #e0e0e0; border-radius: 4px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); background-clip: padding-box; /* Winning over .koowa ul */ /** Links within the dropdown menu 1. prevent links from randomly breaking onto new lines */ /* RTL */ }
+
+.k-dropdown__menu.k-dropdown__menu { padding: 5px 0; margin: 2px 0 0; list-style: none; }
+
+.k-dropdown__menu a { display: block; padding: 5px 15px; clear: both; font-weight: normal; line-height: 20px; color: #222222; white-space: nowrap; /* 1 */ }
 
 [dir="rtl"] .k-dropdown__menu { left: auto; right: 0; }
 
 /** Dividers (basically an hr) within the dropdown */
-.k-dropdown__divider { height: 1px; margin: 13px 0; overflow: hidden; background-color: #e5e5e5; }
+.k-dropdown__divider { height: 1px; margin: 5px 0; overflow: hidden; background-color: #e5e5e5; }
 
 /* Hover / Focus state */
 .k-dropdown__menu a:hover, .k-dropdown__menu a:focus { text-decoration: none; color: #151515; background-color: #e6e6e6; }
@@ -608,7 +613,11 @@ sg-wrapper:
 Styleguide 2.6.3
 
 */
-.k-dropdown__menu--grid { width: 212px; position: absolute; padding: 5px; }
+.k-dropdown__menu--grid { width: 212px; /* override above default settings */ }
+
+.k-dropdown__menu--grid.k-dropdown__menu--grid { padding: 5px; }
+
+[dir="rtl"] .k-dropdown__menu--grid.k-dropdown__menu--grid { padding: 5px; }
 
 .k-dropdown__menu--grid img { max-width: 16px; max-height: 16px; }
 
@@ -622,7 +631,7 @@ Styleguide 2.6.3
 
 .k-dropdown__menu--grid .k-dropdown__block-item { min-width: 100%; clear: both; height: auto; margin: 5px 0 -5px; }
 
-.k-dropdown__menu--grid .k-dropdown__block-item a { position: relative; height: auto; width: auto; float: none; border-top: 1px solid #e5e5e5; text-align: left; margin: 0 -5px; padding: 5px; border-radius: 0 0 4px 4px; }
+.k-dropdown__menu--grid .k-dropdown__block-item a { position: relative; height: auto; width: auto; float: none; border-top: 1px solid #e5e5e5; text-align: left; margin: 0 -5px; padding: 5px 15px; border-radius: 0 0 4px 4px; }
 
 [dir="rtl"] .k-dropdown__menu--grid .k-dropdown__block-item a { text-align: right; }
 
