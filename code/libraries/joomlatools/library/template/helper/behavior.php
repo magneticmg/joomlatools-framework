@@ -653,7 +653,7 @@ class KTemplateHelperBehavior extends KTemplateHelperAbstract
 
             $date = new DateTime($config->value, new DateTimeZone('UTC'));
 
-            $config->value = strftime($config->format, ((int)$date->format('U')) + $config->offset_seconds);
+            $config->value = gmstrftime($config->format, ((int)$date->format('U')) + $config->offset_seconds);
         } else {
             $config->value = '';
         }
