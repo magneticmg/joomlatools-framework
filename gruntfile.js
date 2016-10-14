@@ -158,7 +158,7 @@ module.exports = function(grunt) {
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.js': [
                         'node_modules/jquery/dist/jquery.js',
-                        '<%= nookuFrameworkAssetsPath %>/js/koowa.noconflict.js'
+                        '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/koowa.noconflict.js'
                     ],
                     '<%= nookuFrameworkAssetsPath %>/js/min/jquery.magnific-popup.js': [
                         '<%= nookuFrameworkAssetsPath %>/js/kodekit-ui/kquery.set.js',
