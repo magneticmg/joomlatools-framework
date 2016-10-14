@@ -34,6 +34,39 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
         return $html;
     }
 
+    /**
+     * Loads admin.js in frontend forms
+     *
+     * @param array $config
+     * @return string
+     */
+    public function scripts($config = array())
+    {
+        $identifier = $this->getTemplate()->getIdentifier();
+
+        $config = new KObjectConfigJson($config);
+        $config->append(array(
+            'debug' => false,
+            'domain'  => $identifier->domain
+        ));
+
+        $app      = JFactory::getApplication();
+        $tmpl     = $this->getObject('request')->getQuery()->tmpl;
+        $layout   = $this->getObject('request')->getQuery()->layout;
+
+        if ($app->isSite() && $tmpl === 'koowa' && $layout === 'form') {
+            $config->domain = 'admin';
+        }
+
+        return parent::scripts($config);
+    }
+
+    /**
+     * Loads admin.css in frontend forms and force-loads Bootstrap if requested
+     *
+     * @param array $config
+     * @return string
+     */
     public function styles($config = array())
     {
         $identifier = $this->getTemplate()->getIdentifier();
