@@ -48,7 +48,7 @@ class ComKoowaDatabaseAdapterMysqli extends KDatabaseAdapterMysqli
      */
     protected function _initialize(KObjectConfig $config)
     {
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
 
         //Set the table prefix
         $config->append(array(
@@ -56,7 +56,7 @@ class ComKoowaDatabaseAdapterMysqli extends KDatabaseAdapterMysqli
         ));
 
         //Set the database connection
-        if (JFactory::getDbo() instanceof JDatabaseDriverMysqli || JFactory::getDbo() instanceof JDatabaseMySQLi)
+        if ($db instanceof JDatabaseDriverMysqli && $db->getConnection() instanceof mysqli)
         {
             $config->append(array(
                 'connection'   => $db->getConnection(),
