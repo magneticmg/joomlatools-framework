@@ -310,19 +310,10 @@ class PlgSystemJoomlatoolsInstallerScript
         $ohanah_manifest = JPATH_ADMINISTRATOR.'/components/com_ohanah/ohanah.xml';
         if (file_exists($ohanah_manifest))
         {
-            $manifest = simplexml_load_file($ohanah_manifest);
-
-            if ($manifest && $manifest->version)
-            {
-                $version = (string) $manifest->version;
-                if ($version && version_compare($version, '4', '<'))
-                {
-                    $errors[] = sprintf("You have an older version of Ohanah event management extension installed.
-            Installing this version of Joomlatools framework now would break your site. Please upgrade Ohanah to the latest version first.
-            Installation is aborting. For more information please read our detailed explanation <a target=\"_blank\" href=\"%s\">here</a>.",
-                        'http://www.joomlatools.com/framework-known-issues');
-                }
-            }
+            $errors[] = sprintf("You have the Ohanah event management extension installed.
+                    Ohanah works with an older version of the Joomlatools framework, so upgrading Joomlatools framework now would break your site. 
+                    Installation is aborting. For more information please read our detailed explanation <a target=\"_blank\" href=\"%s\">here</a>.",
+                'http://www.joomlatools.com/framework-known-issues');
         }
 
         if (class_exists('Koowa') && (!method_exists('Koowa', 'getInstance') || version_compare(Koowa::getInstance()->getVersion(), '1', '<')))
