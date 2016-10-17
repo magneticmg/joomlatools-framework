@@ -294,4 +294,5 @@ module.exports = function(grunt) {
     // Javascript only
     grunt.registerTask('javascript', ['uglify', 'concat']);
 
+    grunt.registerTask('css', ['sass', 'cssmin', 'autoprefixer']);
 };
