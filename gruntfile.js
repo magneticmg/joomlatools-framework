@@ -91,6 +91,21 @@ module.exports = function(grunt) {
         },
 
 
+        // Minify and clean CSS
+        cssmin: {
+            options: {
+                roundingPrecision: -1,
+                sourceMap: true
+            },
+            site: {
+                files: [{
+                    expand: true,
+                    src: ['<%= nookuFrameworkAssetsPath %>/css/*.css', '<%= joomlatoolsFrameworkAssetsPath %>/css/*.css', '!*.css']
+                }]
+            }
+        },
+
+
         // Concatenate files
 
         concat: {
@@ -235,7 +250,7 @@ module.exports = function(grunt) {
                 files: [
                     '<%= nookuFrameworkAssetsPath %>/icons/svg/*.svg'
                 ],
-                tasks: ['sass', 'autoprefixer'],
+                tasks: ['sass', 'cssmin', 'autoprefixer'],
                 options: {
                     interrupt: true,
                     atBegin: false
@@ -250,31 +265,19 @@ module.exports = function(grunt) {
                     '<%= KUIPath %>/scss/*.scss',
                     '<%= KUIPath %>/scss/**/*.scss'
                 ],
-                tasks: ['sass', 'autoprefixer'],
+                tasks: ['sass', 'cssmin', 'autoprefixer'],
                 options: {
                     interrupt: true,
                     atBegin: true
                 }
             },
-            //,javascript: {
-            //    files: [
-            //        '<%= nookuFrameworkAssetsPath %>/scripts/*.js',
-            //        '<%= nookuFrameworkAssetsPath %>/js/*.js',
-            //        '!<%= nookuFrameworkAssetsPath %>/js/min/*.js'
-            //    ],
-            //    tasks: ['uglify', 'concat'],
-            //    options: {
-            //        interrupt: true,
-            //        atBegin: true
-            //    }
-            //},
-            concat: {
+            javascript: {
                files: [
                    '<%= nookuFrameworkAssetsPath %>/scripts/*.js',
                    '<%= nookuFrameworkAssetsPath %>/js/*.js',
                    '!<%= nookuFrameworkAssetsPath %>/js/min/*.js'
                ],
-               tasks: ['concat'],
+               tasks: ['concat', 'uglify'],
                options: {
                    interrupt: true,
                    atBegin: true
