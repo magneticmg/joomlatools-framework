@@ -17,6 +17,14 @@ module.exports = function(grunt) {
         JUIPath: '../joomlatools-ui/dist',
 
 
+        // Shell commands
+        shell: {
+            updateCanIUse: {
+                command: 'npm update caniuse-db'
+            }
+        },
+
+
         // Copy Joomlatools UI files
         copy: {
             JUItoJUIFramework: {
@@ -289,7 +297,7 @@ module.exports = function(grunt) {
     });
 
     // The dev task will be used during development
-    grunt.registerTask('default', ['copy', 'watch']);
+    grunt.registerTask('default', ['shell', 'copy', 'watch']);
 
     // Javascript only
     grunt.registerTask('javascript', ['uglify', 'concat']);
