@@ -125,8 +125,13 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
         }
 
         $html .= $this->getTemplate()->helper('behavior.koowa', $config->toArray());
-        $html .= '<script data-inline type="text/javascript">(function() {var el = document.documentElement; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}})()</script>';
 
+        if (!KTemplateHelperBehavior::isLoaded('k-js-enabled'))
+        {
+            $html .= '<script data-inline type="text/javascript">(function() {var el = document.documentElement; var cl = "k-js-enabled"; if (el.classList) { el.classList.add(cl); }else{ el.className += " " + cl;}})()</script>';
+
+            KTemplateHelperBehavior::setLoaded('k-js-enabled');
+        }
 
 
         return $html;
