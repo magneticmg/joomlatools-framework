@@ -3634,8 +3634,6 @@ module.exports = '1.3.4';
 
             if(this.options.data && this.options.data.length) this.options.data = this.parseData(this.options.data);
 
-            this.element.addClass('jqtree--one-level');
-
             // Shortcut for accessing tree apis, like this: selected = this.tree('getSelectedNode')
             this.tree = $.proxy(this.element.tree, this.element);
 
@@ -3685,7 +3683,7 @@ module.exports = '1.3.4';
                         } else {
                             var $li_title = $li.find('.jqtree-title');
                             // prepend the folder icon, and an empty space for the triangle so the indendation is correct
-                            $li_title.before('<i class="jqtree-whitespace"></i>');
+                            $li_title.before('<i class="jqtree-whitespace"></i>')
 
                             $li_title.before('<span class="jqtree_common jqtree-icon '+self.options.toggler[0].folder+'"></span> ');
                         }
@@ -3698,10 +3696,6 @@ module.exports = '1.3.4';
 
                         for (var i = 1; i < level; ++i) {
                             parent.prepend('<i class="jqtree-whitespace"></i>');
-                        }
-
-                        if (level > 1) {
-                            self.element.removeClass('jqtree--one-level');
                         }
                     }
                 };
