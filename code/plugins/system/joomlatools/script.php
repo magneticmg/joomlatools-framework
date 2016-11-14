@@ -121,8 +121,6 @@ class PlgSystemJoomlatoolsInstallerScript
             }
         }
 
-
-
         return $result;
     }
 
@@ -137,6 +135,10 @@ class PlgSystemJoomlatoolsInstallerScript
                 JFactory::getApplication()->enqueueMessage($warning, 'warning');
 
                 return false;
+            }
+
+            if (!JFolder::exists(JPATH_LIBRARIES.'/joomlatools-components')) {
+                JFolder::create(JPATH_LIBRARIES.'/joomlatools-components');
             }
 
             // Create media folder

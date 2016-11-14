@@ -129,11 +129,16 @@ class PlgSystemJoomlatools extends JPlugin
                 /**
                  * Component Bootstrapping
                  */
-                KObjectManager::getInstance()->getObject('object.bootstrapper')
+                $bootstrapper = KObjectManager::getInstance()->getObject('object.bootstrapper')
                     ->registerComponents(JPATH_LIBRARIES . '/joomlatools/component', 'koowa')
                     ->registerApplication('site', JPATH_SITE . '/components', JFactory::getApplication()->isSite())
-                    ->registerApplication('admin', JPATH_ADMINISTRATOR . '/components', JFactory::getApplication()->isAdmin())
-                    ->bootstrap();
+                    ->registerApplication('admin', JPATH_ADMINISTRATOR . '/components', JFactory::getApplication()->isAdmin());
+
+                if (is_dir(JPATH_LIBRARIES . '/joomlatools-components')) {
+                    $bootstrapper->registerComponents(JPATH_LIBRARIES . '/joomlatools-components', 'koowa');
+                }
+
+                $bootstrapper->bootstrap();
             }
 
             $manager = KObjectManager::getInstance();
