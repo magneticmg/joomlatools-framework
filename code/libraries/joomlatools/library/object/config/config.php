@@ -105,7 +105,7 @@ class KObjectConfig implements KObjectConfigInterface
     {
         $key = false;
         if(!isset($this->__options[$name])) {
-            $key = array_search($name, $this->__options);
+            $key = array_search($name, array_keys($this->__options));
         } else {
             $key = $name;
         }
