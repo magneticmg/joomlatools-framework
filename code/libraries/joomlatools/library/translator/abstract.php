@@ -325,7 +325,7 @@ abstract class KTranslatorAbstract extends KObject implements KTranslatorInterfa
      */
     public function setCatalogue($catalogue)
     {
-        if(!($catalogue instanceof KModelInterface))
+        if(!($catalogue instanceof KTranslatorCatalogueInterface))
         {
             if(is_string($catalogue) && strpos($catalogue, '.') === false )
             {
