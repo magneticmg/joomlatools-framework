@@ -26,7 +26,7 @@ class ComKoowaTemplateHelperUi extends KTemplateHelperUi
         $config = new KObjectConfigJson($config);
         $config->append(array(
             'debug' => JFactory::getApplication()->getCfg('debug'),
-            'wrapper_class' => array(JFactory::getLanguage()->isRtl() ? 'koowa--rtl' : '')
+            'wrapper_class' => array(JFactory::getLanguage()->isRtl() ? 'k-ui-rtl' : 'k-ui-ltr')
         ));
 
         $html = parent::load($config);

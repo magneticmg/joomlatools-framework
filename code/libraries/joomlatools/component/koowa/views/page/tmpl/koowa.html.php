@@ -30,7 +30,7 @@ $direction = $doc->direction;
     <ktml:script>
 </head>
 <body>
-    <div class="koowa"><ktml:messages></div>
+    <div class="k-ui-namespace"><ktml:messages></div>
     <ktml:content>
 </body>
 </html>

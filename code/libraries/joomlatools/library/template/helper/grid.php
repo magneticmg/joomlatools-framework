@@ -232,7 +232,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         $query['direction'] = ($direction == 'desc' ? 'asc' : 'desc'); // toggle
         $url->setQuery($query);
 
-        $html  = '<a href="'.$url.'" data-k-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
+        $html  = '<a href="'.$url.'" data-k-tooltip=\'{"container":".k-ui-container","delay":{"show":500,"hide":50}}\' data-original-title="'.$translator->translate('Click to sort by this column').'">';
         $html .= $translator->translate($config->title);
 
         if($config->column == $config->sort)
@@ -280,7 +280,7 @@ class KTemplateHelperGrid extends KTemplateHelperAbstract implements KTemplateHe
         if ($config->clickable)
         {
             $data = htmlentities(json_encode($config->data->toArray()));
-            $tooltip = 'data-k-tooltip=\'{"container":".koowa-container","delay":{"show":500,"hide":50}}\'
+            $tooltip = 'data-k-tooltip=\'{"container":".k-ui-container","delay":{"show":500,"hide":50}}\'
             style="cursor: pointer"
             data-action="edit" 
             data-data="'.$data.'" 
