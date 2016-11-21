@@ -1542,7 +1542,7 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
                 context.data   = data;
                 context.action = options.action;
 
-                action.on(eventType+'.koowa', function(){
+                action.on(eventType+'.k-ui-namespace', function(){
                     checkboxes.prop('checked', '');
                     checkbox.prop('checked', 'checked');
                     checkboxes.trigger('change', true);
