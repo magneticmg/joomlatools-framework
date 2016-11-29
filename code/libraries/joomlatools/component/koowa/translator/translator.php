@@ -86,7 +86,7 @@ class ComKoowaTranslator extends KTranslator
                 }
             }
 
-            $this->_loaded[] = $url;
+            $this->setLoaded($url);
         }
 
         return in_array(true, $loaded);
