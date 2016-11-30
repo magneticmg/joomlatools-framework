@@ -607,7 +607,7 @@ window.jQuery = window.kQuery;
                     tooltip = tooltip.replace('%s', item.data('title'));
 
                     dropdown_button.ktooltip({
-                        "container":".koowa-container",
+                        "container":".k-ui-container",
                         "delay":{"show":500,"hide":50},
                         'title': tooltip
                     });
@@ -1542,7 +1542,7 @@ Koowa.Controller.Grid = Koowa.Controller.extend({
                 context.data   = data;
                 context.action = options.action;
 
-                action.on(eventType+'.koowa', function(){
+                action.on(eventType+'.k-ui-namespace', function(){
                     checkboxes.prop('checked', '');
                     checkbox.prop('checked', 'checked');
                     checkboxes.trigger('change', true);
@@ -1606,5 +1606,6 @@ Koowa.Controller.Form = Koowa.Controller.extend({
 });
 
 })(window.kQuery);
+
 window.jQuery = globalCacheForjQueryReplacement;
 globalCacheForjQueryReplacement = undefined;

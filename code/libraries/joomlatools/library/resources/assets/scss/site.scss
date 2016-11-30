@@ -13,7 +13,7 @@
 /* Kodekit tools */
 @import "../../../../../../../../kodekit-ui/src/scss/core/tools";
 
-/* Outside of the koowa scope */
+/* Outside of the k-ui-namespace scope */
 @import "site/modal";
 @import "../../../../../../../../kodekit-ui/src/scss/molecules/datepicker";
 
@@ -27,8 +27,8 @@
 /* Tooltips */
 @import "../../../../../../../../kodekit-ui/src/scss/molecules/tooltip";
 
-/* Inside koowa scope */
-.koowa {
+/* Inside k-ui-namespace scope */
+.k-ui-namespace {
 
   /* Border-box size everything */
 
