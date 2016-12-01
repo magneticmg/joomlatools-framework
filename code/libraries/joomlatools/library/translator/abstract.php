@@ -198,7 +198,7 @@ abstract class KTranslatorAbstract extends KObject implements KTranslatorInterfa
 
             $this->getCatalogue()->add($translations, $override);
 
-            $this->_loaded[] = $url;
+            $this->setLoaded($url);
         }
 
         return true;
@@ -353,7 +353,29 @@ abstract class KTranslatorAbstract extends KObject implements KTranslatorInterfa
      */
     public function isLoaded($url)
     {
-        return in_array($url, $this->_loaded);
+        return in_array($url, $this->getLoaded());
+    }
+
+    /**
+     * Sets a url as loaded.
+     *
+     * @param mixed $url The url.
+     * @return KTranslatorInterface
+     */
+    public function setLoaded($url)
+    {
+        $this->_loaded[] = $url;
+        return $this;
+    }
+
+    /**
+     * Returns a list of loaded urls.
+     *
+     * @return array The loaded urls.
+     */
+    public function getLoaded()
+    {
+        return $this->_loaded;
     }
 
     /**
