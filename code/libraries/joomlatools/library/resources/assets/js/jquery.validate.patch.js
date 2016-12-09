@@ -13,6 +13,19 @@
 (function($){
 
     $.extend($.validator.prototype, {
+        errorsFor: function( element ) {
+            var name = this.idOrName( element ),
+                describer = $( element ).attr( "aria-describedby" ),
+                selector = "p[for='" + name + "'], p[for='" + name + "'] *";
+
+            // aria-describedby should directly reference the error element
+            if ( describer ) {
+                selector = selector + ", #" + describer.replace( /\s+/g, ", #" );
+            }
+            return this
+                .errors()
+                .filter( selector );
+        },
         showLabel: function(element, message) {
             var label = this.errorsFor( element );
 
@@ -62,20 +75,33 @@
 
      Setting custom validator defaults to work with twitter bootstrap */
     $.extend($.validator.defaults, {
-        errorClass: 'error',
+        errorClass: 'k-has-error',
         errorElement: 'p',
         highlight: function (element, errorClass, validClass) {
             if (element.type === 'radio') {
-                this.findByName(element.name).closest('div.form-group').removeClass(validClass).addClass(errorClass);
+                this.findByName(element.name).closest('div.k-form-group, div.control-group')
+                    .removeClass(validClass)
+                    .addClass('error') // TODO: take out after site CSS refactor
+                    .addClass(errorClass);
             }else {
-                $(element).closest('div.form-group').removeClass(validClass).addClass(errorClass);
+                $(element).closest('div.k-form-group, div.control-group')
+                    .removeClass(validClass)
+                    .addClass('error') // TODO: take out after site CSS refactor
+                    .addClass(errorClass);
             }
         },
         unhighlight: function (element, errorClass, validClass) {
             if (element.type === 'radio') {
-                this.findByName(element.name).parent('div').parent('div').removeClass(errorClass).addClass(validClass);
+                this.findByName(element.name).closest('div.k-form-group, div.control-group')
+                    .removeClass('error') // TODO: take out after site CSS refactor
+                    .removeClass(errorClass)
+                    .addClass(validClass);
             } else {
-                $(element).closest('div.form-group').removeClass(errorClass).addClass(validClass);
+                $(element).closest('div.k-form-group, div.control-group')
+                    .removeClass('error') // TODO: take out after site CSS refactor
+                    .removeClass(errorClass)
+                    .addClass(validClass);
+
                 $(element).next('span.help-inline').text('');
             }
         },
@@ -88,7 +114,7 @@
             }else {
                 // Insert it right out of input-group
                 var parent = $element.parent();
-                error.insertAfter(parent.hasClass('input-group') ? parent : $element);
+                error.insertAfter(parent.hasClass('k-input-group') || parent.hasClass('input-group') ? parent : $element);
             }
         }
     });
