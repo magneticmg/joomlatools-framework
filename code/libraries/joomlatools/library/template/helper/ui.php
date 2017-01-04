@@ -32,7 +32,7 @@ class KTemplateHelperUi extends KTemplateHelperAbstract
             'domain'  => $identifier->domain,
             'styles' => array(),
             'wrapper_class' => array(
-                'koowa-container koowa',
+                'k-ui-container k-ui-namespace',
                 $identifier->type.'_'.$identifier->package
             ),
         ))->append(array(
